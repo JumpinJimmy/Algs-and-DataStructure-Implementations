@@ -18,6 +18,7 @@ class StringExerciser{
         // const StringExerciser & operator=(const StringExerciser & rhs);
         void RemoveChars(std::string &source_str, std::string &remove_chars, bool case_sensitive = true);
         void RemoveChars(const char source_str[], const char remove_chars[], bool case_sensitive = true);
+        char* FirstNonRepeat(std::string &source_str);
 
     private:
         void clear_sstream();

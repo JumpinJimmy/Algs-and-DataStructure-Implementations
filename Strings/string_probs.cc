@@ -57,6 +57,10 @@ void StringExerciser::RemoveChars(const char source_str[], const char remove_cha
     //TODO
 }
 
+// char* StringExerciser::FirstNonRepeat(std::string &source_str) {
+
+// }
+
 void StringExerciser::clear_sstream() {
     ss_.clear();
     ss_.str("");
