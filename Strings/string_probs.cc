@@ -1,18 +1,23 @@
 #include "includes/string_probs.h"
 
-StringProblem::StringProblem() {
-    std::cout << "--->>--->> string_probs::StringProblem " << std::endl;
+// struct SetCaseCompare {  IGNORE FOR NOW
+//     bool operator() (const std::string& a, const std::string& b) const {
+//         return stricmp(a.c_str(), b.c_str()) < 0;
+//     }
+// };
+
+StringExerciser::StringExerciser() {
+    std::cout << "--->>--->> string_probs::StringExerciser " << std::endl;
     clear_sstream();
 }
 
-// StringProblem(const StringProblem &rhs);
-StringProblem::~StringProblem() {
-    std::cout << "--->>--->> string_probs::~StringProblem " << std::endl;
+StringExerciser::~StringExerciser() {
+    std::cout << "--->>--->> string_probs::~StringExerciser " << std::endl;
     clear_sstream();
 }
 
-// const StringProblem & operator=(const StringProblem & rhs);
-void StringProblem::RemoveChars(std::string &source_str, std::string &remove_chars) {
+// TODO(jdevore): case insensitive comparator? Want to avoid having to write functionality that decides which type of set to build, the comparator should handle case insensitivity set to either TRUE or FALSE.
+void StringExerciser::RemoveChars(std::string &source_str, std::string &remove_chars, bool case_sensitive) {
     std::cout << "--->>--->> string_probs:: RemoveChars(string " << source_str << ", string " << remove_chars << ")" << std::endl;
     if (source_str.empty() || remove_chars.empty()) {
         std::cout << "--->>--->> string_probs:: RemoveChars(string string) empty source or filter: " << source_str << std::endl;
@@ -28,6 +33,7 @@ void StringProblem::RemoveChars(std::string &source_str, std::string &remove_cha
     for (char c : remove_chars) {
         blacklist.insert(c);
     }
+
     std::set<char>::iterator set_iter;
     for (char src_char : source_str) {
         set_iter = blacklist.find(src_char);
@@ -35,17 +41,18 @@ void StringProblem::RemoveChars(std::string &source_str, std::string &remove_cha
             ss_ << src_char;
         }
     }
+
     source_str = ss_.str();
     clear_sstream();
     std::cout << "--->>--->> string_probs:: RemoveChars(string string) result: " << source_str << std::endl;
 }
 
-void StringProblem::RemoveChars(const char source_str[], const char remove_chars[]) {
+void StringExerciser::RemoveChars(const char source_str[], const char remove_chars[], bool case_sensitive) {
     std::cout << "--->>--->> string_probs::RemoveChars(const char " << source_str << ", const char " << remove_chars << ")" << std::endl;
-
+    //TODO
 }
 
-void StringProblem::clear_sstream() {
+void StringExerciser::clear_sstream() {
     ss_.clear();
     ss_.str("");
 }
