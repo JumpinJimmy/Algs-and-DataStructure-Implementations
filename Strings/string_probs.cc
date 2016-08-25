@@ -69,6 +69,8 @@ void StringExerciser::RemoveChars(const char source_str[], const char remove_cha
 // ----------
 // Create These
 // -Lookup Table
+//
+// THIS CODE WILL NOT WORK........ NEED TO IMPLEMENT A WALKING WINDOW
 int StringExerciser::LongestSubstrDistinct(std::string &source_str, int n_distinct) {
 // char lookup_table[256];
 //set lookup table values to all zero
@@ -89,6 +91,40 @@ int StringExerciser::LongestSubstrDistinct(std::string &source_str, int n_distin
     //         distinct_seen = 0
     //     }
     // }
+    // return longest_str;
+    return 0;
+}
+
+int StringExerciser::LongestSubstrDistinct(std::string &source_str, int n_distinct) {
+    // map<char,int> charmap;
+
+    //longest_str = 0;
+    //left_ptr = 0;
+    // for(int i = 0; i < source_str.length(); i++) {
+    //     char c = source_str.at(i);
+    //     if (charmap.find(c)) {
+    //         charmap.put(c,charmap.get(c)+1);
+    //     } else {
+    //         charmap.put(c,1);
+    //     }
+
+    //     if (charmap.size() > n_distinct) {
+    //         longest_str = max(longest_str, i);
+
+    //         while(charmap.size() > n_distinct) {
+    //             char t = source_str.at(left_ptr);
+    //             int count = charmap.get(t);
+    //             if (count == 1) {
+    //                 charmap.delete(t);
+    //             } else {
+    //                 charmap.put(c,count - 1);
+    //             }
+    //             left_ptr++;
+    //         }
+    //     }
+    // }
+
+    // longest_str = max(longest_str, sources_str.length() - left_ptr);
     // return longest_str;
     return 0;
 }
