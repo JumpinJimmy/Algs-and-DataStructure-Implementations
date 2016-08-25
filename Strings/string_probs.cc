@@ -60,6 +60,38 @@ void StringExerciser::RemoveChars(const char source_str[], const char remove_cha
 // char* StringExerciser::FirstNonRepeat(std::string &source_str) {
 
 // }
+//
+//////////////////////////////////////////
+//Keep Track of
+// -Longest Seen
+// -Current Lenght
+// -Distinct Seen
+// ----------
+// Create These
+// -Lookup Table
+int StringExerciser::LongestSubstrDistinct(std::string &source_str, int n_distinct) {
+// char lookup_table[256];
+//set lookup table values to all zero
+//longest_str = 0;
+//distinct_seen = 0;
+//curr_length = 0;
+    // foreach(char c in source_str) {
+    //     if (lookup_table[c] == 1) {
+    //         curr_length++
+    //     } else if (lookup_table[c] == 0 && distinct_seen+1 <= n_distinct) {
+    //         lookup_table[c] = 1
+    //         distinct_seen++
+    //         curr_length++
+    //     } else {
+    //         if (curr_length > longest_str) { longest_str = curr_length;}
+    //         clear lookup_table
+    //         curr_length = 0
+    //         distinct_seen = 0
+    //     }
+    // }
+    // return longest_str;
+    return 0;
+}
 
 void StringExerciser::clear_sstream() {
     ss_.clear();
