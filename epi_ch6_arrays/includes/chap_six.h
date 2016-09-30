@@ -8,13 +8,15 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include <set>
+#include <utility>
+#include <memory>
 class ArrayExercises{
 
     public:
         ArrayExercises();
         virtual ~ArrayExercises();
         void SwapEvenOdd(std::vector<int>* int_list);
+        std::vector<int> IncrementDecimal(std::vector<int> input_decimal);
 };
 
 
