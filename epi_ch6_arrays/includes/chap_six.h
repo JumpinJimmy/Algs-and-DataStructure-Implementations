@@ -18,9 +18,11 @@ class ArrayExercises{
         void SwapEvenOdd(std::vector<int>* int_list);
         std::vector<int> IncrementDecimal(std::vector<int> input_decimal);
         int RemDups(std::vector<int> *arr_ptr);
+        int RemDupsInplace(std::vector<int> *arr_ptr);
+
     private:
         void print_list(std::vector<int> &v);
-        // int RemDupsInplace(std::vector<int> *arr_ptr);
+        //
 };
 
 

@@ -58,15 +58,34 @@ int ArrayExercises::RemDups(std::vector<int> *arr_ptr) {
         std::cout << "--->>--->> chap_six::RemDups ERROR arr_ptr is not sorted "  << std::endl;
         return 0;
     }
-    print_list(*arr_ptr);
     std::vector<int> result_vec;
     result_vec.reserve(arr_ptr->size());
     for (auto value : *arr_ptr) {
         if (std::find(result_vec.begin(), result_vec.end(), value) == result_vec.end())
             result_vec.push_back(value);
     }
-    print_list(result_vec);
     return result_vec.size();
+}
+
+int ArrayExercises::RemDupsInplace(std::vector<int> *arr_ptr) {
+    if (arr_ptr->empty()) {
+        std::cout << "--->>--->> chap_six::RemDupsInplace ERROR arr_ptr is empty() "  << std::endl;
+        return 0;
+    } else if (!(std::is_sorted(arr_ptr->begin(),arr_ptr->end()))) {
+        std::cout << "--->>--->> chap_six::RemDupsInplace ERROR arr_ptr is not sorted "  << std::endl;
+        return 0;
+    }
+
+    std::vector<int> &array = *arr_ptr;
+    print_list(array);
+    int vacant_index = 1;
+    for (int i = 1; i < array.size(); i++) {
+        if (array[vacant_index - 1] != array[i]) {
+            array[vacant_index++] = array[i];
+        }
+    }
+    print_list(*arr_ptr);
+    return vacant_index;
 }
     // Example: 84 == 1010100; Parity is 1. Number of 1's = 3 (odd)
     // Example: 85 == 1010101; Parity is 0. Number of 1's = 4 (even)
