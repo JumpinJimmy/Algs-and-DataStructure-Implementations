@@ -9,6 +9,17 @@ void print_list(std::vector<int> &v) {
     }
     std::cout << "];" << std::endl;
 }
+void remove_duplicates(ArrayExercises *array_exerciser) {
+    std::cout << "--->>--->> main::Remove Duplicates "  << std::endl;
+    int result = 0;
+    std::vector<int> int_list {1,1,2,3,4,5,5,6,7};
+    result = array_exerciser->RemDups(&int_list);
+    std::cout << "Result of Remove Dups: " << result << std::endl;
+    int_list.clear();
+    int_list = {99,1,1,2,3,4,5,5,6,7};
+    result = array_exerciser->RemDups(&int_list);
+    std::cout << "Result of Remove Dups: " << result << std::endl;
+}
 void run_tests(ArrayExercises *array_exerciser) {
     std::vector<int> int_list {3,5,4,2,9,7,4};
 
@@ -31,6 +42,8 @@ void run_tests(ArrayExercises *array_exerciser) {
     v = {9,9};
     res = array_exerciser->IncrementDecimal(v);
     print_list(res);
+
+    remove_duplicates(array_exerciser);
 
 }
 
