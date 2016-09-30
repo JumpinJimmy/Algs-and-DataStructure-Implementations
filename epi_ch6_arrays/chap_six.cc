@@ -121,33 +121,29 @@ int ArrayExercises::LongestSubArrayEqual(std::vector<int> &int_list) {
         return int_list.size();
     }
     int i = 0;
-    int sub_start, max_seen, left_ptr, equal_right, curr_val, curr_size = 0;
-    // for(int i = 0; i < int_list.size() && left_ptr < int_list.size(); i++) {
+    int result_start, largest_seen, left_ptr, right_ptr, curr_val, curr_size = 0;
     while (i < int_list.size()) {
-        std::cout << "while (i < int_list.size()) {\n";
         if (int_list[i] == int_list[i + 1]) {
-            std::cout << "\t if (int_list[i] == int_list[i + 1]) {\n";
             curr_size = 1;
             left_ptr = i;
-            equal_right = left_ptr + 1;
+            right_ptr = left_ptr + 1;
             curr_val = int_list[left_ptr];
-            while (equal_right < int_list.size() && int_list[equal_right] == curr_val) {
+            while (right_ptr < int_list.size() && int_list[right_ptr] == curr_val) {
                 curr_size++;
-                equal_right++;
+                right_ptr++;
             }
-            if (curr_size > max_seen) {
-                max_seen = curr_size;
-                sub_start = left_ptr;
+            if (curr_size > largest_seen) {
+                largest_seen = curr_size;
+                result_start = left_ptr;
             }
-            i = equal_right;
+            i = right_ptr;
         } else {
-            std::cout << "I++ (i= " << i << ");" << std::endl;
-           i++;
+            i++;
         }
     }
-    std::vector<int> subarr_a(int_list.begin() + sub_start, int_list.begin() + (sub_start + max_seen));
-    print_list(subarr_a);
-    return max_seen;
+    std::vector<int> result_arr(int_list.begin() + result_start, int_list.begin() + (result_start + largest_seen));
+    print_list(result_arr);
+    return largest_seen;
 }
     // Example: 84 == 1010100; Parity is 1. Number of 1's = 3 (odd)
     // Example: 85 == 1010101; Parity is 0. Number of 1's = 4 (even)
