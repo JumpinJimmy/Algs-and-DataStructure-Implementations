@@ -9,7 +9,26 @@ void print_list(std::vector<int> &v) {
     }
     std::cout << "];" << std::endl;
 }
-
+void longest_subarray(ArrayExercises *array_exerciser) {
+    int result = 0;
+    std::vector<int> int_list {1,2,2,2,3,1,1,1};
+    result = array_exerciser->LongestSubArrayEqual(int_list);
+    std::cout << "--->>--->> main::Longest Subarray: " << result  << std::endl;
+    int_list = {1,2,2,2,2,3,3,1,1,1};
+    result = array_exerciser->LongestSubArrayEqual(int_list);
+    std::cout << "--->>--->> main::Longest Subarray: " << result  << std::endl;
+    int_list = {1,2,3,4,4};
+    result = array_exerciser->LongestSubArrayEqual(int_list);
+    std::cout << "--->>--->> main::Longest Subarray: " << result  << std::endl;
+}
+void maxprofit_stock(ArrayExercises *array_exerciser) {
+    std::vector<double> stockprices{310,315,275,295,260,270,290,230,255,250};
+    double max_profit = array_exerciser->MaxProfitSingleStock(stockprices);
+    std::cout << "--->>--->> main::Max Profit " << max_profit  << std::endl;
+    stockprices = {100};
+    max_profit = array_exerciser->MaxProfitSingleStock(stockprices);
+    std::cout << "--->>--->> main::Max Profit " << max_profit  << std::endl;
+}
 void remove_duplicates(ArrayExercises *array_exerciser) {
     std::cout << "--->>--->> main::Remove Duplicates " << std::endl;
     int result, result2 = 0;
@@ -39,10 +58,12 @@ void run_tests(ArrayExercises *array_exerciser) {
     res = array_exerciser->IncrementDecimal(v);
     print_list(res);
     remove_duplicates(array_exerciser);
+    maxprofit_stock(array_exerciser);
 }
 // valgrind --leak-check=full --show-leak-kinds=all ./ch6_test
 int main(int argc, char const *argv[]) {
     std::shared_ptr<ArrayExercises> array_exerciser(new ArrayExercises());
-    run_tests(array_exerciser.get());
+    longest_subarray(array_exerciser.get());
+    // run_tests(array_exerciser.get());
     return 0;
 }

@@ -10,6 +10,8 @@
 #include <sstream>
 #include <utility>
 #include <memory>
+#include <numeric>
+
 class ArrayExercises{
 
     public:
@@ -19,9 +21,12 @@ class ArrayExercises{
         std::vector<int> IncrementDecimal(std::vector<int> input_decimal);
         int RemDups(std::vector<int> *arr_ptr);
         int RemDupsInplace(std::vector<int> *arr_ptr);
+        double MaxProfitSingleStock(std::vector<double> &prices);
+        int LongestSubArrayEqual(std::vector<int> &int_list);
 
     private:
         void print_list(std::vector<int> &v);
+        void print_list(std::vector<double> &v);
         //
 };
 

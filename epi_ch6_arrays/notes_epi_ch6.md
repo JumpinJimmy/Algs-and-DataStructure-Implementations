@@ -40,7 +40,8 @@
 *   Take in an arry of digits encoding a decimal number **D**
 *   Return / update the array to represent the number **D+1**
 *   _example_:
-    *   **IN**:  array[1,2,9]
-    *   **OUT**: array[1,3,0]
+    *   **IN**:  array[1,1,1,2,3,4,4]
+    *   **OUT**: array[1,2,3,4,0,0,0]
 
 
+**6.6:** Delete Duplicates from Sorted Array
