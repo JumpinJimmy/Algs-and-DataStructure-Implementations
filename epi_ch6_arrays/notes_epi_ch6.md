@@ -16,10 +16,6 @@
         *   `vector<vector<int>> 2d_vector = {{1,2}, {3,4}, {5,6}}`
 
 
-
-
-
-
 **6.2:** Increment an arbitrary precision integer
 
 `vector<int> IncrementInteger(vector<int> in_arr)`
@@ -57,7 +53,6 @@
 **6.11:** Sample Offline Data
 
 **6.16:** Sudoku Checker Problem
-
 
 **6.17:** Compute the Spiral ordering of a 2D Array
 
