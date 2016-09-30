@@ -30,7 +30,7 @@
     *   **IN**:  array[1,2,9]
     *   **OUT**: array[1,3,0]
 
-**6.5:** Delete Duplicates from Sorted Array
+**6.5:** Delete Duplicates from Sorted Array (supposed to be pseudo)
 
 *   take in a sorted array and update it so all duplicates have been removed and remaining elements have been shifted left to fill the emptied indices.
 *   Return the number of valid elements.
@@ -44,4 +44,20 @@
     *   **OUT**: array[1,2,3,4,0,0,0]
 
 
-**6.6:** Delete Duplicates from Sorted Array
+**6.6:** Buy and Sell a Stock Once
+
+`double MaxProfitSingleStock(std::vector<double> &prices)`
+
+**6.6 Variant**: Find length of a subarray all of whose entries are equal
+
+`int LongestSubArrayEqual(std::vector<int> &int_list)`
+
+**6.8:** Enumerate All Primes to N (Psuedo Code Only)
+
+**6.11:** Sample Offline Data
+
+**6.16:** Sudoku Checker Problem
+
+
+**6.17:** Compute the Spiral ordering of a 2D Array
+

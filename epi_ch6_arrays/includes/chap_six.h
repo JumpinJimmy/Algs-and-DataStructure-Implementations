@@ -12,8 +12,7 @@
 #include <memory>
 #include <numeric>
 
-class ArrayExercises{
-
+class ArrayExercises {
     public:
         ArrayExercises();
         virtual ~ArrayExercises();

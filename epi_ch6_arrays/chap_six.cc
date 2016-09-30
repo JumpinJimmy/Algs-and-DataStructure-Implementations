@@ -3,23 +3,19 @@ ArrayExercises::ArrayExercises() {
     std::cout << "--->>--->> chap_six::ArrayExercises construct " << std::endl;
 }
 
-ArrayExercises::~ArrayExercises() {
-    std::cout << "--->>--->> chap_six::ArrayExercises destruct " << std::endl;
-}
+ArrayExercises::~ArrayExercises() {}
 
 void ArrayExercises::print_list(std::vector<int> &v) {
-
     std::cout << "c6Printing List: \n [ ";
-    for(auto &val : v){
+    for (auto &val : v) {
         std::cout << val << " ";
     }
     std::cout << "];" << std::endl;
 }
 
 void ArrayExercises::print_list(std::vector<double> &v) {
-
     std::cout << "c6Printing List: \n [ ";
-    for(auto &val : v){
+    for (auto &val : v) {
         std::cout << val << " ";
     }
     std::cout << "];" << std::endl;
@@ -30,7 +26,7 @@ void ArrayExercises::SwapEvenOdd(std::vector<int>* int_list) {
     std::vector<int> &list = *int_list;
     int even_ptr = 0;
     int odd_ptr = list.size() - 1;
-    while(even_ptr < odd_ptr) {
+    while (even_ptr < odd_ptr) {
         if (list[even_ptr] % 2 == 0) {
             even_ptr++;
         } else {
@@ -39,13 +35,10 @@ void ArrayExercises::SwapEvenOdd(std::vector<int>* int_list) {
     }
 }
 
-std::vector<int> ArrayExercises::IncrementDecimal(std::vector<int> input_decimal){
-    std::cout << "--->>--->> chap_six::IncrementDecimal( input[ ";
-    for(auto &val : input_decimal){
-        std::cout << val << " ";
-    }
-    std::cout << "]);" << std::endl;
-    ////////////////////////////////////////////
+std::vector<int> ArrayExercises::IncrementDecimal(std::vector<int> input_decimal) {
+    std::cout << "--->>--->> chap_six::IncrementDecimal()";
+    print_list(input_decimal);
+
     ++input_decimal.back();
     for (int i = input_decimal.size() - 1; i > 0 && input_decimal[i] == 10; --i) {
         input_decimal[i] = 0;
@@ -61,10 +54,10 @@ std::vector<int> ArrayExercises::IncrementDecimal(std::vector<int> input_decimal
 
 int ArrayExercises::RemDups(std::vector<int> *arr_ptr) {
     if (arr_ptr->empty()) {
-        std::cout << "--->>--->> chap_six::RemDups ERROR arr_ptr is empty() "  << std::endl;
+        std::cout << "--->>--->> chap_six::RemDups ERROR array is empty() "  << std::endl;
         return 0;
-    } else if (!(std::is_sorted(arr_ptr->begin(),arr_ptr->end()))) {
-        std::cout << "--->>--->> chap_six::RemDups ERROR arr_ptr is not sorted "  << std::endl;
+    } else if (!(std::is_sorted(arr_ptr->begin(), arr_ptr->end()))) {
+        std::cout << "--->>--->> chap_six::RemDups ERROR array is not sorted " << std::endl;
         return 0;
     }
     std::vector<int> result_vec;
@@ -78,10 +71,10 @@ int ArrayExercises::RemDups(std::vector<int> *arr_ptr) {
 
 int ArrayExercises::RemDupsInplace(std::vector<int> *arr_ptr) {
     if (arr_ptr->empty()) {
-        std::cout << "--->>--->> chap_six::RemDupsInplace ERROR arr_ptr is empty() "  << std::endl;
+        std::cout << "--->>--->> chap_six::RemDupsInplace ERROR array is empty() "  << std::endl;
         return 0;
-    } else if (!(std::is_sorted(arr_ptr->begin(),arr_ptr->end()))) {
-        std::cout << "--->>--->> chap_six::RemDupsInplace ERROR arr_ptr is not sorted "  << std::endl;
+    } else if (!(std::is_sorted(arr_ptr->begin(), arr_ptr->end()))) {
+        std::cout << "--->>--->> chap_six::RemDupsInplace ERROR array not sorted" << std::endl;
         return 0;
     }
 
@@ -141,10 +134,10 @@ int ArrayExercises::LongestSubArrayEqual(std::vector<int> &int_list) {
             i++;
         }
     }
-    std::vector<int> result_arr(int_list.begin() + result_start, int_list.begin() + (result_start + largest_seen));
+
+    /// Sub-Array Print is for Debug & Verification purposes only
+    std::vector<int> result_arr(int_list.begin() + result_start, int_list.begin() + (result_start + largest_seen)); //NOLINT
     print_list(result_arr);
     return largest_seen;
 }
-    // Example: 84 == 1010100; Parity is 1. Number of 1's = 3 (odd)
-    // Example: 85 == 1010101; Parity is 0. Number of 1's = 4 (even)
 
