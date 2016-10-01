@@ -8,7 +8,11 @@ void print_list(std::vector<int> &v) {
     }
     std::cout << "];" << std::endl;
 }
-
+void enumerate_primes(ArrayExercises *array_exerciser) {
+    int prime_ceiling = 18;
+    vector<int> prime_result = array_exerciser->EnumeratePrimes(prime_ceiling);
+    print_list(prime_result);
+}
 void longest_subarray(ArrayExercises *array_exerciser) {
     int result = 0;
     std::vector<int> int_list {1, 2, 2, 2, 3, 1, 1, 1};
@@ -68,7 +72,8 @@ void run_tests(ArrayExercises *array_exerciser) {
 // valgrind --leak-check=full --show-leak-kinds=all ./ch6_test
 int main(int argc, char const *argv[]) {
     std::shared_ptr<ArrayExercises> array_exerciser(new ArrayExercises());
-    longest_subarray(array_exerciser.get());
+    // longest_subarray(array_exerciser.get());
+    enumerate_primes(array_exerciser.get());
     // run_tests(array_exerciser.get());
     return 0;
 }

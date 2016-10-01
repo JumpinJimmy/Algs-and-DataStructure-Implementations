@@ -22,6 +22,7 @@ class ArrayExercises {
         int RemDupsInplace(std::vector<int> *arr_ptr);
         double MaxProfitSingleStock(std::vector<double> &prices);
         int LongestSubArrayEqual(std::vector<int> &int_list);
+        std::vector<int> EnumeratePrimes(int n);
 
     private:
         void print_list(std::vector<int> &v);

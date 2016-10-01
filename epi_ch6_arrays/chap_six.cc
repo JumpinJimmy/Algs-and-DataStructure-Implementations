@@ -141,3 +141,25 @@ int ArrayExercises::LongestSubArrayEqual(std::vector<int> &int_list) {
     return largest_seen;
 }
 
+std::vector<int> ArrayExercises::EnumeratePrimes(int n) {
+    if (n < 2) {
+        return {}; //empty list
+    }
+    if (n == 2){
+        return {2};
+    }
+    std::vector<int> primes;
+    std::vector<bool> is_prime(n+1, true);
+    is_prime[0] = is_prime[1] = false; // 0 & 1 are not prime numbers
+
+    for (int pval = 2; pval < n; pval++) {
+        if (is_prime.at(pval)) {
+            primes.push_back(pval);
+            // set all multiples of current prime value to false
+            for (int multiple = pval; multiple < n; multiple += pval) {
+                is_prime.at(multiple) = false;
+            }
+        }
+    }
+    return primes;
+}

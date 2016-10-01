@@ -49,6 +49,8 @@
 `int LongestSubArrayEqual(std::vector<int> &int_list)`
 
 **6.8:** Enumerate All Primes to N (Psuedo Code Only)
+`vector<int> EnumeratePrimes(int n)`
+
 
 **6.11:** Sample Offline Data
 
