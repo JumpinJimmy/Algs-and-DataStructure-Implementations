@@ -145,7 +145,7 @@ std::vector<int> ArrayExercises::EnumeratePrimes(int n) {
     if (n < 2) {
         return {}; //empty list
     }
-    if (n == 2){
+    if (n == 2) {
         return {2};
     }
     std::vector<int> primes;
@@ -162,4 +162,30 @@ std::vector<int> ArrayExercises::EnumeratePrimes(int n) {
         }
     }
     return primes;
+}
+
+std::vector<int> ArrayExercises::EnumeratePrimesOptimized(int n) {
+    std::cout << "--->>--->> chap_six::EnumeratePrimesOptimized( " << n << " )" << std::endl;
+    if (n < 2) {
+        return {}; //empty list
+    }
+    const int num_possible_primes = floor(0.5 * (n - 3)) + 1;
+    std::vector<bool> is_prime(num_possible_primes, true);
+    std::vector<int> primes;
+    primes.push_back(2);
+    for (int i = 0; i < num_possible_primes; ++i) {
+        if (is_prime.at(i)) {
+            int pval = (i * 2) + 3;
+            primes.push_back(pval);
+            //clean this long statement up
+            for (long mult_sq = ((static_cast<long>(i) * static_cast<long>(i)) * 2) + 6 * i + 3; mult_sq < num_possible_primes; mult_sq += pval) {
+                is_prime.at(mult_sq) = false;
+            }
+        }
+    }
+    return primes;
+}
+
+void RandomSampling(std::vector<int> *arr_ptr, int size) {
+    return;
 }

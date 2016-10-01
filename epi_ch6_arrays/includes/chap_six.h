@@ -23,7 +23,8 @@ class ArrayExercises {
         double MaxProfitSingleStock(std::vector<double> &prices);
         int LongestSubArrayEqual(std::vector<int> &int_list);
         std::vector<int> EnumeratePrimes(int n);
-
+        std::vector<int> EnumeratePrimesOptimized(int n);
+        void RandomSampling(std::vector<int> *arr_ptr, int size);
     private:
         void print_list(std::vector<int> &v);
         void print_list(std::vector<double> &v);

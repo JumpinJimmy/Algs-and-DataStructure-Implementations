@@ -20,7 +20,7 @@
 
 `vector<int> IncrementInteger(vector<int> in_arr)`
 
-*   Take in an arry of digits encoding a decimal number **D**
+*   Take in an array of digits encoding a decimal number **D**
 *   Return / update the array to represent the number **D+1**
 *   _example_:
     *   **IN**:  array[1,2,9]
@@ -33,7 +33,7 @@
 
 `int DeleteDups(vector<int> *arr_ptr)`
 
-*   Take in an arry of digits encoding a decimal number **D**
+*   Take in an array of digits encoding a decimal number **D**
 *   Return / update the array to represent the number **D+1**
 *   _example_:
     *   **IN**:  array[1,1,1,2,3,4,4]
@@ -44,17 +44,28 @@
 
 `double MaxProfitSingleStock(std::vector<double> &prices)`
 
-**6.6 Variant**: Find length of a subarray all of whose entries are equal
+**6.6 Variant**: Find length of a sub-array all of whose entries are equal
 
 `int LongestSubArrayEqual(std::vector<int> &int_list)`
 
-**6.8:** Enumerate All Primes to N (Psuedo Code Only)
+**6.8:** Enumerate All Primes to N (Pseudo Code Only)
 `vector<int> EnumeratePrimes(int n)`
 
 
-**6.11:** Sample Offline Data
+**6.11:** Sample Off-line Data (random sampling)
+
+*   Take as input an array of distinct elements and size. Return a subset of the given size of array elements. All subsets should be equally likely. Return the result in the input array itself
+    *   IN: Array of distinct elements
+    *   IN: size
+    *   Return: subset of size (input size) containing array elements
+
 
 **6.16:** Sudoku Checker Problem
+
+*   check whether a **9x9** 2D array representing  partially completed Sudoku is valid. 
+*   **Namely:** check that no row, column, or **3x3** 2D sub-array contains duplicates
+*   A value of '0' in the 2D array indicates that the entry is blank, every other entry is in [1,9]
+
 
 **6.17:** Compute the Spiral ordering of a 2D Array
 

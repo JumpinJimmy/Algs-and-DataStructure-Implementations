@@ -12,6 +12,8 @@ void enumerate_primes(ArrayExercises *array_exerciser) {
     int prime_ceiling = 18;
     vector<int> prime_result = array_exerciser->EnumeratePrimes(prime_ceiling);
     print_list(prime_result);
+    prime_result = array_exerciser->EnumeratePrimesOptimized(prime_ceiling);
+    print_list(prime_result);
 }
 void longest_subarray(ArrayExercises *array_exerciser) {
     int result = 0;
