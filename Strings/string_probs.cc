@@ -20,11 +20,16 @@ StringExerciser::~StringExerciser() {
     clear_sstream();
 }
 
-// TODO(jdevore): case insensitive comparator? Want to avoid having to write functionality that decides which type of set to build, the comparator should handle case insensitivity set to either TRUE or FALSE.
-void StringExerciser::RemoveChars(std::string &source_str, std::string &remove_chars, bool case_sensitive) {
-    std::cout << "--->>--->> string_probs:: RemoveChars(string " << source_str << ", string " << remove_chars << ")" << std::endl;
+// TODO(jdevore): case insensitive comparator?
+// Want to avoid having to write functionality that decides which type of set to build,
+// the comparator should handle case insensitivity set to either TRUE or FALSE.
+void StringExerciser::RemoveChars(std::string &source_str,
+                                  std::string &remove_chars, bool case_sensitive) {
+    std::cout << "--->>--->> string_probs:: RemoveChars(string "
+              << source_str << ", string " << remove_chars << ")" << std::endl;
     if (source_str.empty() || remove_chars.empty()) {
-        std::cout << "\t--->> string_probs:: RemoveChars(string string) empty source or filter: " << source_str << std::endl;
+        std::cout << "\t--->> string_probs::RemoveChars(string, string) empty source or filter: "
+                  << source_str << std::endl;
         return;
     }
     clear_sstream();
@@ -40,8 +45,7 @@ void StringExerciser::RemoveChars(std::string &source_str, std::string &remove_c
 
     std::set<char>::iterator set_iter;
     for (char src_char : source_str) {
-        set_iter = (!case_sensitive) ? (blacklist.find(tolower(src_char))) : (blacklist.find(src_char));
-
+        set_iter = (!case_sensitive) ? (blacklist.find(tolower(src_char))) : (blacklist.find(src_char)); //NOLINT
         if (set_iter == blacklist.end()) {
             ss_ << src_char;
         }
@@ -49,17 +53,16 @@ void StringExerciser::RemoveChars(std::string &source_str, std::string &remove_c
 
     source_str = ss_.str();
     clear_sstream();
-    std::cout << "\t--->> string_probs:: RemoveChars(string string) result: " << source_str << std::endl;
+    std::cout << "\t--->> RemoveChars(string,string) result:" << source_str << std::endl;
 }
 
-void StringExerciser::RemoveChars(const char source_str[], const char remove_chars[], bool case_sensitive) {
-    std::cout << "--->>--->> string_probs::RemoveChars(const char " << source_str << ", const char " << remove_chars << ")" << std::endl;
-    //TODO
+void StringExerciser::RemoveChars(const char source_str[],
+                                  const char remove_chars[], bool case_sensitive) {
+    std::cout << "--->>--->> string_probs::RemoveChars(const char "
+              << source_str << ", const char "
+              << remove_chars << ")" << std::endl;
+    /// TODO(jdevore): mirror work from private repo
 }
-
-// char* StringExerciser::FirstNonRepeat(std::string &source_str) {
-
-// }
 
 void StringExerciser::clear_sstream() {
     ss_.clear();

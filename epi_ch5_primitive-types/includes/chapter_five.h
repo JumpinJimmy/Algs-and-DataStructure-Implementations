@@ -10,7 +10,6 @@
 #include <sstream>
 #include <set>
 class PrimitiveTypesExerciser{
-
     public:
         PrimitiveTypesExerciser();
         virtual ~PrimitiveTypesExerciser();
