@@ -69,3 +69,6 @@
 
 **6.17:** Compute the Spiral ordering of a 2D Array
 
+Write a 2D array in spiral order
+
+![Spiral Array Illustration](../misc/SpiralArray.png "Optional title")

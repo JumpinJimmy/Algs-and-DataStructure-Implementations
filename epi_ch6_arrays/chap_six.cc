@@ -269,3 +269,8 @@ bool ArrayExercises::SudokuDups(const std::vector<std::vector<int>> &sudoku_boar
     }
     return false;
 }
+
+std::vector<int> ArrayExercises::SpiralOrdering(const std::vector<std::vector<int>> &matrix) {
+
+    return {};
+}
