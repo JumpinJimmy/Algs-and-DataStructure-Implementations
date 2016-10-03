@@ -1,4 +1,5 @@
 #include "includes/chap_six.h"
+#include <cassert>
 using namespace std; //NOLINT
 
 void print_list(std::vector<int> &v) {
@@ -8,6 +9,33 @@ void print_list(std::vector<int> &v) {
     }
     std::cout << "];" << std::endl;
 }
+
+void sudoku_checker(ArrayExercises *array_exerciser) {
+    std::vector<std::vector<int>> sudoku_board(9, vector<int>(9, 0));
+    /// valid sudoku
+    sudoku_board[0] = {0, 2, 6, 0, 0, 0, 8, 1, 0};
+    sudoku_board[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};
+    sudoku_board[2] = {4, 0, 0, 0, 5, 0, 0, 0, 7};
+    sudoku_board[3] = {0, 5, 0, 1, 0, 7, 0, 9, 0};
+    sudoku_board[4] = {0, 0, 3, 9, 0, 5, 1, 0, 0};
+    sudoku_board[5] = {0, 4, 0, 3, 0, 2, 0, 5, 0};
+    sudoku_board[6] = {1, 0, 0, 0, 3, 0, 0, 0, 2};
+    sudoku_board[7] = {5, 0, 0, 2, 0, 4, 0, 0, 9};
+    sudoku_board[8] = {0, 3, 8, 0, 0, 0, 4, 6, 0};
+    array_exerciser->ValidSudoku(sudoku_board);
+    /// duplicate value within first row
+    sudoku_board[0] = {2, 2, 6, 0, 0, 0, 8, 1, 0};
+    sudoku_board[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};
+    sudoku_board[2] = {4, 0, 0, 0, 5, 0, 0, 0, 7};
+    sudoku_board[3] = {0, 5, 0, 1, 0, 7, 0, 9, 0};
+    sudoku_board[4] = {0, 0, 3, 9, 0, 5, 1, 0, 0};
+    sudoku_board[5] = {0, 4, 0, 3, 0, 2, 0, 5, 0};
+    sudoku_board[6] = {1, 0, 0, 0, 3, 0, 0, 0, 2};
+    sudoku_board[7] = {5, 0, 0, 2, 0, 4, 0, 0, 9};
+    sudoku_board[8] = {0, 3, 8, 0, 0, 0, 4, 6, 0};
+    array_exerciser->ValidSudoku(sudoku_board);
+}
+
 void enumerate_primes(ArrayExercises *array_exerciser) {
     int prime_ceiling = 18;
     vector<int> prime_result = array_exerciser->EnumeratePrimes(prime_ceiling);
@@ -15,6 +43,7 @@ void enumerate_primes(ArrayExercises *array_exerciser) {
     prime_result = array_exerciser->EnumeratePrimesOptimized(prime_ceiling);
     print_list(prime_result);
 }
+
 void longest_subarray(ArrayExercises *array_exerciser) {
     int result = 0;
     std::vector<int> int_list {1, 2, 2, 2, 3, 1, 1, 1};
@@ -75,7 +104,8 @@ void run_tests(ArrayExercises *array_exerciser) {
 int main(int argc, char const *argv[]) {
     std::shared_ptr<ArrayExercises> array_exerciser(new ArrayExercises());
     // longest_subarray(array_exerciser.get());
-    enumerate_primes(array_exerciser.get());
+    // enumerate_primes(array_exerciser.get());
+    sudoku_checker(array_exerciser.get());
     // run_tests(array_exerciser.get());
     return 0;
 }
