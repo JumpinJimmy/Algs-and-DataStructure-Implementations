@@ -13,20 +13,20 @@ void print_list(std::vector<int> &v) {
 void sudoku_checker(ArrayExercises *array_exerciser) {
     std::vector<std::vector<int>> sudoku_board(9, vector<int>(9, 0));
     /// valid sudoku
-    sudoku_board[0] = {0, 2, 6, 0, 0, 0, 8, 1, 0};
-    sudoku_board[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};
-    sudoku_board[2] = {4, 0, 0, 0, 5, 0, 0, 0, 7};
-    sudoku_board[3] = {0, 5, 0, 1, 0, 7, 0, 9, 0};
-    sudoku_board[4] = {0, 0, 3, 9, 0, 5, 1, 0, 0};
-    sudoku_board[5] = {0, 4, 0, 3, 0, 2, 0, 5, 0};
-    sudoku_board[6] = {1, 0, 0, 0, 3, 0, 0, 0, 2};
-    sudoku_board[7] = {5, 0, 0, 2, 0, 4, 0, 0, 9};
-    sudoku_board[8] = {0, 3, 8, 0, 0, 0, 4, 6, 0};
-    array_exerciser->ValidSudoku(sudoku_board);
+    // sudoku_board[0] = {0, 2, 6, 0, 0, 0, 8, 1, 0};
+    // sudoku_board[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};
+    // sudoku_board[2] = {4, 0, 0, 0, 5, 0, 0, 0, 7};
+    // sudoku_board[3] = {0, 5, 0, 1, 0, 7, 0, 9, 0};
+    // sudoku_board[4] = {0, 0, 3, 9, 0, 5, 1, 0, 0};
+    // sudoku_board[5] = {0, 4, 0, 3, 0, 2, 0, 5, 0};
+    // sudoku_board[6] = {1, 0, 0, 0, 3, 0, 0, 0, 2};
+    // sudoku_board[7] = {5, 0, 0, 2, 0, 4, 0, 0, 9};
+    // sudoku_board[8] = {0, 3, 8, 0, 0, 0, 4, 6, 0};
+    // array_exerciser->ValidSudoku(sudoku_board);
     /// duplicate value within first row
-    sudoku_board[0] = {2, 2, 6, 0, 0, 0, 8, 1, 0};
-    sudoku_board[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};
-    sudoku_board[2] = {4, 0, 0, 0, 5, 0, 0, 0, 7};
+    sudoku_board[0] = {0, 2, 6, 0, 0, 0, 8, 1, 0};
+    sudoku_board[1] = {3, 0, 1, 7, 0, 8, 0, 0, 6};
+    sudoku_board[2] = {4, 1, 0, 0, 5, 0, 0, 0, 7};
     sudoku_board[3] = {0, 5, 0, 1, 0, 7, 0, 9, 0};
     sudoku_board[4] = {0, 0, 3, 9, 0, 5, 1, 0, 0};
     sudoku_board[5] = {0, 4, 0, 3, 0, 2, 0, 5, 0};

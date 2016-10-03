@@ -22,14 +22,15 @@ void ArrayExercises::print_list(std::vector<double> &v) {
 }
 
 /// very crude printing of sudoku board. Will improve later
-void ArrayExercises::print_sudoku(std::vector<std::vector<int>> &sudoku_board) {
+void ArrayExercises::print_sudoku(const std::vector<std::vector<int>> &sudoku_board) {
     int column_ctr = 0;
     int row_ctr = 0;
+    int boundary_location = std::sqrt(sudoku_board.size()) - 1;
     std::cout << "|- - - - - - - - -|" << std::endl;
     for (auto &row : sudoku_board) {
         std::cout << "|";
         for (auto &col : row) {
-            if (column_ctr == 2) {
+            if (column_ctr == boundary_location) {
                std::cout << col << "|";
                column_ctr = 0;
             } else {
@@ -38,7 +39,7 @@ void ArrayExercises::print_sudoku(std::vector<std::vector<int>> &sudoku_board) {
             }
         }
         std::cout << std::endl;
-        if (row_ctr == 2) {
+        if (row_ctr == boundary_location) {
             std::cout << "|- - - - - - - - -|" << std::endl;
             row_ctr = 0;
         } else {
@@ -204,7 +205,7 @@ std::vector<int> ArrayExercises::EnumeratePrimesOptimized(int n) {
             int pval = (i * 2) + 3;
             primes.push_back(pval);
             //clean this long statement up
-            for (long mult_sq = ((static_cast<long>(i) * static_cast<long>(i)) * 2) + 6 * i + 3; mult_sq < num_possible_primes; mult_sq += pval) {
+            for (long mult_sq = ((static_cast<long>(i) * static_cast<long>(i)) * 2) + 6 * i + 3; mult_sq < num_possible_primes; mult_sq += pval) { //NOLINT
                 is_prime.at(mult_sq) = false;
             }
         }
@@ -216,41 +217,51 @@ void ArrayExercises::RandomSampling(std::vector<int> *arr_ptr, int size) {
     return;
 }
 
-bool ArrayExercises::ValidSudoku(std::vector<std::vector<int>> &sudoku_board) {
+bool ArrayExercises::ValidSudoku(const std::vector<std::vector<int>> &sudoku_board) {
     print_sudoku(sudoku_board);
+    /// Check Each Row
     int row_ptr, col_ptr = 0;
     for (row_ptr = 0; row_ptr < sudoku_board.size(); ++row_ptr) {
-        if (HasDuplicateSudoku(sudoku_board, row_ptr, row_ptr + 1, col_ptr, sudoku_board.size())) {
+        if (SudokuDups(sudoku_board, row_ptr, row_ptr + 1, col_ptr, sudoku_board.size())) {
+            return false;
+        }
+    }
+    /// Check Each Column
+    row_ptr = 0;
+    for (col_ptr = 0; col_ptr < sudoku_board.size(); ++col_ptr) {
+        if (SudokuDups(sudoku_board, row_ptr, sudoku_board.size(), col_ptr, col_ptr + 1)) {
             return false;
         }
     }
 
-    row_ptr = 0;
-    for (col_ptr = 0; col_ptr < sudoku_board.size(); ++col_ptr) {
-        if (HasDuplicateSudoku(sudoku_board, row_ptr, sudoku_board.size(), col_ptr, col_ptr + 1)) {
-            return false;
+    /// Check each Sub Section (3x3 board)
+    int sub_start_row, sub_end_row, sub_start_col, sub_end_col = 0;
+    int sub_regions = std::sqrt(sudoku_board.size());
+    for (int subarr_row = 0; subarr_row < sub_regions; ++subarr_row) {
+        for (int subarr_col = 0; subarr_col < sub_regions; ++subarr_col) {
+            sub_start_row = subarr_row * sub_regions;
+            sub_end_row = ((subarr_row + 1) * sub_regions);
+            sub_start_col = subarr_col * sub_regions;
+            sub_end_col = ((subarr_col + 1) * sub_regions);
+            if (SudokuDups(sudoku_board, sub_start_row, sub_end_row, sub_start_col, sub_end_col)) {
+                std::cout << "Duplicate Subarray value found in [["
+                          << sub_start_row << "][" << sub_end_row << "] , ["
+                          << sub_start_col << "][" << sub_end_col << "]] " << std::endl;
+                return false;
+            }
         }
     }
-    // for (auto &row : sudoku_board) {
-    //     std::cout << std::endl;
-    //     for (auto &col : row) {
-    //         std::cout << col << " ";
-    //     }
-    // }
-    /// Check Each Row
-    /// Check Each Column
-    /// Check each 3x3 Sub array
     return true;
 }
 
-bool ArrayExercises::HasDuplicateSudoku(std::vector<std::vector<int>> &sudoku_board, int row_start, int row_end, int col_start, int col_end) {
+bool ArrayExercises::SudokuDups(const std::vector<std::vector<int>> &sudoku_board,
+                                int row_start, int row_end, int col_start, int col_end) {
     std::vector<bool> has_value(sudoku_board.size() + 1, false);
-    std::cout << "Checking row_start: " << row_start << ", row_end: " << row_end << ", col_start: " << col_start << ", col_end: " << col_end << std::endl;
     for (int row = row_start; row < row_end; ++row) {
         for (int col = col_start; col < col_end; ++col) {
-
             if (sudoku_board[row][col] != 0 && has_value[sudoku_board[row][col]]) {
-                std::cout << "Duplicate value found at [" << row << "][" << col << "] == " << sudoku_board[row][col] << std::endl;
+                std::cout << "Duplicate value found at ["
+                          << row << "][" << col << "] == " << sudoku_board[row][col] << std::endl;
                 return true;
             }
             has_value[sudoku_board[row][col]] = true;

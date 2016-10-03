@@ -11,6 +11,7 @@
 #include <utility>
 #include <memory>
 #include <numeric>
+#include <cmath>
 
 class ArrayExercises {
     public:
@@ -25,10 +26,11 @@ class ArrayExercises {
         std::vector<int> EnumeratePrimes(int n);
         std::vector<int> EnumeratePrimesOptimized(int n);
         void RandomSampling(std::vector<int> *arr_ptr, int size);
-        bool ValidSudoku(std::vector<std::vector<int>> &sudoku_board);
+        bool ValidSudoku(const std::vector<std::vector<int>> &sudoku_board);
     private:
-        bool HasDuplicateSudoku(std::vector<std::vector<int>> &sudoku_board, int row_start, int row_end, int col_start, int col_end);
-        void print_sudoku(std::vector<std::vector<int>> &sudoku_board);
+        bool SudokuDups(const std::vector<std::vector<int>> &sudoku_board,
+                        int row_start, int row_end, int col_start, int col_end);
+        void print_sudoku(const std::vector<std::vector<int>> &sudoku_board);
         void print_list(std::vector<int> &v);
         void print_list(std::vector<double> &v);
         //
