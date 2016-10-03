@@ -7,11 +7,11 @@ INC_DIR = includes/
 LIBOBJS = chap_six.o
 LOCALOBJS = $(LIBOBJS) main.o
 
-all : chap_six_test
+all : ch6_test
 .PHONY : all
 
-chap_six_test: $(LOCALOBJS)
-	$(CXX) $(LFLAGS) $(LOCALOBJS) -o chap_six_test
+ch6_test: $(LOCALOBJS)
+	$(CXX) $(LFLAGS) $(LOCALOBJS) -o ch6_test
 
 main.o: main.cc includes/chap_six.h
 	$(CXX) $(CFLAGS) main.cc
@@ -21,4 +21,4 @@ chap_six.o: includes/chap_six.h chap_six.cc
 
 clean:
 	rm -f *.o
-	rm -f chap_six_test
+	rm -f ch6_test
