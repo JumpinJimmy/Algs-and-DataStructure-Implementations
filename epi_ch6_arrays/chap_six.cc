@@ -21,8 +21,18 @@ void ArrayExercises::print_list(std::vector<double> &v) {
     std::cout << "];" << std::endl;
 }
 
+void ArrayExercises::PrintGrid(const std::vector<std::vector<int>> &grid) {
+    for (auto& y : grid) {
+        std::cout << std::endl;
+        for (auto &x : y) {
+            std::cout << x << " ";
+        }
+    }
+    std::cout << std::endl;
+}
+
 /// very crude printing of sudoku board. Will improve later
-void ArrayExercises::print_sudoku(const std::vector<std::vector<int>> &sudoku_board) {
+void ArrayExercises::PrintSudoku(const std::vector<std::vector<int>> &sudoku_board) {
     int column_ctr = 0;
     int row_ctr = 0;
     int boundary_location = std::sqrt(sudoku_board.size()) - 1;
@@ -213,12 +223,13 @@ std::vector<int> ArrayExercises::EnumeratePrimesOptimized(int n) {
     return primes;
 }
 
+/// TODO(jdevore): implement when we have time, not much to learn here at the moment
 void ArrayExercises::RandomSampling(std::vector<int> *arr_ptr, int size) {
     return;
 }
 
 bool ArrayExercises::ValidSudoku(const std::vector<std::vector<int>> &sudoku_board) {
-    print_sudoku(sudoku_board);
+    PrintSudoku(sudoku_board);
     /// Check Each Row
     int row_ptr, col_ptr = 0;
     for (row_ptr = 0; row_ptr < sudoku_board.size(); ++row_ptr) {
@@ -270,7 +281,28 @@ bool ArrayExercises::SudokuDups(const std::vector<std::vector<int>> &sudoku_boar
     return false;
 }
 
-std::vector<int> ArrayExercises::SpiralOrdering(const std::vector<std::vector<int>> &matrix) {
-
-    return {};
+std::vector<int> ArrayExercises::SpiralOrdering(std::vector<std::vector<int>> &matrix) {
+    std::cout << "--->>--->> chap_six::Spiral Ordering for Matrix:\n ";
+    PrintGrid(matrix);
+    int total_size = matrix.size() * matrix.size();
+    const std::vector<std::vector<int>> directions = {{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}};
+    int direction = 0, x = 0, y = 0;
+    int next_x , next_y = 0;
+    std::vector<int> spiral_result;
+    spiral_result.reserve(total_size);
+    for (int i = 0; i < total_size; ++i) {
+        spiral_result.emplace_back(matrix[x][y]);
+        matrix[x][y] = 0;
+        next_x = x + directions[direction][0];
+        next_y = y + directions[direction][1];
+        if (next_x < 0 || next_x >= matrix.size() || next_y < 0 || next_y >= matrix.size() ||
+            matrix[next_x][next_y] == 0) {
+            direction = (direction + 1) % 4;
+            next_x = x + directions[direction][0];
+            next_y = y + directions[direction][1];
+        }
+        x = next_x;
+        y = next_y;
+    }
+    return spiral_result;
 }

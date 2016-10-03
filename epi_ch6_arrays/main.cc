@@ -14,6 +14,8 @@ void spiral_ordering(ArrayExercises *array_exerciser) {
     matrix[0] = {1, 2, 3};
     matrix[1] = {4, 5, 6};
     matrix[2] = {7, 8, 9};
+    std::cout << "--->>--->> main:: spiral_ordering size of matrix " << matrix.size()
+              << "\n Ceiling of .5 x size: " << ceil(0.5 * matrix.size())  << std::endl;
     vector<int> spiral_result = array_exerciser->SpiralOrdering(matrix);
     print_list(spiral_result);
 }
@@ -106,14 +108,15 @@ void run_tests(ArrayExercises *array_exerciser) {
     print_list(res);
     remove_duplicates(array_exerciser);
     maxprofit_stock(array_exerciser);
+    longest_subarray(array_exerciser);
+    enumerate_primes(array_exerciser);
+    sudoku_checker(array_exerciser);
+    spiral_ordering(array_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch6_test
 int main(int argc, char const *argv[]) {
     std::shared_ptr<ArrayExercises> array_exerciser(new ArrayExercises());
-    // longest_subarray(array_exerciser.get());
-    // enumerate_primes(array_exerciser.get());
-    sudoku_checker(array_exerciser.get());
-    // run_tests(array_exerciser.get());
+    run_tests(array_exerciser.get());
     return 0;
 }

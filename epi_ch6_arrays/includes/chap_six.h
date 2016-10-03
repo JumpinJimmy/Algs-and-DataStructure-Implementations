@@ -27,14 +27,15 @@ class ArrayExercises {
         std::vector<int> EnumeratePrimesOptimized(int n);
         void RandomSampling(std::vector<int> *arr_ptr, int size);
         bool ValidSudoku(const std::vector<std::vector<int>> &sudoku_board);
-        std::vector<int> SpiralOrdering(const std::vector<std::vector<int>> &matrix);
+        std::vector<int> SpiralOrdering(std::vector<std::vector<int>> &matrix);
+
     private:
         bool SudokuDups(const std::vector<std::vector<int>> &sudoku_board,
                         int row_start, int row_end, int col_start, int col_end);
-        void print_sudoku(const std::vector<std::vector<int>> &sudoku_board);
+        void PrintGrid(const std::vector<std::vector<int>> &grid);
+        void PrintSudoku(const std::vector<std::vector<int>> &sudoku_board);
         void print_list(std::vector<int> &v);
         void print_list(std::vector<double> &v);
-        //
 };
 
 
