@@ -46,7 +46,7 @@ _TODO_
 
 **7.7: Phone Mnemonics**
 
-*   x
+`std::vector<std::string> PhoneMnemonics(const std::string &phone_number)`
 
 ---
 

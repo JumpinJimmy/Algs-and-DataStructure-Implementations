@@ -133,3 +133,8 @@ void StringExercises::ReverseWords(std::string *input_str) {
     std::reverse(input_str->begin() + left_word_start, input_str->end());
     std::cout << "ReverseWords -> Reversed String Final = \"" << *input_str << "\"" << std::endl;
 }
+
+std::vector<std::string> StringExercises::PhoneMnemonics(const std::string &phone_number) {
+    std::vector<std::string> results(1,"hello");
+    return results;
+}

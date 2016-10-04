@@ -21,6 +21,7 @@ class StringExercises {
         int ReplaceAndRemove(char s[], int size);
         bool IsPalindromic(std::string &in_str);
         void ReverseWords(std::string *input_str);
+        std::vector<std::string> PhoneMnemonics(const std::string &phone_number);
 };
 
 #endif // CHAP_SEVEN_H
