@@ -1,7 +1,7 @@
 #include "includes/chap_eight.h"
 using namespace std; //NOLINT
 
-void run_tests(StringExercises* string_exerciser) {
+void run_tests(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
 }
 
