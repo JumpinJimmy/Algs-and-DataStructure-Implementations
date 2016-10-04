@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <utility>
 #include <numeric>
+#include <cctype>
 #include <cmath>
 
 class StringExercises {
@@ -18,6 +19,7 @@ class StringExercises {
         std::string IntToString(int x);
         int StringToInt(std::string &in_str);
         int ReplaceAndRemove(char s[], int size);
+        bool IsPalindromic(std::string &in_str);
 };
 
 #endif // CHAP_SEVEN_H

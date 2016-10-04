@@ -3,6 +3,15 @@
 #include <utility>
 using namespace std; //NOLINT
 
+void IsPalindromic(StringExercises* string_exerciser) {
+    std::string test_str("A man, a plan, a canal, Panama.");
+    std::cout << "IsPalindromic() for string: \"" << test_str << "\" result: "
+              << std::boolalpha << string_exerciser->IsPalindromic(test_str) << std::endl;
+    test_str.assign("Ray a Ray");
+    std::cout << "IsPalindromic() for string: \"" << test_str << "\" result: "
+              << std::boolalpha << string_exerciser->IsPalindromic(test_str) << std::endl;
+}
+
 void ReplaceRemove(StringExercises* string_exerciser) {
     int init_size = 7;
     char arr[10] = {'a', 'c', 'd', 'b', 'b', 'c', 'a', '0', '0' ,'0'};
@@ -26,8 +35,9 @@ void InterConversion(StringExercises* string_exerciser) {
 }
 
 void run_tests(StringExercises* string_exerciser) {
-    // InterConversion(string_exerciser);
+    InterConversion(string_exerciser);
     ReplaceRemove(string_exerciser);
+    IsPalindromic(string_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch7_test

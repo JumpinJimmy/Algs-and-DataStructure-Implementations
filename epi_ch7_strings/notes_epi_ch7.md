@@ -29,9 +29,9 @@ _TODO_
 
 **7.5: Test Palindrome**
 
-*   x
+*   Implement a function which takes as input a string and returns true if it is a palindromic string
 
-`int ReplaceAndRemove(char s[], int size)`
+`bool IsPalindromic(std::string &in_str)`
 
 ---
 

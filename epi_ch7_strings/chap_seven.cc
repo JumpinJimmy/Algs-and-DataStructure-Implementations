@@ -38,12 +38,12 @@ int StringExercises::StringToInt(std::string &in_str) {
 }
 
 int StringExercises::ReplaceAndRemove(char s[], int size) {
-    // In place Solution (O(n) space)
     int write_position = 0;
     int num_of_a = 0;
     int rev_read_pos = 0;
     int final_size = 0;
-    // char result[size+1] = " ";  //this wont work if all a's
+
+    /// First sweep, copy in place, skipping 'b' chars
     for (int i = 0; i < size; ++i) {
         if (s[i] != 'b') {
             s[write_position++] = s[i];
@@ -52,6 +52,8 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
             ++num_of_a;
         }
     }
+
+    /// Debug output
     std::cout << "write_position at finish: " << write_position
     << "\n Char Array after 1st delete sweep: ";
     std::cout << "[ ";
@@ -59,6 +61,8 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
         std::cout << s[j] << " ";
     }
     std::cout << "]" << std::endl;
+
+    /// Second sweep from the back + number of A's encountered
     rev_read_pos = write_position - 1;
     write_position = write_position + num_of_a - 1;
     final_size = write_position + 1;
@@ -72,11 +76,38 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
         }
         --rev_read_pos;
     }
+
+    /// Debug output
     std::cout << "\n Char Array Reverse sweep: ";
     std::cout << "[ ";
     for (int j = 0; j < final_size; ++j) {
         std::cout << s[j] << " ";
     }
     std::cout << "]" << std::endl;
+
     return final_size;
+}
+
+bool StringExercises::IsPalindromic(std::string &in_str) {
+    if (in_str.length() < 2) {
+        return true;
+    }
+
+    int left_pos = 0;
+    int right_pos = in_str.length();
+    for (; left_pos < right_pos; ++left_pos, --right_pos) {
+        // if not alphanumeric increment / decrement
+        while (!std::isalnum(in_str[left_pos]) && left_pos < right_pos) {
+            ++left_pos;
+        }
+
+        while (!std::isalnum(in_str[right_pos]) && right_pos > left_pos) {
+            --right_pos;
+        }
+
+        if (std::tolower(in_str[left_pos]) != std::tolower(in_str[right_pos])) {
+            return false;
+        }
+    }
+    return true;
 }
