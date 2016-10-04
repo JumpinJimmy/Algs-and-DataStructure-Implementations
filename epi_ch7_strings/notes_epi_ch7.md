@@ -37,6 +37,19 @@ _TODO_
 
 **7.6: Reverse all words in a Sentence**
 
+*   given a string containing a set of words separated by whitespace, we would like to transform it into a string in which the word appear in the reverse order
+*   Ex). "I like Pizza"  Reversed: "Pizza I like"
+
+`void ReverseWords(std::string *sentence)`
+
+---
+
+**7.7: Phone Mnemonics**
+
 *   x
 
-`int ReplaceAndRemove(char s[], int size)`
+---
+
+**7.8: The Look-and-Say Problem**
+
+*   x
