@@ -3,8 +3,17 @@
 #include <utility>
 using namespace std; //NOLINT
 
+void PrintVector(std::vector<std::string> &v) {
+    std::cout << "PrintVector \n [ ";
+    for (auto &val : v) {
+        std::cout << val << " ";
+    }
+    std::cout << "];" << std::endl;
+}
+
 void PhoneMnemonics(StringExercises* string_exerciser) {
-    string_exerciser->PhoneMnemonics("1234567");
+    std::vector<std::string> results = string_exerciser->PhoneMnemonics("1234567");
+    PrintVector(results);
 }
 
 void ReverseWords(StringExercises* string_exerciser) {
