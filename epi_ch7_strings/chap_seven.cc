@@ -38,25 +38,44 @@ int StringExercises::StringToInt(std::string &in_str) {
 }
 
 int StringExercises::ReplaceAndRemove(char s[], int size) {
-    // Brute force Solution
+    // In place Solution (O(n) space)
     int write_position = 0;
+    int num_of_a = 0;
+    int rev_read_pos = 0;
     int final_size = 0;
-    char result[size+1] = " ";  //this wont work if all a's
+    // char result[size+1] = " ";  //this wont work if all a's
     for (int i = 0; i < size; ++i) {
-        if (s[i] == 'b') {
-            continue;
-        } else if (s[i] == 'a') {
-            result[write_position++] = 'd';
-            result[write_position++] = 'd';
-            final_size += 2;
-        } else {
-            result[write_position++] = s[i];
-            final_size++;
+        if (s[i] != 'b') {
+            s[write_position++] = s[i];
+        }
+        if (s[i] == 'a') {
+            ++num_of_a;
         }
     }
+    std::cout << "write_position at finish: " << write_position
+    << "\n Char Array after 1st delete sweep: ";
+    std::cout << "[ ";
+    for (int j = 0; j < size; ++j) {
+        std::cout << s[j] << " ";
+    }
+    std::cout << "]" << std::endl;
+    rev_read_pos = write_position - 1;
+    write_position = write_position + num_of_a - 1;
+    final_size = write_position + 1;
+
+    while (rev_read_pos >= 0) {
+        if (s[rev_read_pos] == 'a') {
+            s[write_position--] = 'd';
+            s[write_position--] = 'd';
+        } else {
+            s[write_position--] = s[rev_read_pos];
+        }
+        --rev_read_pos;
+    }
+    std::cout << "\n Char Array Reverse sweep: ";
     std::cout << "[ ";
     for (int j = 0; j < final_size; ++j) {
-        std::cout << result[j] << " ";
+        std::cout << s[j] << " ";
     }
     std::cout << "]" << std::endl;
     return final_size;

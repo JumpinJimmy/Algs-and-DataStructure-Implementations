@@ -4,11 +4,18 @@
 using namespace std; //NOLINT
 
 void ReplaceRemove(StringExercises* string_exerciser) {
-    int init_size = 8;
-    char arr[init_size] = {'a', 'c', 'd', 'b', 'b', 'c', 'a'};
+    int init_size = 7;
+    char arr[10] = {'a', 'c', 'd', 'b', 'b', 'c', 'a', '0', '0' ,'0'};
+    std::cout << "\n Char Array pre ReplaceRemove: ";
+    std::cout << "[ ";
+    for (int j = 0; j < init_size; ++j) {
+        std::cout << arr[j] << " ";
+    }
+    std::cout << "]" << std::endl;
     int res_size = string_exerciser->ReplaceAndRemove(arr, init_size);
     std::cout << "ReplaceAndRemove result size: " << res_size << std::endl;
 }
+
 void InterConversion(StringExercises* string_exerciser) {
     std::cout << "--->>--->> main::InterCoversion "  << std::endl;
     int starting_integer = -14;
