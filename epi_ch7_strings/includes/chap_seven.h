@@ -20,6 +20,7 @@ class StringExercises {
         int StringToInt(std::string &in_str);
         int ReplaceAndRemove(char s[], int size);
         bool IsPalindromic(std::string &in_str);
+        void ReverseWords(std::string *sentence);
 };
 
 #endif // CHAP_SEVEN_H

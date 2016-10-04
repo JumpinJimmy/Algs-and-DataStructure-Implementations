@@ -3,6 +3,11 @@
 #include <utility>
 using namespace std; //NOLINT
 
+void ReverseWords(StringExercises* string_exerciser) {
+    std::string test("HI JO");
+    string_exerciser->ReverseWords(&test);
+    std::cout << test << std::endl;
+}
 void IsPalindromic(StringExercises* string_exerciser) {
     std::string test_str("A man, a plan, a canal, Panama.");
     std::cout << "IsPalindromic() for string: \"" << test_str << "\" result: "
@@ -43,6 +48,7 @@ void run_tests(StringExercises* string_exerciser) {
 // valgrind --leak-check=full --show-leak-kinds=all ./ch7_test
 int main(int argc, char const *argv[]) {
     std::shared_ptr<StringExercises> string_exerciser(new StringExercises());
-    run_tests(string_exerciser.get());
+    // run_tests(string_exerciser.get());
+    ReverseWords(string_exerciser.get());
     return 0;
 }

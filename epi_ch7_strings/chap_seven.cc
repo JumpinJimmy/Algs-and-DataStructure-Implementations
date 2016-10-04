@@ -111,3 +111,35 @@ bool StringExercises::IsPalindromic(std::string &in_str) {
     }
     return true;
 }
+
+void StringExercises::ReverseWords(std::string *sentence) {
+    // still working on an inplace solution
+    if (sentence->empty()) return;
+    int left_wstart, left_wend = 0;
+    int right_wstart = sentence->length() - 1;
+    int right_wend = sentence->length() - 1;
+    std::cout << "--->>--->> chap_seven:: sentance length " << sentence->length()  << std::endl;
+
+    while (!std::isalnum(sentence->at(left_wstart)) && left_wstart < sentence->length()) {
+        ++left_wstart;
+    }
+    std::cout << "left_wstart(" << left_wstart << ") char: " << sentence->at(left_wstart) << std::endl;
+    left_wend = left_wstart;
+    while (std::isalnum(sentence->at(left_wend + 1)) && left_wend < sentence->length()) {
+        ++left_wend;
+    }
+    std::cout << "left_wend(" << left_wend << ") char: " << sentence->at(left_wend) << std::endl;
+    while (!std::isalnum(sentence->at(right_wend)) && right_wend > 0) {
+        --right_wend;
+    }
+    std::cout << "right_wend(" << right_wend << ") char: " << sentence->at(right_wend) << std::endl;
+    right_wstart = right_wend;
+    while (std::isalnum(sentence->at(right_wstart-1)) && right_wstart > 0) {
+        --right_wstart;
+    }
+    std::cout << "right_wstart(" << right_wstart << ") char: " << sentence->at(right_wstart) << std::endl;
+
+    char c = sentence->at(left_wstart);
+    sentence->at(left_wstart) = sentence->at(right_wstart);
+    sentence->at(right_wstart) = c;
+}
