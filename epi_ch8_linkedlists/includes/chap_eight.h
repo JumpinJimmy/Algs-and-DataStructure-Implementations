@@ -14,8 +14,6 @@ class LinkedListExercises {
     public:
         LinkedListExercises();
         ~LinkedListExercises();
-
 };
-
 
 #endif // CHAP_EIGHT_H
