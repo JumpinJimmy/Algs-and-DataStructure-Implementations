@@ -30,6 +30,7 @@ class StringExercises {
                             std::string *current_mnemonic,
                             std::vector<std::string> *result_mnemonics,
                             const std::map<char, std::string> *charset);
+        std::string GetNextSequenceStr(std::string &curr_seq);
 };
 
 #endif // CHAP_SEVEN_H

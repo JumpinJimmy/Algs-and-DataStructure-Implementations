@@ -176,6 +176,23 @@ void StringExercises::MnemonicHelper(int digit, const std::string &phone_number,
 }
 
 std::string StringExercises::LookAndSay(int n) {
+// Method A = 'frequency' followed by 'digit'-indication.
+// Also known as the "Say What You see" sequence.
+// Ex.   1 would be explained as 11 (one "one" in english. Frequency(1) Value(1)).
+/////
+///Try describing "1" and "11"
+    /// First member of the sequence is 2 (assuming the seed is one for this problem)
+    std::string nth_sequence_result = "1";
+    for (int curr_seq = 1; curr_seq < n; ++curr_seq) {
+        /// do something
+        nth_sequence_result = GetNextSequenceStr(nth_sequence_result);
+    }
+
     std::string nth_result("");
     return nth_result;
+}
+
+std::string StringExercises::GetNextSequenceStr(std::string &curr_seq) {
+
+    return "";
 }
