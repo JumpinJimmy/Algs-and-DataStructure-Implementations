@@ -113,25 +113,23 @@ bool StringExercises::IsPalindromic(std::string &in_str) {
 }
 
 void StringExercises::ReverseWords(std::string *input_str) {
-    // still working on an inplace solution
     if (input_str->empty()) return;
-    size_t left_wstart = 0;
-    size_t left_wend;
-    // int right_wstart = input_str->length() - 1;
-    // int right_wend = input_str->length() - 1;
+    size_t left_word_start = 0;
+    size_t left_word_end;
+
     std::cout << "--->>--->> ReverseWords(string *input_str = \"" << *input_str << "\")"
               << ": input_str length = " << input_str->length() << std::endl;
 
     std::reverse(input_str->begin(), input_str->end());
 
-    std::cout << "======= ReverseWords -> Reversed String 1st Sweep = \"" << *input_str << "\"" << std::endl;
+    std::cout << "ReverseWords -> Reverse Entire String = \"" << *input_str << "\"" << std::endl;
 
-    while ((left_wend = input_str->find(" ", left_wstart)) != std::string::npos) {
-        std::reverse(input_str->begin() + left_wstart, input_str->begin() + left_wend);
-        left_wstart = left_wend + 1;
-        std::cout << "======= reverse iteration:: " << *input_str << std::endl;
+    while ((left_word_end = input_str->find(" ", left_word_start)) != std::string::npos) {
+        std::reverse(input_str->begin() + left_word_start, input_str->begin() + left_word_end);
+        left_word_start = left_word_end + 1;
+        std::cout << "ReverseWords iteration:: " << *input_str << std::endl;
     }
 
-    std::reverse(input_str->begin() + left_wstart, input_str->end());
-    std::cout << "======= ReverseWords -> Reversed String Final = \"" << *input_str << "\"" << std::endl;
+    std::reverse(input_str->begin() + left_word_start, input_str->end());
+    std::cout << "ReverseWords -> Reversed String Final = \"" << *input_str << "\"" << std::endl;
 }

@@ -10,6 +10,7 @@ void ReverseWords(StringExercises* string_exerciser) {
     test.assign("Hello my name is Bastian, I enjoy fussball");
     string_exerciser->ReverseWords(&test);
 }
+
 void IsPalindromic(StringExercises* string_exerciser) {
     std::string test_str("A man, a plan, a canal, Panama.");
     std::cout << "IsPalindromic() for string: \"" << test_str << "\" result: "
@@ -21,7 +22,7 @@ void IsPalindromic(StringExercises* string_exerciser) {
 
 void ReplaceRemove(StringExercises* string_exerciser) {
     int init_size = 7;
-    char arr[10] = {'a', 'c', 'd', 'b', 'b', 'c', 'a', '0', '0' ,'0'};
+    char arr[10] = {'a', 'c', 'd', 'b', 'b', 'c', 'a', '0', '0', '0'};
     std::cout << "\n Char Array pre ReplaceRemove: ";
     std::cout << "[ ";
     for (int j = 0; j < init_size; ++j) {
