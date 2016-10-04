@@ -15,6 +15,8 @@ class LinkedListExercises {
     public:
         LinkedListExercises();
         ~LinkedListExercises();
+    private:
+       shared_ptr<ListNode<int>> CreateLinkedList(int n);
 };
 
 #endif // CHAP_EIGHT_H
