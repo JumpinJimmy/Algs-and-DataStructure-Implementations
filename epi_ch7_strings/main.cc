@@ -3,6 +3,9 @@
 #include <utility>
 using namespace std; //NOLINT
 
+void ReplaceRemove(StringExercises* string_exerciser) {
+    // string_exerciser->ReplaceAndRemove();
+}
 void InterConversion(StringExercises* string_exerciser) {
     std::cout << "--->>--->> main::InterCoversion "  << std::endl;
     int starting_integer = -14;

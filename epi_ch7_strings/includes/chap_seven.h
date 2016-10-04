@@ -17,6 +17,7 @@ class StringExercises {
         ~StringExercises();
         std::string IntToString(int x);
         int StringToInt(std::string &in_str);
+        int ReplaceAndRemove(char s[], int size);
 };
 
 #endif // CHAP_SEVEN_H

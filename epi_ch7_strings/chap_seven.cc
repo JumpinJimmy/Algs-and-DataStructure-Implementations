@@ -36,3 +36,7 @@ int StringExercises::StringToInt(std::string &in_str) {
 
     return negative ? -result : result;
 }
+
+int StringExercises::ReplaceAndRemove(char s[], int size) {
+    return 0;
+}
