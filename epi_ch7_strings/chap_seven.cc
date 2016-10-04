@@ -188,11 +188,20 @@ std::string StringExercises::LookAndSay(int n) {
         nth_sequence_result = GetNextSequenceStr(nth_sequence_result);
     }
 
-    std::string nth_result("");
-    return nth_result;
+    return nth_sequence_result;
 }
 
 std::string StringExercises::GetNextSequenceStr(std::string &curr_seq) {
-
-    return "";
+    std::stringstream seq_stream;
+    int value_end = 0;
+    for (int i = 0; i != curr_seq.length();) {
+        /// find the first char that does not match current starting from i + 1
+        value_end = curr_seq.find_first_not_of(curr_seq.at(i), i + 1);
+        if (value_end == std::string::npos) {
+            value_end = curr_seq.length();
+        }
+        seq_stream << value_end - i << curr_seq.at(i);
+        i = value_end;
+    }
+    return seq_stream.str();
 }

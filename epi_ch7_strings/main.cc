@@ -15,7 +15,8 @@ void PrintVector(std::vector<std::string> &v, const std::string &info) {
 
 void LookAndSay(StringExercises* string_exerciser) {
     std::cout << "\n--->>--->> main::LookAndSay() <<---<<---" << std::endl;
-    string_exerciser->LookAndSay(4);
+    std::string seq_result = string_exerciser->LookAndSay(9);
+    std::cout << "\t LookAndSay Result:: " << seq_result << std::endl;
 }
 
 void PhoneMnemonics(StringExercises* string_exerciser) {
