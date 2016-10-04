@@ -66,4 +66,4 @@ _TODO_
 
 *   Write a program which takes an integer 'n' as input and returns the 'nth' integer in the look and say sequence. Return as a string
 
-*   x
+`std::string LookAndSay(int n)`

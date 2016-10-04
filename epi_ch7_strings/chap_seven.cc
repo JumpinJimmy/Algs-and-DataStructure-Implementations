@@ -176,32 +176,32 @@ void StringExercises::MnemonicHelper(int digit, const std::string &phone_number,
 }
 
 std::string StringExercises::LookAndSay(int n) {
-// Method A = 'frequency' followed by 'digit'-indication.
-// Also known as the "Say What You see" sequence.
-// Ex.   1 would be explained as 11 (one "one" in english. Frequency(1) Value(1)).
-/////
-///Try describing "1" and "11"
-    /// First member of the sequence is 2 (assuming the seed is one for this problem)
+    /// Method A = 'frequency' followed by 'digit'-indication.
+    /// Also known as the "Say What You see" sequence.
+    /// Ex.   1 would be explained as 11 (one "one" in english. Frequency(1) Value(1)).
+
+    /// First member of sequence is 1 (assuming the seed is one)
     std::string nth_sequence_result = "1";
     for (int curr_seq = 1; curr_seq < n; ++curr_seq) {
-        /// do something
+        /// get next sequence via current sequence
         nth_sequence_result = GetNextSequenceStr(nth_sequence_result);
     }
 
     return nth_sequence_result;
 }
 
+/// Helper for LookAndSay
 std::string StringExercises::GetNextSequenceStr(std::string &curr_seq) {
     std::stringstream seq_stream;
     int value_end = 0;
-    for (int i = 0; i != curr_seq.length();) {
-        /// find the first char that does not match current starting from i + 1
-        value_end = curr_seq.find_first_not_of(curr_seq.at(i), i + 1);
+    for (int value_start = 0; value_start != curr_seq.length();) {
+        /// find first char that does !match current char starting from value_start + 1
+        value_end = curr_seq.find_first_not_of(curr_seq.at(i), value_start + 1);
         if (value_end == std::string::npos) {
             value_end = curr_seq.length();
         }
-        seq_stream << value_end - i << curr_seq.at(i);
-        i = value_end;
+        seq_stream << (value_end - value_start) << curr_seq.at(i);
+        value_start = value_end;
     }
     return seq_stream.str();
 }
