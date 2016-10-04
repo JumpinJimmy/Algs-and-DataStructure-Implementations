@@ -6,9 +6,10 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <memory>
 #include <utility>
 #include <numeric>
+#include "linked_list_prototype.h"
+#include "doubly_linked_list_prototype.h"
 
 class LinkedListExercises {
     public:

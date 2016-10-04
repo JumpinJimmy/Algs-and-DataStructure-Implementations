@@ -16,7 +16,7 @@ ch8_test: $(LOCALOBJS)
 main.o: main.cc includes/chap_eight.h
 	$(CXX) $(CFLAGS) main.cc
 
-chap_eight.o: includes/chap_eight.h chap_eight.cc
+chap_eight.o: includes/linked_list_prototype.h includes/doubly_linked_list_prototype.h includes/chap_eight.h chap_eight.cc
 	$(CXX) $(CFLAGS) chap_eight.cc
 
 clean:

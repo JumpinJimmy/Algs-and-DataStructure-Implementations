@@ -5,7 +5,7 @@ Page 100 of Elements of Programming Interviews
 
 ---
 
-**8.1: xxx**
+**8.1: Merge Two Sorted Lists**
 
 *   x
 
@@ -15,13 +15,13 @@ Page 100 of Elements of Programming Interviews
 
 ---
 
-**8.2: xxx**
+**8.2: Reverse a Single Sublist**
 
 *   x
 
 ---
 
-**8.3: xxx**
+**8.3: Test for Cycles**
 
 *   x
 
@@ -29,7 +29,7 @@ Page 100 of Elements of Programming Interviews
 
 ---
 
-**8.4: xxx**
+**8.4: Test for Overlapping Lists**
 
 *   x
 
@@ -37,7 +37,7 @@ Page 100 of Elements of Programming Interviews
 
 ---
 
-**8.7: xxx**
+**8.7: Remove the Kth Last Element from a List**
 
 *   x
 
@@ -45,7 +45,7 @@ Page 100 of Elements of Programming Interviews
 
 ---
 
-**8.10: xxx**
+**8.10: Implement Even-Odd Merge**
 
 *   x
 
