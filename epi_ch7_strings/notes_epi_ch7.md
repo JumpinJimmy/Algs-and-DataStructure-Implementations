@@ -46,6 +46,12 @@ _TODO_
 
 **7.7: Phone Mnemonics**
 
+*   Write a program which takes as input a phone number, specified as a string of digits and returns all possible character sequences that correspons to the phone number
+*   Each digit, apart from **0** and **1**, corresponds to one of three or four letters of the alphabet
+*   IN: string phone number 
+*   OUT: list of all possible character sequences for the number
+*   example:  in(2276696), out(ACRONYM, ABPOMZN, ...)
+
 `std::vector<std::string> PhoneMnemonics(const std::string &phone_number)`
 
 ---

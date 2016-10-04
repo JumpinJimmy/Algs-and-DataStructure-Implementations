@@ -1,6 +1,7 @@
 #ifndef CHAP_SEVEN_H
 #define CHAP_SEVEN_H
 #include <iostream>
+#include <sstream>
 #include <iomanip>
 #include <ios>
 #include <stdlib.h>
@@ -11,6 +12,7 @@
 #include <numeric>
 #include <cctype>
 #include <cmath>
+#include <map>
 
 class StringExercises {
     public:
@@ -22,6 +24,8 @@ class StringExercises {
         bool IsPalindromic(std::string &in_str);
         void ReverseWords(std::string *input_str);
         std::vector<std::string> PhoneMnemonics(const std::string &phone_number);
+    private:
+        void MnemonicHelper(const std::string &phone_number, std::vector<std::string> &result_mnemonics, std::stringstream &ss, int digit, std::map<std::string, std::string> &charset);
 };
 
 #endif // CHAP_SEVEN_H

@@ -135,6 +135,52 @@ void StringExercises::ReverseWords(std::string *input_str) {
 }
 
 std::vector<std::string> StringExercises::PhoneMnemonics(const std::string &phone_number) {
-    std::vector<std::string> results(1,"hello");
-    return results;
+    std::vector<std::string> result_mnemonics;
+    std::stringstream ss_;
+    int starting_digit = 0;
+    ss_.clear();
+    const std::map<std::string, std::string> char_sets {
+                                        {"0", ""},
+                                        {"1", ""},
+                                        {"2", "abc"},
+                                        {"3", "def"},
+                                        {"4", "ghi"},
+                                        {"5", "jkl"},
+                                        {"6", "mno"},
+                                        {"7", "pqrs"},
+                                        {"8", "tuv"},
+                                        {"9", "wxyz"},
+                                        {"*", ""},
+                                        {"#", ""},
+    };
+
+    // std::string current_mnemonic(phone_number.length(), 0);
+    // or string stream?
+
+    return result_mnemonics;
+
+    /// mapping digit to character set
+    /// 0 -> [empty]
+    /// 1 -> [empty]
+    /// 2 -> [abc]
+    /// 3 -> [def]
+    /// 4 -> [ghi]
+    /// 5 -> [jkl]
+    /// 6 -> [mno]
+    /// 7 -> [pqrs]
+    /// 8 -> [tuv]
+    /// 9 -> [wxyz]
+    /// * -> [empty]
+    /// # -> [empty]
+    /// ----------------
+    /// map<char,string> charsets
+    /// result_str.reserve(phone_number.size)
+    /// for each Char c in phone_number
+    ///
+}
+
+void StringExercises::MnemonicHelper(const std::string &phone_number, std::vector<std::string> &result_mnemonics, std::stringstream &ss, int digit, std::map<std::string, std::string> &charset) {
+
+    std::cout << "======= chap_seven:: Mnemonic Helper " << std::endl;
+
 }
