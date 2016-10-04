@@ -112,34 +112,26 @@ bool StringExercises::IsPalindromic(std::string &in_str) {
     return true;
 }
 
-void StringExercises::ReverseWords(std::string *sentence) {
+void StringExercises::ReverseWords(std::string *input_str) {
     // still working on an inplace solution
-    if (sentence->empty()) return;
-    int left_wstart, left_wend = 0;
-    int right_wstart = sentence->length() - 1;
-    int right_wend = sentence->length() - 1;
-    std::cout << "--->>--->> chap_seven:: sentance length " << sentence->length()  << std::endl;
+    if (input_str->empty()) return;
+    size_t left_wstart = 0;
+    size_t left_wend;
+    // int right_wstart = input_str->length() - 1;
+    // int right_wend = input_str->length() - 1;
+    std::cout << "--->>--->> ReverseWords(string *input_str = \"" << *input_str << "\")"
+              << ": input_str length = " << input_str->length() << std::endl;
 
-    while (!std::isalnum(sentence->at(left_wstart)) && left_wstart < sentence->length()) {
-        ++left_wstart;
-    }
-    std::cout << "left_wstart(" << left_wstart << ") char: " << sentence->at(left_wstart) << std::endl;
-    left_wend = left_wstart;
-    while (std::isalnum(sentence->at(left_wend + 1)) && left_wend < sentence->length()) {
-        ++left_wend;
-    }
-    std::cout << "left_wend(" << left_wend << ") char: " << sentence->at(left_wend) << std::endl;
-    while (!std::isalnum(sentence->at(right_wend)) && right_wend > 0) {
-        --right_wend;
-    }
-    std::cout << "right_wend(" << right_wend << ") char: " << sentence->at(right_wend) << std::endl;
-    right_wstart = right_wend;
-    while (std::isalnum(sentence->at(right_wstart-1)) && right_wstart > 0) {
-        --right_wstart;
-    }
-    std::cout << "right_wstart(" << right_wstart << ") char: " << sentence->at(right_wstart) << std::endl;
+    std::reverse(input_str->begin(), input_str->end());
 
-    char c = sentence->at(left_wstart);
-    sentence->at(left_wstart) = sentence->at(right_wstart);
-    sentence->at(right_wstart) = c;
+    std::cout << "======= ReverseWords -> Reversed String 1st Sweep = \"" << *input_str << "\"" << std::endl;
+
+    while ((left_wend = input_str->find(" ", left_wstart)) != std::string::npos) {
+        std::reverse(input_str->begin() + left_wstart, input_str->begin() + left_wend);
+        left_wstart = left_wend + 1;
+        std::cout << "======= reverse iteration:: " << *input_str << std::endl;
+    }
+
+    std::reverse(input_str->begin() + left_wstart, input_str->end());
+    std::cout << "======= ReverseWords -> Reversed String Final = \"" << *input_str << "\"" << std::endl;
 }

@@ -4,9 +4,11 @@
 using namespace std; //NOLINT
 
 void ReverseWords(StringExercises* string_exerciser) {
-    std::string test("HI JO");
+    std::string test("I Like Pizza");
     string_exerciser->ReverseWords(&test);
     std::cout << test << std::endl;
+    test.assign("Hello my name is Bastian, I enjoy fussball");
+    string_exerciser->ReverseWords(&test);
 }
 void IsPalindromic(StringExercises* string_exerciser) {
     std::string test_str("A man, a plan, a canal, Panama.");
