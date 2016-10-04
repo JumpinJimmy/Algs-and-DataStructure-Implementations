@@ -4,7 +4,10 @@
 using namespace std; //NOLINT
 
 void ReplaceRemove(StringExercises* string_exerciser) {
-    // string_exerciser->ReplaceAndRemove();
+    int init_size = 8;
+    char arr[init_size] = {'a', 'c', 'd', 'b', 'b', 'c', 'a'};
+    int res_size = string_exerciser->ReplaceAndRemove(arr, init_size);
+    std::cout << "ReplaceAndRemove result size: " << res_size << std::endl;
 }
 void InterConversion(StringExercises* string_exerciser) {
     std::cout << "--->>--->> main::InterCoversion "  << std::endl;
@@ -16,7 +19,8 @@ void InterConversion(StringExercises* string_exerciser) {
 }
 
 void run_tests(StringExercises* string_exerciser) {
-    InterConversion(string_exerciser);
+    // InterConversion(string_exerciser);
+    ReplaceRemove(string_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch7_test

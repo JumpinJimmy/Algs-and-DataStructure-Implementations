@@ -38,5 +38,26 @@ int StringExercises::StringToInt(std::string &in_str) {
 }
 
 int StringExercises::ReplaceAndRemove(char s[], int size) {
-    return 0;
+    // Brute force Solution
+    int write_position = 0;
+    int final_size = 0;
+    char result[size+1] = " ";  //this wont work if all a's
+    for (int i = 0; i < size; ++i) {
+        if (s[i] == 'b') {
+            continue;
+        } else if (s[i] == 'a') {
+            result[write_position++] = 'd';
+            result[write_position++] = 'd';
+            final_size += 2;
+        } else {
+            result[write_position++] = s[i];
+            final_size++;
+        }
+    }
+    std::cout << "[ ";
+    for (int j = 0; j < final_size; ++j) {
+        std::cout << result[j] << " ";
+    }
+    std::cout << "]" << std::endl;
+    return final_size;
 }
