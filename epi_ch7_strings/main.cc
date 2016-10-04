@@ -12,7 +12,16 @@ void PrintVector(std::vector<std::string> &v) {
 }
 
 void PhoneMnemonics(StringExercises* string_exerciser) {
-    std::vector<std::string> results = string_exerciser->PhoneMnemonics("1234567");
+    const std::string phone_number_one("2276696");
+    const std::string phone_number_two("23");
+    const std::string phone_number_three("9");
+    std::vector<std::string> results = string_exerciser->PhoneMnemonics(phone_number_one);
+    // PrintVector(results);
+    results.clear();
+    results = string_exerciser->PhoneMnemonics(phone_number_two);
+    PrintVector(results);
+    results.clear();
+    results = string_exerciser->PhoneMnemonics(phone_number_three);
     PrintVector(results);
 }
 

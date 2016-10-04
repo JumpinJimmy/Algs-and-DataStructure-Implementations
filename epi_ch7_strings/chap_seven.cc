@@ -138,7 +138,8 @@ std::vector<std::string> StringExercises::PhoneMnemonics(const std::string &phon
     std::vector<std::string> result_mnemonics;
     std::string current_mnemonic(phone_number.length(), 0);
     int starting_digit = 0;
-    // ss_.clear();
+
+    /// mapping digit to character set
     const std::map<char, std::string> char_sets {
                                         {'0', "0"},
                                         {'1', "1"},
@@ -153,46 +154,24 @@ std::vector<std::string> StringExercises::PhoneMnemonics(const std::string &phon
                                         {'*', "*"},
                                         {'#', "#"},
     };
-    MnemonicHelper(phone_number, &result_mnemonics, &current_mnemonic, starting_digit, &char_sets);
-    // std::string current_mnemonic(phone_number.length(), 0);
-    // or string stream?
-
+    MnemonicHelper(starting_digit, phone_number, &current_mnemonic, &result_mnemonics, &char_sets);
     return result_mnemonics;
-
-    /// mapping digit to character set
-    /// 0 -> [empty]
-    /// 1 -> [empty]
-    /// 2 -> [abc]
-    /// 3 -> [def]
-    /// 4 -> [ghi]
-    /// 5 -> [jkl]
-    /// 6 -> [mno]
-    /// 7 -> [pqrs]
-    /// 8 -> [tuv]
-    /// 9 -> [wxyz]
-    /// * -> [empty]
-    /// # -> [empty]
-    /// ----------------
-    /// map<char,string> charsets
-    /// result_str.reserve(phone_number.size)
-    /// for each Char c in phone_number
-    ///
 }
 
-void StringExercises::MnemonicHelper(const std::string &phone_number, std::vector<std::string> *result_mnemonics, std::string *current_mnemonic, int digit, const std::map<char, std::string> *charset) {
-    std::cout << "======= chap_seven:: Mnemonic Helper " << std::endl;
+void StringExercises::MnemonicHelper(int digit, const std::string &phone_number,
+                                     std::string *current_mnemonic,
+                                     std::vector<std::string> *result_mnemonics,
+                                     const std::map<char, std::string> *charset) {
     if (digit == phone_number.size()) {
         result_mnemonics->emplace_back(*current_mnemonic);
         return;
     }
-    char x = phone_number.at(digit);
-    // auto curr_charset = charset->find(phone_number.at(digit));
 
-    // if (curr_charset != charset->end()) {
-        // for (char c : curr_charset->second) {
-        //     (*current_mnemonic)[digit] = c;
-        //     MnemonicHelper(phone_number, result_mnemonics, current_mnemonic, digit + 1, charset);
-        // }
-    // }
-
+    auto curr_charset = charset->find(phone_number.at(digit));
+    if (curr_charset != charset->end()) {
+        for (char c : curr_charset->second) {
+            current_mnemonic->at(digit) = c;
+            MnemonicHelper(digit + 1, phone_number, current_mnemonic, result_mnemonics, charset);
+        }
+    }
 }
