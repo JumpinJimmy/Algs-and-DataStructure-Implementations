@@ -58,4 +58,9 @@ _TODO_
 
 **7.8: The Look-and-Say Problem**
 
+[helpful links](https://oeis.org/A006751)
+*   The Look and say sequence is a recursively defined sequence of numbers studied most notably by John Conway.
+
+*   Write a program which takes an integer 'n' as input and returns the 'nth' integer in the look and say sequence. Return as a string
+
 *   x

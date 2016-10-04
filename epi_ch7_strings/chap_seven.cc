@@ -54,8 +54,8 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
     }
 
     /// Debug output
-    std::cout << "write_position at finish: " << write_position
-    << "\nChar Array after 1st delete sweep: ";
+    std::cout << "\t -->ReplaceAndRemove:: write_position at finish: " << write_position
+    << "\n\t -->ReplaceAndRemove:: Char Array after 1st delete sweep: ";
     std::cout << "[ ";
     for (int j = 0; j < size; ++j) {
         std::cout << s[j] << " ";
@@ -78,7 +78,7 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
     }
 
     /// Debug output
-    std::cout << "\nChar Array Reverse sweep: ";
+    std::cout << "\n\t -->ReplaceAndRemove:: Char Array Reverse sweep: ";
     std::cout << "[ ";
     for (int j = 0; j < final_size; ++j) {
         std::cout << s[j] << " ";
@@ -117,7 +117,7 @@ void StringExercises::ReverseWords(std::string *input_str) {
     size_t left_word_start = 0;
     size_t left_word_end;
 
-    std::cout << "--->>--->> ReverseWords(string *input_str = \"" << *input_str << "\")"
+    std::cout << "\t -->ReverseWords(string *input_str = \"" << *input_str << "\")"
               << ": input_str length = " << input_str->length() << std::endl;
 
     std::reverse(input_str->begin(), input_str->end());
@@ -130,7 +130,7 @@ void StringExercises::ReverseWords(std::string *input_str) {
     }
 
     std::reverse(input_str->begin() + left_word_start, input_str->end());
-    std::cout << "ReverseWords -> Reversed String Final = \"" << *input_str << "\"" << std::endl;
+    std::cout << "\t -->ReverseWords::Reversed Str Final = \"" << *input_str << "\"" << std::endl;
 }
 
 std::vector<std::string> StringExercises::PhoneMnemonics(const std::string &phone_number) {
@@ -173,4 +173,9 @@ void StringExercises::MnemonicHelper(int digit, const std::string &phone_number,
             MnemonicHelper(digit + 1, phone_number, current_mnemonic, result_mnemonics, charset);
         }
     }
+}
+
+std::string StringExercises::LookAndSay(int n) {
+    std::string nth_result("");
+    return nth_result;
 }

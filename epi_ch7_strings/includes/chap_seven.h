@@ -23,6 +23,7 @@ class StringExercises {
         bool IsPalindromic(std::string &in_str);
         void ReverseWords(std::string *input_str);
         std::vector<std::string> PhoneMnemonics(const std::string &phone_number);
+        std::string LookAndSay(int n);
 
     private:
         void MnemonicHelper(int digit, const std::string &phone_number,
