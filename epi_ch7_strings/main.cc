@@ -12,6 +12,7 @@ void PrintVector(std::vector<std::string> &v) {
 }
 
 void PhoneMnemonics(StringExercises* string_exerciser) {
+    std::cout << "--->>--->> main::PhoneMnemonics "  << std::endl;
     const std::string phone_number_one("2276696");
     const std::string phone_number_two("23");
     const std::string phone_number_three("9");
@@ -26,6 +27,7 @@ void PhoneMnemonics(StringExercises* string_exerciser) {
 }
 
 void ReverseWords(StringExercises* string_exerciser) {
+    std::cout << "--->>--->> main::ReverseWords "  << std::endl;
     std::string test("I Like Pizza");
     string_exerciser->ReverseWords(&test);
     std::cout << test << std::endl;
@@ -34,6 +36,7 @@ void ReverseWords(StringExercises* string_exerciser) {
 }
 
 void IsPalindromic(StringExercises* string_exerciser) {
+    std::cout << "--->>--->> main::IsPalindromic "  << std::endl;
     std::string test_str("A man, a plan, a canal, Panama.");
     std::cout << "IsPalindromic() for string: \"" << test_str << "\" result: "
               << std::boolalpha << string_exerciser->IsPalindromic(test_str) << std::endl;
@@ -43,9 +46,10 @@ void IsPalindromic(StringExercises* string_exerciser) {
 }
 
 void ReplaceRemove(StringExercises* string_exerciser) {
+    std::cout << "--->>--->> main::ReplaceRemove "  << std::endl;
     int init_size = 7;
     char arr[10] = {'a', 'c', 'd', 'b', 'b', 'c', 'a', '0', '0', '0'};
-    std::cout << "\n Char Array pre ReplaceRemove: ";
+    std::cout << "\nChar Array pre ReplaceRemove: ";
     std::cout << "[ ";
     for (int j = 0; j < init_size; ++j) {
         std::cout << arr[j] << " ";

@@ -1,7 +1,6 @@
 #ifndef CHAP_SEVEN_H
 #define CHAP_SEVEN_H
 #include <iostream>
-#include <sstream>
 #include <iomanip>
 #include <ios>
 #include <stdlib.h>

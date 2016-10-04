@@ -55,7 +55,7 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
 
     /// Debug output
     std::cout << "write_position at finish: " << write_position
-    << "\n Char Array after 1st delete sweep: ";
+    << "\nChar Array after 1st delete sweep: ";
     std::cout << "[ ";
     for (int j = 0; j < size; ++j) {
         std::cout << s[j] << " ";
@@ -78,7 +78,7 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
     }
 
     /// Debug output
-    std::cout << "\n Char Array Reverse sweep: ";
+    std::cout << "\nChar Array Reverse sweep: ";
     std::cout << "[ ";
     for (int j = 0; j < final_size; ++j) {
         std::cout << s[j] << " ";
@@ -122,12 +122,11 @@ void StringExercises::ReverseWords(std::string *input_str) {
 
     std::reverse(input_str->begin(), input_str->end());
 
-    std::cout << "ReverseWords -> Reverse Entire String = \"" << *input_str << "\"" << std::endl;
-
+    // std::cout << "ReverseWords -> Reverse Entire String = \"" << *input_str << "\"" << std::endl;
     while ((left_word_end = input_str->find(" ", left_word_start)) != std::string::npos) {
         std::reverse(input_str->begin() + left_word_start, input_str->begin() + left_word_end);
         left_word_start = left_word_end + 1;
-        std::cout << "ReverseWords iteration:: " << *input_str << std::endl;
+        // std::cout << "ReverseWords iteration:: " << *input_str << std::endl;
     }
 
     std::reverse(input_str->begin() + left_word_start, input_str->end());
