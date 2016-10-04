@@ -9,8 +9,5 @@ std::string StringExercises::IntToString(int x) {
 }
 
 int StringExercises::StringToInt(std::string &in_str) {
-
     return 0;
 }
-
-

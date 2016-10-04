@@ -1,7 +1,6 @@
 #include "includes/chap_seven.h"
 #include <memory>
 #include <utility>
-
 using namespace std; //NOLINT
 
 void InterConversion(StringExercises* string_exerciser) {

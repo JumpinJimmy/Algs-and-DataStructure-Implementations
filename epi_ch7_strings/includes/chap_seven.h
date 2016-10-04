@@ -12,11 +12,11 @@
 #include <cmath>
 
 class StringExercises {
-public:
-    StringExercises();
-    ~StringExercises();
-    std::string IntToString(int x);
-    int StringToInt(std::string &in_str);
+    public:
+        StringExercises();
+        ~StringExercises();
+        std::string IntToString(int x);
+        int StringToInt(std::string &in_str);
 };
 
 #endif // CHAP_SEVEN_H
