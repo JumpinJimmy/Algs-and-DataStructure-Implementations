@@ -15,6 +15,15 @@ class LinkedListExercises {
     public:
         LinkedListExercises();
         ~LinkedListExercises();
+
+        template <typename T> /// See if we can move implementation to .cc
+        void Print(shared_ptr<ListNode<T>> head) {
+          if (head) {
+            std::cout << "(" << head->data << ")" << std::endl;
+            Print(head->next);
+          }
+        };
+
     private:
        shared_ptr<ListNode<int>> CreateLinkedList(int n);
 };
