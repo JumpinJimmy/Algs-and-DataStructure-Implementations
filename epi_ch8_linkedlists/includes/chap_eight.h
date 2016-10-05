@@ -18,17 +18,21 @@ class LinkedListExercises {
         shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                                       shared_ptr<ListNode<int>> L2);
 
+        //////////////////////////////////////////////////
         /// Helper Functions
         shared_ptr<ListNode<int>> CreateLinkedList(int n);
 
-        template <typename T> /// See if we can move Print impl to .cc
+        // TODO(jdevore): move Print impl to .cc
+        template <typename T>
         void Print(shared_ptr<ListNode<T>> head) {
           if (head) {
             std::cout << "(" << head->data << ")" << std::endl;
             Print(head->next);
           }
         };
+
     private:
+        /// MergeTwoSortedLists Helper Method
         void AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
                               shared_ptr<ListNode<int>> *tail_node);
 };
