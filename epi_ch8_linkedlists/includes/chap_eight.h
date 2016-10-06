@@ -18,9 +18,12 @@ class LinkedListExercises {
         shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                                       shared_ptr<ListNode<int>> L2);
 
+        shared_ptr<ListNode<int>> ReverseSubList(shared_ptr<ListNode<int>> list, int start,
+                                                                                 int finish);
+
         //////////////////////////////////////////////////
         /// Helper Functions
-        shared_ptr<ListNode<int>> CreateLinkedList(int n);
+        shared_ptr<ListNode<int>> CreateIntLinkedList(int n);
 
         // TODO(jdevore): move Print impl to .cc
         template <typename T>
@@ -30,7 +33,6 @@ class LinkedListExercises {
             Print(head->next);
           }
         };
-
     private:
         /// MergeTwoSortedLists Helper Method
         void AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,

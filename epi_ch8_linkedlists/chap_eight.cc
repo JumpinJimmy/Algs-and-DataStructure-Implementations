@@ -1,9 +1,5 @@
 #include "includes/chap_eight.h"
-LinkedListExercises::LinkedListExercises() {
-    int n = 10;
-    shared_ptr<ListNode<int>> head = CreateLinkedList(n);
-    Print(head);
-}
+LinkedListExercises::LinkedListExercises() {}
 
 LinkedListExercises::~LinkedListExercises() {}
 
@@ -22,6 +18,14 @@ shared_ptr<ListNode<int>> LinkedListExercises::MergeTwoSortedLists(shared_ptr<Li
     return result_head->next;
 }
 
+shared_ptr<ListNode<int>> LinkedListExercises::ReverseSubList(shared_ptr<ListNode<int>> list,
+                                                              int start, int finish) {
+    if (start >= finish) {
+        return list;
+    }
+
+}
+
 /// MergeTwoSortedLists Helper Method
 void LinkedListExercises::AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
                                            shared_ptr<ListNode<int>> *tail_node) {
@@ -31,7 +35,7 @@ void LinkedListExercises::AppendSingleNode(shared_ptr<ListNode<int>> *candidate_
 }
 
 /// TODO(jdevore): Create another method to build list w/ custom data field vs. 0 - N
-shared_ptr<ListNode<int>> LinkedListExercises::CreateLinkedList(int n) {
+shared_ptr<ListNode<int>> LinkedListExercises::CreateIntLinkedList(int n) {
     shared_ptr<ListNode<int>> head = nullptr;
     for (int i = n - 1; i >= 0; --i) {
         auto curr = std::make_shared<ListNode<int>>(ListNode<int> {i, nullptr});

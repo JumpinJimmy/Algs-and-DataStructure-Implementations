@@ -46,7 +46,9 @@ _Rough Pseudo Code of my solution_
 
 **8.2: Reverse a Single Sublist**
 
-*   x
+*   Write a program which takes a singly linked list **L** and two integers **start** & **finish** as arguments.
+*   Reverse the order of the nodes from the start node to the finish node **inclusive**
+*   Do not allocate additional nodes
 
 ---
 

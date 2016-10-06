@@ -1,10 +1,18 @@
 #include "includes/chap_eight.h"
 using namespace std; //NOLINT
 
+void ReverseSubList(LinkedListExercises* llist_exerciser) {
+    std::cout << "--->>--->> main::ReverseSubList <<---<<--- " << std::endl;
+    shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
+    int start_pos = 2;
+    int end_pos = 4;
+    shared_ptr<ListNode<int>> reversed = llist_exerciser->ReverseSubList(list, start_pos, end_pos);
+}
+
 void MergeSortedLists(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::MergeSortedLists <<---<<--- " << std::endl;
-    shared_ptr<ListNode<int>> L1 = llist_exerciser->CreateLinkedList(5);
-    shared_ptr<ListNode<int>> L2 = llist_exerciser->CreateLinkedList(5);
+    shared_ptr<ListNode<int>> L1 = llist_exerciser->CreateIntLinkedList(5);
+    shared_ptr<ListNode<int>> L2 = llist_exerciser->CreateIntLinkedList(5);
     shared_ptr<ListNode<int>> merged_list = llist_exerciser->MergeTwoSortedLists(L1, L2);
     llist_exerciser->Print(merged_list);
 }
