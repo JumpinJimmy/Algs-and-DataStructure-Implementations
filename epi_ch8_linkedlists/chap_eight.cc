@@ -18,12 +18,30 @@ shared_ptr<ListNode<int>> LinkedListExercises::MergeTwoSortedLists(shared_ptr<Li
     return result_head->next;
 }
 
-shared_ptr<ListNode<int>> LinkedListExercises::ReverseSubList(shared_ptr<ListNode<int>> list,
-                                                              int start, int finish) {
+shared_ptr<ListNode<int>> LinkedListExercises::ReverseSubList(int start, int finish,
+                                                              shared_ptr<ListNode<int>> orig_list) {
+    std::cout << "\t -->ReverseSubList(original_list, int start = \""
+              << start << "\", int finish = \"" << finish << "\")" << std::endl;
+
     if (start >= finish) {
-        return list;
+        return orig_list;
+    }
+    // shared_ptr<ListNode<int>> pseudo_head(new ListNode<int>(0,orig_list));
+    auto pseudo_head = std::make_shared<ListNode<int>>(ListNode<int> {0, orig_list});
+    auto sublist_header = pseudo_head;
+    int k = 1;
+    while (k++ < start) {
+        sublist_header = sublist_header->next;
     }
 
+    auto sublist_iter = sublist_header->next;
+    while (start++ < finish) {
+        auto temp = sublist_iter->next;
+        sublist_iter->next = temp->next;
+        temp->next = sublist_header->next;
+        sublist_header->next = temp;
+    }
+    return pseudo_head->next;
 }
 
 /// MergeTwoSortedLists Helper Method

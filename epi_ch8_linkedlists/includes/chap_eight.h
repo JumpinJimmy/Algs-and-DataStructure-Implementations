@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <utility>
 #include <numeric>
+#include <exception>
 #include "linked_list_prototype.h"
 #include "doubly_linked_list_prototype.h"
 
@@ -18,8 +19,8 @@ class LinkedListExercises {
         shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                                       shared_ptr<ListNode<int>> L2);
 
-        shared_ptr<ListNode<int>> ReverseSubList(shared_ptr<ListNode<int>> list, int start,
-                                                                                 int finish);
+        shared_ptr<ListNode<int>> ReverseSubList(int start, int finish,
+                                                 shared_ptr<ListNode<int>> orig_list);
 
         //////////////////////////////////////////////////
         /// Helper Functions
@@ -33,6 +34,7 @@ class LinkedListExercises {
             Print(head->next);
           }
         };
+
     private:
         /// MergeTwoSortedLists Helper Method
         void AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,

@@ -4,9 +4,12 @@ using namespace std; //NOLINT
 void ReverseSubList(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::ReverseSubList <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
-    int start_pos = 2;
-    int end_pos = 4;
-    shared_ptr<ListNode<int>> reversed = llist_exerciser->ReverseSubList(list, start_pos, end_pos);
+    llist_exerciser->Print(list);
+    int start_pos = 0;
+    int end_pos = 2;
+    shared_ptr<ListNode<int>> reversed = llist_exerciser->ReverseSubList(start_pos, end_pos, list);
+    llist_exerciser->Print(reversed);
+    // TODO(jdevore): write basic test cases
 }
 
 void MergeSortedLists(LinkedListExercises* llist_exerciser) {
@@ -20,6 +23,7 @@ void MergeSortedLists(LinkedListExercises* llist_exerciser) {
 void RunTests(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
     MergeSortedLists(llist_exerciser);
+    ReverseSubList(llist_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch8_test
