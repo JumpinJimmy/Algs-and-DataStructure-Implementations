@@ -82,6 +82,11 @@ shared_ptr<ListNode<int>> LinkedListExercises::HasCycle(const shared_ptr<ListNod
     return nullptr;
 }
 
+shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<int>> list_a,
+                                                            shared_ptr<ListNode<int>> list_b) {
+    return nullptr;
+}
+
 /// MergeTwoSortedLists Helper Method
 void LinkedListExercises::AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
                                            shared_ptr<ListNode<int>> *tail_node) {

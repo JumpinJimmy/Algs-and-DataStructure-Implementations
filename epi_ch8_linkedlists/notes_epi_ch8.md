@@ -67,9 +67,9 @@ _Rough Pseudo Code of my solution_
 
 **8.4: Test for Overlapping Lists**
 
-*   x
+*   Write a program that takes two cycle free singly linked lists and determines if there exists a node that is common to both lists
 
-`bool IsPalindromic(std::string &in_str)`
+`shared_ptr<ListNode<int>> CheckOverlapNoCycle(shared_ptr<ListNode<int>> list_a, shared_ptr<ListNode<int>> list_b)`
 
 ---
 

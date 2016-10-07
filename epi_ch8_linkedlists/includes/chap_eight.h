@@ -29,7 +29,7 @@ class LinkedListExercises {
     ~LinkedListExercises();
 
     ////////////////////////////////////////////////////////////////////////////////////
-    /// MergeTwoSortedLists()
+    /// MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)
     /// - Caller: @/* class name */
     /// - Callee: @/* class name */
     /// -------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ class LinkedListExercises {
     shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                                   shared_ptr<ListNode<int>> L2);
     ////////////////////////////////////////////////////////////////////////////////////
-    /// ReverseSubList()
+    /// ReverseSubList(int start, int finish, shared_ptr<ListNode<int>> orig_list)
     /// - Caller: @/* class name */
     /// - Callee: @/* class name */
     /// -------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ class LinkedListExercises {
     shared_ptr<ListNode<int>> ReverseSubList(int start, int finish,
                                              shared_ptr<ListNode<int>> orig_list);
     ////////////////////////////////////////////////////////////////////////////////////
-    /// HasCycle()
+    /// HasCycle(const shared_ptr<ListNode<int>>& head)
     /// - Caller: @/* class name */
     /// - Callee: @/* class name */
     /// -------------------------------------------------------------------------------
@@ -65,9 +65,21 @@ class LinkedListExercises {
     shared_ptr<ListNode<int>> HasCycle(const shared_ptr<ListNode<int>>& head);
 
     ////////////////////////////////////////////////////////////////////////////////////
-    /// CreateIntLinkedList() - Helper Function
+    /// CheckOverlap(shared_ptr list_a, shared_ptr list_b)
+    /// - Caller: @/* class name */
+    /// - Callee: @/* class name */
     /// -------------------------------------------------------------------------------
-    /// Create and Return Integer List of linked_list_prototype structures
+    /// /* Description & Overview */
+    /// -------------------------------------------------------------------------------
+    /// - @param[in] /* parameter name */ -- /* parameter purpose */
+    /// - @return[out] /* type */         -- /* description */
+    /// -------------------------------------------------------------------------------
+    shared_ptr<ListNode<int>> CheckOverlap(shared_ptr<ListNode<int>> list_a,
+                                           shared_ptr<ListNode<int>> list_b);
+    ////////////////////////////////////////////////////////////////////////////////////
+    /// CreateIntLinkedList(int n) - Helper Function
+    /// -------------------------------------------------------------------------------
+    /// Create & Return List of linked_list_prototype structs with Integer data types
     /// -------------------------------------------------------------------------------
     /// - @param[in] n          -- number of linked list nodes to create
     /// - @return[out] ListNode -- shared pointer to head of new list
@@ -111,7 +123,13 @@ class LinkedListExercises {
 
     private:
     ////////////////////////////////////////////////////////////////////////////////////
+    /// AppendSingleNode(shared_ptr *candidate_node, shared_ptr *tail_node)
+    /// -------------------------------------------------------------------------------
     /// MergeTwoSortedLists Helper Method
+    /// Appends @candidate_node to @tail_node and updates @tail_node
+    /// -------------------------------------------------------------------------------
+    /// - @param[in] *candidate_node -- pointer to node to be assigned to @tail_node->next
+    /// - @param[in] *tail_node -- current tail pointer. Update to @candidate_node after assignment
     void AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
                           shared_ptr<ListNode<int>> *tail_node);
 };
