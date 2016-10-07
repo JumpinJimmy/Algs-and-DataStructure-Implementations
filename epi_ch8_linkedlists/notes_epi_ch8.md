@@ -50,13 +50,18 @@ _Rough Pseudo Code of my solution_
 *   Reverse the order of the nodes from the start node to the finish node **inclusive**
 *   Do not allocate additional nodes
 
+`shared_ptr<ListNode<int>> ReverseSubList(int start, int finish,
+                                         shared_ptr<ListNode<int>> orig_list);`
+
 ---
 
 **8.3: Test for Cycles**
 
-*   x
+*   Write a function that takes the head of a singly linked list and returns null if no cycle exists. If a cycle exists, return the node at the start of the cycle.
+*   You do not know the length of the list in advanced
 
-`int ReplaceAndRemove(char s[], int size)`
+
+`shared_ptr<ListNode<int>> HasCycle(const shared_ptr<ListNode<int>>& head);`
 
 ---
 

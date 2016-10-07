@@ -21,7 +21,7 @@ class LinkedListExercises {
 
         shared_ptr<ListNode<int>> ReverseSubList(int start, int finish,
                                                  shared_ptr<ListNode<int>> orig_list);
-
+        shared_ptr<ListNode<int>> HasCycle(const shared_ptr<ListNode<int>>& head);
         //////////////////////////////////////////////////
         /// Helper Functions
         shared_ptr<ListNode<int>> CreateIntLinkedList(int n);

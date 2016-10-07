@@ -44,6 +44,16 @@ shared_ptr<ListNode<int>> LinkedListExercises::ReverseSubList(int start, int fin
     return pseudo_head->next;
 }
 
+shared_ptr<ListNode<int>> LinkedListExercises::HasCycle(const shared_ptr<ListNode<int>>& head) {
+    // Search the list for a cycle
+    // If Cycle exists, return the first node of the cycle
+    // If No Cycle exists, return null
+    auto slow_iter = head;
+    auto fast_iter = head;
+
+    return nullptr;
+}
+
 /// MergeTwoSortedLists Helper Method
 void LinkedListExercises::AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
                                            shared_ptr<ListNode<int>> *tail_node) {
