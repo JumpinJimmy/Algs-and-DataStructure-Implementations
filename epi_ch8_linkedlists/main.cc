@@ -3,31 +3,45 @@
 using namespace std; //NOLINT
 
 void HasCycle(LinkedListExercises* llist_exerciser) {
-    // llist_exerciser->HasCycle();
-    shared_ptr<ListNode<int>> L3 =
-      make_shared<ListNode<int>>(ListNode<int>{3, nullptr});
-    shared_ptr<ListNode<int>> L2 =
-      make_shared<ListNode<int>>(ListNode<int>{2, L3});
-    shared_ptr<ListNode<int>> L1 =
-      make_shared<ListNode<int>>(ListNode<int>{1, L2});
-    // llist_exerciser->HasCycle(L1);
-    // Should output "L1 does not have cycle."
-    assert(llist_exerciser->HasCycle(L1) == nullptr);
-    std::cout << "L1 " << (llist_exerciser->HasCycle(L1) ? "has" : "does not have") << " cycle."
-       << std::endl;
+    /// Create Basic List
+    shared_ptr<ListNode<int>> list_head = nullptr;
+    auto first = std::make_shared<ListNode<int>>(ListNode<int> {1, nullptr});
+    first->next = list_head;
+    list_head = first;
+    auto second = std::make_shared<ListNode<int>>(ListNode<int> {2, nullptr});
+    second->next = list_head;
+    list_head = second;
+    auto third = std::make_shared<ListNode<int>>(ListNode<int> {3, nullptr});
+    third->next = list_head;
+    list_head = third;
 
-    // // Make it a cycle
-    // L3->next = L2; /// this causes an odd memory leak (maybe?)
-    // // Should output "L1 has cycle, located at node has value 2"
-    // assert(llist_exerciser->HasCycle(L1) != nullptr);
-    // assert(llist_exerciser->HasCycle(L1)->data == 2);
-    // auto temp = llist_exerciser->HasCycle(L1);
-    // if (temp) {
-    //     std::cout << "L1 has cycle, located at node value " << temp->data << std::endl;
-    // } else {
-    //     std::cout << "L1 does not have cycle" << std::endl;
-    // }
+    llist_exerciser->PrintInline(list_head);
+    assert(llist_exerciser->HasCycle(list_head) == nullptr);
+    std::cout << "list_head " << (llist_exerciser->HasCycle(list_head) ? "has" : "does not have")
+              << " cycle." << std::endl;
 
+    /// Make a Cycle (this causes shared_pointers to behave poorly)
+    first->next = second;
+    std::cout << "first(data= " << first->data << ").use_count() == " << first.use_count() << '\n';
+    std::cout << "main:: first->next = " << (first->next ? std::to_string(first->next->data) : "nullptr") << std::endl;
+    assert(llist_exerciser->HasCycle(list_head) != nullptr);
+    assert(llist_exerciser->HasCycle(list_head)->data == second->data);
+    auto temp = llist_exerciser->HasCycle(list_head);
+    if (temp) {
+        std::cout << "list_head has cycle, located at node value: " << temp->data << std::endl;
+    } else {
+        std::cout << "list_head does not have cycle" << std::endl;
+    }
+
+    /// Ugly but necessary cleanup of cyclic shared pointers
+    first->next = nullptr;
+    list_head->next = nullptr;
+    second->next = nullptr;
+    third->next = nullptr;
+    list_head.reset(new ListNode<int>);
+    first.reset(new ListNode<int>);
+    second.reset(new ListNode<int>);
+    third.reset(new ListNode<int>);
 }
 
 void ReverseSubList(LinkedListExercises* llist_exerciser) {
