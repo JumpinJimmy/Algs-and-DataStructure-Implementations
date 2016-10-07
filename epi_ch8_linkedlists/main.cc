@@ -3,7 +3,16 @@
 using namespace std; //NOLINT
 
 void CheckOverlap(LinkedListExercises* llist_exerciser) {
-    // llist_exerciser->CheckOverlap();
+    // ;
+    shared_ptr<ListNode<int>> L1, L2;
+    L1 = make_shared<ListNode<int>>(ListNode<int>{
+        1, make_shared<ListNode<int>>(ListNode<int>{
+            2, make_shared<ListNode<int>>(ListNode<int>{3, nullptr})})});
+
+    L2 = L1->next->next;
+    llist_exerciser->PrintInline(L1);
+    llist_exerciser->PrintInline(L2);
+    llist_exerciser->CheckOverlap(L1, L2);
 }
 
 void HasCycle(LinkedListExercises* llist_exerciser) {
@@ -27,7 +36,9 @@ void HasCycle(LinkedListExercises* llist_exerciser) {
     /// Make a Cycle (this causes shared_pointers to behave poorly)
     first->next = second;
     std::cout << "first(data= " << first->data << ").use_count() == " << first.use_count() << '\n';
-    std::cout << "main:: first->next = " << (first->next ? std::to_string(first->next->data) : "nullptr") << std::endl;
+    std::cout << "main:: first->next = "
+              << (first->next ? std::to_string(first->next->data) : "nullptr") << std::endl;
+
     assert(llist_exerciser->HasCycle(list_head) != nullptr);
     assert(llist_exerciser->HasCycle(list_head)->data == second->data);
     auto temp = llist_exerciser->HasCycle(list_head);

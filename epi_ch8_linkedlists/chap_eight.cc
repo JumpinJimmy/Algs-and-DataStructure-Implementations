@@ -84,6 +84,39 @@ shared_ptr<ListNode<int>> LinkedListExercises::HasCycle(const shared_ptr<ListNod
 
 shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<int>> list_a,
                                                             shared_ptr<ListNode<int>> list_b) {
+    /// if list_a == list_b then return true
+    /// if list_a's last node == list_b's last node return true
+    /// if list_b's last node == list_a
+    /// If same length, iterate to last node and check equality
+    /// If Differing Length:
+    ///     set iterate longest list ptr diff(longestlength - shortest length) times;
+    ///     then iterate both until end, checking for equality
+    if (list_a == list_b) {
+        return list_a;
+    }
+
+    int a_length = 0;
+    int b_length = 0;
+
+    auto list_iter = list_a;
+    while (list_iter) {
+        ++a_length;
+        list_iter = list_iter->next;
+    }
+
+    auto list_iter2= list_b;
+    while (list_iter2) {
+        ++b_length;
+        list_iter2 = list_iter2->next;
+    }
+
+    std::cout << "list_a(data= " << list_a->data << ").use_count() == " << list_a.use_count();
+    std::cout << "\nlist_a->next = "
+              << (list_a->next ? std::to_string(list_a->next->data) : "nullptr") << std::endl;
+    std::cout << "list_b(data=" << list_b->data << ").use_count() == " << list_b.use_count();
+    std::cout << "\nlist_b->next = "
+              << (list_b->next ? std::to_string(list_b->next->data) : "nullptr") << std::endl;
+    std::cout << "a_length: " << a_length <<", b_length: " << b_length << std::endl;
     return nullptr;
 }
 
