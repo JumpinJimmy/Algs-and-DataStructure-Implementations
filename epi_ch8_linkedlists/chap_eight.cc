@@ -48,8 +48,36 @@ shared_ptr<ListNode<int>> LinkedListExercises::HasCycle(const shared_ptr<ListNod
     // Search the list for a cycle
     // If Cycle exists, return the first node of the cycle
     // If No Cycle exists, return null
+    if (!head || (head && !head->next)) {
+        return nullptr;
+    }
+
     auto slow_iter = head;
     auto fast_iter = head;
+    while (fast_iter && fast_iter->next) {
+        slow_iter = slow_iter->next;
+        fast_iter = fast_iter->next->next;
+        if (slow_iter == fast_iter) {
+            // we have a cycle
+            int length_of_cycle = 0;
+
+            do {
+               ++length_of_cycle;
+               fast_iter = fast_iter->next;
+            } while (slow_iter != fast_iter);
+
+            auto cycle_iter = head;
+            while (length_of_cycle--) {
+                cycle_iter = cycle_iter->next;
+            }
+            auto head_result = head;
+            while (head_result != cycle_iter) {
+                head_result = head_result->next;
+                cycle_iter = cycle_iter->next;
+            }
+            return head_result;
+        }
+    }
 
     return nullptr;
 }
