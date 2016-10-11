@@ -3,19 +3,22 @@
 using namespace std; //NOLINT
 
 void CheckOverlap(LinkedListExercises* llist_exerciser) {
-    // ;
+    std::cout << "--->>--->> main:CheckOverlap <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> L1, L2;
-    L1 = make_shared<ListNode<int>>(ListNode<int>{
-        1, make_shared<ListNode<int>>(ListNode<int>{
-            2, make_shared<ListNode<int>>(ListNode<int>{3, nullptr})})});
+    L1 = make_shared<ListNode<int>>(ListNode<int> {
+        1, make_shared<ListNode<int>>(ListNode<int> {
+            2, make_shared<ListNode<int>>(ListNode<int> {3, nullptr})})});
 
     L2 = L1->next->next;
     llist_exerciser->PrintInline(L1);
     llist_exerciser->PrintInline(L2);
-    llist_exerciser->CheckOverlap(L1, L2);
+    shared_ptr<ListNode<int>> result = llist_exerciser->CheckOverlap(L1, L2);
+    assert(result != nullptr);
+    llist_exerciser->PrintInline(result);
 }
 
 void HasCycle(LinkedListExercises* llist_exerciser) {
+    std::cout << "--->>--->> main:HasCycle <<---<<--- " << std::endl;
     /// Create Basic List
     shared_ptr<ListNode<int>> list_head = nullptr;
     auto first = std::make_shared<ListNode<int>>(ListNode<int> {1, nullptr});
@@ -80,9 +83,9 @@ void MergeSortedLists(LinkedListExercises* llist_exerciser) {
 
 void RunTests(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
-    // MergeSortedLists(llist_exerciser);
-    // ReverseSubList(llist_exerciser);
-    // HasCycle(llist_exerciser);
+    MergeSortedLists(llist_exerciser);
+    ReverseSubList(llist_exerciser);
+    HasCycle(llist_exerciser);
     CheckOverlap(llist_exerciser);
 }
 

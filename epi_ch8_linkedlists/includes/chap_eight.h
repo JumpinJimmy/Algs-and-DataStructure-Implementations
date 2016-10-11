@@ -132,6 +132,16 @@ class LinkedListExercises {
     /// - @param[in] *tail_node -- current tail pointer. Update to @candidate_node after assignment
     void AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
                           shared_ptr<ListNode<int>> *tail_node);
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    /// AdvanceListNodeK(int k, shared_ptr *ListNode)
+    /// -------------------------------------------------------------------------------
+    /// CheckOverlap Helper Method
+    /// Advances @ListNode forward @k times
+    /// -------------------------------------------------------------------------------
+    /// - @param[in] k -- number of times to advance @ListNode to it's next pointer
+    /// - @param[in] *ListNode -- linked list node to advance
+    void AdvanceListNodeK(int k, shared_ptr<ListNode<int>> *ListNode);
 };
 
 #endif // CHAP_EIGHT_H

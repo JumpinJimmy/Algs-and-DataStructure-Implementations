@@ -117,15 +117,13 @@ shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<
     std::cout << "\nlist_b->next = "
               << (list_b->next ? std::to_string(list_b->next->data) : "nullptr") << std::endl;
     std::cout << "a_length: " << a_length <<", b_length: " << b_length << std::endl;
-    return nullptr;
-}
+    AdvanceListNodeK(abs(a_length - b_length), a_length > b_length ? &list_a : &list_b);
 
-/// MergeTwoSortedLists Helper Method
-void LinkedListExercises::AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
-                                           shared_ptr<ListNode<int>> *tail_node) {
-    (*tail_node)->next = *candidate_node;
-    *tail_node = *candidate_node;
-    *candidate_node = (*candidate_node)->next;
+    while (list_a && list_b && list_a != list_b) {
+        list_a = list_a->next;
+        list_b = list_b->next;
+    }
+    return list_a;
 }
 
 /// TODO(jdevore): Create another method to build list w/ custom data field vs. 0 - N
@@ -137,4 +135,18 @@ shared_ptr<ListNode<int>> LinkedListExercises::CreateIntLinkedList(int n) {
         head = curr;
     }
     return head;
+}
+
+/// MergeTwoSortedLists Helper Method
+void LinkedListExercises::AppendSingleNode(shared_ptr<ListNode<int>> *candidate_node,
+                                           shared_ptr<ListNode<int>> *tail_node) {
+    (*tail_node)->next = *candidate_node;
+    *tail_node = *candidate_node;
+    *candidate_node = (*candidate_node)->next;
+}
+
+void LinkedListExercises::AdvanceListNodeK(int k, shared_ptr<ListNode<int>> *ListNode) {
+    while (k--) {
+        *ListNode = (*ListNode)->next;
+    }
 }
