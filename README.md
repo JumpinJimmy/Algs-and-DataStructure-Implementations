@@ -18,5 +18,11 @@ Personal Studies and Implementation of Core Data Structures in C++
     *   write and test code for cloumns 0 to i-1
     *   write pseudo-code for problem i
 
-*   
+---
+
+### TODO ###
+
+*   Implement Google Test in order to use CHECK() rather than assert for unit tests
+
+
 
