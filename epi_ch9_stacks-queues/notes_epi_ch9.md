@@ -5,52 +5,58 @@ Page 117 of Elements of Programming Interviews
 
 ---
 
-**9.1: Merge Two Sorted Lists**
+### Stacks ###
 
-*   x
+**9.1: Implement a Stack with Max API**
 
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
+*   Design a stack that includes a max operation, in addition to push and pop. The max method should return the maximum value stored in the stack
+
+`ret x(type in)`
 
 
 ---
 
-**9.2: Reverse a Single Sublist**
+**9.2: Evaluate RPN Expressions**
 
-*   x
+*   a string is said to be an arithmetical expression in reverse polish notaion (RPN) if:
+*   it is a single digit or a sequence of digits, prefixed with an option 
+*   it is of the form "`A`, `B`, `o`" where `A` and `B` are RPN expressions and `o` is one of the `+,-, x, /`
 
-`shared_ptr<ListNode<int>> ReverseSubList(int start, int finish,
-                                         shared_ptr<ListNode<int>> orig_list);`
-
----
-
-**9.3: Test for Cycles**
-
-*   x
-
-
-`shared_ptr<ListNode<int>> HasCycle(const shared_ptr<ListNode<int>>& head);`
+`ret x(type in)`
 
 ---
 
-**9.7: Test for Overlapping Lists**
+**9.3: Test a string over "{,},(,),[,]" for Well-Formedness**
 
-*   x
+*   A string over the characters  "{,},(,),[,]" is said to be well-formed if the different types of brackets match in the correct order
 
-`shared_ptr<ListNode<int>> CheckOverlapNoCycle(shared_ptr<ListNode<int>> list_a, shared_ptr<ListNode<int>> list_b)`
 
----
-
-**9.8: Remove the Kth Last Element from a List**
-
-*   x
-
-`shared_ptr<ListNode<int>> RemoveKthLast(const shared_ptr<ListNode<int>> &L, int k)`
+`ret x(type in)`
 
 ---
 
-**9.9: Implement Even-Odd Merge**
+### Queues ###
+
+**9.7: Compute Binary Tree Nodes in Order of Increasing Depth**
 
 *   x
 
-`shared_ptr<ListNode<int>> EvenOddMerge(const shared_ptr<ListNode<int>> &L)`
+`ret x(type in)`
 
+---
+
+**9.8: Implement a Circular Queue**
+
+*   x
+
+`ret x(type in)`
+
+---
+
+**9.9: Implement a Queue Using Stacks**
+
+*   x
+
+`ret x(type in)`
+
+s
