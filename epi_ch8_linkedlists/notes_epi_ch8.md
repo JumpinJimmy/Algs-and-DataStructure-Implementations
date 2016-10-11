@@ -84,7 +84,9 @@ _Rough Pseudo Code of my solution_
 
 **8.10: Implement Even-Odd Merge**
 
-*   x
+*   Consider a singly linked list who nodes are numbered starting at 0
+*   Define the even odd merge of the list to be the lists conisting of the ven numbered nodes followed by the odd numbered nodes. 
+*   Compute the even-odd merge
 
-`std::vector<std::string> PhoneMnemonics(const std::string &phone_number)`
+`shared_ptr<ListNode<int>> EvenOddMerge(const shared_ptr<ListNode<int>> &L)`
 

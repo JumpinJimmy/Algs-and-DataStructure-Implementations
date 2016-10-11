@@ -90,6 +90,18 @@ class LinkedListExercises {
     shared_ptr<ListNode<int>> RemoveKthLast(const shared_ptr<ListNode<int>> &L, int k);
 
     ////////////////////////////////////////////////////////////////////////////////////
+    /// EvenOddMerge(const shared_ptr &L)
+    /// - Caller: @/* class name */
+    /// - Callee: @/* class name */
+    /// -------------------------------------------------------------------------------
+    /// /* Description & Overview */
+    /// -------------------------------------------------------------------------------
+    /// - @param[in] /* parameter name */ -- /* parameter purpose */
+    /// - @return[out] /* type */         -- /* description */
+    /// -------------------------------------------------------------------------------
+    shared_ptr<ListNode<int>> EvenOddMerge(const shared_ptr<ListNode<int>> &L);
+
+    ////////////////////////////////////////////////////////////////////////////////////
     /// CreateIntLinkedList(int n) - Helper Function
     /// -------------------------------------------------------------------------------
     /// Create & Return List of linked_list_prototype structs with Integer data types
