@@ -3,25 +3,21 @@
 using namespace std; //NOLINT
 
 void EvenOddMerge(LinkedListExercises* llist_exerciser) {
-    std::cout << "--->>--->> main:RemoveKthLast <<---<<--- " << std::endl;
+    std::cout << "--->>--->> main:EvenOddMerge <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
-    std::cout << "Original List EvenOdd Merge:" << std::endl;
-    llist_exerciser->PrintInline(list);
+    llist_exerciser->PrintInline("\tOriginal List EvenOdd Merge:", list);
     shared_ptr<ListNode<int>> result = llist_exerciser->EvenOddMerge(list);
-    std::cout << "EvenOdd Merge Result: ";
-    llist_exerciser->PrintInline(result);
+    llist_exerciser->PrintInline("\tEvenOdd Merge Result: ", result);
 }
 
 void RemoveKthLast(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main:RemoveKthLast <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
     int k = 3;
-    std::cout << "Original List Pre Removal:" << std::endl;
-    llist_exerciser->PrintInline(list);
+    llist_exerciser->PrintInline("\tOriginal List Pre Removal:", list);
     shared_ptr<ListNode<int>> result = llist_exerciser->RemoveKthLast(list, k);
     assert(result != nullptr);
-    std::cout << "Result: ";
-    llist_exerciser->PrintInline(result);
+    llist_exerciser->PrintInline("\tRemoveKthLast Result: ", result);
     k = 6;
     result = llist_exerciser->RemoveKthLast(list, k);
     assert(result == nullptr);
@@ -35,11 +31,11 @@ void CheckOverlap(LinkedListExercises* llist_exerciser) {
             2, make_shared<ListNode<int>>(ListNode<int> {3, nullptr})})});
 
     L2 = L1->next->next;
-    llist_exerciser->PrintInline(L1);
-    llist_exerciser->PrintInline(L2);
+    llist_exerciser->PrintInline("\tCheckOverlap L1: ", L1);
+    llist_exerciser->PrintInline("\tCheckOverlap L2: ", L2);
     shared_ptr<ListNode<int>> result = llist_exerciser->CheckOverlap(L1, L2);
     assert(result != nullptr);
-    llist_exerciser->PrintInline(result);
+    llist_exerciser->PrintInline("\t Checkoverlap Result: ", result);
 }
 
 void HasCycle(LinkedListExercises* llist_exerciser) {
@@ -56,24 +52,25 @@ void HasCycle(LinkedListExercises* llist_exerciser) {
     third->next = list_head;
     list_head = third;
 
-    llist_exerciser->PrintInline(list_head);
+    llist_exerciser->PrintInline("\tHasCycle original list: ", list_head);
     assert(llist_exerciser->HasCycle(list_head) == nullptr);
-    std::cout << "list_head " << (llist_exerciser->HasCycle(list_head) ? "has" : "does not have")
+    std::cout << "\t list_head " << (llist_exerciser->HasCycle(list_head) ? "has" : "does not have")
               << " cycle." << std::endl;
 
     /// Make a Cycle (this causes shared_pointers to behave poorly)
     first->next = second;
-    std::cout << "first(data= " << first->data << ").use_count() == " << first.use_count() << '\n';
-    std::cout << "main:: first->next = "
+    std::cout << "\t first(data= " << first->data
+              << ").use_count() == " << first.use_count() << '\n';
+    std::cout << "\t main:: first->next = "
               << (first->next ? std::to_string(first->next->data) : "nullptr") << std::endl;
 
     assert(llist_exerciser->HasCycle(list_head) != nullptr);
     assert(llist_exerciser->HasCycle(list_head)->data == second->data);
     auto temp = llist_exerciser->HasCycle(list_head);
     if (temp) {
-        std::cout << "list_head has cycle, located at node value: " << temp->data << std::endl;
+        std::cout << "\t list_head has cycle, located at node value: " << temp->data << std::endl;
     } else {
-        std::cout << "list_head does not have cycle" << std::endl;
+        std::cout << "\t list_head does not have cycle" << std::endl;
     }
 
     /// Ugly but necessary cleanup of cyclic shared pointers
@@ -90,20 +87,23 @@ void HasCycle(LinkedListExercises* llist_exerciser) {
 void ReverseSubList(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::ReverseSubList <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
-    llist_exerciser->Print(list);
+    llist_exerciser->PrintInline("\tReverseSubList List Pre Reverse: ", list);
     int start_pos = 0;
     int end_pos = 2;
     shared_ptr<ListNode<int>> reversed = llist_exerciser->ReverseSubList(start_pos, end_pos, list);
-    llist_exerciser->Print(reversed);
+    llist_exerciser->PrintInline("\tReverseSubList Result: ", reversed);
     // TODO(jdevore): write basic test cases
 }
 
 void MergeSortedLists(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main::MergeSortedLists <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> L1 = llist_exerciser->CreateIntLinkedList(5);
+    llist_exerciser->PrintInline("\tMergeSortedLists List 1: ", L1);
     shared_ptr<ListNode<int>> L2 = llist_exerciser->CreateIntLinkedList(5);
+    llist_exerciser->PrintInline("\tMergeSortedLists List 2: ", L2);
     shared_ptr<ListNode<int>> merged_list = llist_exerciser->MergeTwoSortedLists(L1, L2);
-    llist_exerciser->Print(merged_list);
+    std::cout << "\tMergeSortedLists Merge Result: ";
+    llist_exerciser->PrintInline(merged_list);
 }
 
 void RunTests(LinkedListExercises* llist_exerciser) {

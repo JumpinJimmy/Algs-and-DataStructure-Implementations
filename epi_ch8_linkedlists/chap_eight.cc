@@ -110,13 +110,13 @@ shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<
         list_iter2 = list_iter2->next;
     }
 
-    std::cout << "list_a(data= " << list_a->data << ").use_count() == " << list_a.use_count();
-    std::cout << "\nlist_a->next = "
-              << (list_a->next ? std::to_string(list_a->next->data) : "nullptr") << std::endl;
-    std::cout << "list_b(data=" << list_b->data << ").use_count() == " << list_b.use_count();
-    std::cout << "\nlist_b->next = "
-              << (list_b->next ? std::to_string(list_b->next->data) : "nullptr") << std::endl;
-    std::cout << "a_length: " << a_length <<", b_length: " << b_length << std::endl;
+    // std::cout << "list_a(data= " << list_a->data << ").use_count() == " << list_a.use_count();
+    // std::cout << "\nlist_a->next = "
+    //           << (list_a->next ? std::to_string(list_a->next->data) : "nullptr") << std::endl;
+    // std::cout << "list_b(data=" << list_b->data << ").use_count() == " << list_b.use_count();
+    // std::cout << "\nlist_b->next = "
+    //           << (list_b->next ? std::to_string(list_b->next->data) : "nullptr") << std::endl;
+    // std::cout << "a_length: " << a_length <<", b_length: " << b_length << std::endl;
     AdvanceListNodeK(abs(a_length - b_length), a_length > b_length ? &list_a : &list_b);
 
     while (list_a && list_b && list_a != list_b) {
@@ -148,7 +148,7 @@ shared_ptr<ListNode<int>> LinkedListExercises::RemoveKthLast(const shared_ptr<Li
         kth_iter = kth_iter->next;
     }
     std::cout << "\t -->Found the kth element: " << kth_iter->next->data
-              << "\n\t Replacing it with: "
+              << "\t Replacing it with: "
               << (kth_iter->next->next ? std::to_string(kth_iter->next->next->data) : "nullptr")
               << std::endl;
     kth_iter->next = kth_iter->next->next;
@@ -175,8 +175,8 @@ shared_ptr<ListNode<int>> LinkedListExercises::EvenOddMerge(const shared_ptr<Lis
         tail_ptrs[alternator]->next = list_iter;
         tail_ptrs[alternator] = tail_ptrs[alternator]->next;
         alternator ^= 1;
-        PrintInline("EvenList:", pseudo_even_head);
-        PrintInline("OddList:", pseudo_odd_head);
+        PrintInline("\tEvenList:", pseudo_even_head);
+        PrintInline("\tOddList:", pseudo_odd_head);
     }
     tail_ptrs[1]->next = nullptr;
     tail_ptrs[0]->next = pseudo_odd_head->next;
