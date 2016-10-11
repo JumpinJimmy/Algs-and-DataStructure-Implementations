@@ -67,7 +67,7 @@ _Rough Pseudo Code of my solution_
 
 **8.4: Test for Overlapping Lists**
 
-*   Write a program that takes two cycle free singly linked lists and determines if there exists a node that is common to both lists
+*   Write a program that takes two cycle free singly linked lists and determines if there exists a node that is common to both lists _(note: exercise 8.5 should be tried as well)_
 
 `shared_ptr<ListNode<int>> CheckOverlapNoCycle(shared_ptr<ListNode<int>> list_a, shared_ptr<ListNode<int>> list_b)`
 
@@ -75,9 +75,10 @@ _Rough Pseudo Code of my solution_
 
 **8.7: Remove the Kth Last Element from a List**
 
-*   x
+*   Without knowing the length of a linked list, it is not trivial to delete the Kth to last element in a singly linked list.
+*   Given a singly linked list and an integer k, write a program to remove the Kth last element from the list. Your algorithm cannot use more than a few words of storage regardless of list length. Basically, you cannot assume the length of the list can be recorded
 
-`void ReverseWords(std::string *sentence)`
+`shared_ptr<ListNode<int>> RemoveKthLast(const shared_ptr<ListNode<int>> &L, int k)`
 
 ---
 

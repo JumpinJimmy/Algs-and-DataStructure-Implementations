@@ -2,6 +2,12 @@
 #include <cassert> //NOLINT
 using namespace std; //NOLINT
 
+void RemoveKthLast(LinkedListExercises* llist_exerciser) {
+    std::cout << "--->>--->> main:RemoveKthLast <<---<<--- " << std::endl;
+    shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
+    llist_exerciser->RemoveKthLast(list, 3);
+}
+
 void CheckOverlap(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main:CheckOverlap <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> L1, L2;
@@ -87,6 +93,7 @@ void RunTests(LinkedListExercises* llist_exerciser) {
     ReverseSubList(llist_exerciser);
     HasCycle(llist_exerciser);
     CheckOverlap(llist_exerciser);
+    RemoveKthLast(llist_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch8_test

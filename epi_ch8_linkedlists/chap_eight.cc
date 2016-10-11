@@ -126,6 +126,11 @@ shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<
     return list_a;
 }
 
+shared_ptr<ListNode<int>> LinkedListExercises::RemoveKthLast(const shared_ptr<ListNode<int>> &L,
+                                                             int k) {
+    return nullptr;
+}
+
 /// TODO(jdevore): Create another method to build list w/ custom data field vs. 0 - N
 shared_ptr<ListNode<int>> LinkedListExercises::CreateIntLinkedList(int n) {
     shared_ptr<ListNode<int>> head = nullptr;

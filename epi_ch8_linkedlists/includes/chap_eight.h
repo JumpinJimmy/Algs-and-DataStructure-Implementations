@@ -76,6 +76,19 @@ class LinkedListExercises {
     /// -------------------------------------------------------------------------------
     shared_ptr<ListNode<int>> CheckOverlap(shared_ptr<ListNode<int>> list_a,
                                            shared_ptr<ListNode<int>> list_b);
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    /// RemoveKthLast(const shared_ptr &L, int k)
+    /// - Caller: @/* class name */
+    /// - Callee: @/* class name */
+    /// -------------------------------------------------------------------------------
+    /// /* Description & Overview */
+    /// -------------------------------------------------------------------------------
+    /// - @param[in] /* parameter name */ -- /* parameter purpose */
+    /// - @return[out] /* type */         -- /* description */
+    /// -------------------------------------------------------------------------------
+    shared_ptr<ListNode<int>> RemoveKthLast(const shared_ptr<ListNode<int>> &L, int k);
+
     ////////////////////////////////////////////////////////////////////////////////////
     /// CreateIntLinkedList(int n) - Helper Function
     /// -------------------------------------------------------------------------------
