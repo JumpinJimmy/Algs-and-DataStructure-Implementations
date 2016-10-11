@@ -5,7 +5,16 @@ using namespace std; //NOLINT
 void RemoveKthLast(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main:RemoveKthLast <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
-    llist_exerciser->RemoveKthLast(list, 3);
+    int k = 3;
+    std::cout << "Original List Pre Removal:" << std::endl;
+    llist_exerciser->PrintInline(list);
+    shared_ptr<ListNode<int>> result = llist_exerciser->RemoveKthLast(list, k);
+    assert(result != nullptr);
+    std::cout << "Result: ";
+    llist_exerciser->PrintInline(result);
+    k = 6;
+    result = llist_exerciser->RemoveKthLast(list, k);
+    assert(result == nullptr);
 }
 
 void CheckOverlap(LinkedListExercises* llist_exerciser) {

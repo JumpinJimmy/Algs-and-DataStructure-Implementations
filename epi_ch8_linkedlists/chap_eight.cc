@@ -128,7 +128,31 @@ shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<
 
 shared_ptr<ListNode<int>> LinkedListExercises::RemoveKthLast(const shared_ptr<ListNode<int>> &L,
                                                              int k) {
-    return nullptr;
+    /// Could we remove the kth to last if we knew the length of the list? (with two pointers)
+    /// Advance 1st pointer k times.
+    /// Then advance each pointer by one until 1st pointer is at the end
+    /// edge cases to consider: list has less than k elements
+    std::cout << "\t -->RemoveKthLast(original_list, int k = \""
+              << k << "\")" << std::endl;
+    auto pseudo_head = std::make_shared<ListNode<int>>(ListNode<int> {0, L});
+    auto first_iter = pseudo_head->next;
+    if (!first_iter) { return nullptr; }
+    while (k--) {
+        // check for nullptr?
+        if (!first_iter) { return nullptr; }
+        first_iter = first_iter->next;
+    }
+    auto kth_iter = pseudo_head;
+    while (first_iter) {
+        first_iter = first_iter->next;
+        kth_iter = kth_iter->next;
+    }
+    std::cout << "\t -->Found the kth element: " << kth_iter->next->data
+              << "\n\t Replacing it with: "
+              << (kth_iter->next->next ? std::to_string(kth_iter->next->next->data) : "nullptr")
+              << std::endl;
+    kth_iter->next = kth_iter->next->next;
+    return pseudo_head->next;
 }
 
 /// TODO(jdevore): Create another method to build list w/ custom data field vs. 0 - N
