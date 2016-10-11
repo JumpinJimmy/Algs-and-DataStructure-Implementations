@@ -164,18 +164,22 @@ shared_ptr<ListNode<int>> LinkedListExercises::EvenOddMerge(const shared_ptr<Lis
     std::array<shared_ptr<ListNode<int>>, 2> tail_ptrs = {pseudo_even_head, pseudo_odd_head};
     int alternator = 0;
     for (auto list_iter = L; list_iter; list_iter = list_iter->next) {
+        // std::cout << "tail_ptrs[0]->data: " << std::to_string(tail_ptrs[0]->data)
+        //           << ", tail_ptrs[0]->next: "
+        //           << (tail_ptrs[0]->next ? std::to_string(tail_ptrs[0]->next->data) : "nullptr")
+        //           << std::endl;
+        // std::cout << "tail_ptrs[1]->data: " << std::to_string(tail_ptrs[1]->data)
+        //           << ", tail_ptrs[1]->next: "
+        //           << (tail_ptrs[1]->next ? std::to_string(tail_ptrs[1]->next->data) : "nullptr")
+        //           << std::endl;
         tail_ptrs[alternator]->next = list_iter;
         tail_ptrs[alternator] = tail_ptrs[alternator]->next;
         alternator ^= 1;
-        std::cout << "pseudo_even_head->data: " << std::to_string(pseudo_even_head->data) << std::endl;
-        std::cout << "pseudo_odd_head->data: " << std::to_string(pseudo_odd_head->data) << std::endl;
-        std::cout << "tail_ptrs[0]->data: " << std::to_string(tail_ptrs[0]->data) << ", tail_ptrs[0]->next: " << (tail_ptrs[0]->next ? std::to_string(tail_ptrs[0]->next->data) : "nullptr") << std::endl;
-        std::cout << "tail_ptrs[1]->data: " << std::to_string(tail_ptrs[1]->data) << ", tail_ptrs[1]->next: " << (tail_ptrs[1]->next ? std::to_string(tail_ptrs[1]->next->data) : "nullptr") << std::endl;
+        PrintInline("EvenList:", pseudo_even_head);
+        PrintInline("OddList:", pseudo_odd_head);
     }
     tail_ptrs[1]->next = nullptr;
     tail_ptrs[0]->next = pseudo_odd_head->next;
-        std::cout << "pseudo_even_head->data: " << std::to_string(pseudo_even_head->data) << std::endl;
-        std::cout << "pseudo_odd_head->data: " << std::to_string(pseudo_odd_head->data) << std::endl;
     return pseudo_even_head->next;
 }
 

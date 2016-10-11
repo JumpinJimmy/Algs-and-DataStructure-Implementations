@@ -146,6 +146,24 @@ class LinkedListExercises {
       }
     };
 
+    ////////////////////////////////////////////////////////////////////////////////////
+    /// Overloaded with extra string for detailed output
+    template <typename T>
+    void PrintInline(std::string details, shared_ptr<ListNode<T>> head) {
+      if (!details.empty()) {
+        std::cout << details << " ";
+      }
+      if (head) {
+        std::cout << "(" << head->data << ")";
+        if (head->next) {
+          std::cout << " -> ";
+        } else {
+            std::cout << std::endl;
+        }
+        PrintInline(head->next);
+      }
+    };
+
     private:
     ////////////////////////////////////////////////////////////////////////////////////
     /// AppendSingleNode(shared_ptr *candidate_node, shared_ptr *tail_node)
