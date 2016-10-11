@@ -2,6 +2,16 @@
 #include <cassert> //NOLINT
 using namespace std; //NOLINT
 
+void EvenOddMerge(LinkedListExercises* llist_exerciser) {
+    std::cout << "--->>--->> main:RemoveKthLast <<---<<--- " << std::endl;
+    shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
+    std::cout << "Original List EvenOdd Merge:" << std::endl;
+    llist_exerciser->PrintInline(list);
+    shared_ptr<ListNode<int>> result = llist_exerciser->EvenOddMerge(list);
+    std::cout << "EvenOdd Merge Result: ";
+    llist_exerciser->PrintInline(result);
+}
+
 void RemoveKthLast(LinkedListExercises* llist_exerciser) {
     std::cout << "--->>--->> main:RemoveKthLast <<---<<--- " << std::endl;
     shared_ptr<ListNode<int>> list = llist_exerciser->CreateIntLinkedList(5);
@@ -103,6 +113,7 @@ void RunTests(LinkedListExercises* llist_exerciser) {
     HasCycle(llist_exerciser);
     CheckOverlap(llist_exerciser);
     RemoveKthLast(llist_exerciser);
+    EvenOddMerge(llist_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch8_test
