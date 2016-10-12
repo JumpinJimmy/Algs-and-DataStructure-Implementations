@@ -3,6 +3,11 @@ StackQueueExercises::StackQueueExercises() {}
 
 StackQueueExercises::~StackQueueExercises() {}
 
+int StackQueueExercises::EvaluateRPN(const std::string& RPN_expression) {
+    return 0;
+}
+
+/// Helper Methods
 void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     MaxStack test_stack;
     for (auto &element : elements) {

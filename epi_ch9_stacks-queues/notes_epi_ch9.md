@@ -28,11 +28,18 @@ Page 117 of Elements of Programming Interviews
 
 **9.2: Evaluate RPN Expressions**
 
-*   a string is said to be an arithmetical expression in reverse polish notaion (RPN) if:
+*   a string is said to be an arithmetical expression in reverse polish notation (RPN) if:
 *   it is a single digit or a sequence of digits, prefixed with an option 
+    *   e.g. `"6"`, `"123"`, `"-42"`
+
 *   it is of the form "`A`, `B`, `o`" where `A` and `B` are RPN expressions and `o` is one of the `+,-, x, /`
 
-`ret x(type in)`
+*   **The Following Strings Satisfy these rules:** `"1729"`, `"3,4,+,2,x,1+"`, `"1,1,+,-2,x"` , `"-641, 6, /, 28,/"`
+*   Write a program that takes an arithmetical expression in RPN and returns the number that the expression evaluates to
+    *   **Example Input:** `"3,4,+,2,x,1,+"`
+    *   **Example Ouput:** `14`
+
+`int EvaluateRPN(const string& RPN_expressi1on)`
 
 ---
 
