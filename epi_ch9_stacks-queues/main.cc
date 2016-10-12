@@ -5,7 +5,18 @@ using namespace std; //NOLINT
 void TestMaxElement(StackQueueExercises* sq_exerciser) {
     std::cout << "--->>--->> main::TestMaxElement <<---<<--- " << std::endl;
     std::vector<int> v {1, 2, 3, 4};
-    sq_exerciser->TestMaxStack(v);
+    // sq_exerciser->TestMaxStack(v);
+    std::shared_ptr<MaxStack> stack = sq_exerciser->CreateStack(v);
+    std::cout << "--->>--->> main::CreateStack Result->Top(): " << stack->Top()
+              << ", Result->Max(): " << stack->Max()
+              << ", Result->stack_size(): " << stack->stack_size() << std::endl;
+    sq_exerciser->TestStackScope(stack);
+    std::shared_ptr<MaxStack> int_stack = sq_exerciser->CreateStack(10);
+    std::cout << "--->>--->> main::CreateStack stack_size->Top(): " << int_stack->Top()
+              << ", stack_size->Max(): " << int_stack->Max()
+              << ", stack_size->stack_size(): " << int_stack->stack_size() << std::endl;
+    sq_exerciser->TestStackScope(int_stack);
+// CreateStack
 }
 
 void RunTests(StackQueueExercises* sq_exerciser) {

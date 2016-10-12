@@ -17,14 +17,16 @@ class MaxStack {
     int stack_size();
 
     private:
+    std::stack<int> elements_;
     struct CachedMax {
         int max_;
         int count_;
     };
+    std::stack<CachedMax> cached_max_values_;
     // struct with two integer elements (max, count)
     // stack containing struct elements  cache_maxed_vals
-    std::stack<int> elements_;
-    std::stack<CachedMax> cached_max_values_;
+
+
 };
 
 

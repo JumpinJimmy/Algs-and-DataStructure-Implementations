@@ -15,15 +15,25 @@ void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     std::cout << "\t--->> Max Element: " << test_stack.Max() << std::endl;
     std::cout << "\t--->> Stack Size: " << test_stack.stack_size()  << std::endl;
 }
-// std::shared_ptr<Stack> CreateStack(int n) {
-//     // shared_ptr<ListNode<int>> head = nullptr;
-//     // for (int i = n - 1; i >= 0; --i) {
-//     //     auto curr = std::make_shared<ListNode<int>>(ListNode<int> {i, nullptr});
-//     //     curr->next = head;
-//     //     head = curr;
-//     // }
-//     // return head;
-//     // std::shared_ptr<Stack> new_stack = nullptr;
-//     // new_stack = std::make_shared<Stack>(new Stack());
-//     // return new_stack;
-// }
+
+void StackQueueExercises::TestStackScope(std::shared_ptr<MaxStack> &s) {
+    std::cout << "--->>--->> TestStackScope s->Top(): " << s->Top()
+              << ", s->Max(): " << s->Max()
+              << ", s->stack_size(): " << s->stack_size() << std::endl;
+}
+
+std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(int n) {
+    std::shared_ptr<MaxStack> test_stack(new MaxStack());
+    for (int i = n - 1; i >= 0; --i) {
+        test_stack->Push(i);
+    }
+    return test_stack;
+}
+
+std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(std::vector<int> &elements) {
+    std::shared_ptr<MaxStack> new_stack(new MaxStack());
+    for (auto &element : elements) {
+        new_stack->Push(element);
+    }
+    return new_stack;
+}

@@ -28,8 +28,9 @@ class StackQueueExercises {
     StackQueueExercises();
     ~StackQueueExercises();
     void TestMaxStack(std::vector<int> &elements);
-    // std::shared_ptr<Stack> CreateStack(int n);
-
+    void TestStackScope(std::shared_ptr<MaxStack> &s);
+    std::shared_ptr<MaxStack> CreateStack(int n);
+    std::shared_ptr<MaxStack> CreateStack(std::vector<int> &elements);
 
     private:
 };
