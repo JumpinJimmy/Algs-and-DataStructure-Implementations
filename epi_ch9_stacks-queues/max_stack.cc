@@ -41,3 +41,7 @@ int MaxStack::Max() const {
     /// return top of max stack
    return elements_.top();
 }
+
+int MaxStack::stack_size() {
+    return elements_.size();
+}

@@ -13,7 +13,7 @@ void RunTests(StackQueueExercises* sq_exerciser) {
     TestMaxElement(sq_exerciser);
 }
 
-// valgrind --leak-check=full --show-leak-kinds=all ./ch8_test
+// valgrind --leak-check=full --show-leak-kinds=all ./ch9_test
 int main(int argc, char const *argv[]) {
     std::shared_ptr<StackQueueExercises> sq_exerciser(new StackQueueExercises());
     RunTests(sq_exerciser.get());

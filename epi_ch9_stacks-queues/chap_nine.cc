@@ -8,6 +8,7 @@ void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     for (auto &element : elements) {
         test_stack.Push(element);
     }
+    std::cout << "--->>--->> chap_nine:: Stack Size: " << test_stack.stack_size()  << std::endl;
 }
 // std::shared_ptr<Stack> CreateStack(int n) {
 //     // shared_ptr<ListNode<int>> head = nullptr;

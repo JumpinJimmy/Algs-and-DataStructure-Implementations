@@ -14,6 +14,7 @@ class MaxStack {
     bool Empty() const;
     int Top();
     int Max() const;
+    int stack_size();
 
     private:
     struct CachedMax {
