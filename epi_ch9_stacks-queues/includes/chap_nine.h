@@ -5,10 +5,8 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <utility>
 #include <numeric>
-#include <exception>
 #include <memory>
 #include "stack.h"
 // #include "linked_list_prototype.h"

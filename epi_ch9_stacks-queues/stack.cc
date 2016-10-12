@@ -13,10 +13,14 @@ int Stack::Pop() {
     return -1;
 }
 
-bool Stack::Empty() {
+bool Stack::Empty() const {
     return elements_.empty();
 }
 
 int Stack::Top() {
     return elements_.top();
+}
+
+int Stack::Max() const {
+   return elements_.top();
 }
