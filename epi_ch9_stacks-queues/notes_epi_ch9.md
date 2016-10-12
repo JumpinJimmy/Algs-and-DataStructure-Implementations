@@ -37,7 +37,7 @@ Page 117 of Elements of Programming Interviews
 *   **The Following Strings Satisfy these rules:** `"1729"`, `"3,4,+,2,x,1+"`, `"1,1,+,-2,x"` , `"-641, 6, /, 28,/"`
 *   Write a program that takes an arithmetical expression in RPN and returns the number that the expression evaluates to
     *   **Example Input:** `"3,4,+,2,x,1,+"`
-    *   **Example Ouput:** `14`
+    *   **Example Ouput:** `15`
 
 `int EvaluateRPN(const string& RPN_expressi1on)`
 
