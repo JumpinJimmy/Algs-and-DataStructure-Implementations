@@ -8,7 +8,7 @@
 #include <utility>
 #include <numeric>
 #include <memory>
-#include "stack.h"
+#include "max_stack.h"
 // #include "linked_list_prototype.h"
 // #include "doubly_linked_list_prototype.h"
 
@@ -27,6 +27,9 @@ class StackQueueExercises {
     public:
     StackQueueExercises();
     ~StackQueueExercises();
+    void TestMaxStack(std::vector<int> &elements);
+    // std::shared_ptr<Stack> CreateStack(int n);
+
 
     private:
 };

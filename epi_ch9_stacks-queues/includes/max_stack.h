@@ -1,15 +1,14 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef MAX_STACK_H
+#define MAX_STACK_H
 #include <stack>
 #include <algorithm>
 #include <exception>
-#include <exception>
 #include <stdexcept>
 
-class Stack {
+class MaxStack {
     public:
-    Stack();
-    ~Stack();
+    MaxStack();
+    ~MaxStack();
     void Push(int val);
     int Pop();
     bool Empty() const;
@@ -17,10 +16,15 @@ class Stack {
     int Max() const;
 
     private:
+    struct CachedMax {
+        int max_;
+        int count_;
+    };
     // struct with two integer elements (max, count)
     // stack containing struct elements  cache_maxed_vals
     std::stack<int> elements_;
+    std::stack<CachedMax> cached_max_values_;
 };
 
 
-#endif // STACK_H
+#endif // MAX_STACK_H
