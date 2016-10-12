@@ -10,6 +10,7 @@
 #include <numeric>
 #include <exception>
 #include <memory>
+#include "stack.h"
 // #include "linked_list_prototype.h"
 // #include "doubly_linked_list_prototype.h"
 

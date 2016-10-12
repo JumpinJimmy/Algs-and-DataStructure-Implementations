@@ -3,6 +3,16 @@ Page 117 of Elements of Programming Interviews
 
 *   **Exercises:** 9.1, 9.2, 9.3*, 9.7, 9.8, 9.9*
 
+## Stack Notes ##
+
+*   A Stack supports two basic operations: `push` & `pop`
+*   Elements are added(pushed) and removed(popped) in last-in, first-out order (LIFO)
+*   When a stack is implemented using a linked list, these operations have 0(1) time complexity
+*   If it is implemented using an array, there is a maximum number of entries it can have. 
+*   If the array is dynamically resized, the amortized time for both push and pop is still 0(1).
+*   A stack can support additional operations such as peek, which returns the top of the stack without popping it
+
+
 ---
 
 ### Stacks ###

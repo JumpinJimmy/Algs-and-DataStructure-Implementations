@@ -16,7 +16,10 @@ ch9_test: $(LOCALOBJS)
 main.o: main.cc includes/chap_nine.h
 	$(CXX) $(CFLAGS) main.cc
 
-chap_nine.o: includes/chap_nine.h chap_nine.cc
+stack.o: includes/stack.h stack.cc
+	$(CXX) $(CFLAGS) stack.cc
+
+chap_nine.o: includes/stack.h includes/chap_nine.h chap_nine.cc
 	$(CXX) $(CFLAGS) chap_nine.cc
 
 clean:
