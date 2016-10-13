@@ -11,8 +11,6 @@
 #include "max_stack.h"
 #include "bst_node_prototype.h"
 #include "circular_queue.h"
-// #include "linked_list_prototype.h"
-// #include "doubly_linked_list_prototype.h"
 
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -54,6 +52,7 @@ class StackQueueExercises {
     bool IsWellFormedBrackets(const std::string& bracket_str);
 
     std::vector<std::vector<int>> BinTreeLevelOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree); //NOLINT
+
     ////////////////////////////////////////////////////////////////////////////////////
     /// Helper Methods
     std::shared_ptr<MaxStack> CreateStack(int n);

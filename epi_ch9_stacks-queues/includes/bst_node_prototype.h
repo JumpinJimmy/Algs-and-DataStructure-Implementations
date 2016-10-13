@@ -10,5 +10,4 @@ struct BinaryTreeNode {
   unique_ptr<BinaryTreeNode<T>> left, right;
 };
 
-// REGISTER_TREE_TYPE(unique_ptr<BinaryTreeNode<T>>)
 #endif // BST_NODE_PROTOTYPE_H
