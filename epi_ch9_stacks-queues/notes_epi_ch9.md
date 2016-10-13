@@ -41,9 +41,9 @@ Page 117 of Elements of Programming Interviews
 
 ---
 
-**9.3: Test a string over "{,},(,),[,]" for Well-Formedness**
+**9.3: Test weather a String of bracket characters "{,},(,),[,]" is well-formed / balanced**
 
-*   A string over the characters  "{,},(,),[,]" is said to be well-formed if the different types of brackets match in the correct order
+*   A string over the characters  "{,},(,),[,]" is said to be well-formed if if each open bracket has a corresponding closing bracket in the correct order
 
 *   **Examples:**
     *   `"([]){()}"` is _well-formed_
@@ -71,16 +71,20 @@ Page 117 of Elements of Programming Interviews
 
 **9.8: Implement a Circular Queue**
 
-*   
+*   A queue can be implemented using an array and two additional fields. The beginning and the end indices.
+*   This is usually referred to as a circular queue
+*   Both enqueue and enqueue have 0(1) time complexity
+*   If the array is fixed, there is a maximum number of entries that can be stored
+*   If the array is dynamically resized, the total time for m combined enqueue and dequeue operations is O(m)
 
-`ret x(type in)`
+*   **Task:** Implement a queue API using an array for storing elements. The constructor should take in as an argument the initial capacity of the queue.
+*   Include enqueue and dequeue functions and a function which returns the number of elements stored. 
+*   Implement Dynamic resizing to support storing an arbitrarily large number of elements. 
+
 
 ---
 
 **9.9: Implement a Queue Using Stacks**
 
-*   x
+*   How would you implement a queue given a library implementing stacks
 
-`ret x(type in)`
-
-s
