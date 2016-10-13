@@ -4,6 +4,24 @@ StackQueueExercises::StackQueueExercises() {}
 StackQueueExercises::~StackQueueExercises() {}
 
 int StackQueueExercises::EvaluateRPN(const std::string& RPN_expression) {
+    if (RPN_expression.empty()) {
+        throw std::invalid_argument("EvaluateRPN(): RPN_expression String is Empty");
+    }
+    // foreach (char c: RPN_expression)
+    // if C.isDigit (!operator +-/*)
+    //  operand_stack.emplace(stoi(c))
+    // else if (c.isOperator(+-/*)) {
+    //    int operand_a = operand_stack.top()
+    //    operand_stack.pop()
+    //    int operaand_b = operand_stack.top()
+    //    operand_stack.pop()
+    //    switch(c):
+    //      -case"+": operand_stack.emplace(operand_a+operand_b)
+    //      -case"-": operand_stack.emplace(operand_a-operand_b)
+    //      -case"*": operand_stack.emplace(operand_a*operand_b)
+    //      -case"/": operand_stack.emplace(operand_a/operand_b)
+    // }
+    // return operand_stack.top()
     return 0;
 }
 
