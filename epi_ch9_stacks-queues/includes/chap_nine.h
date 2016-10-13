@@ -1,9 +1,6 @@
 #ifndef CHAP_NINE_H
 #define CHAP_NINE_H
-#include <iostream>
-#include <ios>
 #include <stdlib.h>
-#include <string>
 #include <vector>
 #include <utility>
 #include <numeric>

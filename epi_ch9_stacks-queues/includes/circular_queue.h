@@ -3,6 +3,9 @@
 #include <array>
 #include <vector>
 #include <memory>
+#include <iostream>
+#include <ios>
+#include <string>
 
 class CircularQueue {
     public:

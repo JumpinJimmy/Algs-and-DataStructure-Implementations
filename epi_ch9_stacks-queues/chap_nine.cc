@@ -125,5 +125,5 @@ std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(std::vector<int> &ele
 }
 
 void StackQueueExercises::TestCircularQueue() {
-
+    CircularQueue cq(10);
 }
