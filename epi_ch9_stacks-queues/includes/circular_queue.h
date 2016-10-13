@@ -1,6 +1,7 @@
 #ifndef CIRCULAR_QUEUE_H
 #define CIRCULAR_QUEUE_H
 #include <array>
+#include <algorithm>
 #include <vector>
 #include <memory>
 #include <iostream>
@@ -16,7 +17,7 @@ class CircularQueue {
     int Dequeue();
     int QueueSize();
     void PrintInline(const std::vector<int> *list, std::string details = "");
-
+    void PrintFromHead();
     private:
     // resize function
     int front_;

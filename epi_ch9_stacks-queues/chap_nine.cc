@@ -130,5 +130,9 @@ void StackQueueExercises::TestCircularQueue() {
     while (initial_size--) {
         cq.Enqueue(initial_size);
     }
+    cq.PrintFromHead();
     cq.Enqueue(11);
+
+    std::cout << "Front: " << cq.Dequeue() << std::endl;
+    std::cout << "Frontb: " << cq.Dequeue() << std::endl;
 }
