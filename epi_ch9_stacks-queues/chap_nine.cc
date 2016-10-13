@@ -41,11 +41,14 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
     //          -case")": if left_stack.top() == '('; left_stack.pop(); continue;
     //      return false
     //  // end forloop
-    //  if (left_stack.size >= 1) return false
+    //  if (left_stack.size >= 1) return false  // return left_stack.empty()
 
     return true;
 }
 
+std::vector<std::vector<int>> StackQueueExercises::BSTDepthOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree) {
+    return {{}};
+}
 /// Helper Methods
 void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     MaxStack test_stack;

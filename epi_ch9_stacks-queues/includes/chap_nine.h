@@ -51,6 +51,7 @@ class StackQueueExercises {
     /// -------------------------------------------------------------------------------
     bool IsWellFormedBrackets(const std::string& bracket_str);
 
+    std::vector<std::vector<int>> BSTDepthOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree);
     ////////////////////////////////////////////////////////////////////////////////////
     /// Helper Methods
     std::shared_ptr<MaxStack> CreateStack(int n);

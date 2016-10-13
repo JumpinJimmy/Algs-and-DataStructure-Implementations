@@ -21,8 +21,6 @@ Page 117 of Elements of Programming Interviews
 
 *   Design a stack that includes a max operation, in addition to push and pop. The max method should return the maximum value stored in the stack
 
-`ret x(type in)`
-
 
 ---
 
@@ -63,9 +61,11 @@ Page 117 of Elements of Programming Interviews
 
 **9.7: Compute Binary Tree Nodes in Order of Increasing Depth**
 
-*   x
+*   If each node in a binary tree has a depth indicating its distance from the root
+*   Given a binary tree, return an array consisting of the keys at the same level
+*   Keys should appear in the order of the corresponding nodes' depths, breaking ties from left to right
 
-`ret x(type in)`
+`vector<vector<int>> BSTDepthOrder(const unique_ptr<BinaryTreeNode<int>>& tree)`
 
 ---
 
