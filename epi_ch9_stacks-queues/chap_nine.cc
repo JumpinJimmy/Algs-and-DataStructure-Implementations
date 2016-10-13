@@ -30,6 +30,19 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
         throw std::invalid_argument("IsWellFormedBrackets(): bracket_str.size must be > 1 char");
         return false;
     }
+    // foreach (char c: bracket_str)
+    // if C.isLeftBracket (`[`,`{`,`(`) )
+    //     left_stack.emplace(c)
+    //     // or emplace its compliment.... e.g. if c == [ emplace ]
+    //  else if (c.isRightBracket(`]`,`}`,`)`))
+    //      switch(c)
+    //          -case"]": if left_stack.top() == '['; left_stack.pop(); continue;
+    //          -case"}": if left_stack.top() == '{'; left_stack.pop(); continue;
+    //          -case")": if left_stack.top() == '('; left_stack.pop(); continue;
+    //      return false
+    //  // end forloop
+    //  if (left_stack.size >= 1) return false
+
     return true;
 }
 

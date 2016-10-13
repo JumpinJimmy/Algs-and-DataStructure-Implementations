@@ -7,16 +7,15 @@ void TestMaxElement(StackQueueExercises* sq_exerciser) {
     std::vector<int> v {1, 2, 3, 4};
     // sq_exerciser->TestMaxStack(v);
     std::shared_ptr<MaxStack> stack = sq_exerciser->CreateStack(v);
-    std::cout << "--->>--->> main::CreateStack Result->Top(): " << stack->Top()
+    std::cout << "TestMaxElement::CreateStack Result->Top(): " << stack->Top()
               << ", Result->Max(): " << stack->Max()
               << ", Result->stack_size(): " << stack->stack_size() << std::endl;
     sq_exerciser->TestStackScope(stack);
     std::shared_ptr<MaxStack> int_stack = sq_exerciser->CreateStack(10);
-    std::cout << "--->>--->> main::CreateStack stack_size->Top(): " << int_stack->Top()
+    std::cout << "TestMaxElement::CreateStack stack_size->Top(): " << int_stack->Top()
               << ", stack_size->Max(): " << int_stack->Max()
               << ", stack_size->stack_size(): " << int_stack->stack_size() << std::endl;
     sq_exerciser->TestStackScope(int_stack);
-// CreateStack
 }
 
 void IsWellFormedBrackets(StackQueueExercises* sq_exerciser) {
@@ -45,6 +44,8 @@ void EvaluateRPN(StackQueueExercises* sq_exerciser) {
 void RunTests(StackQueueExercises* sq_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
     TestMaxElement(sq_exerciser);
+    IsWellFormedBrackets(sq_exerciser);
+    EvaluateRPN(sq_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch9_test
