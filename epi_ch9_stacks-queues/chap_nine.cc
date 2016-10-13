@@ -46,7 +46,32 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
     return true;
 }
 
+// add current node to new vector list
+// node_curr = q.front()
+// q.pop()
+// pop queue
+// if node_curr->left != nullptr: q->emplace(node_curr->left.get)
+// if node_curr->righ != nullptr: q->emplace(node_curr->right.get)
 std::vector<std::vector<int>> StackQueueExercises::BinTreeLevelOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree) { //NOLINT
+    if (!tree) {
+        throw std::invalid_argument("BinTreeLevelOrder(): Tree is null");
+        return {{}};
+    }
+    std::vector<std::vector<int>> level_results;
+    std::vector<int> curr_level;
+    std::queue<BinaryTreeNode<int>*> traversal_queue;
+    traversal_queue.emplace(tree.get());
+    while (!traversal_queue.empty()) {
+        BinaryTreeNode<int> *curr_node = traversal_queue.front();
+        // std::cout << "curr_node: " << curr_node->data << std::endl;
+        curr_level.emplace_back(curr_node->data);
+        traversal_queue.pop();
+        if (curr_node->left != nullptr) {traversal_queue.emplace(curr_node->left.get());}
+        if (curr_node->right != nullptr) {traversal_queue.emplace(curr_node->right.get());}
+    }
+    for (auto &element : curr_level) {
+        std::cout << element << " ";
+    }
     return {{}};
 }
 /// Helper Methods

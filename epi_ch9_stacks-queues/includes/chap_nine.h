@@ -7,6 +7,7 @@
 #include <vector>
 #include <utility>
 #include <numeric>
+#include <queue>
 #include "max_stack.h"
 #include "bst_node_prototype.h"
 #include "circular_queue.h"

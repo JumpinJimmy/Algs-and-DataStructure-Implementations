@@ -19,7 +19,33 @@ void TestMaxElement(StackQueueExercises* sq_exerciser) {
 }
 
 void BinaryTreeLevelOrder(StackQueueExercises* sq_exerciser) {
+    std::cout << "--->>--->> main::BinaryTreeLevelOrder <<---<<--- " << std::endl;
     // sq_exerciser->BinTreeLevelOrder();
+  std::unique_ptr<BinaryTreeNode<int>> tree = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{3, nullptr, nullptr});
+  tree->left = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{2, nullptr, nullptr});
+  tree->left->left = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{1, nullptr, nullptr});
+  tree->left->left->left = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{10, nullptr, nullptr});
+  tree->left->left->left->right = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{13, nullptr, nullptr});
+  tree->right = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{5, nullptr, nullptr});
+  tree->right->left = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{4, nullptr, nullptr});
+  tree->right->right = std::make_unique<BinaryTreeNode<int>>(
+      BinaryTreeNode<int>{6, nullptr, nullptr});
+  // should output 3
+  //               2 5
+  //               1 4 6
+  //               10
+  //               13
+  auto result = sq_exerciser->BinTreeLevelOrder(tree);
+  // vector<vector<int>> golden_res = {{3}, {2, 5}, {1, 4, 6}, {10}, {13}};
+  // assert(equal(golden_res.begin(), golden_res.end(), result.begin(),
+               // result.end()));
 }
 
 void IsWellFormedBrackets(StackQueueExercises* sq_exerciser) {
