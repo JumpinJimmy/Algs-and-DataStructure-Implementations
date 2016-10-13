@@ -14,6 +14,9 @@ class CircularQueue {
     void Enqueue(int element);
     int Dequeue();
     int QueueSize();
+
+    void PrintInline(const std::vector<int> *list, std::string details = "");
+
     private:
     // resize function
     int front_;
