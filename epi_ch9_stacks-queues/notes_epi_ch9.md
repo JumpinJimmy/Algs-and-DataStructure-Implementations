@@ -47,8 +47,15 @@ Page 117 of Elements of Programming Interviews
 
 *   A string over the characters  "{,},(,),[,]" is said to be well-formed if the different types of brackets match in the correct order
 
+*   **Examples:**
+    *   `"([]){()}"` is _well-formed_
+    *   `"[()[]{()()}]"` is _well-formed_
+    *   `"{)}"` is _malformed_
+    *   `"[()[]{()()"` is _malformed_
 
-`ret x(type in)`
+*   Write a program that tests whether or not a string made-up of the characters `(`, `)`, `[`, `]`, `{`, `}` is well-formed
+
+`bool IsWellFormedBrackets(const string& s)`
 
 ---
 

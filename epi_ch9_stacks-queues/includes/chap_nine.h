@@ -39,6 +39,19 @@ class StackQueueExercises {
     int EvaluateRPN(const std::string& RPN_expression);
 
     ////////////////////////////////////////////////////////////////////////////////////
+    /// IsWellFormedBrackets(const string& s)
+    /// -------------------------------------------------------------------------------
+    /// Evalute return whether provided string of characters `(`, `)`, `[`, `]`, `{`, `}`
+    /// is well formed.
+    /// The string is well-formed if each open bracket has a corresponding closing bracket
+    /// in the correct order
+    /// -------------------------------------------------------------------------------
+    /// - @param[in] bracket_str -- string containing sequence of bracket characers (listed above)
+    /// - @return[out] bool      -- True for well-formed. False for malformed
+    /// -------------------------------------------------------------------------------
+    bool IsWellFormedBrackets(const std::string& bracket_str);
+
+    ////////////////////////////////////////////////////////////////////////////////////
     /// Helper Methods
     std::shared_ptr<MaxStack> CreateStack(int n);
     std::shared_ptr<MaxStack> CreateStack(std::vector<int> &elements);

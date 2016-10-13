@@ -25,6 +25,14 @@ int StackQueueExercises::EvaluateRPN(const std::string& RPN_expression) {
     return 0;
 }
 
+bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
+    if (bracket_str.empty() || bracket_str.size() == 1) {
+        throw std::invalid_argument("IsWellFormedBrackets(): bracket_str.size must be > 1 char");
+        return false;
+    }
+    return true;
+}
+
 /// Helper Methods
 void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     MaxStack test_stack;

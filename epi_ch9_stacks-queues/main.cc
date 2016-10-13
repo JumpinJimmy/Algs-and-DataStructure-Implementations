@@ -19,6 +19,29 @@ void TestMaxElement(StackQueueExercises* sq_exerciser) {
 // CreateStack
 }
 
+void IsWellFormedBrackets(StackQueueExercises* sq_exerciser) {
+    std::cout << "--->>--->> main::IsWellFormedBrackets <<---<<--- " << std::endl;
+    std::string bracket_str("([]){()}");
+    std::cout << "main::IsWellFormedBrackets(" << bracket_str << ") = "
+              << std::boolalpha << sq_exerciser->IsWellFormedBrackets(bracket_str) << std::endl;
+    bracket_str.assign("[()[]{()()}]");
+    std::cout << "main::IsWellFormedBrackets(" << bracket_str << ") = "
+              << std::boolalpha << sq_exerciser->IsWellFormedBrackets(bracket_str) << std::endl;
+    bracket_str.assign("{)}");
+    std::cout << "main::IsWellFormedBrackets(" << bracket_str << ") = "
+              << std::boolalpha << sq_exerciser->IsWellFormedBrackets(bracket_str) << std::endl;
+    bracket_str.assign("[()[]{()()");
+    std::cout << "main::IsWellFormedBrackets(" << bracket_str << ") = "
+              << std::boolalpha << sq_exerciser->IsWellFormedBrackets(bracket_str) << std::endl;
+}
+
+void EvaluateRPN(StackQueueExercises* sq_exerciser) {
+    std::cout << "--->>--->> main::EvaluateRPN <<---<<--- " << std::endl;
+    std::string expression("3,4,+,2,x,1,+");
+    std::cout << "main::EvaluateRPN(" << expression << ") = "
+              << sq_exerciser->EvaluateRPN(expression) << std::endl;
+}
+
 void RunTests(StackQueueExercises* sq_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
     TestMaxElement(sq_exerciser);
