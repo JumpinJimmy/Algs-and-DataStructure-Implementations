@@ -11,8 +11,9 @@
 
 class CircularQueue {
     public:
-    CircularQueue(unsigned int initial_capacity = 1);
+    explicit CircularQueue(unsigned int initial_capacity = 1);
     ~CircularQueue();
+    // TODO(jdevore): handle copy and assignment ops
     void Enqueue(int element);
     int Dequeue();
     int QueueSize();

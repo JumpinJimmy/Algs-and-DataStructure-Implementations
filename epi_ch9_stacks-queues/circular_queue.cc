@@ -18,9 +18,9 @@ void CircularQueue::Enqueue(int element) {
         front_ = 0, tail_ = num_elements_;  // Resets head and tail.
         queue_->resize(queue_->size() * resize_operand_);
         std::cout << "======= circular_queue:: new size: " << queue_->size() << std::endl;
-        // return;
-        // std::cout << "======= circular_queue:: QUEUE is Full! " << std::endl;
+
     }
+
     queue_->at(tail_) = element;
     ++num_elements_;
     tail_ = (tail_ + 1) % queue_->size();
