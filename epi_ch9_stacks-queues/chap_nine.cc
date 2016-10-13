@@ -46,6 +46,7 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
     return true;
 }
 
+/// Esentially pre-order traversal with constraints on each level's list size
 // add current node to new vector list
 // node_curr = q.front()
 // q.pop()
@@ -57,22 +58,43 @@ std::vector<std::vector<int>> StackQueueExercises::BinTreeLevelOrder(const std::
         throw std::invalid_argument("BinTreeLevelOrder(): Tree is null");
         return {{}};
     }
+    int num_nodes_left = 0;
     std::vector<std::vector<int>> level_results;
-    std::vector<int> curr_level;
+    std::vector<int> curr_level_list;
     std::queue<BinaryTreeNode<int>*> traversal_queue;
     traversal_queue.emplace(tree.get());
+    num_nodes_left = traversal_queue.size();
+
     while (!traversal_queue.empty()) {
         BinaryTreeNode<int> *curr_node = traversal_queue.front();
-        // std::cout << "curr_node: " << curr_node->data << std::endl;
-        curr_level.emplace_back(curr_node->data);
+        --num_nodes_left;
         traversal_queue.pop();
+        // if (curr_node) {
+        curr_level_list.emplace_back(curr_node->data);
         if (curr_node->left != nullptr) {traversal_queue.emplace(curr_node->left.get());}
         if (curr_node->right != nullptr) {traversal_queue.emplace(curr_node->right.get());}
+        // }
+
+        if (!num_nodes_left) { // if 0
+            num_nodes_left = traversal_queue.size();
+            if (!curr_level_list.empty()) {
+               level_results.emplace_back(move(curr_level_list));
+            }
+        }
     }
-    for (auto &element : curr_level) {
-        std::cout << element << " ";
+
+    /// Debug output only
+    std::cout << "{ ";
+    for (auto &sub_list : level_results) {
+        std::cout << "(";
+        for (auto &node : sub_list) {
+            std::cout << node << ", ";
+        }
+        std::cout << ")";
     }
-    return {{}};
+    std::cout << " }" << std::endl;
+
+    return level_results;
 }
 /// Helper Methods
 void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
