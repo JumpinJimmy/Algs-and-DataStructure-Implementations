@@ -9,7 +9,7 @@
 #include <numeric>
 #include "max_stack.h"
 #include "bst_node_prototype.h"
-#include "queue.h"
+#include "circular_queue.h"
 // #include "linked_list_prototype.h"
 // #include "doubly_linked_list_prototype.h"
 
