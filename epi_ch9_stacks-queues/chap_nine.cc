@@ -47,55 +47,47 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
 }
 
 /// Esentially pre-order traversal with constraints on each level's list size
-// add current node to new vector list
-// node_curr = q.front()
-// q.pop()
-// pop queue
-// if node_curr->left != nullptr: q->emplace(node_curr->left.get)
-// if node_curr->righ != nullptr: q->emplace(node_curr->right.get)
 std::vector<std::vector<int>> StackQueueExercises::BinTreeLevelOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree) { //NOLINT
     if (!tree) {
         throw std::invalid_argument("BinTreeLevelOrder(): Tree is null");
         return {{}};
     }
-    int num_nodes_left = 0;
-    std::vector<std::vector<int>> level_results;
+
+    std::vector<std::vector<int>> final_results;
     std::vector<int> curr_level_list;
     std::queue<BinaryTreeNode<int>*> traversal_queue;
     traversal_queue.emplace(tree.get());
-    num_nodes_left = traversal_queue.size();
+    int nodes_left_level = traversal_queue.size();
 
     while (!traversal_queue.empty()) {
         BinaryTreeNode<int> *curr_node = traversal_queue.front();
-        --num_nodes_left;
+        --nodes_left_level;
         traversal_queue.pop();
-        // if (curr_node) {
         curr_level_list.emplace_back(curr_node->data);
         if (curr_node->left != nullptr) {traversal_queue.emplace(curr_node->left.get());}
         if (curr_node->right != nullptr) {traversal_queue.emplace(curr_node->right.get());}
-        // }
-
-        if (!num_nodes_left) { // if 0
-            num_nodes_left = traversal_queue.size();
+        if (!nodes_left_level) {
+            nodes_left_level = traversal_queue.size();
             if (!curr_level_list.empty()) {
-               level_results.emplace_back(move(curr_level_list));
+               final_results.emplace_back(move(curr_level_list));
             }
         }
     }
 
     /// Debug output only
     std::cout << "{ ";
-    for (auto &sub_list : level_results) {
-        std::cout << "(";
+    for (auto &sub_list : final_results) {
+        std::cout << "( ";
         for (auto &node : sub_list) {
-            std::cout << node << ", ";
+            std::cout << node << " ";
         }
-        std::cout << ")";
+        std::cout << "),";
     }
     std::cout << " }" << std::endl;
 
-    return level_results;
+    return final_results;
 }
+
 /// Helper Methods
 void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     MaxStack test_stack;
