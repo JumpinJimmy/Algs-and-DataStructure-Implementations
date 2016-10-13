@@ -2,6 +2,11 @@
 #include <cassert> //NOLINT
 using namespace std; //NOLINT
 
+void TestCircularQueue(StackQueueExercises* sq_exerciser) {
+  std::cout << "--->>--->> main::TestCircularQueue <<---<<--- " << std::endl;
+  sq_exerciser->TestCircularQueue();
+}
+
 void TestMaxElement(StackQueueExercises* sq_exerciser) {
     std::cout << "--->>--->> main::TestMaxElement <<---<<--- " << std::endl;
     std::vector<int> v {1, 2, 3, 4};
@@ -84,6 +89,7 @@ void RunTests(StackQueueExercises* sq_exerciser) {
     EvaluateRPN(sq_exerciser);
     IsWellFormedBrackets(sq_exerciser);
     BinaryTreeLevelOrder(sq_exerciser);
+    TestCircularQueue(sq_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch9_test

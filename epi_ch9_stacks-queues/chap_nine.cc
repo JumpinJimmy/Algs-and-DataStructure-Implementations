@@ -123,3 +123,7 @@ std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(std::vector<int> &ele
     }
     return new_stack;
 }
+
+void StackQueueExercises::TestCircularQueue() {
+
+}

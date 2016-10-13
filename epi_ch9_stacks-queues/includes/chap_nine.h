@@ -60,7 +60,7 @@ class StackQueueExercises {
     std::shared_ptr<MaxStack> CreateStack(std::vector<int> &elements);
     void TestMaxStack(std::vector<int> &elements);
     void TestStackScope(std::shared_ptr<MaxStack> &s);
-
+    void TestCircularQueue();
     private:
 };
 
