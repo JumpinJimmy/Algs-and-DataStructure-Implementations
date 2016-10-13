@@ -2,10 +2,9 @@
 #define CIRCULAR_QUEUE_H
 
 class CircularQueue {
-public:
+    public:
     CircularQueue();
     ~CircularQueue();
-
 };
 
 #endif // CIRCULAR_QUEUE_H
