@@ -46,7 +46,7 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
     return true;
 }
 
-std::vector<std::vector<int>> StackQueueExercises::BSTDepthOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree) {
+std::vector<std::vector<int>> StackQueueExercises::BinTreeLevelOrder(const std::unique_ptr<BinaryTreeNode<int>>& tree) { //NOLINT
     return {{}};
 }
 /// Helper Methods

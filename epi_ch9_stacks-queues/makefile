@@ -19,7 +19,7 @@ main.o: main.cc includes/chap_nine.h includes/max_stack.h
 max_stack.o: includes/max_stack.h max_stack.cc
 	$(CXX) $(CFLAGS) max_stack.cc
 
-chap_nine.o: includes/max_stack.h includes/chap_nine.h chap_nine.cc
+chap_nine.o: includes/bst_node_prototype.h includes/max_stack.h includes/chap_nine.h chap_nine.cc
 	$(CXX) $(CFLAGS) chap_nine.cc
 
 clean:

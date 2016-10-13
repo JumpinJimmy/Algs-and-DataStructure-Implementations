@@ -18,6 +18,10 @@ void TestMaxElement(StackQueueExercises* sq_exerciser) {
     sq_exerciser->TestStackScope(int_stack);
 }
 
+void BinaryTreeLevelOrder(StackQueueExercises* sq_exerciser) {
+    // sq_exerciser->BinTreeLevelOrder();
+}
+
 void IsWellFormedBrackets(StackQueueExercises* sq_exerciser) {
     std::cout << "--->>--->> main::IsWellFormedBrackets <<---<<--- " << std::endl;
     std::string bracket_str("([]){()}");
@@ -44,8 +48,9 @@ void EvaluateRPN(StackQueueExercises* sq_exerciser) {
 void RunTests(StackQueueExercises* sq_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
     TestMaxElement(sq_exerciser);
-    IsWellFormedBrackets(sq_exerciser);
     EvaluateRPN(sq_exerciser);
+    IsWellFormedBrackets(sq_exerciser);
+    BinaryTreeLevelOrder(sq_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch9_test

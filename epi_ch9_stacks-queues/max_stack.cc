@@ -3,7 +3,6 @@
 MaxStack::MaxStack() {}
 MaxStack::~MaxStack() {}
 void MaxStack::Push(int val) {
-
     /// always emplace new value in staMaxStackndard elemen MaxStack
     /// if pushing a value that is larger than max
     /// emplace new value in max MaxStack with count of one
@@ -11,11 +10,11 @@ void MaxStack::Push(int val) {
     /// if greater than max emplace with count of one
     elements_.emplace(val);
     if (cached_max_values_.empty()) {
-        cached_max_values_.emplace(CachedMax{val, 1});
+        cached_max_values_.emplace(CachedMax {val, 1});
     } else {
         const int curr_max = cached_max_values_.top().max_;
         if (val > curr_max) {
-            cached_max_values_.emplace(CachedMax{val, 1});
+            cached_max_values_.emplace(CachedMax {val, 1});
         } else if (val == curr_max) {
             int& curr_max_frequency = cached_max_values_.top().count_;
             curr_max_frequency++;

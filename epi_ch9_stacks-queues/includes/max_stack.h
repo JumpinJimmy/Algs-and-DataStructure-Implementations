@@ -25,9 +25,6 @@ class MaxStack {
     std::stack<CachedMax> cached_max_values_;
     // struct with two integer elements (max, count)
     // stack containing struct elements  cache_maxed_vals
-
-
 };
-
 
 #endif // MAX_STACK_H

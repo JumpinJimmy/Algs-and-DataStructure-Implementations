@@ -71,7 +71,7 @@ Page 117 of Elements of Programming Interviews
 
 **9.8: Implement a Circular Queue**
 
-*   x
+*   
 
 `ret x(type in)`
 
