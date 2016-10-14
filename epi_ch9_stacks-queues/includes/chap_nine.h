@@ -7,6 +7,7 @@
 #include <cmath>
 #include <queue>
 #include "max_stack.h"
+#include "queue_stacks.h"
 #include "bst_node_prototype.h"
 #include "circular_queue.h"
 
