@@ -5,13 +5,13 @@ Page 135 of Elements of Programming Interviews
 
 ---
 
-**10.1: Merge Two Sorted Lists**
+**10.1: Test if a Binary Tree is height balanced**
 
 *  
 
 ---
 
-**10.2: Reverse a Single Sublist**
+**10.2: Test if a Binary Tree is Symmetric**
 
 *   x
 
@@ -19,7 +19,7 @@ Page 135 of Elements of Programming Interviews
 
 ---
 
-**10.4: Test for Cycles**
+**10.4: Compute the LCA when Nodes Have Parent Pointers**
 
 *   x
 
@@ -27,7 +27,7 @@ Page 135 of Elements of Programming Interviews
 
 ---
 
-**10.11: Test for Overlapping Lists**
+**10.11: Implement an In-order Traversal with 0(1) Space**
 
 *   x
 
@@ -35,7 +35,7 @@ Page 135 of Elements of Programming Interviews
 
 ---
 
-**10.12: Remove the Kth Last Element from a List**
+**10.12: Reconstruct a Binary Tree from Traversal Data**
 
 *   x
 
