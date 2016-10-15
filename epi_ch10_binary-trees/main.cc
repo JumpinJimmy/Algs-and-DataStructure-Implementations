@@ -1,8 +1,11 @@
 #include "includes/chap_ten.h"
 #include <cassert> //NOLINT
+#include <iostream>
 using namespace std; //NOLINT
 
+void IsHeightBalanced(BinaryTreeExercises* bintree_exerciser) {
 
+}
 
 void RunTests(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;

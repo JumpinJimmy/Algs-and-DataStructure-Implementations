@@ -16,7 +16,7 @@ ch10_test: $(LOCALOBJS)
 main.o: main.cc includes/chap_ten.h
 	$(CXX) $(CFLAGS) main.cc
 
-chap_ten.o: includes/chap_ten.h chap_ten.cc
+chap_ten.o: includes/binary_tree_node.h includes/chap_ten.h chap_ten.cc
 	$(CXX) $(CFLAGS) chap_ten.cc
 
 clean:

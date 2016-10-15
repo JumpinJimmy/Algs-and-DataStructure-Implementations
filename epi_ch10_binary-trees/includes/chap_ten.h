@@ -1,16 +1,6 @@
 #ifndef CHAP_TEN_H
 #define CHAP_TEN_H
-#include <iostream>
-#include <ios>
-#include <memory>
-#include <stdlib.h>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <utility>
-#include <numeric>
-#include <exception>
-
+#include "binary_tree_node.h"
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 /// BinaryTreeExercises
@@ -26,6 +16,7 @@ class BinaryTreeExercises {
     public:
     BinaryTreeExercises();
     ~BinaryTreeExercises();
+    bool IsHeightBalanced();
 
 };
 
