@@ -4,17 +4,17 @@
 using namespace std; //NOLINT
 
 void TestQueueStacks(StackQueueExercises* sq_exerciser) {
-  std::cout << "--->>--->> main::TestQueueStacks <<---<<--- " << std::endl;
+  std::cout << "\n--->>--->> main::TestQueueStacks <<---<<--- " << std::endl;
   sq_exerciser->TestQueueStacks();
 }
 
 void TestCircularQueue(StackQueueExercises* sq_exerciser) {
-  std::cout << "--->>--->> main::TestCircularQueue <<---<<--- " << std::endl;
+  std::cout << "\n--->>--->> main::TestCircularQueue <<---<<--- " << std::endl;
   sq_exerciser->TestCircularQueue();
 }
 
 void TestMaxElement(StackQueueExercises* sq_exerciser) {
-    std::cout << "--->>--->> main::TestMaxElement <<---<<--- " << std::endl;
+    std::cout << "\n--->>--->> main::TestMaxElement <<---<<--- " << std::endl;
     std::vector<int> v {1, 2, 3, 4};
     // sq_exerciser->TestMaxStack(v);
     std::shared_ptr<MaxStack> stack = sq_exerciser->CreateStack(v);
@@ -42,7 +42,7 @@ void BinaryTreeLevelOrder(StackQueueExercises* sq_exerciser) {
          /
         13
   *********************************/
-    std::cout << "--->>--->> main::BinaryTreeLevelOrder <<---<<--- " << std::endl;
+    std::cout << "\n--->>--->> main::BinaryTreeLevelOrder <<---<<--- " << std::endl;
   std::unique_ptr<BinaryTreeNode<int>> tree = std::make_unique<BinaryTreeNode<int>>(
       BinaryTreeNode<int> {3, nullptr, nullptr});
   tree->left = std::make_unique<BinaryTreeNode<int>>(
@@ -67,7 +67,7 @@ void BinaryTreeLevelOrder(StackQueueExercises* sq_exerciser) {
 }
 
 void IsWellFormedBrackets(StackQueueExercises* sq_exerciser) {
-    std::cout << "--->>--->> main::IsWellFormedBrackets <<---<<--- " << std::endl;
+    std::cout << "\n--->>--->> main::IsWellFormedBrackets <<---<<--- " << std::endl;
     std::string bracket_str("([]){()}");
     std::cout << "main::IsWellFormedBrackets(" << bracket_str << ") = "
               << std::boolalpha << sq_exerciser->IsWellFormedBrackets(bracket_str) << std::endl;
@@ -83,8 +83,8 @@ void IsWellFormedBrackets(StackQueueExercises* sq_exerciser) {
 }
 
 void EvaluateRPN(StackQueueExercises* sq_exerciser) {
-    std::cout << "--->>--->> main::EvaluateRPN <<---<<--- " << std::endl;
-    std::string expression("3,4,+,2,x,1,+");
+    std::cout << "\n--->>--->> main::EvaluateRPN <<---<<--- " << std::endl;
+    std::string expression("3,4,+,2,*,1,+");
     std::cout << "main::EvaluateRPN(" << expression << ") = "
               << sq_exerciser->EvaluateRPN(expression) << std::endl;
 }

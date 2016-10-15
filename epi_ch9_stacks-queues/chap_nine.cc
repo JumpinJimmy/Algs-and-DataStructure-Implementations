@@ -4,6 +4,8 @@
 #include <cmath>
 #include <queue>
 #include <iostream>
+#include <sstream>
+#include <stack>
 
 StackQueueExercises::StackQueueExercises() {}
 
@@ -11,24 +13,40 @@ StackQueueExercises::~StackQueueExercises() {}
 
 int StackQueueExercises::EvaluateRPN(const std::string& RPN_expression) {
     if (RPN_expression.empty()) {
-        throw std::invalid_argument("EvaluateRPN(): RPN_expression String is Empty");
+        std::cout << "ERROR- EvaluateRPN(): RPN_expression String is Empty" << std::endl;
+        return -1;
     }
-    // foreach (char c: RPN_expression)
-    // if C.isDigit (!operator +-/*)
-    //  operand_stack.emplace(stoi(c))
-    // else if (c.isOperator(+-/*)) {
-    //    int operand_a = operand_stack.top()
-    //    operand_stack.pop()
-    //    int operaand_b = operand_stack.top()
-    //    operand_stack.pop()
-    //    switch(c):
-    //      -case"+": operand_stack.emplace(operand_a+operand_b)
-    //      -case"-": operand_stack.emplace(operand_a-operand_b)
-    //      -case"*": operand_stack.emplace(operand_a*operand_b)
-    //      -case"/": operand_stack.emplace(operand_a/operand_b)
-    // }
-    // return operand_stack.top()
-    return 0;
+    std::stack<int> operand_stack;
+    std::stringstream ss(RPN_expression);
+    std::string char_token;
+    const char kDelimiter = ',';
+
+    while (getline(ss, char_token, kDelimiter)) {
+        if (char_token == "+" || char_token == "-" || char_token == "*" || char_token == "/") {
+            const int operand_a = operand_stack.top();
+            operand_stack.pop();
+            const int operand_b = operand_stack.top();
+            operand_stack.pop();
+            switch (char_token.front()) {
+                case '+':
+                    operand_stack.emplace(operand_b + operand_a);
+                    break;
+                case '-':
+                    operand_stack.emplace(operand_b - operand_a);
+                    break;
+                case '*':
+                    operand_stack.emplace(operand_b * operand_a);
+                    break;
+                case '/':
+                    operand_stack.emplace(operand_b / operand_a);
+                    break;
+            }
+        } else {
+            operand_stack.emplace(std::stoi(char_token));
+        }
+    }
+
+    return operand_stack.top();
 }
 
 bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
@@ -36,20 +54,30 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
         throw std::invalid_argument("IsWellFormedBrackets(): bracket_str.size must be > 1 char");
         return false;
     }
-    // foreach (char c: bracket_str)
-    // if C.isLeftBracket (`[`,`{`,`(`) )
-    //     left_stack.emplace(c)
-    //     // or emplace its compliment.... e.g. if c == [ emplace ]
-    //  else if (c.isRightBracket(`]`,`}`,`)`))
-    //      switch(c)
-    //          -case"]": if left_stack.top() == '['; left_stack.pop(); continue;
-    //          -case"}": if left_stack.top() == '{'; left_stack.pop(); continue;
-    //          -case")": if left_stack.top() == '('; left_stack.pop(); continue;
-    //      return false
-    //  // end forloop
-    //  if (left_stack.size >= 1) return false  // return left_stack.empty()
-
-    return true;
+    std::stack<char> bracket_stack;
+    for (const char &c : bracket_str) {
+        if (c == '[' || c == '{' || c == '(') {
+            bracket_stack.emplace(c);
+        } else {
+            if (bracket_stack.empty()) return false;
+            switch (c) {
+                case ']' : if (bracket_stack.top() == '[') {
+                            bracket_stack.pop();
+                            continue;
+                        };
+                case '}' : if (bracket_stack.top() == '{') {
+                            bracket_stack.pop();
+                            continue;
+                        };
+                case ')' : if (bracket_stack.top() == '(') {
+                            bracket_stack.pop();
+                            continue;
+                        };
+                default: return false;
+            }
+        }
+    }
+    return bracket_stack.empty();
 }
 
 /// Esentially pre-order traversal with constraints on each level's list size
