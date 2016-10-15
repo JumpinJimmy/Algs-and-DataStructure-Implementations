@@ -146,8 +146,24 @@ void StackQueueExercises::TestCircularQueue() {
 void StackQueueExercises::TestQueueStacks() {
     QueueStacks qs;
     int element_count = 10;
+    int dequeue_count = 6;
+    std::cout << "Pre Enqueue - qs.Empty() = " << std::boolalpha << qs.Empty() << std::endl;
     while (element_count--) {
         qs.Enqueue(element_count);
     }
+    std::cout << "Post Enqueue - qs.Empty() = " << std::boolalpha << qs.Empty() << std::endl;
     std::cout << "QueueStacks qs->size(): " << qs.QueueSize() << std::endl;
+
+    while (dequeue_count--) {
+        std::cout << "QueueStacks Dequeue() result = " << qs.Dequeue() << std::endl;
+    }
+    int remaining_size = qs.QueueSize();
+    std::cout << "Post Dequeue - QueueStacks qs->size(): " << remaining_size << std::endl;
+    std::cout << "Post Dequeue - qs.Empty() = " << std::boolalpha << qs.Empty() << std::endl;
+    while (remaining_size--) {
+        std::cout << "QueueStacks Dequeue() result = " << qs.Dequeue() << std::endl;
+    }
+    std::cout << "Post Dequeue - QueueStacks qs->size(): " << qs.QueueSize() << std::endl;
+    std::cout << "Post Dequeue - qs.Empty() = " << std::boolalpha << qs.Empty() << std::endl;
+
 }

@@ -10,14 +10,9 @@ class QueueStacks {
     void Enqueue(int element);
     int Dequeue();
     int QueueSize();
-    // void PrintInline(const std::vector<int> *list, std::string details = "");
-    // void PrintFromHead();
+    bool Empty();
+
     private:
-    // resize function
-    int front_;
-    int tail_;
-    unsigned int num_elements_;
-    unsigned int resize_operand_;
     std::unique_ptr<std::stack<int>> enqueue_queue_;
     std::unique_ptr<std::stack<int>> dequeue_queue_;
 };

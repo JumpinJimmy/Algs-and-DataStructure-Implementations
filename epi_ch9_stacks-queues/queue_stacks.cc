@@ -15,11 +15,26 @@ void QueueStacks::Enqueue(int element) {
 }
 
 int QueueStacks::Dequeue() {
-    return 0;
+    if (dequeue_queue_->empty()){
+        while (!enqueue_queue_->empty()) {
+            dequeue_queue_->emplace(enqueue_queue_->top());
+            enqueue_queue_->pop();
+        }
+    }
+    if (dequeue_queue_->empty()) {
+        std::cout << "QueueStacks->Dequeue(): QUEUE is Empty" << std::endl;
+        return -1;
+    }
+    int result = dequeue_queue_->top();
+    dequeue_queue_->pop();
+    return result;
 }
 
 int QueueStacks::QueueSize() {
     return enqueue_queue_->size() + dequeue_queue_->size();
-    // return 0;
+}
+
+bool QueueStacks::Empty() {
+    return enqueue_queue_->empty() && dequeue_queue_->empty();
 }
 
