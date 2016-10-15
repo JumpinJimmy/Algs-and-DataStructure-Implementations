@@ -56,6 +56,7 @@ class StackQueueExercises {
     void TestStackScope(std::shared_ptr<MaxStack> &s);
     void TestCircularQueue();
     void TestQueueStacks();
+
     private:
 };
 

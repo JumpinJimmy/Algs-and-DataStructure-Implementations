@@ -4,9 +4,10 @@
 #include <iostream>
 #include <exception>
 
-CircularQueue::CircularQueue(unsigned int initial_capacity):front_(0), tail_(0), num_elements_(0),
-                                                            resize_operand_(2),
-                                                            queue_(std::make_unique<std::vector<int>>(initial_capacity)) {
+CircularQueue::CircularQueue(unsigned int initial_capacity)
+                                :front_(0), tail_(0), num_elements_(0),
+                                 resize_operand_(2),
+                                 queue_(std::make_unique<std::vector<int>>(initial_capacity)) {
     std::cout << "======= circular_queue:: queue_->size(): " << queue_->size() << std::endl;
     PrintInline(queue_.get());
 }
@@ -23,7 +24,6 @@ void CircularQueue::Enqueue(int element) {
         front_ = 0, tail_ = num_elements_;  // Resets head and tail.
         queue_->resize(queue_->size() * resize_operand_);
         std::cout << "======= circular_queue:: new size: " << queue_->size() << std::endl;
-
     }
 
     queue_->at(tail_) = element;

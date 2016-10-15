@@ -165,5 +165,4 @@ void StackQueueExercises::TestQueueStacks() {
     }
     std::cout << "Post Dequeue - QueueStacks qs->size(): " << qs.QueueSize() << std::endl;
     std::cout << "Post Dequeue - qs.Empty() = " << std::boolalpha << qs.Empty() << std::endl;
-
 }
