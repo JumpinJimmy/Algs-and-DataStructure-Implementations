@@ -1,4 +1,9 @@
 #include "includes/circular_queue.h"
+#include <array>
+#include <algorithm>
+#include <iostream>
+#include <exception>
+
 CircularQueue::CircularQueue(unsigned int initial_capacity):front_(0), tail_(0), num_elements_(0),
                                                             resize_operand_(2),
                                                             queue_(std::make_unique<std::vector<int>>(initial_capacity)) {

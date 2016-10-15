@@ -1,4 +1,6 @@
 #include "includes/max_stack.h"
+#include <exception>
+#include <stdexcept>
 
 MaxStack::MaxStack() {}
 MaxStack::~MaxStack() {}

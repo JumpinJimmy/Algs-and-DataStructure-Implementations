@@ -2,8 +2,7 @@
 #define MAX_STACK_H
 #include <stack>
 #include <algorithm>
-#include <exception>
-#include <stdexcept>
+
 
 class MaxStack {
     public:

@@ -2,15 +2,11 @@
 #define CHAP_NINE_H
 #include <stdlib.h>
 #include <vector>
-#include <utility>
-#include <numeric>
-#include <cmath>
-#include <queue>
 #include "max_stack.h"
 #include "queue_stacks.h"
 #include "bst_node_prototype.h"
 #include "circular_queue.h"
-
+#include "queue_stacks.h"
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 /// StackQueueExercises
@@ -59,6 +55,7 @@ class StackQueueExercises {
     void TestMaxStack(std::vector<int> &elements);
     void TestStackScope(std::shared_ptr<MaxStack> &s);
     void TestCircularQueue();
+    void TestQueueStacks();
     private:
 };
 

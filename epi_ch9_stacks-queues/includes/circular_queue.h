@@ -1,13 +1,8 @@
 #ifndef CIRCULAR_QUEUE_H
 #define CIRCULAR_QUEUE_H
-#include <array>
-#include <algorithm>
 #include <vector>
 #include <memory>
-#include <iostream>
-#include <ios>
 #include <string>
-#include <exception>
 
 class CircularQueue {
     public:

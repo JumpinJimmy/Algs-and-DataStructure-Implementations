@@ -1,4 +1,10 @@
 #include "includes/chap_nine.h"
+#include <utility>
+#include <numeric>
+#include <cmath>
+#include <queue>
+#include <iostream>
+
 StackQueueExercises::StackQueueExercises() {}
 
 StackQueueExercises::~StackQueueExercises() {}
@@ -135,4 +141,13 @@ void StackQueueExercises::TestCircularQueue() {
 
     std::cout << "Front: " << cq.Dequeue() << std::endl;
     std::cout << "Frontb: " << cq.Dequeue() << std::endl;
+}
+
+void StackQueueExercises::TestQueueStacks() {
+    QueueStacks qs;
+    int element_count = 10;
+    while (element_count--) {
+        qs.Enqueue(element_count);
+    }
+    std::cout << "QueueStacks qs->size(): " << qs.QueueSize() << std::endl;
 }

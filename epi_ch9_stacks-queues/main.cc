@@ -1,6 +1,12 @@
 #include "includes/chap_nine.h"
 #include <cassert> //NOLINT
+#include <iostream>
 using namespace std; //NOLINT
+
+void TestQueueStacks(StackQueueExercises* sq_exerciser) {
+  std::cout << "--->>--->> main::TestQueueStacks <<---<<--- " << std::endl;
+  sq_exerciser->TestQueueStacks();
+}
 
 void TestCircularQueue(StackQueueExercises* sq_exerciser) {
   std::cout << "--->>--->> main::TestCircularQueue <<---<<--- " << std::endl;
@@ -90,6 +96,7 @@ void RunTests(StackQueueExercises* sq_exerciser) {
     IsWellFormedBrackets(sq_exerciser);
     BinaryTreeLevelOrder(sq_exerciser);
     TestCircularQueue(sq_exerciser);
+    TestQueueStacks(sq_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch9_test

@@ -1,5 +1,7 @@
 #ifndef QUEUE_STACKS_H
 #define QUEUE_STACKS_H
+#include <stack>
+#include <memory>
 
 class QueueStacks {
     public:
@@ -16,7 +18,8 @@ class QueueStacks {
     int tail_;
     unsigned int num_elements_;
     unsigned int resize_operand_;
-    // std::unique_ptr<std::vector<int>> queue_;
+    std::unique_ptr<std::stack<int>> enqueue_queue_;
+    std::unique_ptr<std::stack<int>> dequeue_queue_;
 };
 
 #endif // QUEUE_STACKS_H
