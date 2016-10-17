@@ -11,7 +11,7 @@ class ArrayExercises {
     int RemDups(std::vector<int> *arr_ptr);
     int RemDupsInplace(std::vector<int> *arr_ptr);
     double MaxProfitSingleStock(const std::vector<double> &prices);
-    int LongestSubArrayEqual(std::vector<int> &int_list);
+    int LongestSubArrayEqual(const std::vector<int> &int_list);
     std::vector<int> EnumeratePrimes(int n);
     std::vector<int> EnumeratePrimesOptimized(int n);
     void RandomSampling(std::vector<int> *arr_ptr, int size);

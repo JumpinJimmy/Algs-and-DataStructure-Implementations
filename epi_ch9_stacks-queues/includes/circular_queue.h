@@ -5,7 +5,7 @@
 #include <string>
 
 class CircularQueue {
-    public:
+ public:
     explicit CircularQueue(unsigned int initial_capacity = 1);
     ~CircularQueue();
     // TODO(jdevore): handle copy and assignment ops
@@ -14,7 +14,8 @@ class CircularQueue {
     int QueueSize();
     void PrintInline(const std::vector<int> *list, std::string details = "");
     void PrintFromHead();
-    private:
+
+ private:
     // resize function
     int front_;
     int tail_;
@@ -23,4 +24,4 @@ class CircularQueue {
     std::unique_ptr<std::vector<int>> queue_;
 };
 
-#endif // CIRCULAR_QUEUE_H
+#endif  // CIRCULAR_QUEUE_H

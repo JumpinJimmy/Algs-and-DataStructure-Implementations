@@ -147,7 +147,7 @@ double ArrayExercises::MaxProfitSingleStock(const std::vector<double> &prices) {
 }
 
 
-int ArrayExercises::LongestSubArrayEqual(std::vector<int> &int_list) {
+int ArrayExercises::LongestSubArrayEqual(const std::vector<int> &int_list) {
     std::cout << "--->>--->> chap_six::LongestSubArrayEqual for int_list: ";
     print_list(int_list);
     if (int_list.empty() || int_list.size() < 2) {
