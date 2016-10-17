@@ -1,7 +1,6 @@
-#include <ios>
-#include <iomanip>
-#include <utility>
-#include <stdlib.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 #include "includes/string_probs.h"
 using namespace std; //NOLINT
 

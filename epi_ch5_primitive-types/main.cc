@@ -1,7 +1,5 @@
-#include <ios>
-#include <iomanip>
+#include <iostream>
 #include <utility>
-#include <stdlib.h>
 #include "includes/chapter_five.h"
 using namespace std; //NOLINT
 

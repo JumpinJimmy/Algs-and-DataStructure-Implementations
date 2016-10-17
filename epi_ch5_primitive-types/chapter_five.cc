@@ -1,4 +1,6 @@
+#include <iostream>
 #include "includes/chapter_five.h"
+
 PrimitiveTypesExerciser::PrimitiveTypesExerciser() {
     std::cout << "--->>--->> chapter_five::PrimitiveTypesExerciser construct " << std::endl;
 }
