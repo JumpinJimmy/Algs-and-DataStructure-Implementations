@@ -27,6 +27,8 @@ class BinaryTreeExercises {
     private:
     /// IsHeightBalanced Helper Method
     TreeHeightStats GetHeightBalance(const unique_ptr<BinaryTreeNode<int>>& tree);
+    bool CheckSymmetry(const unique_ptr<BinaryTreeNode<int>>& left,
+                       const unique_ptr<BinaryTreeNode<int>>& right);
 };
 
 #endif // CHAP_TEN_H

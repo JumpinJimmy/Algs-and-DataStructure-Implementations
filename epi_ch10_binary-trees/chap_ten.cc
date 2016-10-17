@@ -20,7 +20,14 @@ bool BinaryTreeExercises::IsHeightBalanced(const unique_ptr<BinaryTreeNode<int>>
 }
 
 bool BinaryTreeExercises::IsSymmetric(const unique_ptr<BinaryTreeNode<int>>& tree_root) {
-    return false;
+    /// A symmetric tree:  left and right subtrees are equal
+    /// recurse through both sub trees, checking each for equality before moving to next child
+    /// an empty tree is symmetric
+    if (tree_root == nullptr) {
+        return true;
+    } else {
+        return CheckSymmetry(tree_root->left, tree_root->right);
+    }
 }
 
 TreeHeightStats BinaryTreeExercises::GetHeightBalance(const unique_ptr<BinaryTreeNode<int>>& tree) {
@@ -41,4 +48,9 @@ TreeHeightStats BinaryTreeExercises::GetHeightBalance(const unique_ptr<BinaryTre
     bool balanced_result = abs(left_tree_result.height - right_tree_result.height) <= 1;
     int height_result = std::max(left_tree_result.height, right_tree_result.height);
     return {balanced_result, height_result};
+}
+
+bool BinaryTreeExercises::CheckSymmetry(const unique_ptr<BinaryTreeNode<int>>& left,
+                                        const unique_ptr<BinaryTreeNode<int>>& right) {
+    return false;
 }
