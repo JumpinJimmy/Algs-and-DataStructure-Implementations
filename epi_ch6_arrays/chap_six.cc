@@ -1,11 +1,14 @@
 #include "includes/chap_six.h"
+#include <iostream>
+#include <algorithm>
+
 ArrayExercises::ArrayExercises() {
     std::cout << "--->>--->> chap_six::ArrayExercises construct " << std::endl;
 }
 
 ArrayExercises::~ArrayExercises() {}
 
-void ArrayExercises::print_list(std::vector<int> &v) {
+void ArrayExercises::print_list(const std::vector<int> &v) {
     std::cout << "c6Printing List: \n [ ";
     for (auto &val : v) {
         std::cout << val << " ";
@@ -13,7 +16,7 @@ void ArrayExercises::print_list(std::vector<int> &v) {
     std::cout << "];" << std::endl;
 }
 
-void ArrayExercises::print_list(std::vector<double> &v) {
+void ArrayExercises::print_list(const std::vector<double> &v) {
     std::cout << "c6Printing List: \n [ ";
     for (auto &val : v) {
         std::cout << val << " ";
@@ -127,7 +130,7 @@ int ArrayExercises::RemDupsInplace(std::vector<int> *arr_ptr) {
     return vacant_index;
 }
 
-double ArrayExercises::MaxProfitSingleStock(std::vector<double> &prices) {
+double ArrayExercises::MaxProfitSingleStock(const std::vector<double> &prices) {
     std::cout << "--->>--->> chap_six::MaxProfit for prices: ";
     print_list(prices);
     if (prices.empty() || prices.size() < 2) {

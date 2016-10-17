@@ -1,14 +1,8 @@
 #ifndef CHAP_EIGHT_H
 #define CHAP_EIGHT_H
-#include <iostream>
-#include <ios>
-#include <stdlib.h>
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <utility>
-#include <numeric>
-#include <exception>
+#include <iostream>
+#include <memory>
 #include "linked_list_prototype.h"
 #include "doubly_linked_list_prototype.h"
 
@@ -24,7 +18,7 @@
 /// - @return[out] /* type */         -- /* description */
 /// -------------------------------------------------------------------------------
 class LinkedListExercises {
-    public:
+ public:
     LinkedListExercises();
     ~LinkedListExercises();
 
@@ -124,7 +118,7 @@ class LinkedListExercises {
         std::cout << "(" << head->data << ")" << std::endl;
         Print(head->next);
       }
-    };
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////
     /// PrintInline(shared_ptr<ListNode<T>> head) - Helper Function
@@ -144,7 +138,7 @@ class LinkedListExercises {
         }
         PrintInline(head->next);
       }
-    };
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////
     /// Overloaded with extra string for detailed output
@@ -162,9 +156,9 @@ class LinkedListExercises {
         }
         PrintInline(head->next);
       }
-    };
+    }
 
-    private:
+ private:
     ////////////////////////////////////////////////////////////////////////////////////
     /// AppendSingleNode(shared_ptr *candidate_node, shared_ptr *tail_node)
     /// -------------------------------------------------------------------------------
@@ -187,4 +181,4 @@ class LinkedListExercises {
     void AdvanceListNodeK(int k, shared_ptr<ListNode<int>> *ListNode);
 };
 
-#endif // CHAP_EIGHT_H
+#endif  // CHAP_EIGHT_H

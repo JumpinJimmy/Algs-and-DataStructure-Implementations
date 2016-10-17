@@ -1,5 +1,8 @@
-#include "includes/chap_six.h"
 #include <cassert>
+#include <memory>
+#include <iostream>
+#include <algorithm>
+#include "includes/chap_six.h"
 using namespace std; //NOLINT
 
 void print_list(std::vector<int> &v) {
