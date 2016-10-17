@@ -196,11 +196,11 @@ std::string StringExercises::GetNextSequenceStr(std::string &curr_seq) {
     int value_end = 0;
     for (int value_start = 0; value_start != curr_seq.length();) {
         /// find first char that does !match current char starting from value_start + 1
-        value_end = curr_seq.find_first_not_of(curr_seq.at(i), value_start + 1);
+        value_end = curr_seq.find_first_not_of(curr_seq.at(value_start), value_start + 1);
         if (value_end == std::string::npos) {
             value_end = curr_seq.length();
         }
-        seq_stream << (value_end - value_start) << curr_seq.at(i);
+        seq_stream << (value_end - value_start) << curr_seq.at(value_start);
         value_start = value_end;
     }
     return seq_stream.str();

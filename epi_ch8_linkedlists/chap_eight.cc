@@ -110,13 +110,13 @@ shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<
         list_iter2 = list_iter2->next;
     }
 
-    std::cout << "list_a(data= " << list_a->data << ").use_count() == " << list_a.use_count();
-    std::cout << "\nlist_a->next = "
-              << (list_a->next ? std::to_string(list_a->next->data) : "nullptr") << std::endl;
-    std::cout << "list_b(data=" << list_b->data << ").use_count() == " << list_b.use_count();
-    std::cout << "\nlist_b->next = "
-              << (list_b->next ? std::to_string(list_b->next->data) : "nullptr") << std::endl;
-    std::cout << "a_length: " << a_length <<", b_length: " << b_length << std::endl;
+    // std::cout << "list_a(data= " << list_a->data << ").use_count() == " << list_a.use_count();
+    // std::cout << "\nlist_a->next = "
+    //           << (list_a->next ? std::to_string(list_a->next->data) : "nullptr") << std::endl;
+    // std::cout << "list_b(data=" << list_b->data << ").use_count() == " << list_b.use_count();
+    // std::cout << "\nlist_b->next = "
+    //           << (list_b->next ? std::to_string(list_b->next->data) : "nullptr") << std::endl;
+    // std::cout << "a_length: " << a_length <<", b_length: " << b_length << std::endl;
     AdvanceListNodeK(abs(a_length - b_length), a_length > b_length ? &list_a : &list_b);
 
     while (list_a && list_b && list_a != list_b) {
@@ -148,11 +148,39 @@ shared_ptr<ListNode<int>> LinkedListExercises::RemoveKthLast(const shared_ptr<Li
         kth_iter = kth_iter->next;
     }
     std::cout << "\t -->Found the kth element: " << kth_iter->next->data
-              << "\n\t Replacing it with: "
+              << "\t Replacing it with: "
               << (kth_iter->next->next ? std::to_string(kth_iter->next->next->data) : "nullptr")
               << std::endl;
     kth_iter->next = kth_iter->next->next;
     return pseudo_head->next;
+}
+
+shared_ptr<ListNode<int>> LinkedListExercises::EvenOddMerge(const shared_ptr<ListNode<int>> &L) {
+    if (L == nullptr || L->next == nullptr) {
+        return L;
+    }
+    auto pseudo_even_head = std::make_shared<ListNode<int>>(ListNode<int> {0, nullptr});
+    auto pseudo_odd_head = std::make_shared<ListNode<int>>(ListNode<int> {0, nullptr});
+    std::array<shared_ptr<ListNode<int>>, 2> tail_ptrs = {pseudo_even_head, pseudo_odd_head};
+    int alternator = 0;
+    for (auto list_iter = L; list_iter; list_iter = list_iter->next) {
+        // std::cout << "tail_ptrs[0]->data: " << std::to_string(tail_ptrs[0]->data)
+        //           << ", tail_ptrs[0]->next: "
+        //           << (tail_ptrs[0]->next ? std::to_string(tail_ptrs[0]->next->data) : "nullptr")
+        //           << std::endl;
+        // std::cout << "tail_ptrs[1]->data: " << std::to_string(tail_ptrs[1]->data)
+        //           << ", tail_ptrs[1]->next: "
+        //           << (tail_ptrs[1]->next ? std::to_string(tail_ptrs[1]->next->data) : "nullptr")
+        //           << std::endl;
+        tail_ptrs[alternator]->next = list_iter;
+        tail_ptrs[alternator] = tail_ptrs[alternator]->next;
+        alternator ^= 1;
+        PrintInline("\tEvenList:", pseudo_even_head);
+        PrintInline("\tOddList:", pseudo_odd_head);
+    }
+    tail_ptrs[1]->next = nullptr;
+    tail_ptrs[0]->next = pseudo_odd_head->next;
+    return pseudo_even_head->next;
 }
 
 /// TODO(jdevore): Create another method to build list w/ custom data field vs. 0 - N

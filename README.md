@@ -24,5 +24,6 @@ Personal Studies and Implementation of Core Data Structures in C++
 
 *   Implement Google Test in order to use CHECK() rather than assert for unit tests
 
+*   Remove all areas where an exception is thrown and figure out alternative way to handle logic errors and proper cleanup
 
 
