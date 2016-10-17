@@ -12,12 +12,21 @@
 /// - @param[in] /* parameter name */ -- /* parameter purpose */
 /// - @return[out] /* type */         -- /* description */
 /// -------------------------------------------------------------------------------
+struct TreeHeightStats {
+    bool balanced;
+    int height;
+};
+
 class BinaryTreeExercises {
     public:
     BinaryTreeExercises();
     ~BinaryTreeExercises();
-    bool IsHeightBalanced();
+    bool IsHeightBalanced(const unique_ptr<BinaryTreeNode<int>>& tree_root);
+    bool IsSymmetric(const unique_ptr<BinaryTreeNode<int>>& tree_root);
 
+    private:
+    /// IsHeightBalanced Helper Method
+    TreeHeightStats GetHeightBalance(const unique_ptr<BinaryTreeNode<int>>& tree);
 };
 
 #endif // CHAP_TEN_H

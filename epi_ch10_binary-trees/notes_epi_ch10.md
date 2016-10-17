@@ -7,7 +7,7 @@ Page 135 of Elements of Programming Interviews
 
 **10.1: Test if a Binary Tree is height balanced**
 
-*  
+*  `bool IsHeightBalanced(const unique_ptr<BinaryTreeNode<int>>& tree_root_)`
 
 ---
 
