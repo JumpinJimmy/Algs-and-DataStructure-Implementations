@@ -1,7 +1,6 @@
-#include <ios>
-#include <iomanip>
-#include <utility>
-#include <stdlib.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 #include "includes/string_probs.h"
 using namespace std; //NOLINT
 
@@ -13,7 +12,7 @@ void remove_chars(StringExerciser *StrTester, std::string teststr,
 }
 
 void run_string_tests(std::vector<std::pair<std::string,
-                      std::string>> &src_filter_list, bool case_sensitive) {
+                      std::string>> &src_filter_list, bool case_sensitive) { // NOLINT
     StringExerciser* StrTester = new StringExerciser();
     for (auto &x : src_filter_list) {
         remove_chars(StrTester, x.first, x.second, case_sensitive);

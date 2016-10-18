@@ -1,4 +1,8 @@
+#include <algorithm>
+#include <sstream>
+#include <iostream>
 #include "includes/chap_seven.h"
+
 StringExercises::StringExercises() {}
 
 StringExercises::~StringExercises() {}
@@ -8,7 +12,7 @@ std::string StringExercises::IntToString(int in_int) {
     bool negative = false;
     if (in_int < 0) {
         negative = true;
-        in_int = -in_int; /// negate so @in_int is positive
+        in_int = -in_int;  /// negate so @in_int is positive
     }
 
     do {
@@ -24,7 +28,7 @@ std::string StringExercises::IntToString(int in_int) {
     return result;
 }
 
-int StringExercises::StringToInt(std::string &in_str) {
+int StringExercises::StringToInt(const std::string &in_str) {
     int result = 0;
     bool negative = in_str[0] == '-';
     int i = negative ? 1 : 0;
@@ -88,7 +92,7 @@ int StringExercises::ReplaceAndRemove(char s[], int size) {
     return final_size;
 }
 
-bool StringExercises::IsPalindromic(std::string &in_str) {
+bool StringExercises::IsPalindromic(const std::string &in_str) {
     if (in_str.length() < 2) {
         return true;
     }
@@ -191,7 +195,7 @@ std::string StringExercises::LookAndSay(int n) {
 }
 
 /// Helper for LookAndSay
-std::string StringExercises::GetNextSequenceStr(std::string &curr_seq) {
+std::string StringExercises::GetNextSequenceStr(const std::string &curr_seq) {
     std::stringstream seq_stream;
     int value_end = 0;
     for (int value_start = 0; value_start != curr_seq.length();) {

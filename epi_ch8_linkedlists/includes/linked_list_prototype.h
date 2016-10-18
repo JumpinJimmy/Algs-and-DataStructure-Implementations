@@ -10,4 +10,4 @@ struct ListNode {
   shared_ptr<ListNode<T>> next;
 };
 // @exclude
-#endif // LINKED_LIST_PROTOTYPE_H
+#endif  // LINKED_LIST_PROTOTYPE_H

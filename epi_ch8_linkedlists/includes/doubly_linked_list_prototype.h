@@ -11,4 +11,4 @@ struct DListNode {
   shared_ptr<DListNode<T>> prev, next;
 };
 // @exclude
-#endif // DOUBLY_LINKED_LIST_PROTOTYPE_H
+#endif  // DOUBLY_LINKED_LIST_PROTOTYPE_H

@@ -1,4 +1,5 @@
 #include "includes/chap_eight.h"
+
 LinkedListExercises::LinkedListExercises() {}
 
 LinkedListExercises::~LinkedListExercises() {}
@@ -104,7 +105,7 @@ shared_ptr<ListNode<int>> LinkedListExercises::CheckOverlap(shared_ptr<ListNode<
         list_iter = list_iter->next;
     }
 
-    auto list_iter2= list_b;
+    auto list_iter2 = list_b;
     while (list_iter2) {
         ++b_length;
         list_iter2 = list_iter2->next;

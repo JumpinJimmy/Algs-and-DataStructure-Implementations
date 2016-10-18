@@ -64,15 +64,15 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
                 case ']' : if (bracket_stack.top() == '[') {
                             bracket_stack.pop();
                             continue;
-                        };
+                        }
                 case '}' : if (bracket_stack.top() == '{') {
                             bracket_stack.pop();
                             continue;
-                        };
+                        }
                 case ')' : if (bracket_stack.top() == '(') {
                             bracket_stack.pop();
                             continue;
-                        };
+                        }
                 default: return false;
             }
         }
@@ -123,7 +123,7 @@ std::vector<std::vector<int>> StackQueueExercises::BinTreeLevelOrder(const std::
 }
 
 /// Helper Methods
-void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
+void StackQueueExercises::TestMaxStack(const std::vector<int> &elements) {
     MaxStack test_stack;
     for (auto &element : elements) {
         test_stack.Push(element);
@@ -136,7 +136,7 @@ void StackQueueExercises::TestMaxStack(std::vector<int> &elements) {
     std::cout << "\t--->> Stack Size: " << test_stack.stack_size()  << std::endl;
 }
 
-void StackQueueExercises::TestStackScope(std::shared_ptr<MaxStack> &s) {
+void StackQueueExercises::TestStackScope(const std::shared_ptr<MaxStack> &s) {
     std::cout << "--->>--->> TestStackScope s->Top(): " << s->Top()
               << ", s->Max(): " << s->Max()
               << ", s->stack_size(): " << s->stack_size() << std::endl;
@@ -150,7 +150,7 @@ std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(int n) {
     return test_stack;
 }
 
-std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(std::vector<int> &elements) {
+std::shared_ptr<MaxStack> StackQueueExercises::CreateStack(const std::vector<int> &elements) {
     std::shared_ptr<MaxStack> new_stack(new MaxStack());
     for (auto &element : elements) {
         new_stack->Push(element);
