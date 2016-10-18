@@ -16,7 +16,7 @@ class ArrayExercises {
     std::vector<int> EnumeratePrimesOptimized(int n);
     void RandomSampling(std::vector<int> *arr_ptr, int size);
     bool ValidSudoku(const std::vector<std::vector<int>> &sudoku_board);
-    std::vector<int> SpiralOrdering(std::vector<std::vector<int>> &matrix);
+    std::vector<int> SpiralOrdering(std::vector<std::vector<int>> &matrix); // NOLINT
 
  private:
     bool SudokuDups(const std::vector<std::vector<int>> &sudoku_board,

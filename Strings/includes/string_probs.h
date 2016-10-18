@@ -9,8 +9,8 @@ class StringExerciser {
     // StringExerciser(const StringExerciser &rhs);
     virtual ~StringExerciser();
     // const StringExerciser & operator=(const StringExerciser & rhs);
-    void RemoveChars(std::string &source_str,
-                     const std::string &remove_chars, bool case_sensitive = true);
+    void RemoveChars(std::string &source_str, const std::string &remove_chars, // NOLINT
+                                              bool case_sensitive = true);
     void RemoveChars(const char source_str[],
                      const char remove_chars[], bool case_sensitive = true);
     // char* FirstNonRepeat(std::string &source_str);
