@@ -1,11 +1,7 @@
-#include "includes/chap_ten.h"
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <utility>
-#include <exception>
-#include <stdlib.h>
+#include "includes/chap_ten.h"
 
 BinaryTreeExercises::BinaryTreeExercises() {}
 

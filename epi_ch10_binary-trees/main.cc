@@ -1,6 +1,6 @@
-#include "includes/chap_ten.h"
 #include <cassert> //NOLINT
 #include <iostream>
+#include "includes/chap_ten.h"
 using namespace std; //NOLINT
 
 void IsSymmetric(BinaryTreeExercises* bintree_exerciser) {

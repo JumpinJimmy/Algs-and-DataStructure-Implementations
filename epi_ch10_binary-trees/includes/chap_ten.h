@@ -1,6 +1,7 @@
 #ifndef CHAP_TEN_H
 #define CHAP_TEN_H
-#include "binary_tree_node.h"
+#include <memory>
+#include "./binary_tree_node.h"
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 /// BinaryTreeExercises
@@ -18,17 +19,17 @@ struct TreeHeightStats {
 };
 
 class BinaryTreeExercises {
-    public:
+ public:
     BinaryTreeExercises();
     ~BinaryTreeExercises();
     bool IsHeightBalanced(const unique_ptr<BinaryTreeNode<int>>& tree_root);
     bool IsSymmetric(const unique_ptr<BinaryTreeNode<int>>& tree_root);
 
-    private:
+ private:
     /// IsHeightBalanced Helper Method
     TreeHeightStats GetHeightBalance(const unique_ptr<BinaryTreeNode<int>>& tree);
     bool CheckSymmetry(const unique_ptr<BinaryTreeNode<int>>& left,
                        const unique_ptr<BinaryTreeNode<int>>& right);
 };
 
-#endif // CHAP_TEN_H
+#endif  // CHAP_TEN_H

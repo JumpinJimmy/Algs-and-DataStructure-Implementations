@@ -9,4 +9,4 @@ struct BinaryTreeNode {
   unique_ptr<BinaryTreeNode<T>> left, right;
 };
 
-#endif // BINARY_TREE_NODE_H
+#endif  // BINARY_TREE_NODE_H
