@@ -5,7 +5,7 @@ echo "Linting source files"
 
 # find ./ \( -name "*.h" -o -name "*.cc" \) -type f | grep -v pb | xargs python cpplint.py --root=Algs-and-DataStructure-Implementations/  --linelength=150 --extensions=cc,h --filter=-legal/copyright,-build/include,-whitespace/comments,-readability/streams,-runtime/references,-readability/casting,-runtime/arrays,-runtime/printf ./*/*
 
-find ./ \( -name "*.h" -o -name "*.cc" \) -type f | grep -v pb | xargs python cpplint.py --verbose=1 --linelength=150 --root=Algs-and-DataStructure-Implementations/ --extensions=h --headers=h --filter=-legal/copyright,-readability/check,+whitespace/todo,-build/header_guard ./*/*
+find ./ \( -name "*.h" -o -name "*.cc" \) -type f | grep -v pb | xargs python cpplint.py --verbose=1 --linelength=150 --root=Algs-and-DataStructure-Implementations/ --extensions=cc --headers=h --filter=-legal/copyright,-readability/check,+whitespace/todo,-build/header_guard ./*/*
 
 # python cpplint.py
 # --verbose=1

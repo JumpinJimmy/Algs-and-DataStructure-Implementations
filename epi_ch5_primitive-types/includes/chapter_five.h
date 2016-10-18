@@ -5,7 +5,7 @@ class PrimitiveTypesExerciser{
  public:
     PrimitiveTypesExerciser();
     virtual ~PrimitiveTypesExerciser();
-    short Parity(unsigned long x);
+    int16_t Parity(uint64_t x);
 };
 
 
