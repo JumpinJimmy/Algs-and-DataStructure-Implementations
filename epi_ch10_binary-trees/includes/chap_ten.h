@@ -24,6 +24,9 @@ class BinaryTreeExercises {
     ~BinaryTreeExercises();
     bool IsHeightBalanced(const unique_ptr<BinaryTreeNode<int>>& tree_root);
     bool IsSymmetric(const unique_ptr<BinaryTreeNode<int>>& tree_root);
+    BinaryTreeNode<int>* FindLCA(const unique_ptr<BinaryTreeNode<int>>& tree,
+                                 const unique_ptr<BinaryTreeNode<int>>& nodeA,
+                                 const unique_ptr<BinaryTreeNode<int>>& nodeB);
 
  private:
     /// IsHeightBalanced Helper Method

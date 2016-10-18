@@ -5,14 +5,20 @@ using namespace std; //NOLINT
 
 void IsSymmetric(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::IsSymmetric <<---<<--- " << std::endl;
-    unique_ptr<BinaryTreeNode<int>> tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
-    tree->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
-    tree->left->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
-    tree->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
-    tree->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
-    tree->right->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    unique_ptr<BinaryTreeNode<int>> non_sym_tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    non_sym_tree->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    non_sym_tree->left->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    non_sym_tree->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    non_sym_tree->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    non_sym_tree->right->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
     std::cout << "\t -IsSymmetric: " << std::boolalpha
-                                     << bintree_exerciser->IsSymmetric(tree) << std::endl;
+                                     << bintree_exerciser->IsSymmetric(non_sym_tree) << std::endl;
+    unique_ptr<BinaryTreeNode<int>> sym_tree =
+        make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    sym_tree->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    sym_tree->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    std::cout << "\t -IsSymmetric: " << std::boolalpha
+                                     << bintree_exerciser->IsSymmetric(sym_tree) << std::endl;
 }
 void IsHeightBalanced(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::IsHeightBalanced <<---<<--- " << std::endl;

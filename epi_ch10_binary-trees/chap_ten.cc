@@ -48,5 +48,20 @@ TreeHeightStats BinaryTreeExercises::GetHeightBalance(const unique_ptr<BinaryTre
 
 bool BinaryTreeExercises::CheckSymmetry(const unique_ptr<BinaryTreeNode<int>>& left,
                                         const unique_ptr<BinaryTreeNode<int>>& right) {
-    return false;
+    if (left == nullptr && right == nullptr) {
+        return true;
+    } else if (left != nullptr && right != nullptr) {
+        return ((left->data == right->data) &&
+                CheckSymmetry(left->right, right->left) &&
+                CheckSymmetry(left->left, right->right));
+    } else {
+        return false;
+    }
+}
+
+BinaryTreeNode<int>* BinaryTreeExercises::FindLCA(const unique_ptr<BinaryTreeNode<int>>& tree,
+                                                  const unique_ptr<BinaryTreeNode<int>>& nodeA,
+                                                  const unique_ptr<BinaryTreeNode<int>>& nodeB) {
+    BinaryTreeNode<int> *result_tree = nullptr;  // = std::make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    return result_tree;
 }

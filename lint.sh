@@ -26,11 +26,10 @@ function print_banner() {
 #######################################################################
 #         R U N  C P P L I N T  w/  F I L E S  V I A  `find`
 #----------------------------------------------------------------------
-function run_lint() {
+function run_lint() { # --root=Algs-and-DataStructure-Implementations/
     print_banner "Linting Source Files"
-    find ./ \( -name "*.h" -o -name "*.cc" \) -type f | grep -v pb | xargs python cpplint.py --verbose=1 --linelength=150 --root=Algs-and-DataStructure-Implementations/ --extensions=cc --headers=h --filter=-legal/copyright,-readability/check,+whitespace/todo,-build/header_guard ./*/*
+    find ./ \( -name "*.h" -o -name "*.cc" \) -type f | grep -v pb | xargs python cpplint.py --verbose=1 --linelength=150 --extensions=cc --headers=h --filter=-legal/copyright,-readability/check,+whitespace/todo,-build/header_guard ./*/*
 }
-
 
 # Start
 run_lint
