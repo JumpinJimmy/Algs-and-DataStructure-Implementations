@@ -64,15 +64,15 @@ bool StackQueueExercises::IsWellFormedBrackets(const std::string& bracket_str) {
                 case ']' : if (bracket_stack.top() == '[') {
                             bracket_stack.pop();
                             continue;
-                        };
+                        }
                 case '}' : if (bracket_stack.top() == '{') {
                             bracket_stack.pop();
                             continue;
-                        };
+                        }
                 case ')' : if (bracket_stack.top() == '(') {
                             bracket_stack.pop();
                             continue;
-                        };
+                        }
                 default: return false;
             }
         }

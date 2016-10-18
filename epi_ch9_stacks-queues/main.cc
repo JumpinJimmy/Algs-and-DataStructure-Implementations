@@ -1,6 +1,6 @@
-#include "includes/chap_nine.h"
 #include <cassert> //NOLINT
 #include <iostream>
+#include "includes/chap_nine.h"
 using namespace std; //NOLINT
 
 void TestQueueStacks(StackQueueExercises* sq_exerciser) {
