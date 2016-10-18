@@ -3,7 +3,7 @@
 #include "includes/chap_seven.h"
 using namespace std; // NOLINT
 
-void PrintVector(std::vector<std::string> &v, const std::string &info) {
+void PrintVector(const std::vector<std::string> &v, const std::string &info) {
     std::cout << "\t -->Vector related to (" << info <<")\n \t [ ";
     for (auto &val : v) {
         std::cout << val << " ";
