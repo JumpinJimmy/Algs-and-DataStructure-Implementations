@@ -1,12 +1,12 @@
 #ifndef CHAP_NINE_H
 #define CHAP_NINE_H
-#include <stdlib.h>
 #include <vector>
-#include "max_stack.h"
-#include "queue_stacks.h"
-#include "bst_node_prototype.h"
-#include "circular_queue.h"
-#include "queue_stacks.h"
+#include <string>
+#include <memory>
+#include "./max_stack.h"
+#include "./queue_stacks.h"
+#include "./bst_node_prototype.h"
+#include "./circular_queue.h"
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 /// StackQueueExercises
@@ -19,7 +19,7 @@
 /// - @return[out] /* type */         -- /* description */
 /// -------------------------------------------------------------------------------
 class StackQueueExercises {
-    public:
+ public:
     StackQueueExercises();
     ~StackQueueExercises();
 
@@ -51,13 +51,11 @@ class StackQueueExercises {
     ////////////////////////////////////////////////////////////////////////////////////
     /// Helper Methods
     std::shared_ptr<MaxStack> CreateStack(int n);
-    std::shared_ptr<MaxStack> CreateStack(std::vector<int> &elements);
-    void TestMaxStack(std::vector<int> &elements);
-    void TestStackScope(std::shared_ptr<MaxStack> &s);
+    std::shared_ptr<MaxStack> CreateStack(const std::vector<int> &elements);
+    void TestMaxStack(const std::vector<int> &elements);
+    void TestStackScope(const std::shared_ptr<MaxStack> &s);
     void TestCircularQueue();
     void TestQueueStacks();
-
-    private:
 };
 
-#endif // CHAP_NINE_H
+#endif  // CHAP_NINE_H

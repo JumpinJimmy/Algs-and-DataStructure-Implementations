@@ -63,7 +63,7 @@ void CircularQueue::PrintFromHead() {
             if (i == tail_) std::cout << " <T>";
             std::cout << ")";
         } std::cout << std::endl;
-    };
+    }
 }
 
 void CircularQueue::PrintInline(const std::vector<int> *list, std::string details) {

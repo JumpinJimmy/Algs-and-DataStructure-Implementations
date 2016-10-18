@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+#include <set>
 #include "includes/string_probs.h"
 
 // struct SetCaseCompare {  IGNORE FOR NOW
@@ -24,7 +27,7 @@ StringExerciser::~StringExerciser() {
 // Want to avoid having to write functionality that decides which type of set to build,
 // the comparator should handle case insensitivity set to either TRUE or FALSE.
 void StringExerciser::RemoveChars(std::string &source_str,
-                                  std::string &remove_chars, bool case_sensitive) {
+                                  const std::string &remove_chars, bool case_sensitive) {
     std::cout << "--->>--->> string_probs:: RemoveChars(string "
               << source_str << ", string " << remove_chars << ")" << std::endl;
     if (source_str.empty() || remove_chars.empty()) {
@@ -45,7 +48,7 @@ void StringExerciser::RemoveChars(std::string &source_str,
 
     std::set<char>::iterator set_iter;
     for (char src_char : source_str) {
-        set_iter = (!case_sensitive) ? (blacklist.find(tolower(src_char))) : (blacklist.find(src_char)); //NOLINT
+        set_iter = (!case_sensitive) ? (blacklist.find(tolower(src_char))) : (blacklist.find(src_char));  //NOLINT
         if (set_iter == blacklist.end()) {
             ss_ << src_char;
         }
