@@ -5,7 +5,7 @@
 #include "includes/chap_six.h"
 using namespace std; //NOLINT
 
-void print_list(std::vector<int> &v) {
+void print_list(const std::vector<int> &v) {
     std::cout << "Printing List: \n [ ";
     for (auto &val : v) {
         std::cout << val << " ";

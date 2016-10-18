@@ -183,14 +183,14 @@ int ArrayExercises::LongestSubArrayEqual(const std::vector<int> &int_list) {
 
 std::vector<int> ArrayExercises::EnumeratePrimes(int n) {
     if (n < 2) {
-        return {}; //empty list
+        return {};  // empty list
     }
     if (n == 2) {
         return {2};
     }
     std::vector<int> primes;
     std::vector<bool> is_prime(n+1, true);
-    is_prime[0] = is_prime[1] = false; // 0 & 1 are not prime numbers
+    is_prime[0] = is_prime[1] = false;  // 0 & 1 are not prime numbers
 
     for (int pval = 2; pval < n; pval++) {
         if (is_prime.at(pval)) {
@@ -207,7 +207,7 @@ std::vector<int> ArrayExercises::EnumeratePrimes(int n) {
 std::vector<int> ArrayExercises::EnumeratePrimesOptimized(int n) {
     std::cout << "--->>--->> chap_six::EnumeratePrimesOptimized( " << n << " )" << std::endl;
     if (n < 2) {
-        return {}; //empty list
+        return {};  // empty list
     }
     const int num_possible_primes = floor(0.5 * (n - 3)) + 1;
     std::vector<bool> is_prime(num_possible_primes, true);
@@ -217,7 +217,7 @@ std::vector<int> ArrayExercises::EnumeratePrimesOptimized(int n) {
         if (is_prime.at(i)) {
             int pval = (i * 2) + 3;
             primes.push_back(pval);
-            //clean this long statement up
+            // clean this long statement up
             for (long mult_sq = ((static_cast<long>(i) * static_cast<long>(i)) * 2) + 6 * i + 3; mult_sq < num_possible_primes; mult_sq += pval) { //NOLINT
                 is_prime.at(mult_sq) = false;
             }
