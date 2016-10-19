@@ -80,11 +80,6 @@ BinaryTreeNode<int>* BinaryTreeExercises::FindLCA(const unique_ptr<BinaryTreeNod
                                                   const unique_ptr<BinaryTreeNode<int>>& nodeB) {
     // Nodes must be Distinct,
     // The Root is the LCA when the two nodes are on opposite sides of the tree
-    // find path to nodeA (save node path in list) - binary search for nodeA in left tree, if not found, binary search for node in right tree
-    // find path to nodeB (save node path to b in list) - binary search for nodeB in left tree, if not found, binary search for node in right tree
-    // iterate over both lists until an equal node is found , this is the LCA
-
-    // BinaryTreeNode<int> *result_tree = nullptr;  // = std::make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
     return LCASearchHelper(tree, nodeA, nodeB).lowest_common_ancestor;
 }
 
@@ -92,22 +87,27 @@ BinaryTreeExercises::lca_info BinaryTreeExercises::LCASearchHelper(const unique_
                                               const unique_ptr<BinaryTreeNode<int>>& nodeA,
                                               const unique_ptr<BinaryTreeNode<int>>& nodeB) {
     if (tree == nullptr) {
-        return {0, nullptr};
+        return {0, nullptr}; // return empty lca_info struct
     }
-    // return {0, nullptr};
+
+    // Search Left Sub-tree
     auto left_subtree_res = LCASearchHelper(tree->left, nodeA, nodeB);
     if (left_subtree_res.num_discovered_nodes == 2) {
-        return left_subtree_res;
+        return left_subtree_res;  // found both target nodes in left subtree
     }
 
+    // Search Right Sub-tree
     auto right_subtree_res = LCASearchHelper(tree->left, nodeA, nodeB);
     if (right_subtree_res.num_discovered_nodes == 2) {
-        return right_subtree_res;
+        return right_subtree_res;  // found both target nodes in right subtree
     }
 
+    // Get total of nodes found from both sub trees + if current node == target
     int num_discovered_nodes = right_subtree_res.num_discovered_nodes +
                                left_subtree_res.num_discovered_nodes +
                                (tree == nodeA) + (tree == nodeB);
 
+    // return lca_info struct with number of discovered nodes.
+    // If we have found both, return pointer to current node as this is the LCA
     return {num_discovered_nodes , num_discovered_nodes == 2 ? tree.get() : nullptr};
 }
