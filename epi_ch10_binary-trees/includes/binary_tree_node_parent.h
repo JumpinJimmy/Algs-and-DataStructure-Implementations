@@ -2,7 +2,7 @@
 #define BINARY_TREE_NODE_PARENT_H
 #include <memory>
 using std::unique_ptr;
-// TODO(jdevore) : extend binary_tree_node.h template class instead of duplicating functionality (later)
+/// TODO(jdevore) : extend binary_tree_node.h template class instead of duplicating functionality (later)
 template <typename T>
 struct BinTreeNodeP {
   T data;

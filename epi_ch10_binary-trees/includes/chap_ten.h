@@ -90,6 +90,7 @@ class BinaryTreeExercises {
     /// In-order traversal using O(1) space
     std::vector<int> InOrderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree);
 
+    /// Construct a binary tree given inorder and preorder traversals
     std::shared_ptr<BinaryTreeNode<int>> BtFromInPreOrder(const std::vector<int> &inorder,
                                                           const std::vector<int> &preorder,
                                                           std::unordered_map<int, size_t> node_inord_idx);

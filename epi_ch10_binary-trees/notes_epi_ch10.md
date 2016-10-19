@@ -15,7 +15,7 @@ Page 135 of Elements of Programming Interviews
 
 *   x
 
-`return-type name(type input)`
+`bool IsSymmetric(const unique_ptr<BinaryTreeNode<int>>& tree_root)`
 
 ---
 
