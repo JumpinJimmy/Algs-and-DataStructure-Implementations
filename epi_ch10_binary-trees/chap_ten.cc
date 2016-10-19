@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 #include "includes/chap_ten.h"
 
 BinaryTreeExercises::BinaryTreeExercises() {}
@@ -111,3 +110,16 @@ BinaryTreeExercises::lca_info BinaryTreeExercises::LCASearchHelper(const unique_
     // If we have found both, return pointer to current node as this is the LCA
     return {num_discovered_nodes , num_discovered_nodes == 2 ? tree.get() : nullptr};
 }
+
+BinaryTreeNode<int>* BinaryTreeExercises::FindLcaAlt(const unique_ptr<BinaryTreeNode<int>>& tree,
+                                                     const unique_ptr<BinaryTreeNode<int>>& nodeA,
+                                                     const unique_ptr<BinaryTreeNode<int>>& nodeB) {
+    return nullptr;
+}
+
+BinaryTreeNode<int>* BinaryTreeExercises::FindLCAParents(const unique_ptr<BinTreeNodeP<int>>& tree,
+                                                         const unique_ptr<BinTreeNodeP<int>>& nodeA,
+                                                         const unique_ptr<BinTreeNodeP<int>>& nodeB) {
+    return nullptr;
+}
+

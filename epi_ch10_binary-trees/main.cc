@@ -3,7 +3,50 @@
 #include "includes/chap_ten.h"
 using namespace std; //NOLINT
 
+void FindLcaAlt(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::FindLcaAlt <<---<<--- " << std::endl;
+    unique_ptr<BinaryTreeNode<int>> tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{3});
+    tree->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{2});
+    tree->left->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{1});
+    tree->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{5});
+    tree->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{4});
+    tree->right->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{6});
+    BinaryTreeNode<int> *result = bintree_exerciser->FindLcaAlt(tree,
+                                                             tree->left->left,
+                                                             tree->right->left);
+    std::cout << "\t -FindLcaAlt(leftnode: " << tree->left->left->data
+              << ", rightnode: " << tree->right->left->data << "): "
+              << (result ? std::to_string(result->data) : "(empty)") << std::endl;
+    // bintree_exerciser->FindLcaAlt()
+}
+
+void FindLCAParents(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::FindLCAParents <<---<<--- " << std::endl;
+
+  //      3
+  //    2   5
+  //  1    4 6
+  auto parentp_node_tree = make_unique<BinTreeNodeP<int>>(
+      BinTreeNodeP<int>{3, nullptr, nullptr, nullptr});
+  parentp_node_tree->left = make_unique<BinTreeNodeP<int>>(
+      BinTreeNodeP<int>{2, nullptr, nullptr, parentp_node_tree.get()});
+  parentp_node_tree->left->left = make_unique<BinTreeNodeP<int>>(
+      BinTreeNodeP<int>{1, nullptr, nullptr, parentp_node_tree->left.get()});
+  parentp_node_tree->right = make_unique<BinTreeNodeP<int>>(
+      BinTreeNodeP<int>{5, nullptr, nullptr, parentp_node_tree.get()});
+  parentp_node_tree->right->left = make_unique<BinTreeNodeP<int>>(
+      BinTreeNodeP<int>{4, nullptr, nullptr, parentp_node_tree->right.get()});
+  parentp_node_tree->right->right = make_unique<BinTreeNodeP<int>>(
+      BinTreeNodeP<int>{6, nullptr, nullptr});
+
+    bintree_exerciser->FindLCAParents(parentp_node_tree,
+                                      parentp_node_tree->left->left,
+                                      parentp_node_tree->right->left);
+
+}
+
 void FindLCA(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::FindLCA <<---<<--- " << std::endl;
     //      3
     //    2   5
     //  1    4 6
@@ -42,6 +85,7 @@ void IsSymmetric(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\t -IsSymmetric(symmetric tree): " << std::boolalpha
                                      << bintree_exerciser->IsSymmetric(sym_tree) << std::endl;
 }
+
 void IsHeightBalanced(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::IsHeightBalanced <<---<<--- " << std::endl;
     unique_ptr<BinaryTreeNode<int>> tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
@@ -59,6 +103,8 @@ void RunTests(BinaryTreeExercises* bintree_exerciser) {
     IsHeightBalanced(bintree_exerciser);
     IsSymmetric(bintree_exerciser);
     FindLCA(bintree_exerciser);
+    FindLCAParents(bintree_exerciser);
+    FindLcaAlt(bintree_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch10_test

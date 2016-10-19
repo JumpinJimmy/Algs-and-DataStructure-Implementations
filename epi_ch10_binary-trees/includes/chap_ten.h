@@ -1,7 +1,10 @@
 #ifndef CHAP_TEN_H
 #define CHAP_TEN_H
 #include <memory>
+#include <vector>
+#include <unordered_map>
 #include "./binary_tree_node.h"
+#include "./binary_tree_node_parent.h"
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 /// BinaryTreeExercises
@@ -64,6 +67,11 @@ class BinaryTreeExercises {
                                  const unique_ptr<BinaryTreeNode<int>>& nodeA,
                                  const unique_ptr<BinaryTreeNode<int>>& nodeB);
 
+    /// LCA where nodes have parent pointers
+    BinaryTreeNode<int>* FindLCAParents(const unique_ptr<BinTreeNodeP<int>>& tree,
+                                 const unique_ptr<BinTreeNodeP<int>>& nodeA,
+                                 const unique_ptr<BinTreeNodeP<int>>& nodeB);
+
     ////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////
     /// FindLCA Alternate TODO(jdevore): LCA standard binary search (no extra structures)
@@ -75,10 +83,16 @@ class BinaryTreeExercises {
     /// - @param[in] /* parameter name */ -- /* parameter purpose */
     /// - @return[out] /* type */         -- /* description */
     /// -------------------------------------------------------------------------------
-    // BinaryTreeNode<int>* BinaryTreeExercises::FindLcaAlt(const unique_ptr<BinaryTreeNode<int>>& tree,
-    //                                                   const unique_ptr<BinaryTreeNode<int>>& nodeA,
-    //                                                   const unique_ptr<BinaryTreeNode<int>>& nodeB) {
+    BinaryTreeNode<int>* FindLcaAlt(const unique_ptr<BinaryTreeNode<int>>& tree,
+                                    const unique_ptr<BinaryTreeNode<int>>& nodeA,
+                                    const unique_ptr<BinaryTreeNode<int>>& nodeB);
 
+    /// In-order traversal using O(1) space
+    std::vector<int> InOrderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree);
+
+    std::shared_ptr<BinaryTreeNode<int>> BtFromInPreOrder(const std::vector<int> &inorder,
+                                                          const std::vector<int> &preorder,
+                                                          std::unordered_map<int, size_t> node_inord_idx);
  private:
     struct lca_info {
         int num_discovered_nodes;
