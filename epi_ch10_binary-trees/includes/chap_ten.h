@@ -95,6 +95,7 @@ class BinaryTreeExercises {
                                                           std::unordered_map<int, size_t> node_inord_idx);
 
  private:
+    /// Helper struct for @FindLCA(). Used within private method @LCASearchHelper
     struct lca_info {
         int num_discovered_nodes;
         BinaryTreeNode<int>* lowest_common_ancestor;
@@ -105,8 +106,10 @@ class BinaryTreeExercises {
                              const unique_ptr<BinaryTreeNode<int>>& nodeA,
                              const unique_ptr<BinaryTreeNode<int>>& nodeB);
 
-    /// IsHeightBalanced Helper Method
+    /// Helper Method for @IsHeightBalanced
     TreeHeightStats GetHeightBalance(const unique_ptr<BinaryTreeNode<int>>& tree);
+
+    /// Helper method for @IsSymmetric
     bool CheckSymmetry(const unique_ptr<BinaryTreeNode<int>>& left,
                        const unique_ptr<BinaryTreeNode<int>>& right);
 };

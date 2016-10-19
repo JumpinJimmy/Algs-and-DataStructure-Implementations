@@ -58,22 +58,6 @@ bool BinaryTreeExercises::CheckSymmetry(const unique_ptr<BinaryTreeNode<int>>& l
     }
 }
 
-/// -------------------------------------------------------------------------------
-/// Lowest Common Ancestor Alternate
-/// TODO(jdevore): LCA standard binary search (no extra structures)
-/// -------------------------------------------------------------------------------
-// Nodes must be Distinct,
-// The Root is the LCA when the two nodes are on opposite sides of the tree
-// find path to nodeA (save node path in list) - binary search for nodeA in left tree, if not found, binary search for node in right tree
-// find path to nodeB (save node path to b in list) - binary search for nodeB in left tree, if not found, binary search for node in right tree
-// iterate over both lists until an equal node is found , this is the LCA
-/// -------------------------------------------------------------------------------
-// BinaryTreeNode<int>* BinaryTreeExercises::FindLcaAlt(const unique_ptr<BinaryTreeNode<int>>& tree,
-//                                                   const unique_ptr<BinaryTreeNode<int>>& nodeA,
-//                                                   const unique_ptr<BinaryTreeNode<int>>& nodeB) {}
-/// -------------------------------------------------------------------------------
-
-
 BinaryTreeNode<int>* BinaryTreeExercises::FindLCA(const unique_ptr<BinaryTreeNode<int>>& tree,
                                                   const unique_ptr<BinaryTreeNode<int>>& nodeA,
                                                   const unique_ptr<BinaryTreeNode<int>>& nodeB) {
@@ -111,6 +95,16 @@ BinaryTreeExercises::lca_info BinaryTreeExercises::LCASearchHelper(const unique_
     return {num_discovered_nodes , num_discovered_nodes == 2 ? tree.get() : nullptr};
 }
 
+/// -------------------------------------------------------------------------------
+/// Lowest Common Ancestor Alternate
+/// TODO(jdevore): LCA standard binary search (no extra structures)
+/// -------------------------------------------------------------------------------
+// Nodes must be Distinct,
+// The Root is the LCA when the two nodes are on opposite sides of the tree
+// find path to nodeA (save node path in list) - binary search for nodeA in left tree, if not found, binary search for node in right tree
+// find path to nodeB (save node path to b in list) - binary search for nodeB in left tree, if not found, binary search for node in right tree
+// iterate over both lists until an equal node is found , this is the LCA
+/// -------------------------------------------------------------------------------
 BinaryTreeNode<int>* BinaryTreeExercises::FindLcaAlt(const unique_ptr<BinaryTreeNode<int>>& tree,
                                                      const unique_ptr<BinaryTreeNode<int>>& nodeA,
                                                      const unique_ptr<BinaryTreeNode<int>>& nodeB) {
@@ -120,5 +114,16 @@ BinaryTreeNode<int>* BinaryTreeExercises::FindLcaAlt(const unique_ptr<BinaryTree
 BinaryTreeNode<int>* BinaryTreeExercises::FindLCAParents(const unique_ptr<BinTreeNodeP<int>>& tree,
                                                          const unique_ptr<BinTreeNodeP<int>>& nodeA,
                                                          const unique_ptr<BinTreeNodeP<int>>& nodeB) {
+    return nullptr;
+}
+
+std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree) {
+    return {};
+}
+
+/// Contruct a binary tree given inorder and postorder traversals
+std::shared_ptr<BinaryTreeNode<int>> BinaryTreeExercises::BtFromInPreOrder(const std::vector<int> &inorder,
+                                                                           const std::vector<int> &preorder,
+                                                                           std::unordered_map<int, size_t> node_inord_idx) {
     return nullptr;
 }
