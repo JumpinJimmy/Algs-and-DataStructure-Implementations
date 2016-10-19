@@ -17,32 +17,29 @@ void FindLcaAlt(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\t -FindLcaAlt(leftnode: " << tree->left->left->data
               << ", rightnode: " << tree->right->left->data << "): "
               << (result ? std::to_string(result->data) : "(empty)") << std::endl;
-    // bintree_exerciser->FindLcaAlt()
 }
 
 void FindLCAParents(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::FindLCAParents <<---<<--- " << std::endl;
-
-  //      3
-  //    2   5
-  //  1    4 6
-  auto parentp_node_tree = make_unique<BinTreeNodeP<int>>(
-      BinTreeNodeP<int>{3, nullptr, nullptr, nullptr});
-  parentp_node_tree->left = make_unique<BinTreeNodeP<int>>(
-      BinTreeNodeP<int>{2, nullptr, nullptr, parentp_node_tree.get()});
-  parentp_node_tree->left->left = make_unique<BinTreeNodeP<int>>(
-      BinTreeNodeP<int>{1, nullptr, nullptr, parentp_node_tree->left.get()});
-  parentp_node_tree->right = make_unique<BinTreeNodeP<int>>(
-      BinTreeNodeP<int>{5, nullptr, nullptr, parentp_node_tree.get()});
-  parentp_node_tree->right->left = make_unique<BinTreeNodeP<int>>(
-      BinTreeNodeP<int>{4, nullptr, nullptr, parentp_node_tree->right.get()});
-  parentp_node_tree->right->right = make_unique<BinTreeNodeP<int>>(
-      BinTreeNodeP<int>{6, nullptr, nullptr});
+    //      3
+    //    2   5
+    //  1    4 6
+    auto parentp_node_tree = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{3, nullptr, nullptr, nullptr});
+    parentp_node_tree->left = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{2, nullptr, nullptr, parentp_node_tree.get()});
+    parentp_node_tree->left->left = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{1, nullptr, nullptr, parentp_node_tree->left.get()});
+    parentp_node_tree->right = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{5, nullptr, nullptr, parentp_node_tree.get()});
+    parentp_node_tree->right->left = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{4, nullptr, nullptr, parentp_node_tree->right.get()});
+    parentp_node_tree->right->right = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{6, nullptr, nullptr});
 
     bintree_exerciser->FindLCAParents(parentp_node_tree,
                                       parentp_node_tree->left->left,
                                       parentp_node_tree->right->left);
-
 }
 
 void FindLCA(BinaryTreeExercises* bintree_exerciser) {
@@ -62,7 +59,6 @@ void FindLCA(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\t -FindLCA(leftnode: " << tree->left->left->data
               << ", rightnode: " << tree->right->left->data << "): "
               << (result ? std::to_string(result->data) : "(empty)") << std::endl;
-
     // assert(3 == bintree_exerciser->FindLCA(tree, tree->left->left, tree->right->left)->data);
     // bintree_exerciser->FindLCA(tree, nodeA, nodeB);
 }

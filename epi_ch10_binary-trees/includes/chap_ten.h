@@ -93,6 +93,7 @@ class BinaryTreeExercises {
     std::shared_ptr<BinaryTreeNode<int>> BtFromInPreOrder(const std::vector<int> &inorder,
                                                           const std::vector<int> &preorder,
                                                           std::unordered_map<int, size_t> node_inord_idx);
+
  private:
     struct lca_info {
         int num_discovered_nodes;

@@ -86,7 +86,7 @@ BinaryTreeExercises::lca_info BinaryTreeExercises::LCASearchHelper(const unique_
                                               const unique_ptr<BinaryTreeNode<int>>& nodeA,
                                               const unique_ptr<BinaryTreeNode<int>>& nodeB) {
     if (tree == nullptr) {
-        return {0, nullptr}; // return empty lca_info struct
+        return {0, nullptr};  // return empty lca_info struct
     }
 
     // Search Left Sub-tree
@@ -122,4 +122,3 @@ BinaryTreeNode<int>* BinaryTreeExercises::FindLCAParents(const unique_ptr<BinTre
                                                          const unique_ptr<BinTreeNodeP<int>>& nodeB) {
     return nullptr;
 }
-
