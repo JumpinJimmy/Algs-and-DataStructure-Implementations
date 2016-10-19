@@ -84,8 +84,8 @@ BinaryTreeNode<int>* BinaryTreeExercises::FindLCA(const unique_ptr<BinaryTreeNod
     // find path to nodeB (save node path to b in list) - binary search for nodeB in left tree, if not found, binary search for node in right tree
     // iterate over both lists until an equal node is found , this is the LCA
 
-    BinaryTreeNode<int> *result_tree = nullptr;  // = std::make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
-    return result_tree;
+    // BinaryTreeNode<int> *result_tree = nullptr;  // = std::make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>());
+    return LCASearchHelper(tree, nodeA, nodeB).lowest_common_ancestor;
 }
 
 BinaryTreeExercises::lca_info BinaryTreeExercises::LCASearchHelper(const unique_ptr<BinaryTreeNode<int>>& tree,
@@ -94,7 +94,20 @@ BinaryTreeExercises::lca_info BinaryTreeExercises::LCASearchHelper(const unique_
     if (tree == nullptr) {
         return {0, nullptr};
     }
-    return {0, nullptr};
-    // auto left_subtree_res = LCASearchHelper(tree->left, nodeA, nodeB);
-    // if (left_subtree_res)
+    // return {0, nullptr};
+    auto left_subtree_res = LCASearchHelper(tree->left, nodeA, nodeB);
+    if (left_subtree_res.num_discovered_nodes == 2) {
+        return left_subtree_res;
+    }
+
+    auto right_subtree_res = LCASearchHelper(tree->left, nodeA, nodeB);
+    if (right_subtree_res.num_discovered_nodes == 2) {
+        return right_subtree_res;
+    }
+
+    int num_discovered_nodes = right_subtree_res.num_discovered_nodes +
+                               left_subtree_res.num_discovered_nodes +
+                               (tree == nodeA) + (tree == nodeB);
+
+    return {num_discovered_nodes , num_discovered_nodes == 2 ? tree.get() : nullptr};
 }
