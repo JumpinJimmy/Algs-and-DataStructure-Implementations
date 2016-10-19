@@ -131,13 +131,8 @@ BinaryTreeNode<int>* BinaryTreeExercises::FindLCAParents(const unique_ptr<BinTre
     ///           return ancestor
     return nullptr;
 }
-    // std:stack<BinTreeNodeP<int>> traversal_stack;
-    // std::stack<int> c1;
-    // // BinTreeNodeP<int> *curr_node = tree.get();
-    // traversal_stack.push(curr_node);
-std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinTreeNodeP<int>>& tree) {
-    /// Start by implementing in order traversal without recrsion
 
+std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinTreeNodeP<int>>& tree) {
     if (!tree) {
         std::cout << "--->>--->> BinaryTreeExercises::InOrderTraversal ERROR tree is null" << std::endl;
         return {};
@@ -178,7 +173,7 @@ std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinTreeN
 
 std::vector<int> BinaryTreeExercises::InOrderIterative(const unique_ptr<BinTreeNodeP<int>>& tree) {
     if (!tree) {
-        std::cout << "--->>--->> BinaryTreeExercises::InOrderTraversal ERROR tree is null" << std::endl;
+        std::cout << "--->>--->> BinaryTreeExercises::InOrderIterative ERROR tree is null" << std::endl;
         return {};
     }
 
@@ -195,7 +190,6 @@ std::vector<int> BinaryTreeExercises::InOrderIterative(const unique_ptr<BinTreeN
             return result_list;
         } else {
             curr_node = traversal_stack.top();
-            std::cout << (curr_node != nullptr ? std::to_string(curr_node->data) : "nullptr") << std::endl;
             result_list.emplace_back(curr_node->data);
             BinTreeNodeP<int> *right_child = curr_node->right.get();
             traversal_stack.pop();

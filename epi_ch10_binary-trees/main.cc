@@ -20,8 +20,6 @@ void InOrderTraversalParents(BinaryTreeExercises* bintree_exerciser) {
 
     auto inorder_result = bintree_exerciser->InOrderTraversal(root);
     vector<int> golden_res = {1, 2, 3, 4, 5, 6};
-    // assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
-    //              inorder_result.end()));
     bintree_exerciser->PrintListInline(inorder_result);
 }
 void InOrderIterative(BinaryTreeExercises* bintree_exerciser) {
