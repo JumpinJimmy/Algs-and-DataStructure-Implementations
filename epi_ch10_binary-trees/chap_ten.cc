@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+// #include <stack>
+// #include <deque>
 #include "includes/chap_ten.h"
 
 BinaryTreeExercises::BinaryTreeExercises() {}
@@ -131,15 +131,68 @@ BinaryTreeNode<int>* BinaryTreeExercises::FindLCAParents(const unique_ptr<BinTre
     ///           return ancestor
     return nullptr;
 }
+    // std:stack<BinTreeNodeP<int>> traversal_stack;
+    // std::stack<int> c1;
+    // // BinTreeNodeP<int> *curr_node = tree.get();
+    // traversal_stack.push(curr_node);
+std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinTreeNodeP<int>>& tree) {
+    /// Start by implementing in order traversal without recrsion
 
-std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree) {
-    /// Nodes have parent pointers (if not, you must have a way to keep track of a node's parent)
-    /// NOTE: determine how to track whether a node is it's parent's left or right child
-    /// Using a stack will get rid of recursion, however, there is no need to store all visited nodes.
-    /// Use the parent node pointers to follow the in-order traversal scheme
-    /// Visit node, visit left child, go back to parent, vist right child, go back to parent
-    /// return a vector containing the inorder traversal sequence
-    return {};
+    if (!tree) {
+        std::cout << "--->>--->> BinaryTreeExercises::InOrderTraversal ERROR tree is null" << std::endl;
+        return {};
+    }
+
+    BinTreeNodeP<int> *curr_node = tree.get();
+    std::vector<int> result_list;
+    std::stack<BinTreeNodeP<int>*> traversal_stack;
+
+    while (true) {
+        if (curr_node != nullptr) {
+            BinTreeNodeP<int> *left_child = curr_node->left.get();
+            traversal_stack.push(curr_node);
+            curr_node = left_child;
+        } else if (traversal_stack.empty()) {
+            return result_list;
+        } else {
+            curr_node = traversal_stack.top();
+            std::cout << (curr_node != nullptr ? std::to_string(curr_node->data) : "nullptr") << std::endl;
+            result_list.emplace_back(curr_node->data);
+            BinTreeNodeP<int> *right_child = curr_node->right.get();
+            traversal_stack.pop();
+            curr_node = right_child;
+        }
+    }
+    return result_list;
+}
+
+std::vector<int> BinaryTreeExercises::InOrderIterative(const unique_ptr<BinTreeNodeP<int>>& tree) {
+    if (!tree) {
+        std::cout << "--->>--->> BinaryTreeExercises::InOrderTraversal ERROR tree is null" << std::endl;
+        return {};
+    }
+
+    BinTreeNodeP<int> *curr_node = tree.get();
+    std::vector<int> result_list;
+    std::stack<BinTreeNodeP<int>*> traversal_stack;
+
+    while (true) {
+        if (curr_node != nullptr) {
+            BinTreeNodeP<int> *left_child = curr_node->left.get();
+            traversal_stack.push(curr_node);
+            curr_node = left_child;
+        } else if (traversal_stack.empty()) {
+            return result_list;
+        } else {
+            curr_node = traversal_stack.top();
+            std::cout << (curr_node != nullptr ? std::to_string(curr_node->data) : "nullptr") << std::endl;
+            result_list.emplace_back(curr_node->data);
+            BinTreeNodeP<int> *right_child = curr_node->right.get();
+            traversal_stack.pop();
+            curr_node = right_child;
+        }
+    }
+    return result_list;
 }
 
 /// Construct a binary tree given inorder and preorder traversals

@@ -1,7 +1,58 @@
-#include <cassert> //NOLINT
+#include <cassert>
 #include <iostream>
 #include "includes/chap_ten.h"
 using namespace std; //NOLINT
+
+void InOrderTraversal(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::InOrderTraversal <<---<<--- " << std::endl;
+    //      3
+    //    2   5
+    //  1    4 6
+    unique_ptr<BinTreeNodeP<int>> root = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{3, nullptr, nullptr});
+    root->parent = nullptr;
+    std::vector<int> inorder_result = bintree_exerciser->InOrderIterative(root);
+    bintree_exerciser->PrintListInline(inorder_result);
+    vector<int> golden_res = {3};
+    assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
+                 inorder_result.end()));
+
+    root->left = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{2, nullptr, nullptr});
+    root->left->parent = root.get();
+    root->left->left = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{1, nullptr, nullptr});
+    root->left->left->parent = root->left.get();
+    inorder_result = bintree_exerciser->InOrderIterative(root);
+    bintree_exerciser->PrintListInline(inorder_result);
+    golden_res = {1, 2, 3};
+    assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
+                 inorder_result.end()));
+
+    root->right = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{5, nullptr, nullptr});
+    root->right->parent = root.get();
+    root->right->left = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{4, nullptr, nullptr});
+    root->right->left->parent = root->right.get();
+    root->right->right = make_unique<BinTreeNodeP<int>>(
+        BinTreeNodeP<int>{6, nullptr, nullptr});
+    root->right->right->parent = root->right.get();
+
+    inorder_result = bintree_exerciser->InOrderIterative(root);
+    golden_res = {1, 2, 3, 4, 5, 6};
+    assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
+                 inorder_result.end()));
+    bintree_exerciser->PrintListInline(inorder_result);
+}
+
+void BtFromInPreOrder(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::BtFromInPreOrder <<---<<--- " << std::endl;
+    // bintree_exerciser->BtFromInPreOrder();
+    // inorder
+    // preorder
+    // node_inord_idx
+}
 
 void FindLcaAlt(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::FindLcaAlt <<---<<--- " << std::endl;
@@ -101,6 +152,7 @@ void RunTests(BinaryTreeExercises* bintree_exerciser) {
     FindLCA(bintree_exerciser);
     FindLCAParents(bintree_exerciser);
     FindLcaAlt(bintree_exerciser);
+    InOrderTraversal(bintree_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch10_test
