@@ -112,13 +112,6 @@ class BinaryTreeExercises {
     /// Use the parent node pointers to follow the in-order traversal scheme
     /// Visit node, visit left child, go back to parent, vist right child, go back to parent
     /// return a vector containing the inorder traversal sequence
-    // 1) Create an empty stack S.
-    // 2) Initialize current node as root
-    // 3) Push the current node to S and set current = current->left until current is NULL
-    // 4) If current is NULL and stack is not empty then
-    //      a) Pop the top item from stack.
-    //      b) Print the popped item, set current = popped_item->right
-    //      c) Go to step 3.
     std::vector<int> InOrderTraversal(const unique_ptr<BinTreeNodeP<int>>& tree);
 
     std::vector<int> InOrderIterative(const unique_ptr<BinTreeNodeP<int>>& tree);

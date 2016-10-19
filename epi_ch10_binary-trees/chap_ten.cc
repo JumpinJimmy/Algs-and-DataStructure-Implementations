@@ -144,24 +144,34 @@ std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinTreeN
     }
 
     BinTreeNodeP<int> *curr_node = tree.get();
+    BinTreeNodeP<int> *prev_node = nullptr;
     std::vector<int> result_list;
-    std::stack<BinTreeNodeP<int>*> traversal_stack;
 
-    while (true) {
-        if (curr_node != nullptr) {
-            BinTreeNodeP<int> *left_child = curr_node->left.get();
-            traversal_stack.push(curr_node);
-            curr_node = left_child;
-        } else if (traversal_stack.empty()) {
-            return result_list;
-        } else {
-            curr_node = traversal_stack.top();
-            std::cout << (curr_node != nullptr ? std::to_string(curr_node->data) : "nullptr") << std::endl;
+    while (curr_node != nullptr) {
+        BinTreeNodeP<int> *next;
+        if (curr_node->parent == prev_node) {
+            if (curr_node->left != nullptr) {
+                next = curr_node->left.get();
+            } else {
+                result_list.emplace_back(curr_node->data);
+                if (curr_node->right != nullptr) {
+                    next = curr_node->right.get();
+                } else {
+                    next = curr_node->parent;
+                }
+            }
+        } else if (curr_node->left.get() == prev_node) {
             result_list.emplace_back(curr_node->data);
-            BinTreeNodeP<int> *right_child = curr_node->right.get();
-            traversal_stack.pop();
-            curr_node = right_child;
+            if (curr_node->right != nullptr) {
+                next = curr_node->right.get();
+            } else {
+                next = curr_node->parent;
+            }
+        } else {
+            next = curr_node->parent;
         }
+        prev_node = curr_node;
+        curr_node = next;
     }
     return result_list;
 }
