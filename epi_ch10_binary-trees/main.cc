@@ -3,6 +3,27 @@
 #include "includes/chap_ten.h"
 using namespace std; //NOLINT
 
+// TODO(jdevore): Clean up the test methods and write a function to build a tree
+// TODO(jdevore): write more intensive tests casses
+// TODO(jdevore): clean up debug out put
+void BtFromInPreOrder(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::BtFromInPreOrder <<---<<--- " << std::endl;
+    unique_ptr<BinaryTreeNode<int>> tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{10});
+    tree->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{5});
+    tree->left->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{4});
+    tree->left->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{1});
+    tree->left->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{0});
+    // tree->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{5});
+    // tree->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{4});
+    // tree->right->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{6});
+    std::vector<int> inorder_result = bintree_exerciser->InOrderIterative(tree);
+    std::vector<int> preorder_result = bintree_exerciser->PreOrderTraversal(tree);
+    bintree_exerciser->PrintListInline(inorder_result, "Inorder Result:");
+    bintree_exerciser->PrintListInline(preorder_result, "Preorder Result:");
+    // std::vector<int> inorder = bintree_exerciser->InOrderIterative(tree);
+    // std::vector<int> inorder = bintree_exerciser->PreOrderTraversal(tree);
+}
+
 void InOrderTraversalParents(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::InOrderTraversalParents <<---<<--- " << std::endl;
     unique_ptr<BinTreeNodeP<int>> root = make_unique<BinTreeNodeP<int>>(
@@ -24,53 +45,14 @@ void InOrderTraversalParents(BinaryTreeExercises* bintree_exerciser) {
 }
 void InOrderIterative(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::InOrderIterative <<---<<--- " << std::endl;
-    //      3
-    //    2   5
-    //  1    4 6
-    unique_ptr<BinTreeNodeP<int>> root = make_unique<BinTreeNodeP<int>>(
-        BinTreeNodeP<int>{3, nullptr, nullptr});
-    root->parent = nullptr;
-    std::vector<int> inorder_result = bintree_exerciser->InOrderIterative(root);
+    unique_ptr<BinaryTreeNode<int>> tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{3});
+    tree->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{2});
+    tree->left->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{1});
+    tree->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{5});
+    tree->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{4});
+    tree->right->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{6});
+    std::vector<int> inorder_result = bintree_exerciser->InOrderIterative(tree);
     bintree_exerciser->PrintListInline(inorder_result);
-    vector<int> golden_res = {3};
-    assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
-                 inorder_result.end()));
-
-    root->left = make_unique<BinTreeNodeP<int>>(
-        BinTreeNodeP<int>{2, nullptr, nullptr});
-    root->left->parent = root.get();
-    root->left->left = make_unique<BinTreeNodeP<int>>(
-        BinTreeNodeP<int>{1, nullptr, nullptr});
-    root->left->left->parent = root->left.get();
-    inorder_result = bintree_exerciser->InOrderIterative(root);
-    bintree_exerciser->PrintListInline(inorder_result);
-    golden_res = {1, 2, 3};
-    assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
-                 inorder_result.end()));
-
-    root->right = make_unique<BinTreeNodeP<int>>(
-        BinTreeNodeP<int>{5, nullptr, nullptr});
-    root->right->parent = root.get();
-    root->right->left = make_unique<BinTreeNodeP<int>>(
-        BinTreeNodeP<int>{4, nullptr, nullptr});
-    root->right->left->parent = root->right.get();
-    root->right->right = make_unique<BinTreeNodeP<int>>(
-        BinTreeNodeP<int>{6, nullptr, nullptr});
-    root->right->right->parent = root->right.get();
-
-    inorder_result = bintree_exerciser->InOrderIterative(root);
-    golden_res = {1, 2, 3, 4, 5, 6};
-    assert(equal(golden_res.begin(), golden_res.end(), inorder_result.begin(),
-                 inorder_result.end()));
-    bintree_exerciser->PrintListInline(inorder_result);
-}
-
-void BtFromInPreOrder(BinaryTreeExercises* bintree_exerciser) {
-    std::cout << "\n--->>--->> main::BtFromInPreOrder <<---<<--- " << std::endl;
-    // bintree_exerciser->BtFromInPreOrder();
-    // inorder
-    // preorder
-    // node_inord_idx
 }
 
 void FindLcaAlt(BinaryTreeExercises* bintree_exerciser) {
@@ -173,6 +155,7 @@ void RunTests(BinaryTreeExercises* bintree_exerciser) {
     FindLcaAlt(bintree_exerciser);
     InOrderIterative(bintree_exerciser);
     InOrderTraversalParents(bintree_exerciser);
+    BtFromInPreOrder(bintree_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch10_test

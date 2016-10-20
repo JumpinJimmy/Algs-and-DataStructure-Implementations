@@ -114,8 +114,9 @@ class BinaryTreeExercises {
     /// return a vector containing the inorder traversal sequence
     std::vector<int> InOrderTraversal(const unique_ptr<BinTreeNodeP<int>>& tree);
 
-    std::vector<int> InOrderIterative(const unique_ptr<BinTreeNodeP<int>>& tree);
+    std::vector<int> InOrderIterative(const unique_ptr<BinaryTreeNode<int>>& tree);
 
+    std::vector<int> PreOrderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree);
     ////////////////////////////////////////////////////////////////////////////////////
     /// BtFromInPreOrder()
     /// - Caller: @/* class name */
@@ -152,6 +153,9 @@ class BinaryTreeExercises {
         int num_discovered_nodes;
         BinaryTreeNode<int>* lowest_common_ancestor;
     };
+
+    void PreOrderHelper(BinaryTreeNode<int>* node,
+                        std::vector<BinaryTreeNode<int>*> &traversal_queue);
 
     /// Helper method for @FindLCA(tree, node, node)
     lca_info LCASearchHelper(const unique_ptr<BinaryTreeNode<int>>& tree,

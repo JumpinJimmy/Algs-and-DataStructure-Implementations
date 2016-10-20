@@ -171,19 +171,19 @@ std::vector<int> BinaryTreeExercises::InOrderTraversal(const unique_ptr<BinTreeN
     return result_list;
 }
 
-std::vector<int> BinaryTreeExercises::InOrderIterative(const unique_ptr<BinTreeNodeP<int>>& tree) {
+std::vector<int> BinaryTreeExercises::InOrderIterative(const unique_ptr<BinaryTreeNode<int>>& tree) {
     if (!tree) {
         std::cout << "--->>--->> BinaryTreeExercises::InOrderIterative ERROR tree is null" << std::endl;
         return {};
     }
 
-    BinTreeNodeP<int> *curr_node = tree.get();
+    BinaryTreeNode<int> *curr_node = tree.get();
     std::vector<int> result_list;
-    std::stack<BinTreeNodeP<int>*> traversal_stack;
+    std::stack<BinaryTreeNode<int>*> traversal_stack;
 
     while (true) {
         if (curr_node != nullptr) {
-            BinTreeNodeP<int> *left_child = curr_node->left.get();
+            BinaryTreeNode<int> *left_child = curr_node->left.get();
             traversal_stack.push(curr_node);
             curr_node = left_child;
         } else if (traversal_stack.empty()) {
@@ -191,12 +191,36 @@ std::vector<int> BinaryTreeExercises::InOrderIterative(const unique_ptr<BinTreeN
         } else {
             curr_node = traversal_stack.top();
             result_list.emplace_back(curr_node->data);
-            BinTreeNodeP<int> *right_child = curr_node->right.get();
+            BinaryTreeNode<int> *right_child = curr_node->right.get();
             traversal_stack.pop();
             curr_node = right_child;
         }
     }
     return result_list;
+}
+
+std::vector<int> BinaryTreeExercises::PreOrderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree) {
+    if (tree == nullptr) {
+        return {};
+    }
+    std::vector<BinaryTreeNode<int>*> traversal_list;
+    BinaryTreeNode<int> *curr_node = tree.get();
+    PreOrderHelper(curr_node, traversal_list);
+    std::vector<int> traversal_result;
+    for (auto &node : traversal_list) {
+        traversal_result.emplace_back(node->data);
+    }
+    return traversal_result;
+}
+
+void BinaryTreeExercises::PreOrderHelper(BinaryTreeNode<int>* node,
+                                         std::vector<BinaryTreeNode<int>*> &traversal_queue) {
+    if (node == nullptr) {
+        return;
+    }
+    traversal_queue.emplace_back(node);
+    PreOrderHelper(node->left.get(), traversal_queue);
+    PreOrderHelper(node->right.get(), traversal_queue);
 }
 
 /// Construct a binary tree given inorder and preorder traversals
