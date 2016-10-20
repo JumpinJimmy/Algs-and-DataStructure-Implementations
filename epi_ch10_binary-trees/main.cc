@@ -3,6 +3,27 @@
 #include "includes/chap_ten.h"
 using namespace std; //NOLINT
 
+void TraversalTests(BinaryTreeExercises* bintree_exerciser) {
+    std::cout << "\n--->>--->> main::BtFromInPreOrder <<---<<--- " << std::endl;
+    unique_ptr<BinaryTreeNode<int>> treeA = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{1});
+    treeA->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{2});
+    treeA->left->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{3});
+    treeA->left->left->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{4});
+
+    unique_ptr<BinaryTreeNode<int>> treeB = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{1});
+    treeB->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{2});
+    treeB->right->right = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{3});
+    treeB->right->right->left = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{4});
+
+    std::vector<int> inorder_result = bintree_exerciser->InOrderIterative(treeA);
+    std::vector<int> preorder_result = bintree_exerciser->PreOrderTraversal(treeA);
+    bintree_exerciser->PrintListInline(inorder_result, "Inorder ResultA:");
+    bintree_exerciser->PrintListInline(preorder_result, "Preorder ResultA:");
+    inorder_result = bintree_exerciser->InOrderIterative(treeB);
+    preorder_result = bintree_exerciser->PreOrderTraversal(treeB);
+    bintree_exerciser->PrintListInline(inorder_result, "Inorder ResultB:");
+    bintree_exerciser->PrintListInline(preorder_result, "Preorder ResultB:");
+}
 // TODO(jdevore): Clean up the test methods and write a function to build a tree
 // TODO(jdevore): write more intensive tests casses
 // TODO(jdevore): clean up debug out put
@@ -158,6 +179,7 @@ void RunTests(BinaryTreeExercises* bintree_exerciser) {
     InOrderIterative(bintree_exerciser);
     InOrderTraversalParents(bintree_exerciser);
     BtFromInPreOrder(bintree_exerciser);
+    TraversalTests(bintree_exerciser);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch10_test

@@ -228,7 +228,14 @@ unique_ptr<BinaryTreeNode<int>> BinaryTreeExercises::BtFromInPreOrder(const std:
     for (size_t i = 0; i < inorder.size(); ++i) {
         inorder_position_map.emplace(inorder[i], i);
     }
-
+    /// First Element of PreOrder is the Root
+    /// Find the Root position in the inorder sequence,
+    ///  every value to the left of this position is within the left subtree
+    ///  every value to the right of this position is within the right subtree
+    /// LEft subtree:
+    /// for each Value in Preorder Sequence,  get its position in the inroder sequence, it is balanced like a BST
+    /// recursively build each sub tree via repeated calls to the helper method, moving the sequence boundaries for the tree construction inwards
+    ///
     /// Assume each node has a unique key
     /// There exists a single unique Binary Tree that can be represented via a pre-order & In-order traversal of that tree
     /// Given those two traversal sequences, construct that unique binary tree
