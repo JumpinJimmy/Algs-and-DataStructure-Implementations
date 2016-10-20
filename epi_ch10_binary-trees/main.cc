@@ -20,6 +20,7 @@ void BtFromInPreOrder(BinaryTreeExercises* bintree_exerciser) {
     std::vector<int> preorder_result = bintree_exerciser->PreOrderTraversal(tree);
     bintree_exerciser->PrintListInline(inorder_result, "Inorder Result:");
     bintree_exerciser->PrintListInline(preorder_result, "Preorder Result:");
+    bintree_exerciser->BtFromInPreOrder(inorder_result, preorder_result);
     // std::vector<int> inorder = bintree_exerciser->InOrderIterative(tree);
     // std::vector<int> inorder = bintree_exerciser->PreOrderTraversal(tree);
 }
@@ -43,6 +44,7 @@ void InOrderTraversalParents(BinaryTreeExercises* bintree_exerciser) {
     vector<int> golden_res = {1, 2, 3, 4, 5, 6};
     bintree_exerciser->PrintListInline(inorder_result);
 }
+
 void InOrderIterative(BinaryTreeExercises* bintree_exerciser) {
     std::cout << "\n--->>--->> main::InOrderIterative <<---<<--- " << std::endl;
     unique_ptr<BinaryTreeNode<int>> tree = make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{3});

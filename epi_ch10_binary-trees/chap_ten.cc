@@ -1,5 +1,3 @@
-// #include <stack>
-// #include <deque>
 #include "includes/chap_ten.h"
 
 BinaryTreeExercises::BinaryTreeExercises() {}
@@ -205,7 +203,7 @@ std::vector<int> BinaryTreeExercises::PreOrderTraversal(const unique_ptr<BinaryT
     }
     std::vector<BinaryTreeNode<int>*> traversal_list;
     BinaryTreeNode<int> *curr_node = tree.get();
-    PreOrderHelper(curr_node, traversal_list);
+    PreOrderHelper(curr_node, &traversal_list);
     std::vector<int> traversal_result;
     for (auto &node : traversal_list) {
         traversal_result.emplace_back(node->data);
@@ -214,23 +212,33 @@ std::vector<int> BinaryTreeExercises::PreOrderTraversal(const unique_ptr<BinaryT
 }
 
 void BinaryTreeExercises::PreOrderHelper(BinaryTreeNode<int>* node,
-                                         std::vector<BinaryTreeNode<int>*> &traversal_queue) {
+                                         std::vector<BinaryTreeNode<int>*> *traversal_queue) {
     if (node == nullptr) {
         return;
     }
-    traversal_queue.emplace_back(node);
+    traversal_queue->emplace_back(node);
     PreOrderHelper(node->left.get(), traversal_queue);
     PreOrderHelper(node->right.get(), traversal_queue);
 }
 
 /// Construct a binary tree given inorder and preorder traversals
-std::shared_ptr<BinaryTreeNode<int>> BinaryTreeExercises::BtFromInPreOrder(const std::vector<int> &inorder,
-                                                                           const std::vector<int> &preorder,
-                                                                           std::unordered_map<int, size_t> node_inord_idx) {
+unique_ptr<BinaryTreeNode<int>> BinaryTreeExercises::BtFromInPreOrder(const std::vector<int> &inorder,
+                                                                      const std::vector<int> &preorder) {
+    std::unordered_map<int, size_t> inorder_position_map;
+    for (size_t i = 0; i < inorder.size(); ++i) {
+        inorder_position_map.emplace(inorder[i], i);
+    }
+
     /// Assume each node has a unique key
     /// There exists a single unique Binary Tree that can be represented via a pre-order & In-order traversal of that tree
     /// Given those two traversal sequences, construct that unique binary tree
     /// NOTE: if only one traversal type is given, one could construct numerous valid binary trees from the one sequence
     ///       It is important to note that the presence of two traversals indicates that there is only one possible tree result
+    return nullptr;
+}
+
+unique_ptr<BinaryTreeNode<int>> BinaryTreeExercises::BinaryTreeFromTraversalHelper(const std::vector<int> &inorder,
+                                                                                   const std::vector<int> &preorder,
+                                                                                   std::unordered_map<int, size_t> node_inord_idx) {
     return nullptr;
 }

@@ -127,9 +127,8 @@ class BinaryTreeExercises {
     /// - @param[in] /* parameter name */ -- /* parameter purpose */
     /// - @return[out] /* type */         -- /* description */
     /// -------------------------------------------------------------------------------
-    std::shared_ptr<BinaryTreeNode<int>> BtFromInPreOrder(const std::vector<int> &inorder,
-                                                          const std::vector<int> &preorder,
-                                                          std::unordered_map<int, size_t> node_inord_idx);
+    unique_ptr<BinaryTreeNode<int>> BtFromInPreOrder(const std::vector<int> &inorder,
+                                                     const std::vector<int> &preorder);
 
     ////////////////////////////////////////////////////////////////////////////////////
     /// Helper Method
@@ -153,9 +152,11 @@ class BinaryTreeExercises {
         int num_discovered_nodes;
         BinaryTreeNode<int>* lowest_common_ancestor;
     };
-
+    unique_ptr<BinaryTreeNode<int>> BinaryTreeFromTraversalHelper(const std::vector<int> &inorder,
+                                                                  const std::vector<int> &preorder,
+                                                                  std::unordered_map<int, size_t> node_inord_idx);
     void PreOrderHelper(BinaryTreeNode<int>* node,
-                        std::vector<BinaryTreeNode<int>*> &traversal_queue);
+                        std::vector<BinaryTreeNode<int>*> *traversal_queue);
 
     /// Helper method for @FindLCA(tree, node, node)
     lca_info LCASearchHelper(const unique_ptr<BinaryTreeNode<int>>& tree,
