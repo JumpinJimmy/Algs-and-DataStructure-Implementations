@@ -39,6 +39,7 @@ return result
 Write a program which takes as input a very long sequence of numbers and prints the numbers in sorted order. 
 
 Input: stream of numbers and int k
+Example: 3,-1,2,6,4,5,8     2
 
 void SortPartiallySortedData(istringstream* sequence, int k)
 
