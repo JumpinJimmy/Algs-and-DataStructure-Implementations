@@ -1,7 +1,7 @@
 #ifndef CHAP_ELEVEN_H
 #define CHAP_ELEVEN_H
 #include <vector>
-#include <string>
+#include <sstream>
 #include <memory>
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -18,6 +18,7 @@ class HeapExercises {
  public:
     HeapExercises();
     ~HeapExercises();
+    std::vector<int> SortKSortedList(std::istringstream *sequence, int k);
 
 
 };
