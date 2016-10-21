@@ -47,6 +47,15 @@ void SortPartiallySortedData(istringstream* sequence, int k)
 
 11.4 Compute the K CLosest Stars
 
+*   coordinate system for milky way
+*   Earth is at the center of this representation with a coordinate value of (0,0,0)
+    *   Cartesian Coordinates?
+*   Model stars as points and assume distances are in light years
+*   Coordinates are in a file
+*   Compute the k stars which are closest to earth 
+
+vector<stars> ComputeClosestStars(istringstream *starmap, int k);
+
 ---
 
 11.5 Compute the median of Online Data

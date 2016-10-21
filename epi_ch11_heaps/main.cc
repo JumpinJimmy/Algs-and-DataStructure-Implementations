@@ -3,6 +3,22 @@
 #include "includes/chap_eleven.h"
 using namespace std; //NOLINT
 
+void ComputeClosestStars(HeapExercises* heap_exerciser) {
+    std::cout << "\n--->>--->> main::SortKSortedList <<---<<--- " << std::endl;
+    std::vector<int> starmap{5, 30, 900, 1000, 300, 50};
+    int k = 2;
+    std::stringstream starss;
+    for (int x : starmap) {
+      starss << x << ' ';
+    }
+    istringstream star_sequence(starss.str());
+    std::vector<int> result = heap_exerciser->ComputeClosestStars(&star_sequence, k);
+    std::cout << "\n[ ";
+    for (auto &v : result) {
+      std::cout << v << " ";
+    }std::cout << "]" <<std::endl;
+}
+
 void SortKSortedList(HeapExercises* heap_exerciser) {
     std::cout << "\n--->>--->> main::SortKSortedList <<---<<--- " << std::endl;
     std::vector<int> int_list {3,-1,2,6,4,5,8};
@@ -22,7 +38,7 @@ void SortKSortedList(HeapExercises* heap_exerciser) {
 void RunTests(HeapExercises* heap_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
     SortKSortedList(heap_exerciser);
-    // EvaluateRPN(heap_exerciser);
+    ComputeClosestStars(heap_exerciser);
     // IsWellFormedBrackets(heap_exerciser);
     // BinaryTreeLevelOrder(heap_exerciser);
     // TestCircularQueue(heap_exerciser);
