@@ -31,6 +31,5 @@ function run_lint() {
     find ./ \( -name "*.h" -o -name "*.cc" \) -type f | grep -v pb | xargs python cpplint.py --verbose=1 --linelength=150 --root=Algs-and-DataStructure-Implementations/ --extensions=cc --headers=h --filter=-legal/copyright,-readability/check,+whitespace/todo,-build/header_guard ./*/*
 }
 
-
 # Start
 run_lint
