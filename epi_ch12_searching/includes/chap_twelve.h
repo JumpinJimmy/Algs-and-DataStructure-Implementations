@@ -1,8 +1,6 @@
 #ifndef CHAP_TWELVE_H
 #define CHAP_TWELVE_H
-#include <string>
-#include <iostream>
-#include <memory>
+#include <vector>
 
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -21,7 +19,7 @@ class SearchExercises {
     ~SearchExercises();
 
     ////////////////////////////////////////////////////////////////////////////////////
-    /// MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)
+    /// SearchFirstOfK(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)
     /// - Caller: @/* class name */
     /// - Callee: @/* class name */
     /// -------------------------------------------------------------------------------
@@ -30,8 +28,7 @@ class SearchExercises {
     /// - @param[in] /* parameter name */ -- /* parameter purpose */
     /// - @return[out] /* type */         -- /* description */
     /// -------------------------------------------------------------------------------
-    // shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
-    //                                               shared_ptr<ListNode<int>> L2);
+    int SearchFirstOfK(const std::vector<int> &A, int k);
 };
 
 #endif  // CHAP_TWELVE_H

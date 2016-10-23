@@ -1,21 +1,21 @@
-#include "includes/chap_twelve.h"
+#include <iostream>
+#include <vector>
+#include <memory>
 #include <cassert> //NOLINT
+#include "includes/chap_twelve.h"
 using namespace std; //NOLINT
 
-// void MergeSortedLists(SearchExercises* search_exerciser) {
-//     std::cout << "--->>--->> main::MergeSortedLists <<---<<--- " << std::endl;
-//     shared_ptr<ListNode<int>> L1 = search_exerciser->CreateIntLinkedList(5);
-//     search_exerciser->PrintInline("\tMergeSortedLists List 1: ", L1);
-//     shared_ptr<ListNode<int>> L2 = search_exerciser->CreateIntLinkedList(5);
-//     search_exerciser->PrintInline("\tMergeSortedLists List 2: ", L2);
-//     shared_ptr<ListNode<int>> merged_list = search_exerciser->MergeTwoSortedLists(L1, L2);
-//     std::cout << "\tMergeSortedLists Merge Result: ";
-//     search_exerciser->PrintInline(merged_list);
-// }
+void SearchFirstOfK(SearchExercises* search_exerciser) {
+    std::cout << "--->>--->> main::SearchFirstOfK <<---<<--- " << std::endl;
+    std::vector<int> int_list {-14, -10, 2, 108, 108, 243, 285, 285, 401};
+    int k = 185;
+    int result_index = search_exerciser->SearchFirstOfK(int_list, k);
+    std::cout << "\t SearchFirstOfK Index Result: " << result_index << std::endl;
+}
 
 void RunTests(SearchExercises* search_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
-    // MergeSortedLists(search_exerciser);
+    SearchFirstOfK(search_exerciser);
     // ReverseSubList(search_exerciser);
     // HasCycle(search_exerciser);
     // CheckOverlap(search_exerciser);

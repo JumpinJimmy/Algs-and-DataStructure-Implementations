@@ -5,7 +5,21 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
-**12.1: x**
+**12.1: Search a sorted array for First occurrence of K**
+
+*   Write a method that takes a sorted array and a key.
+*   Return the index of the first occurrence of that key in the array
+*   What happens when every entry equals k?
+*   _hint:_ dont stop when you first see k
+*   Example Input Array: -14,-10,2,108,108,243,285,285,401
+*   Example Input Key: 108
+*   Example Result: 3
+
+`int SearchFirstOfK(const vector<int> &A, int k)`
+
+---
+
+**12.3: Search a Cyclically Sorted Array**
 
 *   x
 
@@ -13,7 +27,7 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
-**12.3: x**
+**12.4: Compute the Integer Square Root**
 
 *   x
 
@@ -21,7 +35,7 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
-**12.4: x**
+**12.5: Compute the Real Square Root**
 
 *   x
 
@@ -29,7 +43,7 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
-**12.5: x**
+**12.8: Find the Kth Largest Element**
 
 *   x
 
@@ -37,7 +51,7 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
-**12.8: x**
+**12.9: Find the Missing IP address**
 
 *   x
 
@@ -45,15 +59,7 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
-**12.9: x**
-
-*   x
-
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
-
----
-
-**12.10: x**
+**12.10: Find the Duplicate and Missing Elements**
 
 *   x
 
