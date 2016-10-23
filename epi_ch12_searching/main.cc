@@ -8,7 +8,7 @@ using namespace std; //NOLINT
 void SearchFirstOfK(SearchExercises* search_exerciser) {
     std::cout << "--->>--->> main::SearchFirstOfK <<---<<--- " << std::endl;
     std::vector<int> int_list {-14, -10, 2, 108, 108, 243, 285, 285, 401};
-    int k = 185;
+    int k = 108;
     int result_index = search_exerciser->SearchFirstOfK(int_list, k);
     std::cout << "\t SearchFirstOfK Index Result: " << result_index << std::endl;
 }

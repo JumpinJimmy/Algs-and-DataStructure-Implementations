@@ -17,7 +17,7 @@ class SearchExercises {
  public:
     SearchExercises();
     ~SearchExercises();
-
+    int bsearch(int t, const std::vector<int> &A);
     ////////////////////////////////////////////////////////////////////////////////////
     /// SearchFirstOfK(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)
     /// - Caller: @/* class name */
