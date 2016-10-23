@@ -20,6 +20,7 @@ class HeapExercises {
     ~HeapExercises();
     std::vector<int> SortKSortedList(std::istringstream *sequence, int k);
     std::vector<int> ComputeClosestStars(std::istringstream *starmap, int k); //define a struct for representing xyz coords later
+    std::vector<double> OnlineMedian(std::istringstream *integer_sequence);
 
 };
 

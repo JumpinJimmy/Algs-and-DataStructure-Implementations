@@ -59,3 +59,10 @@ vector<stars> ComputeClosestStars(istringstream *starmap, int k);
 ---
 
 11.5 Compute the median of Online Data
+
+Compute the running median of a sequence of numbers in a streaming fashion. You cannot back up and read an earlier value, and you need to output the median after reading in each new element
+
+Example Input: 1,0,3,5,2,0,1
+Example Output: 1,0.5,1,2,2,1.5,1 
+
+Hint: Avoid Looking at all values each time you read in a new value

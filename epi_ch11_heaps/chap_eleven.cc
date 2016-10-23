@@ -68,3 +68,20 @@ std::vector<int> HeapExercises::ComputeClosestStars(std::istringstream *starmap_
 
     return result_list;
 }
+
+std::vector<double> HeapExercises::OnlineMedian(std::istringstream *integer_sequence) {
+    std::vector<double> result_list;
+    std::priority_queue< int, std::vector< int >, std::less<>> lesser_maxheap;
+    std::priority_queue<int, std::vector<int>, std::greater<>> greater_minheap;
+    double curr_median = 0;
+    // first integer is starting median
+    // average of 1st two integers is second median
+    // foreach int in stream following;
+    // if int < curr_median: push left_heap
+    // if int > curr_median: push right_heap
+    // if int == curr_median: push to largest heap
+    // current_median = largest heap top/root
+    // if sizes are equal: average of two heap roots
+    return {};
+}
+
