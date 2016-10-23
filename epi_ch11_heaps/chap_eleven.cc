@@ -74,14 +74,28 @@ std::vector<double> HeapExercises::OnlineMedian(std::istringstream *integer_sequ
     std::priority_queue< int, std::vector< int >, std::less<>> lesser_maxheap;
     std::priority_queue<int, std::vector<int>, std::greater<>> greater_minheap;
     double curr_median = 0;
-    // first integer is starting median
-    // average of 1st two integers is second median
-    // foreach int in stream following;
-    // if int < curr_median: push left_heap
-    // if int > curr_median: push right_heap
-    // if int == curr_median: push to largest heap
-    // current_median = largest heap top/root
-    // if sizes are equal: average of two heap roots
-    return {};
-}
+    int seq_int = 0;
+    while (*integer_sequence >> seq_int) {
+        if (greater_minheap.empty()) {
+            greater_minheap.emplace(seq_int);
+        } else {
+            if (seq_int >= greater_minheap.top()) {
+                greater_minheap.emplace(seq_int);
+            } else {
+                lesser_maxheap.emplace(seq_int);
+            }
+        }
 
+        if (greater_minheap.size() > lesser_maxheap.size() + 1) {
+            lesser_maxheap.emplace(greater_minheap.top());
+            greater_minheap.pop();
+        } else if (lesser_maxheap.size() > greater_minheap.size()) {
+            greater_minheap.emplace(lesser_maxheap.top());
+            lesser_maxheap.pop();
+        }
+        curr_median = (greater_minheap.size() == lesser_maxheap.size() ? 0.5 * (lesser_maxheap.top() + greater_minheap.top()) : greater_minheap.top());
+        result_list.emplace_back(curr_median);
+        std::cout << curr_median << " ";
+    }
+    return result_list;
+}

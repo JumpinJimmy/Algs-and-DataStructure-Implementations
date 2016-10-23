@@ -41,7 +41,7 @@ Write a program which takes as input a very long sequence of numbers and prints 
 Input: stream of numbers and int k
 Example: 3,-1,2,6,4,5,8     2
 
-void SortPartiallySortedData(istringstream* sequence, int k)
+`void SortPartiallySortedData(istringstream* sequence, int k)`
 
 ---
 
@@ -54,7 +54,7 @@ void SortPartiallySortedData(istringstream* sequence, int k)
 *   Coordinates are in a file
 *   Compute the k stars which are closest to earth 
 
-vector<stars> ComputeClosestStars(istringstream *starmap, int k);
+`vector<stars> ComputeClosestStars(istringstream *starmap, int k);`
 
 ---
 
@@ -66,3 +66,5 @@ Example Input: 1,0,3,5,2,0,1
 Example Output: 1,0.5,1,2,2,1.5,1 
 
 Hint: Avoid Looking at all values each time you read in a new value
+
+`std::vector<double> OnlineMedian(std::istringstream *integer_sequence);`

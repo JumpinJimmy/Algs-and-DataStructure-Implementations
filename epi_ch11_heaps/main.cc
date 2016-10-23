@@ -12,9 +12,9 @@ void OnlineMedian(HeapExercises* heap_exerciser) {
     }
     istringstream int_sequence(int_stream.str());
     std::vector<double> result = heap_exerciser->OnlineMedian(&int_sequence);
-    std::cout << "\n[ ";
+    std::cout << "\n[  ";
     for (auto &v : result) {
-      std::cout << v << " ";
+      std::cout << v << "  ";
     }std::cout << "]" <<std::endl;
 }
 
