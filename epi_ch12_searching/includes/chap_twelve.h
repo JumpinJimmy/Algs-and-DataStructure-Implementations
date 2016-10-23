@@ -29,6 +29,8 @@ class SearchExercises {
     /// - @return[out] /* type */         -- /* description */
     /// -------------------------------------------------------------------------------
     int SearchFirstOfK(const std::vector<int> &A, int k);
+
+    int SearchSmallest(const std::vector<int> &A);
 };
 
 #endif  // CHAP_TWELVE_H

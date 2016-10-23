@@ -21,17 +21,22 @@ Page 169 of Elements of Programming Interviews
 
 **12.3: Search a Cyclically Sorted Array**
 
-*   x
+*   An array is said to be cyclically sorted if it is possible to cyclically shift its entries so that it becomes sorted.
+*   Design and O(log n) algorithm for finding the position of the smallest element in a cyclically sorted array.
+*   Assume all elements are distinct
+*   Return the index of the smallest element
 
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
+`int SearchSmallest(const vector<int> &A)`
 
 ---
 
 **12.4: Compute the Integer Square Root**
 
-*   x
+*   Write a program which takes a nonnegative integer and returns the largest integer whose square is less than or equal to the given integer. 
+*   E.g.) If the input is 16 return 4
+*   E.g.) If input is 300, return 17
 
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
+`int SquareRoot(int k)`
 
 ---
 
