@@ -72,6 +72,7 @@ int SearchExercises::IntegerSquareRoot(int k) {
     return low - 1;
 }
 
-int SearchExercises::FindKth(int k, std::vector<int> *list_ptr) {
+int SearchExercises::FindKthLargest(int k, std::vector<int> *list_ptr) {
+    FindKth(k, std::greater<int>(), list_ptr);
     return 0;
 }
