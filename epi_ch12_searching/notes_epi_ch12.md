@@ -5,6 +5,22 @@ Page 169 of Elements of Programming Interviews
 
 ---
 
+## Searching Notes ##
+
+*   Is the underlying collection static or dynamic (inserts and deletes are interleaved?)
+*   Is it worth spending computational cost to prporcess the data so as to speed up the subsequent queries?
+*   Do statistical properties exist that can be exploited?
+*   Do we operate directly on the data or transform it?
+
+**Generalized Search Problems**
+
+*  Search problems that focus on the tradeoffs between RAM and computation time
+*  They avoid wasted comparisons when searching for the minimum and maximum simultaneously
+*  Use Randomization to perform elimination efficiently
+*  use bit level manipulations to identify missing elements etc.
+
+---
+
 **12.1: Search a sorted array for First occurrence of K**
 
 *   Write a method that takes a sorted array and a key.
@@ -36,7 +52,7 @@ Page 169 of Elements of Programming Interviews
 *   E.g.) If the input is 16 return 4
 *   E.g.) If input is 300, return 17
 
-`int SquareRoot(int k)`
+`int IntegerSquareRoot(int k)`
 
 ---
 
@@ -50,9 +66,14 @@ Page 169 of Elements of Programming Interviews
 
 **12.8: Find the Kth Largest Element**
 
-*   x
+*   Comput the kth largest element in an array
+*   Assume array elements are distinct
+*   Example INput: `A[3,2,1,5,4]`
+    *   `A[3]` is the first largest element
+    *   `A[2]` is the fifth largest element
+    *   `A[0]` is the third largest element
 
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
+`int FindKth(int k, std::vector<int> *list_ptr)`
 
 ---
 

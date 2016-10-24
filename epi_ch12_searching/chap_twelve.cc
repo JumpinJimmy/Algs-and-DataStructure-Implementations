@@ -56,3 +56,22 @@ int SearchExercises::SearchSmallest(const std::vector<int> &A) {
     }
     return high;
 }
+
+int SearchExercises::IntegerSquareRoot(int k) {
+    int low = 0;
+    int high = k;
+    while (low <= high) {
+        long mid = low + ((high - low) / 2);
+        long mid_square = mid * mid;
+        if (mid_square <= k) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return low - 1;
+}
+
+int SearchExercises::FindKth(int k, std::vector<int> *list_ptr) {
+    return 0;
+}

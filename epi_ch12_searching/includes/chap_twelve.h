@@ -31,6 +31,10 @@ class SearchExercises {
     int SearchFirstOfK(const std::vector<int> &A, int k);
 
     int SearchSmallest(const std::vector<int> &A);
+
+    int IntegerSquareRoot(int k);
+
+    int FindKth(int k, std::vector<int> *list_ptr);
 };
 
 #endif  // CHAP_TWELVE_H

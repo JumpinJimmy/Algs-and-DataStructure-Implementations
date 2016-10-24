@@ -5,7 +5,6 @@
 #include "includes/chap_twelve.h"
 using namespace std; //NOLINT
 template <typename T>
-
 void PrintListInline(const std::vector<T> &list, std::string details = "") {
     if (!details.empty()) {
         std::cout << details << " ";
@@ -17,6 +16,13 @@ void PrintListInline(const std::vector<T> &list, std::string details = "") {
         }
         std::cout << "];" << std::endl;
     }
+}
+
+void IntegerSquareRoot(SearchExercises* search_exerciser) {
+    std::cout << "--->>--->> main::IntegerSquareRoot <<---<<--- " << std::endl;
+    int k = 16;
+    int sqroot_result = search_exerciser->IntegerSquareRoot(k);
+    std::cout << "\t IntegerSquareRoot(" << k << ") Result: " << sqroot_result << std::endl;
 }
 
 void SearchSmallest(SearchExercises* search_exerciser) {
@@ -42,7 +48,7 @@ void RunTests(SearchExercises* search_exerciser) {
     std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
     SearchFirstOfK(search_exerciser);
     SearchSmallest(search_exerciser);
-    // HasCycle(search_exerciser);
+    IntegerSquareRoot(search_exerciser);
     // CheckOverlap(search_exerciser);
     // RemoveKthLast(search_exerciser);
     // EvenOddMerge(search_exerciser);
