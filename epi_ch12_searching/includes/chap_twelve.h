@@ -22,8 +22,6 @@ class SearchExercises {
     int bsearch(int t, const std::vector<int> &A);
     ////////////////////////////////////////////////////////////////////////////////////
     /// SearchFirstOfK(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)
-    /// - Caller: @/* class name */
-    /// - Callee: @/* class name */
     /// -------------------------------------------------------------------------------
     /// /* Description & Overview */
     /// -------------------------------------------------------------------------------
@@ -50,6 +48,7 @@ class SearchExercises {
             std::cout << "];" << std::endl;
         }
     }
+
  private:
     template <typename Compare>
     int FindKth(int k, Compare comp, std::vector<int>* list_ptr) {
@@ -64,10 +63,13 @@ class SearchExercises {
             int new_pivot_idx =
                 PartitionAroundPivot(left, right, pivot_idx, comp, &list);
             if (new_pivot_idx == k - 1) {
+                std::cout << "new_pivot_idx(" << new_pivot_idx <<") == k(" << k << ") - 1; Return list[new_pivot_idx:" << new_pivot_idx << "] = " << list.at(new_pivot_idx) << std::endl;
                 return list[new_pivot_idx];
             } else if (new_pivot_idx > k - 1) {
+                std::cout << "new_pivot_idx(" << new_pivot_idx <<") > k(" << k << ") - 1; right(" << right << ") = new_pivot_idx - 1;" << std::endl;
                 right = new_pivot_idx - 1;
             } else {  // new_pivot_idx < k - 1.
+                std::cout << "new_pivot_idx(" << new_pivot_idx <<") < k(" << k << ") - 1; left(" << left << ") = new_pivot_idx + 1;" << std::endl;
                 left = new_pivot_idx + 1;
             }
         }
@@ -80,7 +82,6 @@ class SearchExercises {
         std::cout << "======= chap_twelve::PartitionAroundPivot"
                   <<"(left:" << left << ", right:" << right << ", pivotidx:" << pivot_idx << ")" << std::endl;
         std::vector<int>& list = *list_ptr;
-        PrintListInline(list, "PartitionAroundPivot");
         int pivot_value = list[pivot_idx];
         std::cout << "======= PartitionAroundPivot pivot_value:" << pivot_value << std::endl;
         int new_pivot_idx = left;
@@ -89,9 +90,9 @@ class SearchExercises {
         PrintListInline(list, "Post Swap");
         for (int i = left; i < right; ++i) {
             if (comp(list[i], pivot_value)) {
-                std::cout << "=======  std::swap(list[i: " << i << "]=" << list.at(i) << ", list[new_pivot_idx: " << new_pivot_idx << "]=" << list.at(new_pivot_idx) << ")" << std::endl;
+                std::cout << "======= LOOP std::swap(list[i: " << i << "]=" << list.at(i) << ", list[new_pivot_idx: " << new_pivot_idx << "]=" << list.at(new_pivot_idx) << ")" << std::endl;
                 std::swap(list[i], list[new_pivot_idx++]);
-                PrintListInline(list, "Post Swap");
+                PrintListInline(list, "Post Loop Swap");
             }
         }
         std::cout << "=======  std::swap(list[right: " << right << "]=" << list.at(right) << ", list[new_pivot_idx: " << new_pivot_idx << "]=" << list.at(new_pivot_idx) << ")" << std::endl;

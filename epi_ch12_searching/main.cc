@@ -17,6 +17,14 @@ void PrintListInline(const std::vector<T> &list, std::string details = "") {
         std::cout << "];" << std::endl;
     }
 }
+void FindKthLargest(SearchExercises* search_exerciser) {
+    std::cout << "--->>--->> main::FindKthLargest <<---<<--- " << std::endl;
+    std::vector<int> int_list {3,2,1,0};
+    int k = 3;
+    PrintListInline(int_list, "FindKthLargest:");
+    int result_index = search_exerciser->FindKthLargest(k, &int_list);
+    std::cout << "\t FindKthLargest(" << k << ") Result: " << result_index << std::endl;
+}
 
 void IntegerSquareRoot(SearchExercises* search_exerciser) {
     std::cout << "--->>--->> main::IntegerSquareRoot <<---<<--- " << std::endl;
@@ -49,7 +57,7 @@ void RunTests(SearchExercises* search_exerciser) {
     SearchFirstOfK(search_exerciser);
     SearchSmallest(search_exerciser);
     IntegerSquareRoot(search_exerciser);
-    // CheckOverlap(search_exerciser);
+    FindKthLargest(search_exerciser);
     // RemoveKthLast(search_exerciser);
     // EvenOddMerge(search_exerciser);
 }

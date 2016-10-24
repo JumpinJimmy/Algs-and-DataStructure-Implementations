@@ -8,13 +8,13 @@ Page 169 of Elements of Programming Interviews
 ## Searching Notes ##
 
 *   Is the underlying collection static or dynamic (inserts and deletes are interleaved?)
-*   Is it worth spending computational cost to prporcess the data so as to speed up the subsequent queries?
+*   Is it worth spending computational cost to pre-process the data so as to speed up the subsequent queries?
 *   Do statistical properties exist that can be exploited?
 *   Do we operate directly on the data or transform it?
 
 **Generalized Search Problems**
 
-*  Search problems that focus on the tradeoffs between RAM and computation time
+*  Search problems that focus on the trade-offs between RAM and computation time
 *  They avoid wasted comparisons when searching for the minimum and maximum simultaneously
 *  Use Randomization to perform elimination efficiently
 *  use bit level manipulations to identify missing elements etc.
@@ -26,7 +26,7 @@ Page 169 of Elements of Programming Interviews
 *   Write a method that takes a sorted array and a key.
 *   Return the index of the first occurrence of that key in the array
 *   What happens when every entry equals k?
-*   _hint:_ dont stop when you first see k
+*   _hint:_ don't stop when you first see k
 *   Example Input Array: -14,-10,2,108,108,243,285,285,401
 *   Example Input Key: 108
 *   Example Result: 3
@@ -66,7 +66,7 @@ Page 169 of Elements of Programming Interviews
 
 **12.8: Find the Kth Largest Element**
 
-*   Comput the kth largest element in an array
+*   Compute the kth largest element in an array
 *   Assume array elements are distinct
 *   Example INput: `A[3,2,1,5,4]`
     *   `A[3]` is the first largest element
