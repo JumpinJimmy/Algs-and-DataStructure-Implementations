@@ -42,6 +42,7 @@ int SearchExercises::SearchFirstOfK(const std::vector<int> &A, int k) {
     }
     return result;
 }
+
 /// TODO(jdevore):  this will not be efficient for arrays that contain duplicates. Must work on linear solution
 int SearchExercises::SearchSmallest(const std::vector<int> &A) {
     int low = 0;
@@ -74,5 +75,4 @@ int SearchExercises::IntegerSquareRoot(int k) {
 
 int SearchExercises::FindKthLargest(int k, std::vector<int> *list_ptr) {
     return FindKth(k, std::greater<int>(), list_ptr);
-    // return 0;
 }

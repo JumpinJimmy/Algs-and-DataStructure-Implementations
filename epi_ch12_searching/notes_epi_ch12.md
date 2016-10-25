@@ -79,16 +79,19 @@ Page 169 of Elements of Programming Interviews
 
 **12.9: Find the Missing IP address**
 
-*   x
+*   
 
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
+``
 
 ---
 
 **12.10: Find the Duplicate and Missing Elements**
 
-*   x
+*   Given an array of n integers each between 0 & n - 1 inclusive
+*   Exactly one element appears twice.
+*   This implies that exactly one number between 0 and n-1 is missing 
+*   How would you compute the duplicate and missing numbers
 
-`shared_ptr<ListNode<T>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1, shared_ptr<ListNode<int>> L2)`
+``
 
 ---
