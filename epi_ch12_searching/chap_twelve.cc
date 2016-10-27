@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <functional>
 #include <string>
+#include <bitset>
 #include "includes/chap_twelve.h"
 
 SearchExercises::SearchExercises() {}
@@ -75,4 +76,63 @@ int SearchExercises::IntegerSquareRoot(int k) {
 
 int SearchExercises::FindKthLargest(int k, std::vector<int> *list_ptr) {
     return FindKth(k, std::greater<int>(), list_ptr);
+}
+/// find missing value of 8bit values within file
+int SearchExercises::FindMissingElement8(std::ifstream* ifs) {
+    const int kNumBuckets = 1 << 4;
+    std::cout << "======= FindMissingElement8 kNumBuckets: " << kNumBuckets << std::endl;
+    std::vector<size_t> counter(kNumBuckets, 0);
+    PrintListInline(counter, "FindMissingElement8");
+    unsigned int x;
+    int printer = 0;
+    while (*ifs >> x) {
+        int upper_portion_x = x >> 4;
+        ++counter[upper_portion_x];
+        if (printer % 2 == 0) {
+            PrintListInline(counter, "FindMissingElement8");
+        }
+        printer++;
+    }
+    PrintListInline(counter, "FindMissingElement8");
+
+    const int kBucketCapacity = 1 << 4;
+    std::cout << "======= FindMissingElement8 kBucketCapacity: " << kBucketCapacity << std::endl;
+    int candidate_bucket = -1;
+    for (int i = 0; i < kNumBuckets; ++i) {
+        if (counter[i] < kBucketCapacity) {
+            candidate_bucket = i;
+            std::cout << "======= FindMissingElement8 candidate_bucket " << candidate_bucket << std::endl;
+            break;
+        }
+    }
+
+    if (candidate_bucket < 0) {
+        std::cout << "======= FindMissingElement8:: No Missing element " << std::endl;
+        return 0;
+    }
+
+    ifs->clear();
+    ifs->seekg(0, std::ios::beg);
+    std::bitset<kBucketCapacity> bit_vec(0);
+    while (*ifs >> x) {
+        int upper_part_x = x >> 4;
+        if (candidate_bucket == upper_part_x) {
+            std::cout << "FindMissingElement8::candidate_bucket(" << candidate_bucket << ") == upper_part_x(" << upper_part_x << ")" << std::endl;
+            int lower_part_x = ((1 << 4) - 1) & x;
+            std::cout << "FindMissingElement8::lower_part_x:" << lower_part_x << std::endl;
+            bit_vec.set(lower_part_x);
+        }
+    }
+    ifs->close();
+
+    // At least one of the LSB combinations is absent, find it.
+    for (int i = 0; i < kBucketCapacity; ++i) {
+        if (bit_vec[i] == 0) {
+            std::cout << "======= FindMissingElement8:: bit_vec[" << i << "] == 0 " << std::endl;
+            return (candidate_bucket << 4) | i;
+        }
+    }
+
+    std::cout << "======= FindMissingElement8:: No Missing element " << std::endl;
+    return 0;
 }

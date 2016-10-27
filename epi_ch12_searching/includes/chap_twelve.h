@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include <functional>
+#include <fstream>
 #include <algorithm>
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -35,6 +36,8 @@ class SearchExercises {
     int IntegerSquareRoot(int k);
 
     int FindKthLargest(int k, std::vector<int> *list_ptr);
+    int FindMissingElement8(std::ifstream* ifs);
+
     template <typename T>
     void PrintListInline(const std::vector<T> &list, std::string details = "") {
         if (!details.empty()) {
@@ -111,6 +114,8 @@ class SearchExercises {
         std::cout << "\tReturn new_pivot_idx: " << new_pivot_idx << std::endl;
         return new_pivot_idx;
     }
+
+
 };
 
 #endif  // CHAP_TWELVE_H
