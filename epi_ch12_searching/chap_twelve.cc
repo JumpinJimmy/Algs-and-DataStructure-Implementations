@@ -1,7 +1,4 @@
 #include <iostream>
-#include <algorithm>
-#include <functional>
-#include <string>
 #include <bitset>
 #include "includes/chap_twelve.h"
 
@@ -44,7 +41,8 @@ int SearchExercises::SearchFirstOfK(const std::vector<int> &A, int k) {
     return result;
 }
 
-/// TODO(jdevore):  this will not be efficient for arrays that contain duplicates. Must work on linear solution
+/// TODO(jdevore):  this will not be efficient for arrays that contain duplicates.
+/// Must work on linear solution
 int SearchExercises::SearchSmallest(const std::vector<int> &A) {
     int low = 0;
     int high = A.size() - 1;
@@ -63,8 +61,8 @@ int SearchExercises::IntegerSquareRoot(int k) {
     int low = 0;
     int high = k;
     while (low <= high) {
-        long mid = low + ((high - low) / 2);
-        long mid_square = mid * mid;
+        int64_t mid = low + ((high - low) / 2);
+        int64_t mid_square = mid * mid;
         if (mid_square <= k) {
             low = mid + 1;
         } else {
@@ -77,6 +75,7 @@ int SearchExercises::IntegerSquareRoot(int k) {
 int SearchExercises::FindKthLargest(int k, std::vector<int> *list_ptr) {
     return FindKth(k, std::greater<int>(), list_ptr);
 }
+
 /// find missing value of 8bit values within file
 int SearchExercises::FindMissingElement8(std::ifstream* ifs) {
     const int kNumBuckets = 1 << 4;
@@ -84,14 +83,9 @@ int SearchExercises::FindMissingElement8(std::ifstream* ifs) {
     std::vector<size_t> counter(kNumBuckets, 0);
     PrintListInline(counter, "FindMissingElement8");
     unsigned int x;
-    int printer = 0;
     while (*ifs >> x) {
         int upper_portion_x = x >> 4;
         ++counter[upper_portion_x];
-        if (printer % 2 == 0) {
-            PrintListInline(counter, "FindMissingElement8");
-        }
-        printer++;
     }
     PrintListInline(counter, "FindMissingElement8");
 
