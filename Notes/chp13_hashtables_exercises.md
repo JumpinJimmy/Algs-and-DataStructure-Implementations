@@ -35,3 +35,10 @@ bool constructible(anon_text, mag_text) {
 *  for each char c:  if c is in letter hash map, decrement count by one
 *  when the hash table is empty return true
 *  if end of mag text is reached and anon hash table !empty, return false
+
+
+---
+
+**13.3 Implement an ISBN Cache**
+
+
