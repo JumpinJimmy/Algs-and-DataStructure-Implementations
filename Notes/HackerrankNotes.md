@@ -58,4 +58,13 @@ bool ransom_note(vector<string> magazine, vector<string> ransom) {
     }
     return note_char_freq.empty();
 }
-}
+
+```
+
+## Balanced Brackets ##
+
+### A tail of two stacks ###
+
+### Making Anagrams ###
+
+
