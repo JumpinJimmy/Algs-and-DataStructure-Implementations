@@ -2,6 +2,14 @@
 #include <iterator>
 #include <algorithm>
 
+DummyClass::DummyClass() {
+    std::cout << "--->>--->> dummy_class:: constructor " << std::endl;
+}
+
+DummyClass::~DummyClass() {
+    std::cout << "--->>--->> dummy_class:: destructor " << std::endl;
+}
+
 int DummyClass::SumList(const std::vector<int> &v) {
     std::cout << "--->>--->> dummy_class:: SumList()" << std::endl;
     return std::accumulate(v.begin(), v.end(), 0);

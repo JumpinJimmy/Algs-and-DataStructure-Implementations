@@ -35,7 +35,10 @@ bool TestSuiteThree(std::unique_ptr<DummyClass> &dummy_class, const std::set<std
     return true;
 }
 
+// valgrind --leak-check=full --show-leak-kinds=all ./input_parse
 int main(int argc, char const *argv[]) {
+    std::unique_ptr<DummyClass> dummy_class(new DummyClass());
+    std::set<std::string> device_blacklist {"A"};
 
     /* code */
     return 0;
