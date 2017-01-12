@@ -37,6 +37,11 @@ bool TestSuiteThree(std::unique_ptr<DummyClass> &dummy_class, const std::set<std
     return true;
 }
 
+bool SingleDevTest(std::unique_ptr<DummyClass> &dummy_class, const std::set<std::string> &device = {}) {
+    std::cout << "======= main:: SingleDevTest " << std::endl;
+    return true;
+}
+
 bool functionptr_test(int a, std::string x) {
     std::cout << "======= main::bool functionptr_test(a: " << a << ", string: " << x << ") CALLED! " << std::endl;
     return true;
@@ -47,37 +52,43 @@ bool functionptr_test_two(int a, std::string x) {
     return true;
 }
 
+void usage(){
+    std::cout<<"Usage:: \"./FileMetrics <rootDirectoryName> <#directories> <#files> <SizeOfFiles> <ReadPercentage>\" \n";
+    std::cout<<"Usage:: \"SizeOfFile: <0,4,32,64,128,256,512,1024> (0kb -> 1MB)\" \n";
+    std::cout<<"Usage:: \"ReadPercentage: Percentage of Directories you want to Read (i.e. 30 == Read 30\% of the directories)\" \n"<<std::endl;
+}
+// /////////////////////////
+// args
+// -device "/dev/sdb" or blank
+// -devicelist "/dev/sdc, /dev/sdb"
+// -test "A" (A or B or C or Blank)
+// -blacklist "/dev/sdc, /dev/sdb"
 // valgrind --leak-check=full --show-leak-kinds=all ./input_parse
+// http://devdocs.io/cpp/language/main_function
+// https://msdn.microsoft.com/en-us/library/17w5ykft.aspx
+// http://courses.cms.caltech.edu/cs11/material/c/mike/misc/cmdline_args.html
+// http://stackoverflow.com/questions/5272550/c-command-line-parameters
+// http://stackoverflow.com/questions/15344714/convert-command-line-argument-to-string
 int main(int argc, char const *argv[]) {
-    // std::map<std::string, bool (std::unique_ptr<DummyClass> &, const std::set<std::string> &)> function_map_;
-    // std::map<std::string, std::function<bool(int, std::string)>> function_map_;
     std::map<std::string, std::function<bool(std::unique_ptr<DummyClass> &, const std::set<std::string> &)>> function_map_;
-    function_map_["TestSuiteOne"] = TestSuiteOne;
-    function_map_["TestSuiteTwo"] = TestSuiteTwo;
-
-    // std::function<bool(int)> f_display = functionptr_test;
-    // function_map_["functionptr_test"] = functionptr_test;
-    // function_map_["functionptr_test_two"] = functionptr_test_two;
+    function_map_["A"] = TestSuiteOne;
+    function_map_["B"] = TestSuiteTwo;
+    function_map_["C"] = TestSuiteThree;
+    function_map_["D"] = SingleDevTest;
     std::unique_ptr<DummyClass> dummy_class(new DummyClass());
-    std::set<std::string> device_blacklist {"A"};
+    std::set<std::string> device_blacklist {};
+    std::string target_device = "";
+    // std::vector<std::string> device_list {};
+
     int device_path = std::stoi(argv[1]);
 
-    // if (device_path == 1) {
-    //     function_map_["functionptr_test"] (1, "call one");
-    // } else if (device_path == 2) {
-    //     function_map_["functionptr_test_two"] (2, "call two");
-    // } else {
-    //     std::cout << "======= nuffin"<< std::endl;
-    // }
     if (device_path == 1) {
-        function_map_["TestSuiteOne"] (dummy_class, device_blacklist);
+        function_map_["A"] (dummy_class, device_blacklist);
     } else if (device_path == 2) {
-        function_map_["TestSuiteTwo"] (dummy_class, device_blacklist);
+        function_map_["B"] (dummy_class, device_blacklist);
     } else {
         std::cout << "======= nuffin"<< std::endl;
     }
-    // f_display(12);
 
-    /* code */
     return 0;
 }
