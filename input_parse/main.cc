@@ -2,6 +2,8 @@
 #include <iostream>
 #include <map>
 #include <sstream>
+#include <algorithm>
+
 #include <functional>
 
 #include <memory>
@@ -78,58 +80,51 @@ int main(int argc, char const *argv[]) {
     std::set<std::string> device_blacklist {};
     std::string target_device = "";
 
-    if (argc < 2) {
+    if (argc < 2 || argc > 3) {
         std::cout<<"INCORRECT AMOUNT OF ARGUMENTS"<<std::endl;
         usage();
         exit(EXIT_FAILURE);
-    } else {
-        std::vector<std::string> args;
-        std::copy(argv + 1, argv + argc, std::back_inserter(args));
-        int param_count = argc;
-        std::cout << "======= main:: arg count " << param_count << std::endl;
-        unsigned int param_flag_index = 0;
-        unsigned int param_val_index = 1;
-
-        // while ()
-        // for (auto str : args) {
-        //     std::cout << "======= main:: arg = " << str << std::endl;
-        //     if (str.compare("-d")) {
-
-        //     }
-        // }
-    // for (auto iter = args.begin(); iter != args.end(); ++iter) {
-    //     std::cout << *iter << ' ';
-    //     if (*iter.compare("-d")) {
-    //         target_device = *std::next(iter,1);
-    //         std::cout << "======= main:: target_device " << target_device << std::endl;
-    //     }
     }
-        // for (int i = 1; i < param_count; ++i) {
-        //     if (strcmp(argv[i], "-d") == 0) {
-        //         if (argv[i][0] == "")
-        //     }
-        //     // if (i + 1 != param_count) {
-        //         std::cout << "======= main::argv[" << i << "] = " << argv[i] << std::endl;
-        //     // }
-        // }
+
+    target_device = argv[1];
+    if (target_device.empty()) {
+         std::cout << "======= main:: cannot provide empty device! " << std::endl;
+         return 1;
+    }
+
+    std::string target_test = argc == 3 ? argv[2] : "";
+    if (!target_test.empty()) {
+        std::transform(target_test.begin(), target_test.end(), target_test.begin(), ::tolower);
+    } else {
+        target_test = "default";
+    }
+
+    std::cout << "======= main:: target_test: " << target_test << std::endl;
+    // auto algo_iter_ = algorithm_map_.find(primary_store_value.algorithm);
+    // if (algo_iter_ != algorithm_map_.end()) {
+    //     /// map pointer @algo_iter_->second points at a function
+    //     /// dereference && call with appropriate parameters
+    //     /// ex) second == &Sha1Integrity(std::string value_str, std::string tag_str)
+    //     tag_cmp_result = (this->*(algo_iter_->second))(valueString, primary_store_value.tag); //NOLINT
+    //     if (!tag_cmp_result) {
+    //         results->push_back(it->Key());
+    //     }
     // }
-        // if ( strcmp(argv[i], "-v") == 0 ) {
+    // switch (target_test) {
+    //     case "custom" : if (bracket_stack.top() == '[') {
+    //                 bracket_stack.pop();
+    //                 continue;
+    //             }
+    //     case '}' : if (bracket_stack.top() == '{') {
+    //                 bracket_stack.pop();
+    //                 continue;
+    //             }
+    //     case ')' : if (bracket_stack.top() == '(') {
+    //                 bracket_stack.pop();
+    //                 continue;
+    //             }
+    //     default: return false;
 
-        //     zbc_set_log_level("debug");
-
-        // } else if ( strcmp(argv[i], "-n") == 0 ) {
-
-        //     num = 1;
-
-        //  } else if ( strcmp(argv[i], "-nz") == 0 ) {
-
-        //     if ( i >= (argc - 1) ) {
-        //         goto usage;
-        //     }
-        //     i++;
-    // std::vector<std::string> device_list {};
-
-    // int device_path = std::stoi(argv[1]);
 
     // if (device_path == 1) {
     //     function_map_["A"] (dummy_class, device_blacklist);
