@@ -18,16 +18,17 @@ HashTableExercises::~HashTableExercises() {}
 /// @return[out] boolean
 bool HashTableExercises::PermuteToPalindrome(const std::string &subject_string) {
     if (subject_string.empty()) return false;
-    const int str_length = subject_string.length();
-    bool even_length = (subject_string.length() % 2 == 0) ? true : false;
+
+    int odd_char_count = 0;
     std::unordered_map<char, int> char_freq_map;
     for (const char &c : subject_string) {
-        std::cout << "char: " << c << " ";
         ++char_freq_map[c];
-    } std::cout << std::endl;
+    }
 
-
-    /// think about how to cycle over the string .
-
+    for (const auto &map_iter : char_freq_map) {
+        if ((map_iter.second % 2) && (++odd_char_count > 1)) {
+            return false;
+        }
+    }
     return true;
 }
