@@ -3,48 +3,43 @@ Page 187 of Elements of Programming Interviews
 
 *   **Exercises:** 13.1 13.2 13.3 13.4* 13.6 13.7*
 
-## Hash Table Notes ##
-
-*   x
-
-
 ---
-
-### Stacks ###
 
 **13.1: Test for Palindromic Permutations**
 
 *   Test whether the letters forming a string can be permuted to form a palindrome
     *   **e.g.** "edified" can be changed to "deified"
 
+`bool PermuteToPalindrome(const std::string &subject_string);`
 
 ---
 
-**13.2: **
+**13.2:**
 
 *   x
-
-`int EvaluateRPN(const string& RPN_expressi1on)`
 
 ---
 
 **13.3: x**
 
-*   A string over the characters  "{,},(,),[,]" is said to be well-formed if if each open bracket has a corresponding closing bracket in the correct order
-
-*   **Examples:**
-    *   `"([]){()}"` is _well-formed_
-    *   `"[()[]{()()}]"` is _well-formed_
-    *   `"{)}"` is _malformed_
-    *   `"[()[]{()()"` is _malformed_
-
-*   Write a program that tests whether or not a string made-up of the characters `(`, `)`, `[`, `]`, `{`, `}` is well-formed
-
-`bool IsWellFormedBrackets(const string& s)`
-
+---
 
 **13.4: x**
 
-**13.6: x**  
+---
 
-**13.7: x** 
+**13.6: Find Nearest Repeated Entries**
+
+*   Given an array of strings, find the distance between the closest pair of equal entries. 
+*   Return the distance 
+
+*   **Examples:**
+    *   `All work and no play makes for no work no fun and no results` - the second and third `no` strings are the closest
+
+`int ShortestEqualValueDistance(const std::vector<std::string> &str_list)`
+
+---
+
+**13.7: Find Shortest Sub-Array** 
+
+

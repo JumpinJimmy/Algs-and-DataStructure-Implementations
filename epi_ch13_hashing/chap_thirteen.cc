@@ -32,3 +32,7 @@ bool HashTableExercises::PermuteToPalindrome(const std::string &subject_string) 
     }
     return true;
 }
+
+int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string> &str_list) {
+    return 0;
+}

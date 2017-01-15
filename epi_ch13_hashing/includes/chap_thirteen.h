@@ -1,6 +1,7 @@
 #ifndef CHAP_THIRTEEN_H
 #define CHAP_THIRTEEN_H
 #include <string>
+#include <vector>
 
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -18,6 +19,7 @@ class HashTableExercises {
     HashTableExercises();
     ~HashTableExercises();
     bool PermuteToPalindrome(const std::string &subject_string);
+    int ShortestEqualValueDistance(const std::vector<std::string> &str_list);
 };
 
 #endif  // CHAP_THIRTEEN_H

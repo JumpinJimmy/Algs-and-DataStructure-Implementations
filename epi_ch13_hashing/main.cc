@@ -1,7 +1,7 @@
 #include <cassert> //NOLINT
 #include <iostream>
 #include <memory>
-#include <vector>
+// #include <vector>
 #include "includes/chap_thirteen.h"
 
 void PermuteToPalindrome(HashTableExercises* ht_exerciser) {
