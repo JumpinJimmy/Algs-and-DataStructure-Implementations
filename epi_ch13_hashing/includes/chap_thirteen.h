@@ -16,6 +16,7 @@ class HashTableExercises {
  public:
     HashTableExercises();
     ~HashTableExercises();
+    bool PermuteToPalindrome(const std::string &subject_string);
 };
 
 #endif  // CHAP_THIRTEEN_H

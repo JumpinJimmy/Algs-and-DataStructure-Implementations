@@ -12,9 +12,10 @@ Page 187 of Elements of Programming Interviews
 
 ### Stacks ###
 
-**13.1: Implement a Stack with Max API**
+**13.1: Test for Palindromic Permutations**
 
-*   x
+*   Test whether the letters forming a string can be permuted to form a palindrome
+    *   **e.g.** "edified" can be changed to "deified"
 
 
 ---
