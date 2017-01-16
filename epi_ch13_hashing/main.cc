@@ -2,20 +2,21 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
-// #include <vector>
 #include "includes/chap_thirteen.h"
 
+// Test Exercise 13.1
 void PermuteToPalindrome(HashTableExercises* ht_exerciser) {
     std::vector<std::string> source_str_list {"Hello James", "raeccar", "acbba",
                                               "Hockenheim", "James", "staythesame", "AEIOUaeiou"};
     for (auto &test_str : source_str_list) {
-        std::cout << "--->>--->> main:: PermuteToPalindrome(\"" << test_str << "\"): "
+        std::cout << "--->>--->> HashTables:: PermuteToPalindrome(\"" << test_str << "\"): "
                   << std::boolalpha << ht_exerciser->PermuteToPalindrome(test_str) << std::endl;
     }
 }
 
+// Test Exercise 13.2
 void IsLetterConstructible(HashTableExercises* ht_exerciser) {
-    std::vector<std::string> letter_list {"123", "123", "GATTACA","a", "aa", "staythesame", ""};
+    std::vector<std::string> letter_list {"123", "123", "GATTACA", "a", "aa", "staythesame", ""};
     std::vector<std::string> magazine_list {"456", "12222222", "A AD FS GA T ACA TTT", "", "aa", "staythesame", "123"};
     std::vector<std::pair<std::string, std::string>> letter_mag_list;
     letter_mag_list.reserve(magazine_list.size());
@@ -24,7 +25,7 @@ void IsLetterConstructible(HashTableExercises* ht_exerciser) {
                     return std::make_pair(a, b); });
 
     for (auto &test_iter : letter_mag_list) {
-        std::cout << "--->>--->> main:: ConstructibleLetter(letter: \"" << test_iter.first << "\", mag: \"" << test_iter.second << "\"): "
+        std::cout << "--->>--->> HashTables:: ConstructibleLetter(letter: \"" << test_iter.first << "\", mag: \"" << test_iter.second << "\"): "
                   << std::boolalpha << ht_exerciser->ConstructibleLetter(test_iter.first, test_iter.second) << std::endl;
     }
     assert(!ht_exerciser->ConstructibleLetter("Bastian Schweinsteiger", "Thomas Muller"));
@@ -32,7 +33,7 @@ void IsLetterConstructible(HashTableExercises* ht_exerciser) {
 }
 
 void RunTests(std::shared_ptr<HashTableExercises> ht_exerciser) {
-    std::cout << "--->>--->> main::RunTests <<---<<--- " << std::endl;
+    std::cout << "--->>--->> HashTables::RunTests <<---<<--- " << std::endl;
     PermuteToPalindrome(ht_exerciser.get());
     IsLetterConstructible(ht_exerciser.get());
 }

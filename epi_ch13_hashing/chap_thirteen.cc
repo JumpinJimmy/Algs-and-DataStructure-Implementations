@@ -33,13 +33,20 @@ bool HashTableExercises::PermuteToPalindrome(const std::string &subject_string) 
     return true;
 }
 
+/////////////////////////////////////////////////////////
+/// ConstructibleLetter(const std::string &, const std::string &)
+/// -------------------------------------------
+/// Takes text from an anonymous letter and text from a magazine.
+/// Determines if the anonymous letter can be rebuilt using the magazine text
+/// -------------------------------------------
+/// @param[in] subject_letter - letter string to recreate
+/// @param[in] magazine_text  - magazine text used to recreate letter
+/// @return[out] boolean      - whether or not the letter can be reconstructed
 bool HashTableExercises::ConstructibleLetter(const std::string &subject_letter, const std::string &magazine_text) {
-    // foreach char in the letter; count frequency
-    // loop over magazine and decrement frequency foreach letter encountered
-    // if all frequencies are 0, success, if not , the letter cannot be rebuilt
     if (magazine_text.empty()) return false;
     if (subject_letter.empty()) return true;
     std::unordered_map<char, int> letter_char_freq;
+
     for (const char &c : subject_letter) {
         ++letter_char_freq[c];
     }
