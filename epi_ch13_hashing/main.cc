@@ -3,6 +3,7 @@
 #include <memory>
 #include <algorithm>
 #include "includes/chap_thirteen.h"
+#include "includes/isbn_cache.h"
 
 // Test Exercise 13.1
 void PermuteToPalindrome(HashTableExercises* ht_exerciser) {

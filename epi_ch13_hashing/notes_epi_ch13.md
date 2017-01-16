@@ -20,7 +20,24 @@ Page 187 of Elements of Programming Interviews
 
 ---
 
-**13.3: x**
+**13.3: Implement an ISBN Cache**
+
+*   Create a cache for looking up prices of books identified by their ISBN
+*   **Support**: `Lookup`, `Insert`, and `Remove` methods
+*   Use the **Least Recently Used (LRU) policy** for cache eviction
+*   **Insertion If an ISBN is already present:**
+    *   insert should not change the price
+    *   should update it to be the most recently used
+*   **Lookup:**
+    *   should also update that entry to the most recently used.
+*   _Hint:_ amortize the cost of deletion. Alternatively, use an auxiliary data structure
+
+*   **ISBN:** string of length 10
+    *   first 9 characters are digits
+    *   the last character is a check character
+    *   **Check Character:** sum of first nine digits, mod 11
+    *   Value of 10 is represented with an X
+
 
 ---
 
