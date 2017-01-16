@@ -33,6 +33,30 @@ bool HashTableExercises::PermuteToPalindrome(const std::string &subject_string) 
     return true;
 }
 
+bool HashTableExercises::ConstructibleLetter(const std::string &subject_letter, const std::string &magazine_text) {
+    // foreach char in the letter; count frequency
+    // loop over magazine and decrement frequency foreach letter encountered
+    // if all frequencies are 0, success, if not , the letter cannot be rebuilt
+    if (magazine_text.empty()) return false;
+    if (subject_letter.empty()) return true;
+    std::unordered_map<char, int> letter_char_freq;
+    for (const char &c : subject_letter) {
+        ++letter_char_freq[c];
+    }
+
+    for (const char &search_c : magazine_text) {
+        auto char_iter = letter_char_freq.find(search_c);
+        if (char_iter != letter_char_freq.end()) {
+            --char_iter->second;
+            if (char_iter->second == 0) {
+                letter_char_freq.erase(search_c);
+            }
+        }
+        if (letter_char_freq.empty()) break;
+    }
+    return letter_char_freq.empty();
+}
+
 int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string> &str_list) {
     return 0;
 }

@@ -14,9 +14,9 @@ Page 187 of Elements of Programming Interviews
 
 ---
 
-**13.2:**
+**13.2: Is an Anonymous Letter Constructible?**
 
-*   x
+*   Write a program that takes text fro an anonymous letter and text for a magazine. Determine if it is possible to write the anonymous letter using the magazine. 
 
 ---
 

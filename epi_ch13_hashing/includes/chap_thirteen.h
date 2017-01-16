@@ -19,6 +19,7 @@ class HashTableExercises {
     HashTableExercises();
     ~HashTableExercises();
     bool PermuteToPalindrome(const std::string &subject_string);
+    bool ConstructibleLetter(const std::string &subject_letter, const std::string &magazine_text);
     int ShortestEqualValueDistance(const std::vector<std::string> &str_list);
 };
 
