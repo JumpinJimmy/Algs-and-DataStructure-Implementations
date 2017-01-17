@@ -85,6 +85,7 @@ void TestLruCache() {
     assert(val == 3);
 }
 
+// Helper for Test Exercise 13.6
 std::string RandString(int len) {
   std::default_random_engine gen((std::random_device())());
   std::string ret = "";
@@ -95,6 +96,7 @@ std::string RandString(int len) {
   return ret;
 }
 
+// Helper for Test Exercise 13.6
 int ShortestDistanceCheckAnswer(const std::vector<std::string>& s) {
   int nearest_repeated_distance = std::numeric_limits<int>::max();
   for (int i = 0; i < s.size(); ++i) {
@@ -107,6 +109,7 @@ int ShortestDistanceCheckAnswer(const std::vector<std::string>& s) {
   return (nearest_repeated_distance < std::numeric_limits<int>::max()) ? nearest_repeated_distance : -1;
 }
 
+// Test Exercise 13.6
 void ShortestDistanceBetweenEquals(HashTableExercises* ht_exerciser, int test_iterations = 0) {
     std::cout << "--->>--->> HashTables::ShortestDistanceBetweenEquals()" << std::endl;
     std::vector<std::string> A = {"foo", "bar", "widget", "foo", "xyz", "widget", "bar", "adnan"};

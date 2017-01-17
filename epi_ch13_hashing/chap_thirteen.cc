@@ -2,7 +2,6 @@
 #include <iostream>
 #include <unordered_map>
 #include <limits>
-
 #include "includes/chap_thirteen.h"
 
 HashTableExercises::HashTableExercises() {}
@@ -66,6 +65,13 @@ bool HashTableExercises::ConstructibleLetter(const std::string &subject_letter, 
     return letter_char_freq.empty();
 }
 
+/////////////////////////////////////////////////////////
+/// ShortestEqualValueDistance(const std::vector<std::string> &)
+/// -------------------------------------------
+/// Find shortest distance between pair of equal strings
+/// -------------------------------------------
+/// @param[in] str_list - list of strings to evaluate
+/// @return[out] int      - shortest distance beteen repeated words |  -1 if no repeated words
 int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string> &str_list) {
     std::unordered_map<std::string, int> word_index_table;
     unsigned int index = 0;

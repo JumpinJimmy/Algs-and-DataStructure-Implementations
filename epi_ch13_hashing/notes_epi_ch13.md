@@ -57,6 +57,9 @@ Page 187 of Elements of Programming Interviews
 
 ---
 
-**13.7: Find Shortest Sub-Array** 
+**13.7: Find Shortest Sub-Array**
+
+*   Write a program which takes an array of strings and a set of strings.
+*   Return the indices for the starting index and ending index indicating the shortest sub array that contains all elements within the set  
 
 
