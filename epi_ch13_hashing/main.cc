@@ -33,8 +33,9 @@ void IsLetterConstructible(HashTableExercises* ht_exerciser) {
     assert(ht_exerciser->ConstructibleLetter("JumpinJimmy", "JumpinJimmy Is His Name"));
 }
 
+// Test Exercise 13.3
 void TestLruCache() {
-    std::cout << "--->>--->> HashTables:: TestLruCache " << std::endl;
+    std::cout << "--->>--->> HashTables:: TestLruCache() " << std::endl;
     std::unique_ptr<IsbnCache> isbn_cache(new IsbnCache(2));
     std::cout << "--->>--->> HashTables:: TestLruCache -> Test Capacity Constraint " << std::endl;
     std::cout << "         |___ HasTables:: TestLruCache.  isbn_cache->Insert(1, 1);" << std::endl;
