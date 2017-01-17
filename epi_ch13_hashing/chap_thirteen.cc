@@ -64,6 +64,7 @@ bool HashTableExercises::ConstructibleLetter(const std::string &subject_letter, 
     return letter_char_freq.empty();
 }
 
+
 int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string> &str_list) {
     return 0;
 }

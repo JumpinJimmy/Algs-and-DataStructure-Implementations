@@ -33,10 +33,58 @@ void IsLetterConstructible(HashTableExercises* ht_exerciser) {
     assert(ht_exerciser->ConstructibleLetter("JumpinJimmy", "JumpinJimmy Is His Name"));
 }
 
+void TestLruCache() {
+    std::cout << "--->>--->> HashTables:: TestLruCache " << std::endl;
+    std::unique_ptr<IsbnCache> isbn_cache(new IsbnCache(2));
+    std::cout << "--->>--->> HashTables:: TestLruCache -> Test Capacity Constraint " << std::endl;
+    std::cout << "         |___ HasTables:: TestLruCache.  isbn_cache->Insert(1, 1);" << std::endl;
+    isbn_cache->Insert(1, 1);
+    std::cout << "         |___ HasTables:: TestLruCache.  isbn_cache->Insert(2, 1);" << std::endl;
+    isbn_cache->Insert(2, 1);
+    std::cout << "         |___ HasTables:: TestLruCache.  isbn_cache->Insert(3, 1);" << std::endl;
+    isbn_cache->Insert(3, 1);
+    std::cout << "         |___ HasTables:: TestLruCache.  isbn_cache->Insert(4, 1);" << std::endl;
+    isbn_cache->Insert(4, 1);
+    int val = 0;
+    assert(!isbn_cache->Lookup(1, &val));
+    assert(!isbn_cache->Lookup(2, &val));
+    assert(isbn_cache->Lookup(3, &val));
+    assert(val == 1);
+    assert(isbn_cache->Lookup(4, &val));
+    assert(val == 1);
+    isbn_cache.reset(new IsbnCache(2));
+
+    std::cout << "--->>--->> HashTables:: TestLruCache-> Test Update Moves Front " << std::endl;
+    isbn_cache->Insert(1, 1);
+    isbn_cache->Insert(2, 1);
+    isbn_cache->Insert(3, 1);
+    isbn_cache->Insert(2, 2);
+    isbn_cache->Insert(4, 1);
+    assert(!isbn_cache->Lookup(1, &val));
+    assert(isbn_cache->Lookup(2, &val));
+    assert(val == 1);
+    assert(!isbn_cache->Lookup(3, &val));
+    assert(isbn_cache->Lookup(4, &val));
+    assert(val == 1);
+    isbn_cache.reset(new IsbnCache(2));
+
+    std::cout << "--->>--->> HashTables:: TestLruCache -> Test Remove " << std::endl;
+    isbn_cache->Insert(1, 1);
+    isbn_cache->Insert(2, 1);
+    isbn_cache->Erase(2);
+    isbn_cache->Insert(3, 3);
+    assert(isbn_cache->Lookup(1, &val));
+    assert(val == 1);
+    assert(!isbn_cache->Lookup(2, &val));
+    assert(isbn_cache->Lookup(3, &val));
+    assert(val == 3);
+}
+
 void RunTests(std::shared_ptr<HashTableExercises> ht_exerciser) {
     std::cout << "--->>--->> HashTables::RunTests <<---<<--- " << std::endl;
     PermuteToPalindrome(ht_exerciser.get());
     IsLetterConstructible(ht_exerciser.get());
+    TestLruCache();
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch13_test
