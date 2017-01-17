@@ -2,6 +2,10 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include <sstream>
+#include <iterator>
+#include <limits>
+#include <random>
 #include "includes/chap_thirteen.h"
 #include "includes/isbn_cache.h"
 
@@ -81,11 +85,59 @@ void TestLruCache() {
     assert(val == 3);
 }
 
+std::string RandString(int len) {
+  std::default_random_engine gen((std::random_device())());
+  std::string ret = "";
+  while (len--) {
+    std::uniform_int_distribution<int> dis('a', 'z');
+    ret += dis(gen);
+  }
+  return ret;
+}
+
+int ShortestDistanceCheckAnswer(const std::vector<std::string>& s) {
+  int nearest_repeated_distance = std::numeric_limits<int>::max();
+  for (int i = 0; i < s.size(); ++i) {
+    for (int j = i + 1; j < s.size(); ++j) {
+      if (s[i] == s[j]) {
+        nearest_repeated_distance = std::min(nearest_repeated_distance, j - i);
+      }
+    }
+  }
+  return (nearest_repeated_distance < std::numeric_limits<int>::max()) ? nearest_repeated_distance : -1;
+}
+
+void ShortestDistanceBetweenEquals(HashTableExercises* ht_exerciser, int test_iterations = 0) {
+    std::cout << "--->>--->> HashTables::ShortestDistanceBetweenEquals()" << std::endl;
+    std::vector<std::string> A = {"foo", "bar", "widget", "foo", "xyz", "widget", "bar", "adnan"};
+    assert(ShortestDistanceCheckAnswer(A) == ht_exerciser->ShortestEqualValueDistance(A));
+    A = {"foo", "foo", "widget", "foo", "xyz", "widget", "bar", "adnan"};
+    assert(ShortestDistanceCheckAnswer(A) == ht_exerciser->ShortestEqualValueDistance(A));
+    std::cout << "--->>--->> main:: random test "  << std::endl;
+    std::default_random_engine gen((std::random_device())());
+    for (int times = 0; times < 1000; ++times) {
+        int n;
+        if (test_iterations == 0) {
+            std::uniform_int_distribution<int> dis(1, 10000);
+            n = dis(gen);
+        } else {
+            n = test_iterations;
+        }
+        std::vector<std::string> s;
+        for (int i = 0; i < n; ++i) {
+            std::uniform_int_distribution<int> dis(1, 10);
+            s.emplace_back(RandString(dis(gen)));
+        }
+        assert(ShortestDistanceCheckAnswer(s) == ht_exerciser->ShortestEqualValueDistance(s));
+    }
+}
+
 void RunTests(std::shared_ptr<HashTableExercises> ht_exerciser) {
     std::cout << "--->>--->> HashTables::RunTests <<---<<--- " << std::endl;
     PermuteToPalindrome(ht_exerciser.get());
     IsLetterConstructible(ht_exerciser.get());
     TestLruCache();
+    ShortestDistanceBetweenEquals(ht_exerciser.get(), 4);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch13_test

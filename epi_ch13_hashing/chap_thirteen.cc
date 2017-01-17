@@ -1,6 +1,8 @@
 #include <utility>
 #include <iostream>
 #include <unordered_map>
+#include <limits>
+
 #include "includes/chap_thirteen.h"
 
 HashTableExercises::HashTableExercises() {}
@@ -65,5 +67,18 @@ bool HashTableExercises::ConstructibleLetter(const std::string &subject_letter, 
 }
 
 int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string> &str_list) {
-    return 0;
+    std::unordered_map<std::string, int> word_index_table;
+    unsigned int index = 0;
+    unsigned int shortest_distance_seen = std::numeric_limits<unsigned int>::max();
+    for (const auto &curr_string : str_list) {
+        auto table_iter = word_index_table.find(curr_string);
+        if (table_iter == word_index_table.end()) {
+            word_index_table[curr_string] = index;
+        } else {
+            shortest_distance_seen = std::min(shortest_distance_seen, index - table_iter->second);
+            word_index_table[curr_string] = index;
+        }
+        index++;
+    }
+    return (shortest_distance_seen < std::numeric_limits<unsigned int>::max()) ? shortest_distance_seen : -1;
 }
