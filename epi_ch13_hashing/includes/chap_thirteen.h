@@ -21,7 +21,8 @@ class HashTableExercises {
     bool PermuteToPalindrome(const std::string &subject_string);
     bool ConstructibleLetter(const std::string &subject_letter, const std::string &magazine_text);
     int ShortestEqualValueDistance(const std::vector<std::string> &str_list);
-    std::pair<int,int> RetreiveContainingSubarraryIndex(const std::vector<std::string> content_array, const std::set<std::string> search_keys)
+    std::pair<int,int> RetreiveContainingSubarraryIndex(const std::vector<std::string> &content_array, const std::set<std::string> &search_keys);
+
 };
 
 #endif  // CHAP_THIRTEEN_H
