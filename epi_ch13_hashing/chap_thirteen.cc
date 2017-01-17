@@ -88,3 +88,8 @@ int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string
     }
     return (shortest_distance_seen < std::numeric_limits<unsigned int>::max()) ? shortest_distance_seen : -1;
 }
+
+// std::pair<int,int> HashTableExercises::RetreiveContainingSubarraryIndex(const std::vector<std::string> &content_array,
+//                                                                         const std::set<std::string> &search_keys) {
+
+// }

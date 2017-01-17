@@ -62,4 +62,6 @@ Page 187 of Elements of Programming Interviews
 *   Write a program which takes an array of strings and a set of strings.
 *   Return the indices for the starting index and ending index indicating the shortest sub array that contains all elements within the set  
 
+`std::pair<int,int> RetreiveContainingSubarraryIndex(std::vector<std::string> content_array, std::set<std::string> search_keys)`
+
 
