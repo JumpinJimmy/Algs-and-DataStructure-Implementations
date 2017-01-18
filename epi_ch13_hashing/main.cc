@@ -168,13 +168,27 @@ void RetreiveCoveringSubarraryIndex(HashTableExercises* ht_exerciser) {
     assert(result.first == expected_start && result.second == expected_finish);
 }
 
+void AltMinCoveringSubarry(HashTableExercises* ht_exerciser) {
+    std::vector<std::string> v = {"Hello", "my", "name", "is", "x", "and", "my", "favorite", "thing", "x"};
+    std::unordered_set<std::string> search_keys = {"my", "x"};
+    std::vector<std::string> A = {"a", "b", "c", "b", "a", "d", "c", "a", "e", "a", "a", "b", "e"};
+    std::unordered_set<std::string> dict = {"b", "c", "e"};
+    int expected_start = 3;
+    int expected_finish = 8;
+    ht_exerciser->AltMinCoveringSubarry(v, search_keys);
+    auto result = ht_exerciser->AltMinCoveringSubarry(A, dict);
+    std::cout << "res = " << result.first << " " << result.second << std::endl;
+    assert(result.first == expected_start && result.second == expected_finish);
+}
+
 void RunTests(std::shared_ptr<HashTableExercises> ht_exerciser) {
     std::cout << "--->>--->> HashTables::RunTests <<---<<--- " << std::endl;
-    PermuteToPalindrome(ht_exerciser.get());
-    IsLetterConstructible(ht_exerciser.get());
-    TestLruCache();
-    ShortestDistanceBetweenEquals(ht_exerciser.get(), 4);
-    RetreiveCoveringSubarraryIndex(ht_exerciser.get());
+    // PermuteToPalindrome(ht_exerciser.get());
+    // IsLetterConstructible(ht_exerciser.get());
+    // TestLruCache();
+    // ShortestDistanceBetweenEquals(ht_exerciser.get(), 4);
+    // RetreiveCoveringSubarraryIndex(ht_exerciser.get());
+    AltMinCoveringSubarry(ht_exerciser.get());
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch13_test
