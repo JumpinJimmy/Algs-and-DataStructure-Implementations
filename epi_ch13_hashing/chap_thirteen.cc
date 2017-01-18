@@ -103,8 +103,10 @@ std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std:
     unsigned int set_size = search_keys.size();
     unsigned int content_size = content_arr.size();
     for (;right_ptr < content_size; ++right_ptr) {
+        std::cout << "for (;right_ptr: " << right_ptr << " LT content_size: " << content_size <<"; ++right_ptr) {" << std::endl;
         auto search = search_keys.find(content_arr.at(right_ptr));
         if (search != search_keys.end()) {
+            std::cout << "Add: " << *search << " to map" << std::endl;
             // add to map
             ++key_count_table[*search];
             if (key_count_table.size() >= set_size) {
@@ -116,8 +118,13 @@ std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std:
                     left_search = search_keys.find(content_arr.at(left_ptr));
                 }
                 curr_subarray_size = right_ptr - left_ptr;
-                std::cout << "curr_subarray_size: " << curr_subarray_size << ", smallest_seen: " << smallest_subarr_seen << std::endl;
-                resultp = (curr_subarray_size <= smallest_subarr_seen) ? std::make_pair(left_ptr, right_ptr) : resultp;
+                std::cout << "---- ! curr_subarray_size: " << curr_subarray_size << ", smallest_seen: " << smallest_subarr_seen << std::endl;
+                if (curr_subarray_size < smallest_subarr_seen) {
+                    std::cout << "--->>--->> Current Sub array is Smaller than previous findings!"  << std::endl;
+                    std::cout << "--->>--->> Updating Result Pair to left_ptr: " << left_ptr << ", right_ptr: " << right_ptr << std::endl;
+                    resultp = std::make_pair(left_ptr, right_ptr);
+                }
+                // resultp = (curr_subarray_size <= smallest_subarr_seen) ? std::make_pair(left_ptr, right_ptr) : resultp;
                 smallest_subarr_seen = std::min(curr_subarray_size, smallest_subarr_seen);
                 while (key_count_table.size() >= set_size) {
                     std::cout << "while (key_count_table.size(" << key_count_table.size() << ") >= set_size(" << set_size <<")) {: left_ptr: " << left_ptr << ", right_ptr: " << right_ptr << std::endl;
@@ -126,11 +133,20 @@ std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std:
                     std::string left_str = content_arr.at(left_ptr);
                     int count = key_count_table.find(left_str)->second;
                     if (count == 1) {
+                        std::cout << "ERASING Keycount Table Erase (" << left_str << ")" << std::endl;
                         key_count_table.erase(left_str);
-                        std::cout << "Keycount Table Erase (" << left_str << ")" << std::endl;
+                        curr_subarray_size = right_ptr - left_ptr;
+                        std::cout << "Erase Condition: ---- ! curr_subarray_size: " << curr_subarray_size << ", smallest_seen: " << smallest_subarr_seen << std::endl;
+                        if (curr_subarray_size < smallest_subarr_seen) {
+                            std::cout << "Erase Condition: -->>--->> Current Sub array is Smaller than previous findings!"  << std::endl;
+                            std::cout << "Erase Condition: --->>--->> Updating Result Pair to left_ptr: " << left_ptr << ", right_ptr: " << right_ptr << std::endl;
+                            resultp = std::make_pair(left_ptr, right_ptr);
+                            smallest_subarr_seen = std::min(curr_subarray_size, smallest_subarr_seen);
+                        }
                     } else {
-                        --key_count_table[left_str];
                         std::cout << "Keycount Table decrement (" << left_str << ")" << std::endl;
+                        --key_count_table[left_str];
+
                     }
                     ++left_ptr;
                 }

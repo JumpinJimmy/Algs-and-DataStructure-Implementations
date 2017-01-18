@@ -134,11 +134,67 @@ void ShortestDistanceBetweenEquals(HashTableExercises* ht_exerciser, int test_it
         assert(ShortestDistanceCheckAnswer(s) == ht_exerciser->ShortestEqualValueDistance(s));
     }
 }
+// void SimpleTestCase(const vector<string>& A, const vector<string>& dict,
+//                     int start, int finish) {
+//   auto res = FindSmallestSubarrayCoveringSet(A, {dict.begin(), dict.end()});
+//   cout << "res = " << res.start << " " << res.end << endl;
+//   assert(res.start == start && res.end == finish);
+//   string s;
+//   for (int i = 0; i < A.size(); ++i) {
+//     s += A[i];
+//     s += ' ';
+//   }
+//   istringstream sin(s);
+//   Subarray res2(FindSmallestSubarrayCoveringSubset(&sin, dict));
+//   cout << "res2 = " << res2.start << " " << res2.end << endl;
+//   assert(res2.start == start && res2.end == finish);
+// }
 
+// void SimpleTest() {
+//   vector<string> A = {"a", "b", "c", "b", "a", "d", "c",
+//                       "a", "e", "a", "a", "b", "e"};
+//   vector<string> dict = {"b", "c", "e"};
+//   SimpleTestCase(A, dict, 3, 8);
+  // dict = {"a", "c"};
+  // SimpleTestCase(A, dict, 6, 7);
+  // A = {"a", "b"};
+  // dict = {"a", "b"};
+  // SimpleTestCase(A, dict, 0, 1);
+  // A = {"a", "b"};
+  // dict = {"b", "a"};
+  // SimpleTestCase(A, dict, 0, 1);
+// }
 void RetreiveCoveringSubarraryIndex(HashTableExercises* ht_exerciser) {
     std::vector<std::string> v = {"Hello", "my", "name", "is", "x", "and", "my", "favorite", "thing", "x"};
     std::unordered_set<std::string> search_keys = {"my", "x"};
+    std::vector<std::string> A = {"a", "b", "c", "b", "a", "d", "c", "a", "e", "a", "a", "b", "e"};
+    std::unordered_set<std::string> dict = {"b", "c", "e"};
+    int expected_start = 3;
+    int expected_finish = 8;
     ht_exerciser->RetreiveCoveringSubarraryIndex(v, search_keys);
+    auto result = ht_exerciser->RetreiveCoveringSubarraryIndex(A, dict);
+    std::cout << "res = " << result.first << " " << result.second << std::endl;
+    assert(result.first == expected_start && result.second == expected_finish);
+    dict = {"a", "c"};
+    expected_start = 6;
+    expected_finish = 7;
+    result = ht_exerciser->RetreiveCoveringSubarraryIndex(A, dict);
+    std::cout << "res = " << result.first << " " << result.second << std::endl;
+    assert(result.first == expected_start && result.second == expected_finish);
+    A = {"a", "b"};
+    dict = {"a", "b"};
+    expected_start = 0;
+    expected_finish = 1;
+    result = ht_exerciser->RetreiveCoveringSubarraryIndex(A, dict);
+    std::cout << "res = " << result.first << " " << result.second << std::endl;
+    assert(result.first == expected_start && result.second == expected_finish);
+    A = {"a", "b"};
+    dict = {"b", "a"};
+    expected_start = 0;
+    expected_finish = 1;
+    result = ht_exerciser->RetreiveCoveringSubarraryIndex(A, dict);
+    std::cout << "res = " << result.first << " " << result.second << std::endl;
+    assert(result.first == expected_start && result.second == expected_finish);
     // v = {"Hello", "my", "name", "is", "x", "and", "my", "favorite", "thing", "x", "end"};
 }
 
