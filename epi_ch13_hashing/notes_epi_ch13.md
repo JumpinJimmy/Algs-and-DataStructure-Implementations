@@ -63,5 +63,3 @@ Page 187 of Elements of Programming Interviews
 *   Return the indices for the starting index and ending index indicating the shortest sub array that contains all elements within the set  
 
 `std::pair<int,int> RetreiveContainingSubarraryIndex(std::vector<std::string> content_array, std::set<std::string> search_keys)`
-
-

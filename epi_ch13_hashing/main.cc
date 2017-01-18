@@ -135,12 +135,20 @@ void ShortestDistanceBetweenEquals(HashTableExercises* ht_exerciser, int test_it
     }
 }
 
+void RetreiveCoveringSubarraryIndex(HashTableExercises* ht_exerciser) {
+    std::vector<std::string> v = {"Hello", "my", "name", "is", "x", "and", "my", "favorite", "thing", "x"};
+    std::unordered_set<std::string> search_keys = {"my", "x"};
+    ht_exerciser->RetreiveCoveringSubarraryIndex(v, search_keys);
+    // v = {"Hello", "my", "name", "is", "x", "and", "my", "favorite", "thing", "x", "end"};
+}
+
 void RunTests(std::shared_ptr<HashTableExercises> ht_exerciser) {
     std::cout << "--->>--->> HashTables::RunTests <<---<<--- " << std::endl;
     PermuteToPalindrome(ht_exerciser.get());
     IsLetterConstructible(ht_exerciser.get());
     TestLruCache();
     ShortestDistanceBetweenEquals(ht_exerciser.get(), 4);
+    RetreiveCoveringSubarraryIndex(ht_exerciser.get());
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch13_test

@@ -89,7 +89,61 @@ int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string
     return (shortest_distance_seen < std::numeric_limits<unsigned int>::max()) ? shortest_distance_seen : -1;
 }
 
-// std::pair<int,int> HashTableExercises::RetreiveContainingSubarraryIndex(const std::vector<std::string> &content_array,
-//                                                                         const std::set<std::string> &search_keys) {
+std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std::vector<std::string> &content_arr,
+                                                                      const std::unordered_set<std::string> &search_keys) {
+    std::cout << "--->>--->> chap_thirteen::RetreiveCoveringSubarraryIndex() " << std::endl;
+    PrintCollection(content_arr);
+    PrintSet(search_keys);
+    std::pair<int, int> resultp(-1, -1);
+    int left_ptr = 0;
+    int right_ptr = 0;
+    unsigned int smallest_subarr_seen = std::numeric_limits<unsigned int>::max();
+    unsigned int curr_subarray_size = std::numeric_limits<unsigned int>::max();
+    std::unordered_map<std::string, int> key_count_table;
+    unsigned int set_size = search_keys.size();
+    unsigned int content_size = content_arr.size();
+    for (;right_ptr < content_size; ++right_ptr) {
+        auto search = search_keys.find(content_arr.at(right_ptr));
+        if (search != search_keys.end()) {
+            // add to map
+            ++key_count_table[*search];
+            if (key_count_table.size() >= set_size) {
+                auto left_search = search_keys.find(content_arr.at(left_ptr));
+                while (left_search == search_keys.end()) {
+                    ++left_ptr;
+                    left_search = search_keys.find(content_arr.at(left_ptr));
+                }
+                curr_subarray_size = right_ptr - left_ptr;
+                resultp = (curr_subarray_size <= smallest_subarr_seen) ? std::make_pair(left_ptr, right_ptr) : resultp;
+                while (key_count_table.size() >= set_size) {
+                    std::string left_str = content_arr.at(left_ptr);
+                    int count = key_count_table.find(left_str)->second;
+                    if (count == 1) {
+                        key_count_table.erase(left_str);
+                    } else {
+                        --key_count_table[left_str];
+                    }
+                    ++left_ptr;
+                }
+            }
+        }        // continue
+    }
+// +    //             char t = source_str.at(left_ptr);
+//  +    //             int count = charmap.get(t);
+//  +    //             if (count == 1) {
+//  +    //                 charmap.delete(t);
+//  +    //             } else {
+//  +    //                 charmap.put(c,count - 1);
+//  +    //             }
+//  +    //             left_ptr++;
+    // Looking for Smallest Subarray from @content_arr that contains all elements from @search_keys
+    // Search Keys are all unique
+    // variables:
+    // -smallest_encountered ...
+    // -matching keywords & their indexes (map)
+    // -walking window (left ptr and right pointer)
+    // -size of search_key set
 
-// }
+
+    return resultp;
+}
