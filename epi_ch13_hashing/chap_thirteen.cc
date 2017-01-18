@@ -89,6 +89,13 @@ int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string
     return (shortest_distance_seen < std::numeric_limits<unsigned int>::max()) ? shortest_distance_seen : -1;
 }
 
+// Looking for Smallest Subarray from @content_arr that contains all elements from @search_keys
+// Search Keys are all unique
+// variables:
+// -smallest_encountered ...
+// -matching keywords & their indexes (map)
+// -walking window (left ptr and right pointer)
+// -size of search_key set
 std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std::vector<std::string> &content_arr,
                                                                       const std::unordered_set<std::string> &search_keys) {
     std::cout << "--->>--->> chap_thirteen::RetreiveCoveringSubarraryIndex() " << std::endl;
@@ -151,26 +158,9 @@ std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std:
                     ++left_ptr;
                 }
             }
-        }        // continue
+        }
     }
     std::cout << "--->>--->> chap_thirteen:: End of Subarray Search. left_ptr: " << left_ptr << ", right_ptr: " << right_ptr << std::endl;
-     std::cout << "     \\----> Index Left: " << resultp.first << ", Index Right: " << resultp.second << std::endl;
-// +    //             char t = source_str.at(left_ptr);
-//  +    //             int count = charmap.get(t);
-//  +    //             if (count == 1) {
-//  +    //                 charmap.delete(t);
-//  +    //             } else {
-//  +    //                 charmap.put(c,count - 1);
-//  +    //             }
-//  +    //             left_ptr++;
-    // Looking for Smallest Subarray from @content_arr that contains all elements from @search_keys
-    // Search Keys are all unique
-    // variables:
-    // -smallest_encountered ...
-    // -matching keywords & their indexes (map)
-    // -walking window (left ptr and right pointer)
-    // -size of search_key set
-
-
+    std::cout << "     \\----> Index Left: " << resultp.first << ", Index Right: " << resultp.second << std::endl;
     return resultp;
 }
