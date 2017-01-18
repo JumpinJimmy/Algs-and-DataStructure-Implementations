@@ -24,6 +24,12 @@ class HashTableExercises {
     int ShortestEqualValueDistance(const std::vector<std::string> &str_list);
     std::pair<int,int> RetreiveCoveringSubarraryIndex(const std::vector<std::string> &content_arr,
                                                         const std::unordered_set<std::string> &search_keys);
+    //// Book Solution is FindSmallestSubarrayCoveringSet
+    ///TODO(jdevore): implement and understand Books solution for Subarray problem
+    // std::pair<int,int> FindSmallestSubarrayCoveringSet(
+    //     const vector<string> &paragraph, const unordered_set<string> &keywords);
+
+    // Helper Functions
     template <typename T>
     void PrintCollection(const std::vector<T> &v) {
         std::cout << "PrintCollection: \n [ ";

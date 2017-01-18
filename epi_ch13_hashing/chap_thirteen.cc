@@ -96,6 +96,8 @@ int HashTableExercises::ShortestEqualValueDistance(const std::vector<std::string
 // -matching keywords & their indexes (map)
 // -walking window (left ptr and right pointer)
 // -size of search_key set
+// TODO(jdevore): implement solution from book and understand differences / approach
+// TODO(jdevore): clean up debug cout statements and organize this function
 std::pair<int,int> HashTableExercises::RetreiveCoveringSubarraryIndex(const std::vector<std::string> &content_arr,
                                                                       const std::unordered_set<std::string> &search_keys) {
     std::cout << "--->>--->> chap_thirteen::RetreiveCoveringSubarraryIndex() " << std::endl;
