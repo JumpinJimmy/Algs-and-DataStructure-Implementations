@@ -1,22 +1,14 @@
-# DataStructureImplementations
-Personal Studies and Implementation of Core Data Structures in C++
+# Data Structure Implementations #
+Personal Studies Covering Core Data Structures and Algorithms in C++11
 
 ---
 
 ### Elements of Programming Interviews ###
 
-**Study Scenario** - 1 Month
+**Study Scenario** - 1 Month Table 
 
 ![Study Scenario](./misc/StudyScenario.jpg "Optional title")
 
-1.5 - 2.5 hours a day for 1 month
-
-*   Start with Chapter 4
-*   For each Chapter following:
-    *   read intro
-    *   if not italics, write code
-    *   write and test code for cloumns 0 to i-1
-    *   write pseudo-code for problem i
 
 ---
 
@@ -26,4 +18,6 @@ Personal Studies and Implementation of Core Data Structures in C++
 
 *   Remove all areas where an exception is thrown and figure out alternative way to handle logic errors and proper cleanup
 
+*   Cleanup chapter 13 work, document, and open merge request
 
+*   Remove `Strings/` Directory
