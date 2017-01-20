@@ -31,9 +31,10 @@
 
 *  Write a program which takes as input two sorted arrays of integers, and updates the first to the combined entries of the two arrays in sorted order.
 *  Assume the first array has enough empty entries at its end to hold the result
-*  **Input:** 
-*  **Output:**
-*  _example:_ x
+*  **Input:** Two Arrays and two size values int A1[], int size_one, int A2[], int size_two
+*  **Output:** void / edit first list in place 
+*  _example:_ `(5,13, 17, _ _ _ _ )` and `(3, 7, 11, 19)`, where `_`
+denotes an empty entry. Then the combined sorted entries can be stored in the first array as `(3, 5, 7, 11, 13,17, 19, _)`
 
 `void MergeTwoSortedArrays(int A1[], int size_one, int A2[], int size_two)`
 
@@ -41,11 +42,14 @@
 **14.4 Render A Calendar**
 
 *  Write a program that takes a set of events, and determines the maximum number of events that take place concurrently
-*  **Input:**
-*  **Output:**
-*  _example:_ x
+*  Suppose each day consists of a number of events, where an event is specified as a **start time** and a **finish time**. 
 
-`return function_name(type arg, type arg)`
+*  **Input:** list `std::vector<event> events` of pairs `event<int start, int finish>`
+*  **Output:** Integer indicating the maximum number of events that take place concurrently
+*  _example:_   `vector<Event> A = {{1, 5},  {2, 7},   {4, 5},   {6, 10}, {8, 9}, {9, 17}, {11, 13}, {12, 15}, {14, 15}};`
+    *  `assert(FindMaxSimultaneousEvents(A) == 3);`
+
+`int FindMaxSimultaneousEvents(std::vector<event> events)`
 
 
 **14.6 Compute Union of Intervals**

@@ -14,6 +14,7 @@ void ComputeListIntersection(SortingExercises *sorting_exerciser) {
     sorting_exerciser->PrintCollection(intersection_result, "Alt Intersection Result: ");
 }
 
+// Exercise 14.2
 void MergeTwoSortedArrays(SortingExercises *sorting_exerciser) {
     std::cout << "--->>--->> ch14-Sorting::::MergeTwoSortedArrays() " << std::endl;
     int size_one = 3;
@@ -27,6 +28,7 @@ void MergeTwoSortedArrays(SortingExercises *sorting_exerciser) {
     sorting_exerciser->PrintCollection(B, "A2 List MergeTwoArrays: ");
     sorting_exerciser->MergeTwoSortedArrays(A.data(), size_one, B.data(), B.size());
     sorting_exerciser->PrintCollection(A, "A1 Result for MergeTwoArrays: ");
+
     // Verify result
     for (size_t i = 1; i < A.size(); ++i) {
         assert(A[i - 1] <= A[i]);

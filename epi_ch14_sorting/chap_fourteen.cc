@@ -51,3 +51,7 @@ void SortingExercises::MergeTwoSortedArrays(int A1[], int size_one, int A2[], in
        A1[write_pos--] = A2[pos_two--];
     }
 }
+
+int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
+    return 3;
+}
