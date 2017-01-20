@@ -16,7 +16,7 @@ void ComputeListIntersection(SortingExercises *sorting_exerciser) {
 
 // Exercise 14.2
 void MergeTwoSortedArrays(SortingExercises *sorting_exerciser) {
-    std::cout << "--->>--->> ch14-Sorting::::MergeTwoSortedArrays() " << std::endl;
+    std::cout << "--->>--->> ch14-Sorting::MergeTwoSortedArrays() " << std::endl;
     int size_one = 3;
     std::vector<int> B = {3, 7, 11, 19};
     std::vector<int> A(size_one + B.size());
@@ -35,9 +35,20 @@ void MergeTwoSortedArrays(SortingExercises *sorting_exerciser) {
     }
 }
 
+void FindMaxOverlappingEvents(SortingExercises *sorting_exerciser) {
+    std::cout << "--->>--->> ch14-Sorting::FindMaxOverlappingEvents() " << std::endl;
+    std::vector<Event> A = {{1, 5}, {2, 7}, {4, 5}, {6, 10}, {8, 9}, {9, 17}, {11, 13}, {12, 15}, {14, 15}};
+    int expected_answer = 3;
+
+    int result = sorting_exerciser->FindMaxSimultaneousEvents(A);
+    std::cout << "--->>--->> main:: FindMaxSimultaneousEvents Result: " << result << std::endl;
+    assert(result == expected_answer);
+}
+
 void run_tests(std::shared_ptr<SortingExercises> sorting_exerciser) {
     ComputeListIntersection(sorting_exerciser.get());
     MergeTwoSortedArrays(sorting_exerciser.get());
+    FindMaxOverlappingEvents(sorting_exerciser.get());
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch14_test

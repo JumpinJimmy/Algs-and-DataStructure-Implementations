@@ -53,5 +53,25 @@ void SortingExercises::MergeTwoSortedArrays(int A1[], int size_one, int A2[], in
 }
 
 int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
-    return 3;
+    // EventPoint (single time point and boolean indicating is a start time)
+    std::vector<EventPoint> sorted_times;
+    for (const Event &e : event_list) {
+        sorted_times.emplace_back(EventPoint{e.start, true});
+        sorted_times.emplace_back(EventPoint{e.finish, false});
+    }
+    // Sort all individual time points for each event into a single collection
+    // -uses EventPoint's operator< definiion
+    std::sort(sorted_times.begin(), sorted_times.end());
+    int highest_simultaneous = 0;
+    int current_simultaneous = 0;
+    for (const EventPoint &ep : sorted_times) {
+        if (ep.is_start) {
+            ++current_simultaneous;
+            highest_simultaneous = std::max(highest_simultaneous, current_simultaneous);
+        } else {
+            --current_simultaneous;
+        }
+    }
+
+    return highest_simultaneous;
 }

@@ -8,6 +8,16 @@ struct Event {
   int start, finish;
 };
 
+struct EventPoint {
+    bool operator<(const EventPoint& e) const {
+        // if this.time < e.time
+        // if this.time == e.time; then if this time is_start and e.time! start
+        return time != e.time ? time < e.time : (is_start && !e.is_start);
+    }
+    int time;
+    bool is_start;
+};
+
 class SortingExercises {
  public:
     SortingExercises();
