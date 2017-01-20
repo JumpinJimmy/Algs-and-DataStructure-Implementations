@@ -2,12 +2,16 @@
 #define CHAP_FOURTEEN_H
 #include <vector>
 #include <string>
+#include <iostream>
+
 
 class SortingExercises {
  public:
     SortingExercises();
     ~SortingExercises();
     std::vector<int> ComputeListIntersection(const std::vector<int>& A1, const std::vector<int>& A2);
+    std::vector<int> ComputeListIntersectionAlt(const std::vector<int>& A1, const std::vector<int>& A2);
+
 
     template <typename T>
     void PrintCollection(const std::vector<T> &v, const std::string &extra_detail = "list: ") {

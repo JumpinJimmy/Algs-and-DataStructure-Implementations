@@ -10,6 +10,8 @@ void ComputeListIntersection(SortingExercises *sorting_exerciser) {
     std::vector<int> list_two = {5, 5, 6, 8, 8, 9, 10, 10};
     std::vector<int> intersection_result = sorting_exerciser->ComputeListIntersection(list_one, list_two);
     sorting_exerciser->PrintCollection(intersection_result, "Intersection Result: ");
+    intersection_result = sorting_exerciser->ComputeListIntersectionAlt(list_one, list_two);
+    sorting_exerciser->PrintCollection(intersection_result, "Alt Intersection Result: ");
 }
 
 void run_tests(std::shared_ptr<SortingExercises> sorting_exerciser) {
