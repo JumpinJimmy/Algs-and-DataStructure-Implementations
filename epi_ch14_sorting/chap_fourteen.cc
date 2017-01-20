@@ -20,7 +20,6 @@ std::vector<int> SortingExercises::ComputeListIntersection(const std::vector<int
 }
 
 std::vector<int> SortingExercises::ComputeListIntersectionAlt(const std::vector<int>& A1, const std::vector<int>& A2) {
-    std::cout << "======= chap_fourteen:: ComputeListIntersectionAlt() " << std::endl;
     PrintCollection(A1, "ComputeListIntersectionAlt List1: ");
     PrintCollection(A2, "ComputeListIntersectionAlt List2: ");
     std::vector<int> result = {};
@@ -38,4 +37,17 @@ std::vector<int> SortingExercises::ComputeListIntersectionAlt(const std::vector<
         }
     }
     return result;
+}
+
+void SortingExercises::MergeTwoSortedArrays(int A1[], int size_one, int A2[], int size_two) {
+    int pos_one = size_one - 1;
+    int pos_two = size_two - 1;
+    int write_pos = size_one + size_two - 1;
+
+    while (pos_one >= 0 && pos_two >= 0) {
+        A1[write_pos--] = A1[pos_one] > A2[pos_two] ? A1[pos_one--] : A2[pos_two--];
+    }
+    while (pos_two >= 0) {
+       A1[write_pos--] = A2[pos_two--];
+    }
 }

@@ -31,11 +31,11 @@
 
 *  Write a program which takes as input two sorted arrays of integers, and updates the first to the combined entries of the two arrays in sorted order.
 *  Assume the first array has enough empty entries at its end to hold the result
-*  **Input:**
+*  **Input:** 
 *  **Output:**
 *  _example:_ x
 
-`return function_name(type arg, type arg)`
+`void MergeTwoSortedArrays(int A1[], int size_one, int A2[], int size_two)`
 
 
 **14.4 Render A Calendar**
