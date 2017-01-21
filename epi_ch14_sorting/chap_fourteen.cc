@@ -120,7 +120,8 @@ std::shared_ptr<ListNode<int>> SortingExercises::StableSortList(std::shared_ptr<
     return MergeTwoSortedLists(StableSortList(L), StableSortList(slow));
 }
 
-std::shared_ptr<ListNode<int>> SortingExercises::MergeTwoSortedLists(std::shared_ptr<ListNode<int>> L1, std::shared_ptr<ListNode<int>> L2) {
+std::shared_ptr<ListNode<int>> SortingExercises::MergeTwoSortedLists(std::shared_ptr<ListNode<int>> L1,
+                                                                     std::shared_ptr<ListNode<int>> L2) {
     std::shared_ptr<ListNode<int>> result_head(new ListNode<int>);
     auto tail_node = result_head;
     while (L1 && L2) {
@@ -140,6 +141,3 @@ void SortingExercises::AppendSingleNode(std::shared_ptr<ListNode<int>> *candidat
     *tail_node = *candidate_node;
     *candidate_node = (*candidate_node)->next;
 }
-
-    // shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
-    //                                               shared_ptr<ListNode<int>> L2);

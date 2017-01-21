@@ -1,5 +1,6 @@
 #ifndef CHAP_FOURTEEN_H
 #define CHAP_FOURTEEN_H
+#include <memory>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -66,7 +67,8 @@ class SortingExercises {
     int FindMaxSimultaneousEvents(std::vector<Event> event_list);
     std::vector<Interval> ComputeIntervalUnions(std::vector<Interval> intervals);
     std::shared_ptr<ListNode<int>> StableSortList(std::shared_ptr<ListNode<int>> L);
-    // Helper Functions
+
+    // Helper Print / Output Functions
     template <typename T>
     void PrintCollection(const std::vector<T> &v, const std::string &extra_detail = "list: ") {
         std::cout << extra_detail << " size: " << std::dec << v.size() << "\n [ ";
@@ -93,8 +95,10 @@ class SortingExercises {
     }
 
  private:
+    // Helper for @StableSortList()
     std::shared_ptr<ListNode<int>> MergeTwoSortedLists(std::shared_ptr<ListNode<int>> L1,
                                                        std::shared_ptr<ListNode<int>> L2);
+    // Helper for @MergeTwoSortedLists()
     void AppendSingleNode(std::shared_ptr<ListNode<int>> *candidate_node,
                           std::shared_ptr<ListNode<int>> *tail_node);
 };
