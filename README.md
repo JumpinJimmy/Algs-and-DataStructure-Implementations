@@ -21,3 +21,6 @@ Personal Studies Covering Core Data Structures and Algorithms in C++11
 *   Cleanup chapter 13 work, document, and open merge request
 
 *   Remove `Strings/` Directory
+*   Create Test Scripts directory, investigate whether moving to CMakelists or having a global Makefile is the best option
+*   Get Travis CI running
+*   Setup project Tasks / Tickets
