@@ -2,17 +2,13 @@
 
 * 14.1, 14.2, 14.4, 14.6, 14.9
 
-*   z
-
-## Array & Vector Libraries of Note ##
+## Sorting Library Notes ##
 
 *   Allocation & instantiating
-    *   **array in c++11**: `array<int, 3> my_array = {1,2,3};`
-    *   **vector in c++11**: `vector<int> v = {1,2,3};`
-    *   **Sub Array from existing (A[i:j-1]):** `std::vector<int> subarr_a(A.begin() + i, A.begin() + j)`
-    *   **2-D array or vector**
-        *   `array<array<int,2>,3> 2d_array = {{1,2}, {3,4}, {5,6}}`
-        *   `vector<vector<int>> 2d_vector = {{1,2}, {3,4}, {5,6}}`
+    *   **algorithm header in c++11**: `#include <algorithm>`
+        *   this includes `std::sort()`
+        *   lists also include `list::sort()`
+    *   Both `sort()` and `list::sort()` operate on arrays and lists of objects that implement `operator<()`
 
 ---
 
@@ -57,17 +53,14 @@ denotes an empty entry. Then the combined sorted entries can be stored in the fi
 *  Design an algorithm that takes as input a set of intervals and outputs their union expressed as a set of disjoint intervals
 *  **Input:** list of intervals (left point, right point). Points can be open or closed.
 *  **Output:** List of disjoint intervals
-*  _example:_ x
 
-`return function_name(type arg, type arg)`
+`std::vector<Interval> ComputeIntervalUnions(std::vector<Interval> intervals);`
 
 
 **14.9 Implement a Fast Sorting Algorithm for Lists**
 
-*  details
-*  **Input:**
-*  **Output:**
-*  _example:_ x
+*  Implement a routine which sorts lists efficiently. It should be a stable sort, i.e. the relative positions of equal elements must remain unchanged
 
-`return function_name(type arg, type arg)`
+
+`std::shared_ptr<ListNode<int>> StableSortList(std::shared_ptr<ListNode<int>> L);`
 
