@@ -12,6 +12,10 @@ struct Event {
   int start, finish;
 };
 
+////////////////////////////////////////////////////////////
+// Calendar Event Helper
+// order calendar event points by time value & if they are starting points vs finishing
+// EventPoints that are starting will be considered less than those who are not
 struct EventPoint {
     bool operator<(const EventPoint& e) const {
         // if this.time < e.time
@@ -57,6 +61,7 @@ class SortingExercises {
     int FindMaxSimultaneousEvents(std::vector<Event> event_list);
     std::vector<Interval> ComputeIntervalUnions(std::vector<Interval> intervals);
 
+    // Helper Functions
     template <typename T>
     void PrintCollection(const std::vector<T> &v, const std::string &extra_detail = "list: ") {
         std::cout << extra_detail << " size: " << std::dec << v.size() << "\n [ ";

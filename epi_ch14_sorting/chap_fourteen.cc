@@ -78,18 +78,31 @@ int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
 
 std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interval> intervals) {
     if (intervals.empty()) return {};
+
+    // Sort intervals by their left endpoint
+    std::sort(intervals.begin(), intervals.end());
     std::vector<Interval> union_results;
     Interval current(intervals.front());
-    // for each interval int in @intervals:
-        // if (int.left < curr.right) OR (int.left == curr.righ && either is closed) {
-        //     if (int.right > curr.right) OR (int.right == curr.right  && int.right isclosed) {
-        //          curr.right = int.right
-        //     }
-        // } else {  // end of current dijoint interval
-        //        union_results.emplace_back(curr)
-        //        curr = int
-        // }
-    //union_results.emplace_back(curr)
-    //return union_results
+    // for each interval @int in @intervals:
+    // if (int.left < curr.right) OR (int.left == curr.right && either is closed) {
+    //     if (int.right > curr.right) OR (int.right == curr.right && int.right is closed) {
+    //          curr.right = int.right
+    //     }
+    // } else {  // end of current dijoint interval
+    //        union_results.emplace_back(curr)
+    //        curr = int
+    // }
+    for (unsigned int i = 1; i < intervals.size(); ++i) {
+        if (intervals.at(i).leftp.val < current.rightp.val || (intervals.at(i).leftp.val == current.rightp.val && (current.rightp.closed || intervals.at(i).leftp.closed))) {
+            if (intervals.at(i).rightp.val > current.rightp.val || (intervals.at(i).rightp.val == current.rightp.val && intervals.at(i).rightp.closed)) {
+                current.rightp = intervals.at(i).rightp;
+            }
+        } else {
+            union_results.emplace_back(current);
+            current = intervals.at(i);
+        }
+    }
+    union_results.emplace_back(current);
+    return union_results;
     return {};
 }

@@ -1,6 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <memory>
+#include <random>
 #include "includes/chap_fourteen.h"
 
 // Exercise 14.1
@@ -45,8 +46,37 @@ void FindMaxOverlappingEvents(SortingExercises *sorting_exerciser) {
     assert(result == expected_answer);
 }
 
-void ComputeIntervalUnions(SortingExercises *sorting_exerciser) {
+void ComputeIntervalUnions(SortingExercises *sorting_exerciser, int test_iterations = 0) {
     std::cout << "--->>--->> ch14-Sorting::ComputeIntervalUnions()" << std::endl;
+    std::default_random_engine gen((std::random_device())());
+    for (int times = 0; times < 1000; ++times) {
+        int n;
+        if (test_iterations == 0) {
+            std::uniform_int_distribution<int> dis(1, 10000);
+            n = dis(gen);
+        } else {
+            n = test_iterations;
+        }
+
+        std::vector<Interval> interval_list;
+        for (int i = 0; i < n; ++i) {
+            Interval temp;
+            std::uniform_int_distribution<int> zero_or_one(0, 1);
+            std::uniform_int_distribution<int> dis1(0, 9999);
+            temp.leftp.closed = zero_or_one(gen), temp.leftp.val = dis1(gen);
+            std::uniform_int_distribution<int> dis2(temp.leftp.val + 1,
+                                                    temp.leftp.val + 100);
+            temp.rightp.closed = zero_or_one(gen), temp.rightp.val = dis2(gen);
+            interval_list.emplace_back(temp);
+        }
+        std::vector<Interval> ret = sorting_exerciser->ComputeIntervalUnions(interval_list);
+
+        for (size_t i = 1; i < ret.size(); ++i) {
+            assert(ret[i - 1].rightp.val < ret[i].leftp.val ||
+                  (ret[i - 1].rightp.val == ret[i].leftp.val && !ret[i - 1].rightp.closed &&
+                    !ret[i].leftp.closed));
+        }
+    }
 }
 
 void run_tests(std::shared_ptr<SortingExercises> sorting_exerciser) {
