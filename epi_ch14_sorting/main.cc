@@ -39,11 +39,12 @@ void MergeTwoSortedArrays(SortingExercises *sorting_exerciser) {
 // Exercise 14.4
 void FindMaxOverlappingEvents(SortingExercises *sorting_exerciser) {
     std::cout << "--->>--->> ch14-Sorting::FindMaxOverlappingEvents() " << std::endl;
-    std::vector<Event> A = {{1, 5}, {2, 7}, {4, 5}, {6, 10}, {8, 9}, {9, 17}, {11, 13}, {12, 15}, {14, 15}};
+    std::vector<Event> A = {{1, 5}, {2, 7}, {4, 5}, {6, 10}, {8, 9},
+                            {9, 17}, {11, 13}, {12, 15}, {14, 15}};
     int expected_answer = 3;
 
     int result = sorting_exerciser->FindMaxSimultaneousEvents(A);
-    std::cout << "--->>--->> ch14-Sorting::FindMaxSimultaneousEvents Result: " << result << std::endl;
+    std::cout << "\t\\--->> ch14-Sorting::FindMaxSimultaneousEvents Result:" << result << std::endl;
     assert(result == expected_answer);
 }
 
@@ -82,11 +83,42 @@ void ComputeIntervalUnions(SortingExercises *sorting_exerciser, int test_collect
     }
 }
 
+// Exercise 14.9
+void SortingAlgoLists(SortingExercises *sorting_exerciser, unsigned int list_size = 5, int tests = 5) {
+    std::cout << "--->>--->> ch14-Sorting::SortingAlgoLists(listlength: "
+              << list_size << ", test_count: " << tests << ")" << std::endl;
+    std::default_random_engine gen((std::random_device())());
+    for (int times = 0; times < tests; ++times) {
+        std::shared_ptr<ListNode<int>> L = nullptr;
+        std::uniform_int_distribution<int> dis(0, 99);
+
+        for (unsigned int i = list_size; i > 0; --i) {
+            std::shared_ptr<ListNode<int>> temp =
+                std::make_shared<ListNode<int>>(ListNode<int>{dis(gen), nullptr});
+            temp->next = L;
+            L = temp;
+        }
+        sorting_exerciser->PrintList(L, "\t\\--->SortingAlgoLists() Original List: ");
+        auto sorted_list = sorting_exerciser->StableSortList(L);
+        sorting_exerciser->PrintList(sorted_list, "\t\\--->SortingAlgoLists() Resulting List: ");
+        unsigned int node_counter = 0;
+        int pre = std::numeric_limits<int>::min();
+        while (sorted_list) {
+            assert(pre <= sorted_list->data);
+            pre = sorted_list->data;
+            sorted_list = sorted_list->next;
+            ++node_counter;
+        }
+        assert(node_counter == list_size);
+    }
+}
+
 void run_tests(std::shared_ptr<SortingExercises> sorting_exerciser) {
     ComputeListIntersection(sorting_exerciser.get());
     MergeTwoSortedArrays(sorting_exerciser.get());
     FindMaxOverlappingEvents(sorting_exerciser.get());
     ComputeIntervalUnions(sorting_exerciser.get(), 20);
+    SortingAlgoLists(sorting_exerciser.get(), 5, 3);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch14_test

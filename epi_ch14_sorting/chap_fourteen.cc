@@ -79,7 +79,6 @@ int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
 // TODO(jdevore): clean up if statements and find generic way to approach
 std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interval> intervals) {
     if (intervals.empty()) return {};
-
     // Sort intervals by their left endpoint
     std::sort(intervals.begin(), intervals.end());
     std::vector<Interval> union_results;
@@ -89,13 +88,13 @@ std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interv
     //     if (int.right > curr.right) OR (int.right == curr.right && int.right is closed) {
     //          curr.right = int.right
     //     }
-    // } else {  // end of current dijoint interval
-    //        union_results.emplace_back(curr)
-    //        curr = int
-    // }
+    // } else {  // end of current dijoint interval, store result}
     for (unsigned int i = 1; i < intervals.size(); ++i) {
-        if (intervals.at(i).leftp.val < current.rightp.val || (intervals.at(i).leftp.val == current.rightp.val && (current.rightp.closed || intervals.at(i).leftp.closed))) { // NOLINT
-            if (intervals.at(i).rightp.val > current.rightp.val || (intervals.at(i).rightp.val == current.rightp.val && intervals.at(i).rightp.closed)) { // NOLINT
+        if (intervals.at(i).leftp.val < current.rightp.val ||
+            (intervals.at(i).leftp.val == current.rightp.val &&
+            (current.rightp.closed || intervals.at(i).leftp.closed))) { // NOLINT
+            if (intervals.at(i).rightp.val > current.rightp.val ||
+                (intervals.at(i).rightp.val == current.rightp.val && intervals.at(i).rightp.closed)) { // NOLINT
                 current.rightp = intervals.at(i).rightp;
             }
         } else {
@@ -106,3 +105,41 @@ std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interv
     union_results.emplace_back(current);
     return union_results;
 }
+
+std::shared_ptr<ListNode<int>> SortingExercises::StableSortList(std::shared_ptr<ListNode<int>> L) {
+    if (L == nullptr || L->next == nullptr) {
+        return L;
+    }
+    std::shared_ptr<ListNode<int>> pre_slow = nullptr, slow = L, fast = L;
+    while (fast && fast->next) {
+        pre_slow = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    pre_slow->next = nullptr;
+    return MergeTwoSortedLists(StableSortList(L), StableSortList(slow));
+}
+
+std::shared_ptr<ListNode<int>> SortingExercises::MergeTwoSortedLists(std::shared_ptr<ListNode<int>> L1, std::shared_ptr<ListNode<int>> L2) {
+    std::shared_ptr<ListNode<int>> result_head(new ListNode<int>);
+    auto tail_node = result_head;
+    while (L1 && L2) {
+        if (L1->data <= L2->data) {
+            AppendSingleNode(&L1, &tail_node);
+        } else {
+            AppendSingleNode(&L2, &tail_node);
+        }
+    }
+    tail_node->next = L1 ? L1 : L2;
+    return result_head->next;
+}
+
+void SortingExercises::AppendSingleNode(std::shared_ptr<ListNode<int>> *candidate_node,
+                                        std::shared_ptr<ListNode<int>> *tail_node) {
+    (*tail_node)->next = *candidate_node;
+    *tail_node = *candidate_node;
+    *candidate_node = (*candidate_node)->next;
+}
+
+    // shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
+    //                                               shared_ptr<ListNode<int>> L2);
