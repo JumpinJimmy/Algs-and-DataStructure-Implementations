@@ -41,14 +41,19 @@ void FindMaxOverlappingEvents(SortingExercises *sorting_exerciser) {
     int expected_answer = 3;
 
     int result = sorting_exerciser->FindMaxSimultaneousEvents(A);
-    std::cout << "--->>--->> main:: FindMaxSimultaneousEvents Result: " << result << std::endl;
+    std::cout << "--->>--->> ch14-Sorting::FindMaxSimultaneousEvents Result: " << result << std::endl;
     assert(result == expected_answer);
+}
+
+void ComputeIntervalUnions(SortingExercises *sorting_exerciser) {
+    std::cout << "--->>--->> ch14-Sorting::ComputeIntervalUnions()" << std::endl;
 }
 
 void run_tests(std::shared_ptr<SortingExercises> sorting_exerciser) {
     ComputeListIntersection(sorting_exerciser.get());
     MergeTwoSortedArrays(sorting_exerciser.get());
     FindMaxOverlappingEvents(sorting_exerciser.get());
+    ComputeIntervalUnions(sorting_exerciser.get());
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch14_test

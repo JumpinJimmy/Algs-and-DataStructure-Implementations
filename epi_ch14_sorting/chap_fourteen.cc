@@ -65,7 +65,7 @@ int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
     int highest_simultaneous = 0;
     int current_simultaneous = 0;
     for (const EventPoint &ep : sorted_times) {
-        if (ep.is_start) {
+        if (ep.event_start) {
             ++current_simultaneous;
             highest_simultaneous = std::max(highest_simultaneous, current_simultaneous);
         } else {
@@ -74,4 +74,22 @@ int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
     }
 
     return highest_simultaneous;
+}
+
+std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interval> intervals) {
+    if (intervals.empty()) return {};
+    std::vector<Interval> union_results;
+    Interval current(intervals.front());
+    // for each interval int in @intervals:
+        // if (int.left < curr.right) OR (int.left == curr.righ && either is closed) {
+        //     if (int.right > curr.right) OR (int.right == curr.right  && int.right isclosed) {
+        //          curr.right = int.right
+        //     }
+        // } else {  // end of current dijoint interval
+        //        union_results.emplace_back(curr)
+        //        curr = int
+        // }
+    //union_results.emplace_back(curr)
+    //return union_results
+    return {};
 }

@@ -54,9 +54,9 @@ denotes an empty entry. Then the combined sorted entries can be stored in the fi
 
 **14.6 Compute Union of Intervals**
 
-*  details
-*  **Input:**
-*  **Output:**
+*  Design an algorithm that takes as input a set of intervals and outputs their union expressed as a set of disjoint intervals
+*  **Input:** list of intervals (left point, right point). Points can be open or closed.
+*  **Output:** List of disjoint intervals
 *  _example:_ x
 
 `return function_name(type arg, type arg)`
