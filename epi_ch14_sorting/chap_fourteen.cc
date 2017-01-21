@@ -76,6 +76,7 @@ int SortingExercises::FindMaxSimultaneousEvents(std::vector<Event> event_list) {
     return highest_simultaneous;
 }
 
+// TODO(jdevore): clean up if statements and find generic way to approach
 std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interval> intervals) {
     if (intervals.empty()) return {};
 
@@ -93,8 +94,8 @@ std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interv
     //        curr = int
     // }
     for (unsigned int i = 1; i < intervals.size(); ++i) {
-        if (intervals.at(i).leftp.val < current.rightp.val || (intervals.at(i).leftp.val == current.rightp.val && (current.rightp.closed || intervals.at(i).leftp.closed))) {
-            if (intervals.at(i).rightp.val > current.rightp.val || (intervals.at(i).rightp.val == current.rightp.val && intervals.at(i).rightp.closed)) {
+        if (intervals.at(i).leftp.val < current.rightp.val || (intervals.at(i).leftp.val == current.rightp.val && (current.rightp.closed || intervals.at(i).leftp.closed))) { // NOLINT
+            if (intervals.at(i).rightp.val > current.rightp.val || (intervals.at(i).rightp.val == current.rightp.val && intervals.at(i).rightp.closed)) { // NOLINT
                 current.rightp = intervals.at(i).rightp;
             }
         } else {
@@ -104,5 +105,4 @@ std::vector<Interval> SortingExercises::ComputeIntervalUnions(std::vector<Interv
     }
     union_results.emplace_back(current);
     return union_results;
-    return {};
 }

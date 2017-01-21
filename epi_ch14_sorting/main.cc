@@ -36,6 +36,7 @@ void MergeTwoSortedArrays(SortingExercises *sorting_exerciser) {
     }
 }
 
+// Exercise 14.4
 void FindMaxOverlappingEvents(SortingExercises *sorting_exerciser) {
     std::cout << "--->>--->> ch14-Sorting::FindMaxOverlappingEvents() " << std::endl;
     std::vector<Event> A = {{1, 5}, {2, 7}, {4, 5}, {6, 10}, {8, 9}, {9, 17}, {11, 13}, {12, 15}, {14, 15}};
@@ -46,16 +47,17 @@ void FindMaxOverlappingEvents(SortingExercises *sorting_exerciser) {
     assert(result == expected_answer);
 }
 
-void ComputeIntervalUnions(SortingExercises *sorting_exerciser, int test_iterations = 0) {
-    std::cout << "--->>--->> ch14-Sorting::ComputeIntervalUnions()" << std::endl;
+// Exercise 14.6
+void ComputeIntervalUnions(SortingExercises *sorting_exerciser, int test_collection_size = 0) {
+    std::cout << "--->>--->> ch14-Sorting::ComputeIntervalUnions() - Randomized Input" << std::endl;
     std::default_random_engine gen((std::random_device())());
-    for (int times = 0; times < 1000; ++times) {
+    for (int times = 0; times < 10; ++times) {
         int n;
-        if (test_iterations == 0) {
+        if (test_collection_size == 0) {
             std::uniform_int_distribution<int> dis(1, 10000);
             n = dis(gen);
         } else {
-            n = test_iterations;
+            n = test_collection_size;
         }
 
         std::vector<Interval> interval_list;
@@ -69,8 +71,9 @@ void ComputeIntervalUnions(SortingExercises *sorting_exerciser, int test_iterati
             temp.rightp.closed = zero_or_one(gen), temp.rightp.val = dis2(gen);
             interval_list.emplace_back(temp);
         }
+        // sorting_exerciser->PrintCollection(interval_list, "Intervals: ");
         std::vector<Interval> ret = sorting_exerciser->ComputeIntervalUnions(interval_list);
-
+        // sorting_exerciser->PrintCollection(ret, "Interval Union Result: ");
         for (size_t i = 1; i < ret.size(); ++i) {
             assert(ret[i - 1].rightp.val < ret[i].leftp.val ||
                   (ret[i - 1].rightp.val == ret[i].leftp.val && !ret[i - 1].rightp.closed &&
@@ -83,7 +86,7 @@ void run_tests(std::shared_ptr<SortingExercises> sorting_exerciser) {
     ComputeListIntersection(sorting_exerciser.get());
     MergeTwoSortedArrays(sorting_exerciser.get());
     FindMaxOverlappingEvents(sorting_exerciser.get());
-    ComputeIntervalUnions(sorting_exerciser.get());
+    ComputeIntervalUnions(sorting_exerciser.get(), 20);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all ./ch14_test

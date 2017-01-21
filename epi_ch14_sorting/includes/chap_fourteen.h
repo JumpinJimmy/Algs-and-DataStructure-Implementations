@@ -46,8 +46,13 @@ struct Interval {
         }
         // if endpoints equal, @closed points are less-than open
         return leftp.closed && !i.leftp.closed;
-  }
-  IntervalEndpoint leftp, rightp;
+    }
+    friend std::ostream& operator<<(std::ostream &os, const Interval& i) {
+        os << "(" << i.leftp.val << ", " << i.rightp.val << ")";
+        return os;
+    }
+
+    IntervalEndpoint leftp, rightp;
 };
 
 
