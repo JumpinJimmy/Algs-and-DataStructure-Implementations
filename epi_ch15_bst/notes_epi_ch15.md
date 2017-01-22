@@ -4,10 +4,10 @@
 
 [Exercises & Tasks Project Page](https://github.com/JumpinJimmy/Algs-and-DataStructure-Implementations/projects/1)
 
-**15.1: Exercise Description**
-*   **Overview:**
-*   **Input:**
-*   **Output:**
+**15.1: Test If A Binary Tree Satisfies the BST Property**
+*   **Overview:** write a program that takes as input a binary tre and checks if the tree satisfies the BST property
+*   **Input:** Root of binary tree  
+*   **Output:** True or False
 *   **Example:**
 
 `function signature()`

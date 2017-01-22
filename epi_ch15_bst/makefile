@@ -16,7 +16,7 @@ bst_test: $(LOCALOBJS)
 main.o: main.cc $(INC_DIR)chap_fifteen.h
 	$(CXX) $(CFLAGS) main.cc
 
-chap_fifteen.o: $(INC_DIR)chap_fifteen.h chap_fifteen.cc
+chap_fifteen.o: $(INC_DIR)bst_prototype.h $(INC_DIR)chap_fifteen.h chap_fifteen.cc
 	$(CXX) $(CFLAGS) chap_fifteen.cc
 
 clean:
