@@ -9,4 +9,4 @@ struct BSTNode {
 };
 
 
-#endif // BST_PROTOTYPE_H
+#endif  // BST_PROTOTYPE_H
