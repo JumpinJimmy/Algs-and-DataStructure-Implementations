@@ -50,11 +50,34 @@ BSTNode<int>* BstExercises::FirstGreaterKey(const std::unique_ptr<BSTNode<int>> 
     return result;
 }
 
-std::vector<int> RetreiveKLargestKeys(const std::unique_ptr<BSTNode<int>> &tree, int k) {
+std::vector<int> BstExercises::RetreiveKLargestKeys(const std::unique_ptr<BSTNode<int>> &tree, int k) {
     // PSEUDO: K Largest Keys, Visit / traverse the tree from largest to smallest until we have K entries
     // right subtree, root / node , left subtree  == largest to smallest
     // store results in a list as we traverse backwards. Stop when list is of size K
     return {};
+}
+
+// TODO(jdevore): test this method
+BSTNode<int>* BstExercises::FindLCA(const std::unique_ptr<BSTNode<int>> &tree,
+                                    const std::unique_ptr<BSTNode<int>> &node_a,
+                                    const std::unique_ptr<BSTNode<int>> &node_b) {
+    // PSEUDO:
+    // if (tree->data == node_a->data OR tree->data == node_b->data) return tree
+    // goal: find node that satisfies the following: node_a < tree > node_b
+    auto *curr_root_ptr = tree.get(); // deref unique ptr so we can update tree during traversal / search
+    while (curr_root_ptr->data < node_a->data || curr_root_ptr->data > node_b->data) {
+        // current root node is not inside [A,B] range
+        while (curr_root_ptr->data < node_a->data) {
+            // current root node is smaller than both, go to right subtree
+            curr_root_ptr = curr_root_ptr->right.get();
+        }
+        while (curr_root_ptr->data > node_b->data) {
+            // current root node is larger that both, so go left
+            curr_root_ptr = curr_root_ptr->left.get();
+        }
+    }
+        // node_a <= curr_root <= node_b --> this is the LCA
+        return curr_root_ptr;
 }
 
 bool BstExercises::CheckKeysIsBST(const std::unique_ptr<BSTNode<int>> &bst_node, int min, int max) {
@@ -65,3 +88,4 @@ bool BstExercises::CheckKeysIsBST(const std::unique_ptr<BSTNode<int>> &bst_node,
         return CheckKeysIsBST(bst_node->right, bst_node->data, max) && CheckKeysIsBST(bst_node->left, min, bst_node->data);
     }
 }
+
