@@ -79,6 +79,7 @@
 
 **15.8: Most Visited Page Problem** 
 >this problem needs to be reviewed more closely
+
 *   **Overview:**
 *   **Input:**
 *   **Output:**
@@ -88,11 +89,13 @@
 
 
 **15.9: Build Minimum Height BST from Sorted Array**
-> using the mid element as root, recursively build left and right sub trees by selecting the middle of the sublists left[0 - currRoot-1] and right [currRoot+1 - Array.size()]
 *   **Overview:**
 *   **Input:**
 *   **Output:**
 *   **Example:**
+*   **Pseudo Solution:**
+    *    select the lists mid element as root, 
+    *    recursively build left and right sub trees by selecting the middle of the sublists left[0 - currRoot-1] and right [currRoot+1 - Array.size()]
 
 `function signature()`
 
