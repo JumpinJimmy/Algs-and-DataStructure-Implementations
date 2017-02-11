@@ -133,7 +133,7 @@ void TestUserCreation() {
     for (auto &user : users) {
         std::cout << "--->>--->> main:: User( " << *user << " )" << std::endl;
         std::cout << "--->>--->> main::TOSTRING User( " << user->toString() << " )" << std::endl;
-        if (user->GetId() > 2) {
+        if (user->Id() > 2) {
             user->SetId(100);
             std::cout << "--->>--->> main::UpdateID User( " << *user << " )" << std::endl;
         }

@@ -1,24 +1,23 @@
 #ifndef USER_SERVICE_H
 #define USER_SERVICE_H
 #include <iostream>
+#include <memory>
+#include <unordered_map>
 #include "./user.h"
 
 class UserService {
+    friend std::ostream& operator<<(std::ostream &os, const UserService& us);
  public:
     UserService(std::string name);
-    // UserService(const UserService &rhs);
+    UserService(const UserService &rhs);
     virtual ~UserService();
-    // const UserService & operator=(const UserService & rhs);
-    //tostring
-    //getid
-    //setid
-    //getname
-    //ostream
+    const UserService & operator=(const UserService & rhs);
+    const std::string GetName() const;
+    void AddUser(User)
  private:
     std::string service_name_;
-    // int user_id_;
-    // users map
-    // services map
+    std::unordered_map<std::string, std::unique_ptr<UserService>> service_map_;
+    std::unordered_map<int, std::shared_ptr<User>> user_map_;
 };
 
 #endif // USER_SERVICE_H
