@@ -114,6 +114,7 @@
 //         assert(node_counter == list_size);
 //     }
 // }
+
 void TestUserCreation() {
     std::vector<std::string> user_name_list {"Hello James", "Goodbye Jon", "Nurburgring"};
     std::vector<int> user_id_list {1, 2, 3};
@@ -130,7 +131,12 @@ void TestUserCreation() {
     }
 
     for (auto &user : users) {
-        std::cout << "--->>--->> main:: User(name: " << user->GetName() << ", id: " << user->GetId() << ") " << std::endl;
+        std::cout << "--->>--->> main:: User( " << *user << " )" << std::endl;
+        std::cout << "--->>--->> main::TOSTRING User( " << user->toString() << " )" << std::endl;
+        if (user->GetId() > 2) {
+            user->SetId(100);
+            std::cout << "--->>--->> main::UpdateID User( " << *user << " )" << std::endl;
+        }
     }
 }
 
