@@ -28,7 +28,7 @@ void User::SetId(int id) {
     user_id_ = id;
 }
 
-const std::string User::GetName() const{
+const std::string User::GetName() const {
     return user_name_;
 }
 

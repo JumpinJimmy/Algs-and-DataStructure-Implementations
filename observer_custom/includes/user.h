@@ -1,5 +1,6 @@
 #ifndef USER_H
 #define USER_H
+#include <string>
 #include <iostream>
 
 class User {
@@ -13,9 +14,10 @@ class User {
     void SetId(int id);
     const std::string GetName() const;
     std::string toString();
+
  private:
     std::string user_name_;
     int user_id_;
 };
 
-#endif // USER_H
+#endif  // USER_H
