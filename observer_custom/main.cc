@@ -6,6 +6,7 @@
 
 #include "includes/user.h"
 #include "includes/user_service.h"
+#include "includes/input_parser.h"
 // Exercise 14.1
 // void ComputeListIntersection(SortingExercises *sorting_exerciser) {
 //     std::cout << "--->>--->> ch14-Sorting::ComputeListIntersection() " << std::endl;
@@ -114,6 +115,10 @@
 //         assert(node_counter == list_size);
 //     }
 // }
+void TestInputParse(const std::string &input_file) {
+    std::shared_ptr<InputParser> parser(new InputParser());
+    parser->ReadFile(input_file);
+}
 
 void TestUserCreation() {
     std::vector<std::string> user_name_list {"Hello James", "Goodbye Jon", "Nurburgring"};
@@ -140,7 +145,9 @@ void TestUserCreation() {
     }
 }
 
-void run_tests(std::shared_ptr<User> user) {
+void run_tests(const std::string &input_file) {
+    TestUserCreation();
+    TestInputParse(input_file);
     // ComputeListIntersection(sorting_exerciser.get());
     // MergeTwoSortedArrays(sorting_exerciser.get());
     // FindMaxOverlappingEvents(sorting_exerciser.get());
@@ -150,9 +157,15 @@ void run_tests(std::shared_ptr<User> user) {
 
 // valgrind --leak-check=full --show-leak-kinds=all ./custom_observer
 int main(int argc, char const *argv[]) {
+    if (argc != 2) {
+        std::cout << "--->>--->> main:: Incorrect Argument count "  << std::endl;
+        return 1;
+    }
+    std::string input_file = argv[1];
+    run_tests(input_file);
     // std::shared_ptr<User> first_user(new User("James", 1));
     // std::shared_ptr<UserService> first_service(new UserService("JService"));
-    TestUserCreation();
+    // TestUserCreation();
     // run_tests(first_user);
     return 0;
 }

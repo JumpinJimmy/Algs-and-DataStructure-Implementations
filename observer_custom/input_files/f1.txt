@@ -1,0 +1,5 @@
+4
+service aa
+add aa mary 1
+del aa mary 1
+service bb

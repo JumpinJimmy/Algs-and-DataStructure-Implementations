@@ -13,7 +13,7 @@ class UserService {
     virtual ~UserService();
     const UserService & operator=(const UserService & rhs);
     const std::string GetName() const;
-    void AddUser(User)
+    // void AddUser(User)
  private:
     std::string service_name_;
     std::unordered_map<std::string, std::unique_ptr<UserService>> service_map_;
