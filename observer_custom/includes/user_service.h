@@ -16,6 +16,9 @@ class UserService {
     const UserService & operator=(const UserService & rhs);
     const std::string GetName() const;
     // void AddUser(User)
+    // void RemoveUser()
+    // AddService
+    // RemoveService
 
  private:
     std::string service_name_;
